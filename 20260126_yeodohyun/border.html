@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Border 테두리 관련 속성</title>
+    <style>
+      div {
+        border: 1px solid salmon;
+        width: 200px;
+        height: 120px;
+      }
+      .box1 {
+        /* 동서남북 방향 모두 굵기(두께)*/
+        border-width: 5px;
+        /* 테두리 색상 */
+        border-color: blue;
+        /* 테두리 스타일 */
+        /* dashed, dotted, double 이중선, grove, inset, outset */
+        border-style: dashed;
+        /* 이 3가지를 한 줄로 쓴게  border: 1px solid salmon; */
+      }
+      .box2 {
+        /* 위아래 두껍게, 좌우 가늘게 */
+        border-width: thick, thin;
+        border-color: darkseagreen;
+        border-style: double;
+        margin: 5px;
+      }
+      .box3 {
+      }
+      .box4 {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">박스1</div>
+    <div class="box2">박스2</div>
+    <div class="box3">박스3</div>
+    <div class="box4">박스4</div>
+  </body>
+</html>
