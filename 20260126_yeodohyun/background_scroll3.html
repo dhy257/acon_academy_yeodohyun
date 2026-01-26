@@ -101,6 +101,7 @@
       li {
         display: inline;
       }
+      /* 일반 a 버튼 설정 */
       a {
         text-decoration: none;
         padding: 10px 25px;
@@ -113,6 +114,10 @@
         background-color: aliceblue;
         color: blue;
       }
+      /* class가 top인 a버튼 설정 */
+      /* position: fixed; : 어느 페이지에 있어도 항시 고정되어 클릭 가능하게 만듬 */
+      /* bottom: 2vh; right: 2vh; : 오른쪽 하단에 배치, 살짝 여백을 위한 2vh(2%)*/
+      /* background-color: transparent; 내용을 가릴 수 있으므로 투명 */
       a.top {
         position: fixed;
         bottom: 2vh;
@@ -127,6 +132,7 @@
         background-color: white;
         color: black;
       }
+      /* 박스 내부 a 버튼 설정 */
       .box a {
         background-color: transparent; /* 배경 없애기 */
         padding: 0; /* 여백 없애기 */
@@ -177,6 +183,7 @@
           </div>
           <div class="box">
             <p>제목</p>
+            <!-- target="_blank" : 클릭 시 새 창에서 열리게 함 -->
             <a
               href="https://chunichi-building.jp/ko/shop/p808/"
               target="_blank"
@@ -201,8 +208,9 @@
 
       <section class="section4" id="section4">
         <h3>WEB FRONTEND</h3>
-        <a href="#" class="top">맨 위로</a>
       </section>
+      <!-- 맨 위로 가는 버튼 -->
+      <a href="#" class="top">맨 위로</a>
     </div>
   </body>
 </html>
