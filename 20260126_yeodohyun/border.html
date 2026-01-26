@@ -22,14 +22,45 @@
       }
       .box2 {
         /* 위아래 두껍게, 좌우 가늘게 */
-        border-width: thick, thin;
+        border-width: thick thin;
         border-color: darkseagreen;
         border-style: double;
-        margin: 5px;
+        margin: 15px;
       }
       .box3 {
+        /* 위, 좌우, 아래 */
+        border-width: 5px 20px 1px;
       }
       .box4 {
+        /* 12시부터 시계방향 */
+        border-width: 10px 6px 7px 2px;
+        border-left-color: pink;
+        border-right-color: blueviolet;
+        border-bottom-color: yellowgreen;
+        border-style: outset;
+      }
+      /* round */
+      .round1{
+        width: 300px;
+        height: 200px;
+        /* 박스를 둥글게 표현 */
+        border-top-left-radius: 20px;
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 70px;
+        border-bottom-right-radius: 50px;
+      }
+      .round2{
+        width: 150px;
+        height: 150px;
+        /* 가로세로 같을 때 50%로 하면 완전한 원 */
+        border-radius: 50%;
+        background-color: pink;
+      }
+      .round3{
+        width: 120px;
+        height: 120px;
+        background-color: lightblue;
+        border-radius: 20px;
       }
     </style>
   </head>
@@ -38,5 +69,10 @@
     <div class="box2">박스2</div>
     <div class="box3">박스3</div>
     <div class="box4">박스4</div>
+
+    <!-- round -->
+     <div class="round1">첫번째</div>
+     <div class="round2">두번째</div>
+     <div class="round3">세번째</div>
   </body>
 </html>
