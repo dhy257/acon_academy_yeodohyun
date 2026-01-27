@@ -8,148 +8,143 @@
       * {
         color: white; /* 글자색 */
       }
-      /* ----------- a ------------- */
-      .a {
-        /* 오른쪽 펼치기 */
+      /* 전체 가로로 */
+      section {
         display: flex;
+        height: auto;
+        /* 각 예제 구분 */
+        margin-bottom: 50px;
+      }
+      /* 첫번째 섹션 */
+      .section1 {
+        /* 양옆 공간없게 균일 배열 */
         justify-content: space-between;
-      }
-      /* 어차피 a 박스는 다 같은색이니 통일 */
-      .a div {
-        width: 200px;
-        height: 200px;
-        background-color: purple;
-
         position: relative;
       }
-      /* ----------- b ------------- */
-      /* 겉에 상자 크게 */
-      .b {
-        width: 200px;
-        height: 200px;
-        background-color: black;
-        position: relative;
-      }
-      /* 안쪽 상자 작게 */
-      .b .box2 {
+      /* 전부 같은 상자니까 통일 */
+      .section1 div {
+        background-color: blueviolet;
         width: 100px;
         height: 100px;
+        border: 1px solid;
+      }
+      /* 두번째 섹션 */
+      .section2 {
+        /* 세로 배열 */
+        flex-direction: column;
+        position: relative;
+        
+      }
+      .section2 .box1 {
         background-color: purple;
-        /* 절대적인 위치가 되어야 겹쳐도 위에 나타남 */
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+      }
+      /* 위에 box1 기준(relative)으로 위치변경 */
+      .section2 .box2 {
+        background-color: black;
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
         position: absolute;
-        /* 중앙에 오게 */
         top: 50px;
         left: 50px;
       }
-      /* ----------- c ------------- */
-      .c {
-        display: flex;
-        position: relative;
-        height: 300px;
-      }
-      .c .box1 {
-        width: 200px;
-        height: 200px;
-        background-color: purple;
+      /* 세번째 섹션 */
+      .section3{
+        /* 중앙배열 */
+        justify-content: center;
         position: relative;
       }
-      .c .box2 {
-        width: 200px;
-        height: 200px;
+      .section3 .box1{
         background-color: black;
-
-        position: absolute;
-        top: 100px;
-        left: 100px;
-      }
-      /* ----------- d ------------- */
-      .d {
-        display: flex; /* 가로로 배치 */
-        position: relative;
-        justify-content: space-between;
-      }
-      .d div {
         width: 200px;
         height: 200px;
+        border: 1px solid;
+      }
+      .section3 .box2{
         background-color: purple;
-      }
-      .d .box2 {
-        position: absolute;
-        right: 210px;
-      }
-      .d .box3 {
-        position: absolute;
-        right: 5px;
-      }
-      /* ----------- e ------------- */
-      .e {
-        position: relative;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-      }
-
-      .e .box1 {
-        width: 500px;
-        height: 200px;
-        background-color: black;
-        position: relative;
-      }
-
-      .e .box2 {
         width: 100px;
         height: 100px;
-        background-color: purple;
-        position: absolute;
+        border: 1px solid;
 
-        /* box1의 좌측 하단 */
-        left: 0;
+        /* 위에 box1기준으로 배열 */
+        position: absolute;
+        top: 50px;
+      }
+
+      /* 네번째 섹션 */
+      .section4{
+        justify-content: space-between;
+        position: relative;
+      }
+      .section4 div {
+        background-color: blueviolet;
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+      }
+      .section4 .box2{
+        position: absolute;
+        right: 100px;
+      }
+      /* 다섯번째 섹션 */
+      .section5{
+        /* 아래 끝 정렬 */
+        justify-content: flex-end;
+        position: relative;
+      }
+      .section5 .box1{
+        background-color: black;
+        width: 400px;
+        height: 200px;
+      }
+      .section5 .box2{
+        background-color: purple;
+        width: 100px;
+        height: 100px;
+
+        position: absolute;
         bottom: 0;
       }
-
-      .e .box3 {
+      .section5 .box3{
+        background-color: purple;
         width: 100px;
         height: 100px;
-        background-color: purple;
-        position: absolute;
 
-        /* box1의 우측 상단 */
-        right: 0;
+        position: absolute;
         top: 0;
+        right: 0;
       }
     </style>
   </head>
   <body>
-    <hr />
-    <section class="a">
+    <section class="section1">
       <div class="box1">box1</div>
       <div class="box2">box2</div>
       <div class="box3">box3</div>
     </section>
-    <hr />
-    <section class="b">
+    <section class="section2">
       <div class="box1">box1</div>
       <div class="box2">box2</div>
     </section>
-    <hr />
-    <section class="c">
+    <section class="section3">
       <div class="box1">box1</div>
       <div class="box2">box2</div>
     </section>
-    <hr />
-    <section class="d">
+    <section class="section4">
       <div class="box1">box1</div>
       <div class="box2">box2</div>
       <div class="box3">box3</div>
     </section>
-    <hr />
-    <section class="e">
+    <section class="section5">
+        <!-- box1기준으로 배치하기 위해 안으로 넣기 -->
       <div class="box1">
         box1
         <div class="box2">box2</div>
         <div class="box3">box3</div>
       </div>
     </section>
-    <hr />
   </body>
 </html>
