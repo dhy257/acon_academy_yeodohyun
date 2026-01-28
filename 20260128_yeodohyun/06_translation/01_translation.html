@@ -55,18 +55,24 @@
         height: 400px;
       }
       #ex .ease {
+        /* 처음에는 천천히 시작하고
+        점점 빨라지다가 마지막에 천천히 끝냄(기본값) */
         transition: 3s ease;
       }
       #ex .linear {
+        /* 시작부터 끝까지 똑같은 속도로 진행 */
         transition: 3s linear;
       }
       #ex .ease-in {
+        /* 느리게 시작 */
         transition: 3s ease-in;
       }
       #ex .ease-out {
+        /* 느리게 끝 */
         transition: 3s ease-out;
       }
       #ex .ease-in-out {
+        /* 느리게 시작하고 느리게 끝 */
         transition: 3s ease-in-out;
       }
     </style>
