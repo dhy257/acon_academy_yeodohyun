@@ -4,37 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HF 인터넷금융서비스 카피 연습</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
     <style>
       * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-        font-family: "Noto Sans KR", sans-serif;
       }
-
       body {
         background-color: #f4f7fa;
         color: #333;
       }
-
       /* 1. 상단 메뉴바 (Header) */
-      header {
-        width: 100%;
-        height: 80px;
-        background-color: #fff;
-        border-bottom: 1px solid #eee;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-
+header {
+  height: 70px;
+  /* 블루보틀 로고와 메뉴네비게이션 가로로 */
+  display: flex;
+  /* 상하 중앙 */
+  align-items: center;
+}
       .nav-container {
         width: 1100px;
         display: flex;
@@ -42,23 +28,19 @@
         align-items: center;
         padding: 0 20px;
       }
-
       .logo {
         font-size: 24px;
         font-weight: bold;
         color: #004692; /* HF 메인 컬러 */
         text-decoration: none;
       }
-
       .menu {
         display: flex;
         list-style: none;
       }
-
       .menu li {
         margin-left: 30px;
       }
-
       .menu li a {
         text-decoration: none;
         color: #444;
@@ -66,11 +48,9 @@
         font-size: 16px;
         transition: color 0.3s;
       }
-
       .menu li a:hover {
         color: #004692;
       }
-
       /* 2. 메인 컨텐츠 영역 */
       #container {
         width: 1100px;
@@ -194,20 +174,17 @@
   </head>
   <body>
     <header>
-      <nav class="nav-container">
-        <a href="#" class="logo">인터넷 금융서비스</a>
-        <ul class="menu">
-          <li><a href="#">My HF</a></li>
-          <li><a href="#">신청</a></li>
-          <li><a href="#">간편 서류제출</a></li>
-          <li><a href="#">고객서비스</a></li>
-        </ul>
-      </nav>
+      <div class="nav">
+        <a href="#" class="nav_menu">My HF</a>
+        <a href="#" class="nav_menu">신청</a>
+        <a href="#" class="nav_menu">간편 서류제출</a>
+        <a href="#" class="nav_menu">고객서비스</a>
+      </div>
     </header>
 
     <div id="container">
       <div class="section-title">
-        <h2>인터넷금융서비스</h2>
+        <h2>국민과 함께 성장하는 글로벌 주택금융 리더</h2>
       </div>
 
       <div id="main">
