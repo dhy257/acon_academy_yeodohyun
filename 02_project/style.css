@@ -1,0 +1,79 @@
+/* -----------------------  ---------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+}
+/* ----------------------- Header ---------------------------- */
+header {
+  /* 메뉴 상단 고정 */
+  position: sticky;
+  top: 0;
+}
+nav {
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+/* ----------------------- logo ---------------------------- */
+.logo {
+}
+.logo h1 {
+}
+.logo a {
+}
+.logo .fa-bars {
+  /* 컴퓨터 화면(default)에서 보이지 않게 함 */
+  display: none;
+  /* opacity: 0; */
+}
+.logo span {
+}
+/* ----------------------- 메인 메뉴바 ---------------------------- */
+.navbar {
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+.navbar li {
+    padding: 15px;
+}
+.navbar a {
+  text-decoration: none;
+  color: gray;
+  font-weight: bold;
+}
+.navbar a:hover {
+  color: blue;
+}
+/* ----------------------- Main ---------------------------- */
+main {
+  background-color: coral;
+  height: 1200px;
+}
+/* ----------------------- Footer ---------------------------- */
+footer {
+  background-color: seagreen;
+  height: 100px;
+}
+/* ----------------------- Top_btn ---------------------------- */
+.top_btn {
+  position: fixed;
+  bottom: 2vh;
+  right: 2vh;
+  background-color: transparent;
+  border: 2px solid white;
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+  border-radius: 50px;
+}
+.top_btn:hover {
+  background-color: white;
+  color: black;
+}
