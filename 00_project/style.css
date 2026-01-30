@@ -36,6 +36,8 @@ nav {
 }
 /* ----------------------- 메인 메뉴바 ---------------------------- */
 .navbar {
+  /* 작은화면에서는 안보임 */
+  display: none;
 }
 .navbar ul {
   list-style: none;
@@ -60,11 +62,20 @@ main {
 /* ----------------------- Container ---------------------------- */
 .container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content:start;
+  width:fit-content;
+  flex-wrap: wrap;
+  
+  /* 카드 사이의 간격 */
+  gap: 20px;             
+  padding: 20px;
 }
 /* ----------------------- 각 그룹카드(폴더) ---------------------------- */
 .group_card {
+  min-width: 200px;        /* 너무 작아지지 않게 최소 너비 지정 */
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px
 }
 /* ----------------------- 그룹카드 내부 날짜(제목) ---------------------------- */
 .date {
@@ -105,4 +116,30 @@ footer {
 .top_btn:hover {
   background-color: white;
   color: black;
+}
+/* ----------------------- Variable Window ---------------------------- */
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    display: block;
+  }
+  .navbar ul {
+    list-style: none;
+    display: flex;
+  }
+  .navbar li {
+    padding: 15px;
+  }
+  .navbar a {
+    text-decoration: none;
+    color: gray;
+    font-weight: bold;
+  }
+  .navbar a:hover {
+    color: blue;
+  }
+
 }

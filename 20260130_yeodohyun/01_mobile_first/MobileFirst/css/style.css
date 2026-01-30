@@ -42,6 +42,10 @@ nav {
   background: #333;
   opacity: 0.9;
 }
+/* 자바 토글 이후 추가 내용 */
+nav.is_opne{
+  display: block;
+}
 .container {
   /* 부모 요소 안에서 가로 중앙에 배치합니다 */
   margin: 0 auto;
@@ -171,7 +175,7 @@ footer {
     /* 자식 요소 너비가 부모 컨테이너의 너비를 초과할때 알아서 넘어가게 해준다 */
     /* no-wrap은 한 줄에 강제로 배치 */
     flex-wrap: wrap;
-    /* gap: 1.5rem; */
+    gap: 1.5rem;
     justify-content: center;
   }
   .promo_list li,
