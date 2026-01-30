@@ -34,7 +34,7 @@ a:hover {
 }
 /* 메인 부분 시작 */
 main {
-  background-image: url(../../01_images/bluebottle_back.webp);
+  background-image: url(../../01_assets/01_images/bluebottle_back.webp);
   background-repeat: no-repeat;
   background-size: cover;
   height: 600px;
