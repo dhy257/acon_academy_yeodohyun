@@ -4,7 +4,7 @@
   margin: 0 auto;
   width: 100%;
   /* 최대범위 지정 */
-  max-width: 1200px;
+  /* max-width: 1200px; */
 }
 /* main{
     border: 1px solid red;
@@ -37,6 +37,24 @@ header {
     */
   margin-left: 1rem;
 }
+nav {
+  display: none;
+  background: #333;
+  opacity: 0.9;
+}
+.container {
+  /* 부모 요소 안에서 가로 중앙에 배치합니다 */
+  margin: 0 auto;
+  
+  /* 모바일 환경에서 양옆에 최소한의 여백을 줍니다 */
+  padding: 0 20px;
+  
+  /* box-sizing을 설정하면 padding이 너비에 포함되어 계산이 편해집니다 */
+  box-sizing: border-box;
+}
+/* .navbar{
+    display: none;
+} */
 /* 1번방법
 .menu_toggle_btn{
     color: #fff;
@@ -86,6 +104,9 @@ header {
 .promo_list {
   margin-bottom: 1.5rem;
 }
+.promo_list li {
+  margin-bottom: 1.5rem;
+}
 .promo_list a {
   /* border: 3px solid blue; */
 
@@ -103,9 +124,130 @@ header {
   font-size: 0.8rem;
 }
 /* ----------------------- Work ---------------------------- */
+.work_list li {
+  margin-bottom: 1.5rem;
+}
 .work_list a {
   display: block;
   background: #aaa;
   text-align: center;
   padding: 2rem;
+}
+.work_list li h3 {
+  color: #777;
+  font-weight: 600;
+}
+.work_list li span {
+  color: #888;
+  font-size: 0.8rem;
+}
+/* ----------------------- Blog ---------------------------- */
+.blog_list li {
+  margin-bottom: 1.5rem;
+}
+.blog_list h3 {
+  font-size: 1rem;
+  color: #777;
+  font-weight: 600;
+}
+/* ----------------------- Contact ---------------------------- */
+textarea {
+  width: 100%;
+  height: 120px;
+  font-size: 2rem;
+  padding: 1rem;
+}
+/* ----------------------- Footer ---------------------------- */
+footer {
+  font-size: 0.8rem;
+  color: #888;
+}
+/* ----------------------- 태블릿 최소 768px ---------------------------- */
+@media (min-width: 768px) {
+  .promo_list,
+  .work_list,
+  .blog_list {
+    display: flex;
+    /* 자식 요소 너비가 부모 컨테이너의 너비를 초과할때 알아서 넘어가게 해준다 */
+    /* no-wrap은 한 줄에 강제로 배치 */
+    flex-wrap: wrap;
+    /* gap: 1.5rem; */
+    justify-content: center;
+  }
+  .promo_list li,
+  .work_list li,
+  .blog_list li {
+    width: 48%;
+  }
+  .sec_tit {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu_toggle_btn {
+    display: none;
+  }
+  /* .navbar {
+    display: block;
+  }
+  .navbar ul {
+    list-style: none;
+    display: flex;
+  }
+  .navbar li {
+    padding: 15px;
+  }
+  .navbar a {
+    text-decoration: none;
+    color: gray;
+    font-weight: bold;
+  }
+  .navbar a:hover {
+    color: blue;
+  } */
+  nav {
+    display: block;
+    background: none;
+  }
+  nav ul {
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+  }
+  nav li {
+    margin-left: 1.5rem;
+  }
+  nav a {
+    color: #fff;
+    font-size: 0.95rem;
+  }
+
+  .promo_list,
+  .work_list {
+    display: flex;
+    /* 자식 요소 너비가 부모 컨테이너의 너비를 초과할때 알아서 넘어가게 해준다 */
+    /* no-wrap은 한 줄에 강제로 배치 */
+    flex-wrap: wrap;
+    /* gap: 1.5rem; */
+    justify-content: center;
+  }
+  .promo_list li,
+  .work_list li {
+    width: 23%;
+  }
+  .blog_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .blog_list li {
+    width: 30%;
+  }
+  .sec_tit {
+    font-size: 2rem;
+  }
 }
