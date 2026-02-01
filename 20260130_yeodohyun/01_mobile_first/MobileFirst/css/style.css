@@ -179,8 +179,7 @@ footer {
     justify-content: center;
   }
   .promo_list li,
-  .work_list li,
-  .blog_list li {
+  .work_list li{
     width: 48%;
   }
   .sec_tit {
