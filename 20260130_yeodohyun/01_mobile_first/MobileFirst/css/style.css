@@ -38,13 +38,45 @@ header {
   margin-left: 1rem;
 }
 nav {
+  /* 평소에는 안 보임 */
   display: none;
+  
+  /* 헤더 바로 아래에 위치 */
+  position: absolute;
+  top: 60px; /* header 높이만큼 띄움 */
+  left: 0;
+  width: 100%;
   background: #333;
-  opacity: 0.9;
+  opacity: 0.95; /* 가독성을 위한 불투명*/
 }
-/* 자바 토글 이후 추가 내용 */
-nav.is_opne{
+
+/* JS로 active 클래스가 붙으면 보임 */
+nav.active {
   display: block;
+}
+
+/* 모바일 메뉴 내부 정렬 */
+nav ul {
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  text-align: center;
+  list-style: none;
+}
+
+nav li {
+  margin: 0;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1); /* 구분선 (선택) */
+}
+
+nav a {
+  color: #fff;
+  font-size: 1.2rem;
+  display: block; /* 클릭 영역 확대 */
+  text-decoration: none;
+}
+nav a:hover {
+  color: lightblue;
 }
 .container {
   /* 부모 요소 안에서 가로 중앙에 배치합니다 */
@@ -210,22 +242,42 @@ footer {
   .navbar a:hover {
     color: blue;
   } */
+  /* 2. Nav 태그: 모바일의 absolute(띄우기) 속성을 해제하고 헤더 흐름에 맞춤 */
   nav {
-    display: block;
-    background: none;
+    display: block !important; /* JS로 토글된 display:none 무시하고 강제 보임 */
+    position: static; /* absolute 해제 -> 헤더 안에 자리를 잡음 */
+    width: auto;      /* 가로 100% 해제 -> 내용물만큼만 차지 */
+    background: transparent; /* 배경색 제거 */
+    opacity: 1;
+    margin-right: 20px; /* 오른쪽 여백 */
   }
+
+  /* 3. UL 태그: 세로 정렬(column)을 가로 정렬(row)로 변경 */
   nav ul {
     display: flex;
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
+    flex-direction: row; /* ★핵심: 가로로 나열 */
+    position: static;    /* ul에 걸려있던 absolute도 해제 */
+    gap: 30px;           /* 메뉴 사이 간격 */
+    padding: 0;
   }
+
+  /* 4. LI 태그: 모바일용 여백/테두리 제거 */
   nav li {
-    margin-left: 1.5rem;
+    margin: 0;
+    padding: 0;
+    border: none;
   }
+
+  /* 5. A 태그: 폰트 스타일 */
   nav a {
-    color: #fff;
-    font-size: 0.95rem;
+    color: #fff; /* 헤더 배경이 어두우므로 흰색 글씨 */
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  /* 헤더: 로고와 메뉴가 수직 중앙에 오도록 설정 */
+  header {
+    align-items: center; 
   }
 
   .promo_list,
