@@ -115,6 +115,10 @@ main {
   /* 점 제거 */
   list-style: none;
 }
+.group_card ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
 .group_card li {
   /* li사이 간격 추가 */
   padding: 2px;
