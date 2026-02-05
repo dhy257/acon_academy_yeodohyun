@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prompt</title>
+  </head>
+  <body>
+    <!-- 
+    사용자의 입력을 받아서 그 내용을 반환하는 기능
+    사용자에게 입력을 받고 싶을 때 사용
+    -->
+    <script>
+      let userName = prompt("이름을 입력하시오");
+      // prompt는 취소 버튼을 누르면 null 반환
+      if (userName == null) alert("입력이 취소되었습니다.");
+      else alert("입력받은 이름은 " + userName + "입니다");
+    </script>
+  </body>
+</html>
