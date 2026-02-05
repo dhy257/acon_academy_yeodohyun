@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>4리터 만들기 게임</title>
+  </head>
+  <body>
+    <script>
+      // 주요 변수 생성
+      let bigPail = 0; // 5리터 양동이
+      let smallPail = 0; // 3리터 양동이
+      let submit = 0; // 제출용
+
+      alert("5리터와 3리터 양동이를 사용해 정확히 4리터를 제출하세요.");
+
+      // 만일 제출용에 4가 들어오지 않으면 반복
+      while (submit !== 4) {
+        let choice = prompt(
+          `현재 상태:\n큰 양동이(5L): ${bigPail}L | 작은 양동이(3L): ${smallPail}L\n\n` +
+            "1. 큰 양동이 채우기\n" +
+            "2. 작은 양동이 채우기\n" +
+            "3. 큰 양동이 비우기\n" +
+            "4. 작은 양동이 비우기\n" +
+            "5. 큰 -> 작은 옮기기\n" +
+            "6. 작은 -> 큰 옮기기\n" +
+            "7. 제출하기",
+        );
+        // 스위치를 통해 1~7 제어
+        switch (choice) {
+          case "1":
+            bigPail = 5;
+            break;
+          case "2":
+            smallPail = 3;
+            break;
+          case "3":
+            bigPail = 0;
+            break;
+          case "4":
+            smallPail = 0;
+            break;
+
+          case "5": // 큰 -> 작은
+            // 남는 공간을 체크해야하므로 작은 값 선정
+            let transferToSmall = Math.min(bigPail, 3 - smallPail);
+            bigPail -= transferToSmall;
+            smallPail += transferToSmall;
+            break;
+
+          case "6": // 작은 -> 큰
+            // 남는 공간을 체크해야하므로 작은 값 선정
+            let transferToBig = Math.min(smallPail, 5 - bigPail);
+            smallPail -= transferToBig;
+            bigPail += transferToBig;
+            break;
+
+          case "7":
+            let amount = parseInt(
+              prompt("어느 양동이를 제출하시겠습니까? (5 또는 3 입력)"),
+            );
+            let selectedValue =
+              amount === 5 ? bigPail : amount === 3 ? smallPail : 0;
+
+            if (selectedValue === 4) {
+              submit = 4;
+              alert("4리터 제출완료");
+            } else {
+              alert(`제출 실패! ${selectedValue}리터, 다시 시도하세요.`);
+            }
+            break;
+          // 일치하는 케이스가 없을 때
+          default:
+            alert("올바른 번호를 선택해주세요.");
+        }
+      }
+    </script>
+  </body>
+</html>

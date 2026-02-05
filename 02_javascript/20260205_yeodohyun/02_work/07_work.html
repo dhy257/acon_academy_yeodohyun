@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 컴퓨터가 낸 수(0~100)
+      const targetNumber = Math.floor(Math.random() * 100) + 1;
+
+      // 맞출때까지 걸린 횟수 저장용 변수 생성
+      let count = 0;
+      // 기본으로 못맞췄다는 값
+      let isCorrect = false;
+
+      // 맞출때까지 반복
+      while (!isCorrect) {
+        // 사용자 입력받기
+        let guess = parseInt(prompt("1부터 100 사이의 숫자를 입력하세요:"));
+        count++;
+
+        // 만일 맞추면
+        if (guess === targetNumber) {
+          // 맞춘 횟수 고지
+          let message = `정답입니다! ${count}번 만에 맞추셨네요.`;
+          // 추가 옵션: 3번 안에 맞추면 간식 제공
+          if (count <= 3) {
+            message += "\n정답까지 3번 이내 제출하셨습니다.\n추가 증정: 과자";
+          }
+          alert(message);
+          // 맞췄다고 변경 그리고 반복 탈출
+          isCorrect = true;
+        }
+        else if (guess > targetNumber) alert("DOWN!");
+        else alert("UP!");
+      }
+    </script>
+  </body>
+</html>

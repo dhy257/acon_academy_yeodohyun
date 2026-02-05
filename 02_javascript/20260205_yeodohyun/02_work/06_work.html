@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가위바위보 게임</title>
+  </head>
+  <body>
+    <!-- 
+    만약 결과를 담는 result변수를 만들어서 관리하고 싶다면
+    let result="";를 만들고
+    승패판별 로직에 result="승리"; , result="패배"; , result="무승부"; 를 주고
+    마지막에 result값에 따라 반복문 추가 
+    -->
+    <script>
+      // 게임 전체를 반복
+      while (true) {
+        // 사용자 입력
+        let user = parseInt(prompt("1(가위), 2(바위), 3(보) 중에 입력해주세요."));
+        // 1, 2, 3이 아니면 다시 입력
+        if (user !== "1" && user !== "2" && user !== "3") {
+          alert("잘못된 입력입니다. 1, 2, 3 중에서만 입력해주세요.");
+          continue; // 루프
+        }
+        
+        // 컴퓨터 랜덤 손 설정 (1~3)
+        let computer = Math.floor(Math.random() * 3) + 1;
+
+        // 가위바위보는 변하지않음, 가독성을 위한 문자열 변환
+        const HANDS = { 1: "가위", 2: "바위", 3: "보" };
+        alert(`사용자: ${HANDS[user]} vs 컴퓨터: ${HANDS[computer]}`);
+
+        // 승패 판별 로직
+        if (user === computer) {
+          alert("무승부입니다. 다시 대결하세요!");
+        } 
+        else if (
+            // ||는 or임
+          (user === 1 && computer === 3) || // 가위 vs 보
+          (user === 2 && computer === 1) || // 바위 vs 가위
+          (user === 3 && computer === 2)    // 보 vs 바위
+        ) {
+          alert("사용자 승리! 게임을 종료합니다.");
+          break; // 사용자가 이겼으므로 반복문 탈출
+        } 
+        else {
+          alert("패배했습니다. 이길 때까지 다시 도전하세요!");
+        }
+      }
+    </script>
+  </body>
+</html>
