@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>literal</title>
+  </head>
+  <body>
+    <h3>리터럴, 값 자체</h3>
+    <h3>리터럴 vs 상수</h3>
+    리터럴 : 프로그램내에서 사용되는 값 자체를 의미한다
+    <script>
+      // 세율 값 사용하기
+      let price = 10000;
+      let vat = price * 0.1; // 직접 값을 사용하는 것을 하드코딩이라 함
+      alert("하드코드 리터럴로 구한"+"부가세는 " + vat);
+
+      // 세율을 상수로 사용하기
+      // 상수로 사용하게 되면 유지보수성, 가독성이 높아짐
+      let price2 = 10000;
+      const TAX = 0.1;
+      let vat2 = price2*TAX;
+      alert("상수로 구한"+"부가세는 " + vat2);
+
+    </script>
+  </body>
+</html>
