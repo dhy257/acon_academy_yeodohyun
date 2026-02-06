@@ -12,13 +12,36 @@
     <script>
       let a = 5;
       let b = 5;
+      //a,b 변수의 값이 1증가
+      //연사의 결과를 담은 두 변수 result1, result2가 다르다
+      //a++ 변수의 값을 1증가 시킨다, 연산의 결과가 증가 전에 값을 반환
       let result1 = a++; // a++의 값은 연산전 값인 a가 옴 : 5
       console.log(result1);
       let result2 = ++b; // ++b의 값은 연산후 값인 b+1가 옴 : 6
       console.log(result2);
-      //a,b 변수의 값이 1증가
-      //연사의 결과를 담은 두 변수 result1, result2가 다르다
-      //a++ 변수의 값을 1증가 시킨다, 연산의 결과가 증가 전에 값을 반환
+
+      let a1 = 5;
+      let b1 = 5;
+      let result4 = a1--; // a--의 값은 연산전 값인 a가 옴 : 5
+      console.log(result4);
+      let result5 = --b1; // --b의 값은 연산후 값인 b-1가 옴 : 4
+      console.log(result5);
+
+
+      //문제
+      let x=5;
+      let y=10;
+      c = x++; // x++연산전 5 >> 6 도출
+      //console.log(c); // 5 이해 안가면 이거 해보면 됨
+      let z = x++ + ++y; //x++은 연산전 6, ++y는 연산후11
+      console.log(z); // 17
+
+      let k1=10;
+      let k2=8;
+      --k2;// k2연산후 7 >> 7 도출
+      let kResult = k1-- - --k2; //k1--는 연산전10, --k2는 연산후6
+      console.log(kResult); //4
+
     </script>
   </body>
 </html>
