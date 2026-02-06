@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습문제1</title>
+  </head>
+  <body>
+    <script>
+      // 먼저 풀어보기 1
+      //     let weight = prompt("사과의 무게를 입력:");
+      //     if (weight >= 200) {
+      //       document.write("분류: 고급");
+      //       //console.log("분류: 고급");
+      //     } else {
+      //       document.write("분류: 일반");
+      //       //console.log("분류: 일반");
+      //     }
+      // 먼저 풀어보기 2
+      //     let num = parseInt(66prompt("숫자를 입력:"));
+      //     if (num % 3 === 0) {
+      //       document.write(num + "은(는) 3의 배수");
+      //     } else {
+      //       document.write(num + "은(는) 3의 배수 아님.");
+      //     }
+      // 문제1
+      //   let name = prompt("당신의 이름은?");
+      //   document.write("이름: " + name);
+      //   console.log("이름: " + name);
+      //   //let name = "여도현";
+      //   //let age = 25;
+      //   //document.write("이름: " + name + ", 나이: " + age);
+      // 문제2
+      //   let n = prompt("숫자를 입력:");
+      //   if(n%2==0) document.write("짝수");
+      //   else document.write("홀수");
+      // 문제3
+      //   let userName = prompt("이름:");
+      //   parseInt 대신 Number
+      //   let kor = parseInt(prompt("국어 점수:"));
+      //   let eng = parseInt(prompt("영어 점수:"));
+      //   let math = parseInt(prompt("수학 점수:"));
+      //   let total = kor + eng + math;
+      //   let avg = total / 3;
+      //   document.write(
+      //     userName + "님의 총점: " + total + ", 평균: " + avg.toFixed(2),
+      //   );
+      // 문제4
+      //   let n1 = parseInt(prompt("첫 번째 수:"));
+      //   let n2 = parseInt(prompt("두 번째 수:"));
+      //   let n3 = parseInt(prompt("세 번째 수:"));
+      //   if (n1 > n2) {
+      //     if (n1 > n3) document.write(n1);
+      //     else if (n3 > n1) document.write(n3);
+      //   } else {
+      //     if (n2 > n3) document.write(n2);
+      //     else if (n3 > n2) document.write(n3);
+      //   }
+      //   //   let max = Math.max(n1, n2, n3);
+      //   //   document.write("가장 큰 수는 " + max);
+      // 문제5,6
+      //   let num = parseInt(prompt("몇 단?:"));
+      //   for (let i = 1; i <= 9; i++) {
+      //     document.write(num + " * " + i + " = " + num * i + "<br>");
+      //   }
+      // 문제7
+      //   for (let i = 1; i <= 100; i++) {
+      //     // 주의 할 점은 3과5의 공배수인 조건을 가장 위에 if로 배치해야 한다
+      //     if (i % 3 === 0 && i % 5 === 0)
+      //       document.write(i + "은 3과 5의 배수<br>");
+      //     else if (i % 3 === 0) document.write(i + "은 3의배수<br>");
+      //     else if (i % 5 === 0) document.write(i + "은 5의 배수<br>");
+      //   }
+      // 문제8
+      //   let score = parseInt(prompt("점수 입력:"));
+      //   if (score >= 90) document.write("A");
+      //   else if (score >= 80) document.write("B");
+      //   else if (score > 70) document.write("C");
+      //   else if (score >= 60) document.write("D");
+      //   else document.write("F");
+      // 문제9
+      //input = parseInt(prompt("숫자 입력:"));
+      //document.write("제곱은 " + input ** 2);
+      // 문제14
+      //   let input = parseInt(prompt("숫자 입력:"));
+      //   let result = input;
+      //   for (let i = 1; i <= 3; i++) {
+      //     let prev = result; // 계산 전 값 저장
+      //     result = result ** 2; // 제곱 계산
+      //     document.write(i + ". " + prev + "의 제곱은 " + result + "<br>");
+      //   }
+      //   document.write("최종 결과: " + result);
+      // 문제15
+      // 음수?
+      // 문제10
+      //   num1 = parseInt(prompt("숫자1 입력:"));
+      //   num2 = parseInt(prompt("숫자2 입력:"));
+      //   document.write("숫자 합:"+num1+num2);
+      // 문제11
+      //   num1 = parseInt(prompt("숫자1 입력:"));
+      //   operator = prompt("연산자(+, -, *, /):");
+      //   num2 = parseInt(prompt("숫자2 입력:"));
+      //   let result;
+      //   switch (operator) {
+      //     case "+":
+      //       result = num1 + num2;
+      //       break;
+      //     case "-":
+      //       result = num1 - num2;
+      //       break;
+      //     case "*":
+      //       result = num1 * num2;
+      //       break;
+      //     case "/":
+      //       result = num1 / num2;
+      //       break;
+      //     default:
+      //       result = "잘못된 연산자";
+      //   }
+      //   document.write("결과: " + result);
+      // 문제12
+      //   input = parseInt(prompt("숫자 입력:"));
+      //   for (i = 1; i <= input; i++) {
+      //     if (i % 2 == 1) document.write(i + "는 홀수<br>");
+      //     // 짝수도 출력하고 싶으면
+      //     // else document.write(i + "는 짝수<br>");
+      //   }
+      // 문제13
+      //   while (true) {
+      //     // 무한루프이기 때문에 반드시 탈출 조건 명시필요
+      //     input = prompt("입력:");
+      //     if (input == "stop") break;
+      //     alert(input);
+      //   }
+      // 문제16
+      //   let diam = prompt("지름을 입력하세요:");
+      //   let circ = diam * 3.14;
+      //   document.write("원주: " + circ);
+      // 문제17
+      //   let d = prompt("지름을 입력하세요:");
+      //   let r = d / 2;
+      //   let area = r * r * 3.14;
+      //   document.write("원의 넓이: " + area);
+    </script>
+  </body>
+</html>

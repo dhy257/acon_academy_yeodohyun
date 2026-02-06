@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>대입연산자</title>
+  </head>
+  <body>
+    <script>
+      //대입연산자   =
+      // let a =10;
+      //대입연산자 기준으로 왼쪽은 항상 공간(변수)가 와야 함 (L_value)
+      // L  => Left, location
+      //대입연산자 기준으로 오른쪽은 값,변수가 올 수 있다. (R_value)
+      //  (right)
+
+      // L_value: Location , left  => L_value에는 반드시 변수 (메모리공간) 만 올수 있다
+      // R_value :  right => 값, 수식, 변수
+      let a = 10;
+      let b = 2 + 2;
+      let c = a + 10;
+
+      let x = (y = z = 5); // 오른쪽부터 수행됨
+      console.log(x);
+      console.log(y);
+      console.log(z);
+      //순수대입연산자  =
+      //복합대입연사  +=  , -=  ,*=  ,/=  , %=
+      let su = 10;
+      su = su + 1; // su += 1                        su++
+      console.log(su);
+
+      su = su + 10; // su += 10
+      su += 10;
+      console.log(su);
+    </script>
+  </body>
+</html>

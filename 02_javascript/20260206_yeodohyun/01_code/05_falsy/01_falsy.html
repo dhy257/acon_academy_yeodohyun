@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /*
+     6개 값이 false로 취급된다 
+     
+      false
+      0    
+      ""       // 빈 문자열
+      null
+      undefined
+      NaN
+    */
+    //false로 취급됨
+
+    let  snack={ name:"맛동산" , price:4800};
+    if( snack){
+       alert("빈객체가 아님");
+    }
+
+    let snack2=null;
+    if( snack2){
+      alert("빈 객체가 아니다");
+    }else{
+      alert("빈객체이다");
+    }
+    
+  </script>
+</body>
+</html>

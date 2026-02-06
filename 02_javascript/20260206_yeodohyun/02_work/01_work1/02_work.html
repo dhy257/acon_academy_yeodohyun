@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습문제2</title>
+  </head>
+  <body>
+    <script>
+      // 문제1
+      //   // 컴퓨터가 낸 수(0~100)
+      //     const targetNumber = Math.floor(Math.random() * 100) + 1;
+      //     // 맞출때까지 걸린 횟수 저장용 변수 생성
+      //     let count = 0;
+      //     // 기본으로 못맞췄다는 값
+      //     let isCorrect = false;
+      //     // 맞출때까지 반복
+      //     while (!isCorrect) {
+      //       // 사용자 입력받기
+      //       let guess = parseInt(prompt("1부터 100 사이의 숫자를 입력하세요:"));
+      //       count++;
+
+      //       // 만일 맞추면
+      //       if (guess === targetNumber) {
+      //         // 맞춘 횟수 고지
+      //         let message = ` ${count}번 만에 정답`;
+      //         // 추가 옵션: 3번 안에 맞추면 간식 제공
+      //         if (count <= 3) {
+      //           message += "\n정답까지 3번 이내 제출하셨습니다.\n추가 증정: 과자";
+      //         }
+      //         alert(message);
+      //         // 맞췄다고 변경 그리고 반복 탈출
+      //         isCorrect = true;
+      //       } else if (guess > targetNumber) alert("DOWN!");
+      //       else alert("UP!");
+      //     }
+      // 문제2
+      //   let weight = parseInt(prompt("체중(kg)을 입력:"));
+      //   let height = parseInt(prompt("키(cm)를 입력:"));
+      //   // bmi계산에서 키는 m기준이라 100나누기
+      //   height = height / 100;
+
+      //   // 잘못된 입력 검증 (0 또는 음수)
+      //   if (weight <= 0 || height <= 0) {
+      //     alert("잘못된 입력입니다.");
+      //   } else {
+      //     // BMI 계산: 체중 / (키 * 키)
+      //     let bmi = weight / (height * height);
+      //     let status = "";
+
+      //     if (bmi < 18.5) status = "저체중";
+      //     else if (bmi < 23) status = "정상";
+      //     else if (bmi < 25) status = "과체중";
+      //     else status = "비만";
+      //     50;
+      //     document.write("BMI는 " + bmi.toFixed(2) + " 결과는 " + status);
+      //   }
+      // 문제3
+      //   num1 = parseInt(prompt("숫자1 입력:"));
+      //   operator = prompt("연산자(+, -, *, /):");
+      //   num2 = parseInt(prompt("숫자2 입력:"));
+      //   let result;
+      //   switch (operator) {
+      //     case "+":
+      //       result = num1 + num2;
+      //       break;
+      //     case "-":
+      //       result = num1 - num2;
+      //       break;
+      //     case "*":
+      //       result = num1 * num2;
+      //       break;
+      //     case "/":
+      //       result = num1 / num2;
+      //       break;
+      //     default:
+      //       result = "잘못된 연산자";
+      //   }
+      //   document.write("결과: " + result);
+      // 문제4
+      //   let score = parseInt(prompt("점수 입력:"));
+      //   if (score <= 100 && score >= 90) document.write("A");
+      //   else if (score < 90 && score >= 80) document.write("B");
+      //   else if (score < 80 && score >= 70) document.write("C");
+      //   else if (score < 70 && score >= 60) document.write("D");
+      //   else if (score < 60) document.write("F");
+      //   else document.write("잘못된 점수입니다.");
+      // 문제5
+      //   let n = parseInt(prompt("삼각형 높이 N 입력:"));
+
+      //   for (let i = 1; i <= n; i++) {
+      //     let line = "";
+      //     for (let j = 1; j <= i; j++) {
+      //       line += j;
+      //     }
+      //     document.write(line + "<br>");
+      //   }
+      // 문제6
+      //   let targetN = parseInt(prompt("숫자 N 입력:"));
+      //   let evenSum = 0; // 짝수 합
+      //   let oddSum = 0; // 홀수 합45
+
+      //   for (let i = 1; i <= targetN; i++) {
+      //     if (i % 2 === 0) {
+      //       evenSum += i;
+      //     } else {
+      //       oddSum += i;
+      //     }
+      //   }
+
+      //   document.write("N = " + targetN + "<br>");
+      //   document.write("홀수 합 = " + oddSum + "<br>");
+      //   document.write("짝수 합 = " + evenSum);
+      //
+    </script>
+  </body>
+</html>

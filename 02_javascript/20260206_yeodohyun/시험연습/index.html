@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시험연습</title>
+    <style>
+      header {
+        height: 100px;
+        background-color: blue;
+
+        /* 기준1 */
+        position: relative;
+      }
+      nav {
+        height: 60px;
+        background-color: rgb(107, 67, 67);
+      }
+      section {
+        height: 500px;
+        background-color: green;
+      }
+      /* header{
+        display: flex;
+        justify-content: space-between;
+      } */
+      .title_img {
+        background-color: red;
+        width: 100px;
+
+        /* 부모기준(기준1)으로 top left right bottom사용 */
+        position: absolute;
+        top: 10px;
+        left: 20px;
+      }
+      .search_bar {
+        background-color: rgb(37, 160, 160);
+        width: 100px;
+
+        /* 기준1 */
+        position: absolute;
+        top: 10px;
+        right: 20px;
+      }
+      footer{
+        display: flex;
+        
+      }
+      .footer_item{
+        border: 1px solid red;
+        /* 3등분 */
+        width: 33.3%;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="title_img">title이미지</div>
+      <div class="search_bar">검색바</div>
+    </header>
+    <nav></nav>
+    <section>
+        
+    </section>
+    <footer>
+        <div class="footer_item">1</div>
+        <div class="footer_item">2</div>
+        <div class="footer_item">3</div>
+    </footer>
+  </body>
+</html>
