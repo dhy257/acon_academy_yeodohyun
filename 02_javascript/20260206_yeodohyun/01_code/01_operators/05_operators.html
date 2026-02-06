@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    삼항 연산자는 간단한 조건문을 한 줄로 작성할 수 있게 한다
+            참  거짓
+        조건 식1 : 식2 
+        -->
+    <script>
+      let num1=10,num2=20;
+      let max;
+
+      max=(num1>num2)?num1:num2;
+      console.log(max); // num2인 20이 들어감
+
+      if(num1>num2)max=num1;
+      else if (num1<num2)max=num2;
+      console.log(max); // num2인 20이 들어감
+    </script>
+  </body>
+</html>
