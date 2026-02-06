@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수맞추기2</title>
+  </head>
+  <!-- 
+문제분석 
+1. 1~100 수 맞추기 프로그램
+>>자료명세 찾기
+입력 : 사용자의 입력 수 : Input
+출력 : "정답 축하 또는 정답 축하 간식 제공 ^^!!" : 
+처리 : 컴퓨터가 정한 수 : randomSu 
+시도횟수 값: tryCnt 
+
+>> 처리과정
+
+1. 컴퓨터가 수를 정한다(임의의 수 )
+2. 반복(수를 맞출때까지 반복)
+    2.1 시도횟수증가 
+    2.2 사용자가 수를 입력
+    2.3 두 수가 같은지 판단 
+        - 수가 작으면 
+            더 큰 수 입력 
+        - 수가 크다면
+            더 작은 수 입력 
+3. 시도횟수 3이내인지 판단
+    -참이면 "성공 간식"
+    -거짓이면"성공" 
+4. 종료
+-->
+  <body>
+    <script>
+      //   // 입력, 난수, 시도횟수
+      //   let input, randomSu, tryCnt;
+
+      //   randomSu = Math.floor(Math.random() * 100) + 1;
+
+      //   input = parseInt(prompt("숫자 입력:"));
+      //   console.log(typeof(input));
+
+      //   while (randomSu != input) {
+      //     tryCnt++;
+      //     if (randomSu > input) {
+      //       alert("UP");
+      //     } else if (randomSu < input) {
+      //       alert("DOWN");
+      //     }
+      //     input = parseInt(prompt("숫자 입력:"));
+      //   }
+      //   if (tryCnt <= 3) {
+      //     alert("3회 내 성공, 간식 제공");
+      //   }
+      //   else alert("성공");
+
+      //ver2
+      let input;
+      let randomSu;
+      let tryCnt = 0;
+      randomSu = Math.floor(Math.random() * 100) + 1; //1~100
+      console.log(randomSu);
+      while (true) {
+        input = prompt("수를 입력하시오");
+        tryCnt = tryCnt + 1;
+        if (randomSu == input) break; // 탈출조건( 같으면 탈출)
+        //더큰수 또는 더 작은 수
+        if (input < randomSu) {
+          alert(" 더 큰수 입력");
+        } else if (input > randomSu) {
+          alert("더 작은 수 입력");
+        }
+      }
+      //
+      if (tryCnt <= 3) {
+        alert("간식성공 🍬🤩");
+      } else {
+        alert(tryCnt + " 성공  🤩");
+      }
+    </script>
+  </body>
+</html>
