@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 증감연산자 ++(변수값 1증가), --(변수값 1감소) 전위, 후위 ++a,a++ --a,a--
+    공통점: 변수의 값의 변화(1증가or 1감소라는 결과) 존재 다른점: 연산의 결과가
+    다름 -->
+    <script>
+      let a = 5;
+      let b = 5;
+      let result1 = a++; // a++의 값은 연산전 값인 a가 옴 : 5
+      console.log(result1);
+      let result2 = ++b; // ++b의 값은 연산후 값인 b+1가 옴 : 6
+      console.log(result2);
+      //a,b 변수의 값이 1증가
+      //연사의 결과를 담은 두 변수 result1, result2가 다르다
+      //a++ 변수의 값을 1증가 시킨다, 연산의 결과가 증가 전에 값을 반환
+    </script>
+  </body>
+</html>
