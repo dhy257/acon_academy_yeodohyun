@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>repeat</title>
+  </head>
+  <body>
+    <script>
+      //   alert("Hi");
+      //   alert("Hi");
+      //   alert("Hi");
+
+      // for문 while문
+      // 반복문은 결국 반복횟수를 나타내는 변수가 필요
+      // for는 반복횟수가 정해졌을때 주로 사용하고
+      // while은 정해져있지 않을때, 조건이 존재할때 좀 더 적합함
+
+      // for(초기식; 조건식; 증감;)
+      for (i = 1; i <= 3; i++) alert("Hi");
+      // while문//조건이 만족할 동안 바복
+      //반복문
+      //반복횟수를 저장할 변수
+      //반복문: for문,  while
+      // for => 반복횟수가 정해진 경우
+      // while => 반복횟수가 정해져 있지 않은 경우  , 특정조건으로 반복할 때
+
+      for (let i = 1; i <= 3; i++) {
+        // 중괄호블럭문을 반복하시오
+        alert(" for ~~hi");
+      }
+
+      //while문
+      //3번 인사하기
+      let n = 0;
+      while (n < 3) {
+        //조건이 만족할 동안 반복하기
+        n = n + 1;
+        alert(" while  ~~~ hi");
+      }
+      /*
+        n =>1
+        인사
+        n=> 2
+        인사
+
+        n =>3
+        인사
+      */
+    </script>
+  </body>
+</html>

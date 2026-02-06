@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>switch</title>
+  </head>
+  <body>
+    <!-- 
+    메뉴 선택시 다른 코드를 수행하기
+    많은 분기코드를 작성할 때 적합 
+    -->
+    <script>
+      let menu;
+      // paresInt(); // 함수, 문자열을 실제 숫자로 바꿔줌
+      // 완전 숫자로 관리하고 싶으면 아래처럼 숫자형으로 바꿔야함
+      // menu = parseInt(menu);
+      menu = prompt("메뉴선택\n1.등록\n2.조회\n3.삭제\n4.종료");
+
+      switch (menu) {
+        //case 1: ~
+        case "1":
+          alert("등록");
+          break;
+        case "2":
+          alert("조회");
+          break;
+        case "3":
+          alert("삭제");
+          break;
+        case "4":
+          alert("종료");
+          break;
+        default: // 해당되는 조건이 없을때
+          alert("No Menu");
+      }
+    </script>
+  </body>
+</html>
