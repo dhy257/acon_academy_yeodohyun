@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+          기능: 환전
+          입력 :  금액, 나라
+          반환: 환전금액
+        */
+      function exchange(money, 나라번호) {
+        let usd = 1461.23;
+        let jpy = 9.33;
+        let vnd = 0.056;
+        let y; //최종금액
+
+        switch (나라번호) {
+          case "1":
+            y = money / usd;
+            y = y.toFixed(2); //소수점 아래 두자리까지만 출력
+            break;
+          case "2":
+            y = money / jpy;
+            y = y.toFixed(2);
+            alert(y);
+            break;
+          case "3":
+            y = money / vnd;
+            y = y.toFixed(2);
+            alert(y);
+            break;
+        }
+        return y;
+      }
+
+      let x = parseInt(prompt("환전하고자 하는 금액을 입력해주세요."));
+      let 나라 = prompt("나라를 선택하세요 1.미국  2.일본   3.베트남");
+      let result = exchange(x, 나라);
+      alert(result);
+    </script>
+  </body>
+</html>

@@ -7,10 +7,7 @@
   </head>
   <body>
     <script>
-      //   let score = parseInt(prompt("점수 입력:"));
-
-      //   function scoreRate()
-      //   {
+      //   function scoreRate(score) {
       //     if (score <= 100 && score >= 90) document.write("A");
       //     else if (score < 90 && score >= 80) document.write("B");
       //     else if (score < 80 && score >= 70) document.write("C");
@@ -19,27 +16,28 @@
       //     else document.write("잘못된 점수입니다.");
       //   }
 
-      //   scoreRate(score);
+      //   let 점수 = parseInt(prompt("점수 입력:"));
+      //   scoreRate(점수);
 
-      let targetN = parseInt(prompt("숫자 N 입력:"));
-      let evenSum = 0; // 짝수 합
-      let oddSum = 0; // 홀수 합45
+      //   let targetN = parseInt(prompt("숫자 N 입력:"));
+      //   let evenSum = 0; // 짝수 합
+      //   let oddSum = 0; // 홀수 합
 
-      function evenOdd() {
-        for (let i = 1; i <= targetN; i++) {
-          if (i % 2 === 0) {
-            evenSum += i;
-          } else {
-            oddSum += i;
-          }
-        }
+      //   function evenOdd() {
+      //     for (let i = 1; i <= targetN; i++) {
+      //       if (i % 2 === 0) {
+      //         evenSum += i;
+      //       } else {
+      //         oddSum += i;
+      //       }
+      //     }
 
-        document.write("N = " + targetN + "<br>");
-        document.write("홀수 합 = " + oddSum + "<br>");
-        document.write("짝수 합 = " + evenSum);
-      }
+      //     document.write("N = " + targetN + "<br>");
+      //     document.write("홀수 합 = " + oddSum + "<br>");
+      //     document.write("짝수 합 = " + evenSum);
+      //   }
 
-      evenOdd(targetN);
+      //   evenOdd(targetN);
     </script>
   </body>
 </html>
