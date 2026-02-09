@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function6 - Ramen Recipe</title>
+  </head>
+  <body>
+    <div id="recipe-text"></div>
+    <img id="result" src="" alt="라면 이미지" />
+
+    <script>
+      /*===================================
+        기능: 레시피 알려주기
+        입력x
+        반환o : 이미지 경로
+      ========================================*/
+      function recipe() {
+        const textContainer = document.getElementById("recipe-text");
+        textContainer.innerHTML =
+          "물 끓이기<br>면, 스프 투하<br>파, 계란 첨가<br>";
+
+        return "https://i.namu.wiki/i/2mrBrfSDXbBJHLjgyycsAhB0qLvjSZbvswmGtVTAupaEfuQ8Xuzp8wJiXyeDTsqz7blqGRYSjW5mbo1Wc4GP_w.webp";
+      }
+
+      // 함수 실행 및 결과값 받기
+      let imageUrl = recipe();
+
+      let imgTag = document.getElementById("result");
+      imgTag.src = imageUrl;
+    </script>
+  </body>
+</html>
