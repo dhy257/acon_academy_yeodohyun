@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>어린이판단하기</title>
+  </head>
+  <body>
+    <script>
+      // 어린이 판단해서 할인하기
+      function 어린이판단하기(age) {
+        if (age <= 10) document.write("어린이입니다");
+      }
+      function 어린이판단하기2(age) {
+        if (age <= 10) return true;
+        else return false;
+      }
+
+      let 입장권가격 = 10000;
+      let 나이 = 10;
+      let result;
+
+      //   어린이판단하기(10);
+      result = 어린이판단하기2(10);
+      if (result == true) 입장권가격 = 입장권가격 * 0.5;
+      document.write(입장권가격);
+    </script>
+  </body>
+</html>
