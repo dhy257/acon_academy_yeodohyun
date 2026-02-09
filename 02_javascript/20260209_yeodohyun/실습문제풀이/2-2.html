@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+// 2. BMI 계산기    
+//   문제: 사용자의 체중(kg)과 키(m)를 입력받아 BMI를 계산하고 건강 상태를 출력하세요.    
+//   BMI 공식: BMI = 체중(kg) / (키(m) * 키(m)) //   BMI에 따른 건강 상태:    
+//   18.5 미만: 저체중    
+//   18.5 이상 23 미만: 정상    
+//   23 이상 25 미만: 과체중    
+//   25 이상: 비만     
+//   사용자의 입력이 잘못되었을 경우(음수 또는 0 입력되면) "잘못된 입력입니다"를 출력하고 종료하세요.    자료명세    입력 : 키 : height ,  체중 :  weight    출력:  BMI에 따른 건강상태 : healthResult    처리 : BMI  : bmi    
+처리과정(순서 )#############     
+1. 체중과 키를 입력받는다          
+2. 사용자 입력이 올바른지 판단한다        
+	-올바르면        
+	2.1  BMI계산한다        
+	2.2  BMI판단에 따른 건강상태 구하기         
+		- 25이상이면 비만            
+		- 23이상이면  과체중            
+		- 18.5이상이면  정상             
+		- 18.5 미만이면 저체중        
+	2.3  건강상태 출력하기        
+		-올바르지않으면         
+		"잘못된 입력입니다"
+		
+/*
+	입력: 키: height, 체중: weight
+	출력: BMI에 따른 건강상태: healthResult
+	처리: BMI계산값: bmi
+*/ 
+-->
+    <script>
+      // let weight = prompt("체중을 입력하세요 (kg)");
+      // let height = prompt("키를 입력하세요(cm)");
+      // height = parseFloat(height / 100);
+      // let bmi = weight / (height * height);
+
+      // if ((weight, height > 0)) {
+      //   if (bmi >= 25) {
+      //     alert("비만");
+      //   } else if (bmi >= 23) {
+      //     alert("과체중");
+      //   } else if (bmi >= 18.5) {
+      //     alert("정상");
+      //   } else {
+      //     alert("저체중");
+      //   }
+      // } else {
+      //   alert("잘못된 입력입니다");
+      // }
+      //ver2
+      height = parseFloat(prompt("키를 입력하세요(cm)"));
+      weight = parseInt(prompt("체중을 입력하세요 (kg)"));
+
+      if(height==0||height<0||weight==0||weight<0){
+        alert("잘못된 입력입니다");
+      }
+      else{
+        //정상입력
+        height = parseFloat(height / 100);
+        bmi = weight/(height*height);
+        alert(bmi.toFixed(2));
+
+        if(bmi>=25) healthResult = "비만";
+        else if(bmi>=23) healthResult = "과체중";
+        else if(bmi>=18.5) healthResult = "정상";
+        else healthResult = "저체중";
+        alert(healthResult);
+      }
+    </script>
+  </body>
+</html>

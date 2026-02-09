@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+    1
+    12
+    123
+    1234
+    
+    1. 반복될 걸 찾아보기
+    for(let i=1;i<=4;i++){
+        document.write(i);
+    }
+    document.write("<br>");
+
+    2. 반복 횟수 정하기
+    for(let i=1;i<=4;i++){
+        for(let i=1;i<=4;i++){
+            document.write(i);
+        }
+        document.write("<br>");
+    }
+    
+    3. 쳐내기
+    for(let i=1;i<=4;i++){
+        for(let j=1;j<=i;j++){
+            document.write(j);
+        }
+        document.write("<br>");
+    }
+    
+    
+    
+    -->
+    <script>
+      //한방컷 쨔스!
+      let n = prompt("만들 삼각형의 행 개수를 입력하세요");
+
+      for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= i; j++) {
+          document.write(j);
+        }
+        document.write("<br>");
+      }
+    </script>
+  </body>
+</html>

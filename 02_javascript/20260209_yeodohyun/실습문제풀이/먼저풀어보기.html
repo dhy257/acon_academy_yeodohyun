@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1)
+        let weight = prompt("사과의 무게를 입력하세요.(g)");
+
+        if (weight >= 200){
+            alert("고급");
+        } else{
+            alert("일반")
+        }
+        
+        // 2)
+        let multiple = weight % 3;
+        
+        if (multiple == 0){
+            alert("3의 배수입니다.")
+        } else{
+            alert("3의 배수가 아닙니다.")
+        }
+    </script>
+</body>
+</html>

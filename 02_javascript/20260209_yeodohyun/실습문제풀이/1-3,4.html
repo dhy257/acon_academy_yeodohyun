@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = prompt("이름을 입력하세요");
+        let kuk = parseInt(prompt("국어 성적을 입력하세요"));
+        let eng = parseInt(prompt("영어 성적을 입력하세요"));
+        let math = parseInt(prompt("수학 성적을 입력하세요"));
+        let sum = kuk + eng + math;
+        let avg = sum/3;
+
+        alert("총점:" + sum + "평균: " + avg);
+        
+        if(kuk > eng){
+            if(kuk > math){
+                alert(kuk);
+            } else{
+                alert(math);
+            }
+        } else{
+            if(eng > math){
+                alert(eng);
+            } else{
+                alert(math);
+            }
+        }
+    </script>
+</body>
+</html>

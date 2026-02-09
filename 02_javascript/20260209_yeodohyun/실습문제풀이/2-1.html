@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        let result = 0;
+        result = Math.floor((Math.random() * 100)) + 1; //0~99 + 1
+        
+        let count = 0;
+        let num;
+
+        num = prompt("1~100 사이의 숫자를 입력하세요");
+        while(result != num){
+            count++;
+            if(num > result){
+                alert("더 작은 숫자입니다");
+            } else if (num < result){
+                alert("더 큰 숫자입니다");
+            }
+            num = prompt("1~100 사이의 숫자를 입력하세요");
+        }
+        alert("정답입니다! 시도 횟수:" + count + "번");
+    </script>
+  </body>
+</html>

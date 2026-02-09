@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = prompt("아무 숫자나 입력하세요");
+        let odd = 0;
+        let even = 0;
+        let margin = 0;
+
+        for(let i = 1; i <= n; i++){
+            margin = i % 2;
+            if(margin == 0){
+                even += i;
+            }else{
+                odd += i;
+            }
+        }
+        alert(n + "까지 홀수의 합:" + odd + ", 짝수의 합:" + even);
+    </script>
+</body>
+</html>
