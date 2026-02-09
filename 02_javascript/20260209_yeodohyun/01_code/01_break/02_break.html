@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>break2</title>
+  </head>
+  <body>
+    <script>
+      // switch > 메뉴입력
+      // 여러번 반복해서 메뉴입력하기
+
+      for (let i = 1; i <= 3; i++) {
+        let menu = parseInt(prompt("메뉴선택\n1.등록\n2.조회\n3.종료"));
+
+        switch (menu) {
+          case 1:
+            alert("등록");
+            break;
+          case 2:
+            alert("조회");
+            break;
+          case 3:
+            alert("종료");
+            break;
+          default:
+            lert("메뉴없음");
+        }
+      }
+    </script>
+  </body>
+</html>

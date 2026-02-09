@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>while</title>
+  </head>
+  <body>
+    <script>
+      loop: while (true) {
+        let menu = parseInt(prompt("메뉴선택\n1.등록\n2.조회\n3.종료"));
+
+        switch (menu) {
+          case 1:
+            alert("등록");
+            break;
+          case 2:
+            alert("조회");
+            break;
+          case 3:
+            alert("종료");
+            break loop;
+          default:
+            lert("메뉴없음");
+        }
+      }
+    </script>
+  </body>
+</html>
