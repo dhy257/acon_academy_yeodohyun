@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구구단</title>
+  </head>
+  <body>
+    <script>
+      // 2단
+      // document.write(2*1+"<br>");
+      // document.write(2*2+"<br>");
+      // document.write(2*3+"<br>");
+      // document.write(2*4+"<br>");
+      // document.write(2*5+"<br>");
+      // document.write(2*6+"<br>");
+      // document.write(2*7+"<br>");
+      // document.write(2*8+"<br>");
+      // document.write(2*9+"<br>");
+
+      // 반복문 활용 2단
+      //   for (let i = 1; i <= 9; i++) {
+      //     document.write(2 * i + "<br>");
+      //   }
+      for (i = 1; i <= 9; i++) { // 앞의 단을 정할 반복
+        for (j = 1; j <= 9; j++) { // 뒤의 1~9곱을 반복
+          document.write(i + "*" + j + "=" + i * j + "<br>");
+        }
+      }
+    </script>
+  </body>
+</html>
