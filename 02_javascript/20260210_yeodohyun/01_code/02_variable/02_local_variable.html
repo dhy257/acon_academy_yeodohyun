@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지역변수</title>
+</head>
+<body>
+    <script>
+        // 지역변수: 함수안에서 만들어지는 변수
+        // 함수안에서만 사용가능, 밖에서 사용 불가
+        // 함수에서 선언된 지역변수들은 함수가 리턴될 때 모두 정리
+
+        function sum(num1, num2){ // 1. 함수 만들기
+            // 3. 함수 영역 만들어짐
+            let total = num1+num2;
+            alert(total);
+        }
+        // 4.함수반환(모든함수는 돌아간다. 함수를 호출한 쪽으로: 이때 함수영역 사라짐)
+
+        //sum이라는 함수에서 만들어지는 지역변수 찾아보기
+        // 2. 함수 호출(함수실행)
+        sum(10,5); //함수가 필요한 시점에서 호출, 반드시 괄호 존재
+        // alert(total); // 오류발생: total이라는 변수를 모름(함수 바껭서 함수안에걸 모름)
+        // 함수 안에서 만든 값을 밖에서 사용하고 싶다면 반드시 return 해야 함
+
+        // 함수 호출
+
+    </script>
+</body>
+</html>

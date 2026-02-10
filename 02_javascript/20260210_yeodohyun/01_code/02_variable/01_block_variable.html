@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>블럭변수</title>
+  </head>
+  <body>
+    <script>
+      // 변수 선언 위치에 따라 전역변수, 지역(함수)변수, 블럭변수(중괄호) : for, if
+
+      // 블럭변수 예시
+      // i변수 for블럭 안에서만 유효함, i변수를 for문 밖에서는 사용 불가
+      for (let i = 1; i <= 5; i++) document.write("자바스크립트<br>");
+      //document.write(i); //i변수는 선언되지 않은 변수로 오류남, for안의 변수 사용 불가
+
+      if(5>3) {let result="5가큼"; document.write("if안의 "+result);}
+      //document.write("if밖의 "+result); //if 안의 변수 사용 불가
+
+      // 임의로 블럭을 만들어 사용 가능
+      // 변수의 스코프(유효범위)를 줄일 수 있다
+      {
+        let k=10;
+        document.write(k);
+      }
+      {
+        let k=10;
+        document.write(k);
+      }
+    </script>
+  </body>
+</html>

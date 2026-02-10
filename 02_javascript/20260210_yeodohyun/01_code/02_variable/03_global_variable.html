@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>전역변수</title>
+  </head>
+  <body>
+    <!-- <script>
+      //전역변수: 함수밖(외부)에서 만들어지는 변수
+      //어떤함수에서도 접근 가능
+      //전역변수는 최소한 꼭 필요한 경우에만 만들자
+
+      let cnt = 0; // 전역변수 선언하기, 모든영역에서 접근 가능
+
+      //cnt 증가시킴
+      function a() {
+        cnt++;
+      }
+      //cnt 감소시킴
+      function b() {
+        cnt--;
+      }
+
+      a();
+      a();
+      b();
+      b();
+      b();
+      alert(cnt);
+    </script> -->
+
+    <script>
+      function a() {
+        let cnt = 0; //지역변수
+        cnt++;
+      }
+      a();
+      a();
+      a();
+      //alert(cnt); //지역변수 못씀 오류남, 함수는 반환시 만든 변수를 모두 정리함
+
+      function b() {
+        let cnt = 0; //지역변수
+        cnt++;
+        alert(cnt);
+      }
+      b(); //1
+      b(); //1
+      b(); //1
+
+      let cnt = 0; //전역변수
+      function c() {
+        cnt++;
+        alert(cnt);
+      }
+      c(); //1
+      c(); //2
+      c(); //3
+    </script>
+  </body>
+</html>
