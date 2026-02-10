@@ -7,21 +7,37 @@
   </head>
   <body>
     <script>
-      let su = "100"; // 숫자 변환 하고 싶으면 아래처럼 변환과정 필요
-      // paresInt()
-      // "문자열": 숫자형태의 문자열을 실제 숫자(정수형)으로 변환 해줌 >> 반환 존재
+      let su = "100"; //  숫자로 변환해서 사용하고 싶다면   변환이라는 과정을 거쳐함
+      //parseInt( su) 함수제공함
+      //"문자열" :숫자형태의 문자열을 실제 숫자(정수형)로 변환해 주는 함수
 
       let result = parseInt(su);
       let finalResult = result * 10;
       alert(finalResult);
 
       let su2 = "안녕하세요";
-      let result2 = parseInt(su2);
-      alert(result);
+      let result2 = parseInt(su2); // NaN  Not a Number
+      alert(result2);
 
-      // 숫자가 아니니를 확인해서ㅎ 유효성 체크에 활용
+      //숫자가 아니니를 확인해서 유효성 체크에 활용하기
+      // NaN인지 비교할 때는  반드시 isNaN() 함수를 사용해야 한다
+      if (result2 == NaN) {
+        //이렇게 사용하면 안된다 => isNaN()함수 사용할 것
+        alert("숫자가 아닙니다");
+      }
 
-
+      //isNaN()  :
+      // 입력(매개변수) :  값
+      // 반환  : 숫자가 아니면 true,  숫자이면 false
+      if (isNaN(result2) == true) {
+        alert("숫자가 아닙니다. 숫자로 입력하세요");
+      }
+      /*
+        ==>위의 코드와 동일함 
+        if( isNaN(result2) ) {
+             alert("숫자가 아닙니다. 숫자로 입력하세요");
+        }
+        */
     </script>
   </body>
 </html>
