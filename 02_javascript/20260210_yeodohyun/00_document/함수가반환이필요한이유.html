@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //함수가 값을 반환해야 하는 이유
+      // => 계산결과나 처리결과를 함수 밖에서 사용하기 위해서 반드시  값을 리턴해야 한다.
+
+      function doubleMoney(money) {
+        //
+        let result = money * 2;
+        alert(result);
+      }
+
+      doubleMoney(1000); //함수의 결과를 사용할 수 없다 .
+      //
+      function doubleMoney2(money) {
+        //
+        let result = money * 2;
+        alert(result);
+        return result;
+      }
+
+      let 금액 = doubleMoney2(1000); //함수의 결과를 사용할 수 없다 .
+      //금액을 재 투자 , 이 금액을 사용할 수 있다
+      if (금액 >= 2000) {
+        alert("적금을 들자");
+      } else {
+        alert("가방 사자");
+      }
+    </script>
+  </body>
+</html>

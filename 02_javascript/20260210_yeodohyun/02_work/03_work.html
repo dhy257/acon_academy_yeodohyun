@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   document.write("<h2>구구단 5단</h2>");
+      //   for (let i = 1; i <= 9; i++) {
+      //     document.write("5 *" + i + " = " + 5 * i + "<br>");
+      //   }
+
+      // ver1
+      //   function multiple(dan) {
+      //     let result = `--- ${dan}단 ---\n`;
+      //     for (let i = 1; i <= 9; i++) {
+      //       result += `${dan} * ${i} = ${dan * i}\n`;
+      //     }
+      //     return result;
+      //   }
+      //   let input3 = Number(prompt("수 입력:"));
+      //   //console.log(multiple(input3));
+      //   alert(multiple(input3));
+
+      // ver2
+      //   // 1. 제목만
+      //   function getTitle(dan) {
+      //     return `--- ${dan}단 ---\n`;
+      //   }
+
+      //   // 2. 구구단 내용만
+      //   function getBody(dan) {
+      //     let result = "";
+      //     for (let i = 1; i <= 9; i++) {
+      //       result += `${dan} * ${i} = ${dan * i}\n`;
+      //     }
+      //     return result;
+      //   }
+      //   // 실행인데 귀찮으니까 일단 지움
+      //   // let input3 = Number(prompt("수 입력:"));
+
+      //   // 두 함수의 결과를 합쳐서 출력
+      //   let finalResult = getTitle(input3) + getBody(input3);
+      //   alert(finalResult);
+
+      // ver3
+      // 1. 제목만
+      function getTitle(dan) {
+        return `<h3>--- ${dan}단 ---</h3>`;
+      }
+
+      // 2. 구구단 내용만(1~5곱하기 까지)
+      function getBody(dan) {
+        let result = "";
+        // *5까지만 나오게 함
+        for (let i = 1; i <= 5; i++) {
+          result = result + `${dan} * ${i} = ${dan * i}<br>`;
+        }
+        return result;
+      }
+
+      // 3. 민정님 코드(6~9곱 까지)
+      function getBody2(dan) {
+        let result = "";
+        // *5까지만 나오게 함
+        for (let i = 6; i <= 9; i++) {
+          result = result + `${dan} * ${i} = ${dan * i}<br>`;
+        }
+        return result;
+      }
+
+      // 이해하기 쉽게 전연변수(최종 결과물 출력용) 사용해도 무방
+      //let finalResult;
+
+      // 원하는 단까지 조절
+      for (let dan = 1; dan <= 3; dan++) {
+        // 제목 + 내용(1~5) + 내용(6~9)
+        let finalResult = getTitle(dan) + getBody(dan) + getBody2(dan);
+        // 화면에 출력
+        document.write(finalResult);
+      }
+    </script>
+  </body>
+</html>
