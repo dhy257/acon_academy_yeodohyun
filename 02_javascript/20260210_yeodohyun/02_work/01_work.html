@@ -6,154 +6,522 @@
     <title>복습</title>
   </head>
   <body>
-    <script>
-      //  /*
-      // 기능: 랜덤화이팅문구출력
-      // 입력:x
-      // 출력:화이팅 문구 1개
-      // */
-      // function 랜덤화이팅문구(){
-      //     let 문구들=["오늘도 화이팅", "할 수 있다!", "어제보다만 잘하면 돼요", "아자아자"];
-      //     let 랜덤문구=Math.floor(Math.random() * 문구들.length);
-      //     return 문구들[랜덤문구];
-      // }
-      // let result = 랜덤화이팅문구();
+    <!-- <script>
+      /*
+        기능: 랜덤화이팅문구출력
+        입력:x
+        출력:화이팅 문구 1개 
+        */
+      function 랜덤화이팅문구() {
+        let 문구들 = [
+          "오늘도 화이팅",
+          "할 수 있다!",
+          "어제보다만 잘하면 돼요",
+          "아자아자",
+        ];
+        let 랜덤문구 = Math.floor(Math.random() * 문구들.length);
+        return 문구들[랜덤문구];
+      }
+      let result = 랜덤화이팅문구();
+      alert(result);
+    </script> -->
+
+    <!-- <script>
+    function 오늘의명언(  ) {
+      let 이미지들 = [ //이미지 여러개니까 배열 사용
+        "https://i.pinimg.com/1200x/f3/42/ad/f342ad499b0d0456928560b87ff61580.jpg",
+        "https://i.pinimg.com/736x/6f/c2/b3/6fc2b3910f8bb2612549554948e86973.jpg",
+        "https://i.pinimg.com/736x/01/c1/22/01c122263e3a3e9066084274b7b23f9e.jpg",
+        "https://i.pinimg.com/736x/e6/ae/94/e6ae949f3a030721058b7899205fd75e.jpg",
+        "https://i.pinimg.com/1200x/c6/1e/56/c61e5666ca2e1c9b7b80d43d036883c3.jpg",
+        "https://i.pinimg.com/736x/46/80/a7/4680a7dcc6346462d8e71ab3c90b2c58.jpg"
+      ];
+      let index = Math.floor(Math.random() * 이미지들.length); //Math.floor()로 묶어서 정수로 만들어주기
+      return 이미지들[index]; //위에 배열 되어있는 이미지들 중 하나 랜덤하게 반환
+    }
+alert("🍋Quote of the Day🍋");
+
+    let result = 오늘의명언();
+
+    let imgTag = document.getElementById("quote"); //id가 quote인 요소 찾아오기
+    imgTag.src = result;
+  </script> -->
+
+    <!-- <script>
+        /*
+         기능 : 나라를 입력하면 그 나라의 언어로 인사하기
+         입력 : 각 나라 (한국, 미국, 일본, 중국, 스페인, 베트남)
+         출력 : 입력한 나라의 언어로 인사하기
+        */
+    // => 이렇게 하면 그냥 쭉 나열하게됨 X !!
+        // function country(){
+        //     alert("안녕!")
+        //     alert("Hi!")
+        //     alert("こんにちは!")
+        //     alert("Nǐ hǎo!")
+        //     alert("¡Hola!")
+        //     alert("Xin chào!")
+        // }
+
+        function country1(  나라 ){
+            if(나라 == "한국"){
+                 return("안녕 !");
+            }else if(나라 == "미국"){
+                 return("Hi !");
+            }else if(나라 == "일본"){
+                 return("こんにちは !");
+            }else if(나라 == "중국"){
+                 return("Nǐ hǎo !");
+            }else if(나라 == "스페인"){
+                 return("¡ Hola !");
+            }else if(나라 == "베트남"){
+                 return("Xin chào !");
+            }else{
+                 return("아직 배우지 못한 언어입니다 ! ㅠㅠ");
+            }
+            
+        }
+        
+        let input = prompt("나라 이름을 입력해주세요!");
+        let result = country1(input);
+        alert(result);
+
+    </script> -->
+
+    <!-- <script>
+      function 랜덤한화이팅메시지를주는함수() {
+        let messages = [
+          "화이팅",
+          "잘 될거야",
+          "잘하고 있어",
+          "괜찮아",
+          "수고했어",
+          "할 수 있어",
+        ];
+        let index = Math.floor(Math.random() * messages.length);
+        // return messages = Math.floor(Math.random() * messages.length);
+        return messages[index];
+      }
+      //alert(랜덤한화이팅메시지를주는함수());
+
+      while (true) {
+        let input = prompt("진행여부  yes/no");
+        if (input == "no") break;
+        alert(랜덤한화이팅메시지를주는함수());
+      }
+    </script> -->
+
+    <!-- <script>
+      /*
+        기능: 두 수를 입력하고 연산자를 입력하여 계산 결과를 반환한다
+        입력: num1, num2, operator // 자료형을 맞춰준다.    int/string(x)    int/null(o)
+        출력: 계산 결과
+        */
+      function calc(num1, num2, operator) {
+        if (operator == "+") {
+          return num1 + num2;
+        } else if (operator == "-") {
+          return num1 - num2;
+        } else if (operator == "*") {
+          return num1 * num2;
+        } else if (operator == "/") {
+          return num1 / num2;
+        } else if (operator == "종료") {
+          return null;
+        } else {
+          alert("잘못된 연산자입니다.");
+        }
+      }
+      let result;
+      while (result != null) {
+        let num1 = parseInt(prompt("첫 번째 수를 입력하세요."));
+        let num2 = parseInt(prompt("두 번째 수를 입력하세요."));
+        let operator = prompt(
+          "연산자를 입력하세요 (+, -, *, /), 종료하려면 '종료' 입력",
+        );
+        result = calc(num1, num2, operator);
+        alert(result);
+      }
+      document.write("계산기 종료됨! 새로고침하여 다시 시작하세요");
+    </script> -->
+
+    <!-- <script>
+      //3. 원하는 구구단 출력하기
+      function gugudan(n) {
+        document.write("<h2>" + n + "단 <br></h2>");
+        for (let i = 1; i <= 9; i++) {
+          document.write(n + " X " + i + " = " + n * i + "<br>");
+        }
+      }
+      let n = prompt("원하는 구구단 단수를 입력하세요.");
+      gugudan(n);
+    </script> -->
+
+    <!-- <script>
+      function 로또() {
+        //집어넣을 때 랜덤한 값이 존재하는지 안 하는지 확인하기
+        //확인 후 집어넣기
+        let lotto = [];
+        let num1 = Math.floor(Math.random() * 45);
+        let num2 = Math.floor(Math.random() * 45);
+        let num3 = Math.floor(Math.random() * 45);
+        let num4 = Math.floor(Math.random() * 45);
+        let num5 = Math.floor(Math.random() * 45);
+        let num6 = Math.floor(Math.random() * 45);
+        let num7 = Math.floor(Math.random() * 45);
+
+        //let lotto = [num1, num2, num3, num4, num5, num6, num7]
+        //중복처리를 못했습니다
+        //set, while 활용시켜서 발전 -> while:배열길이가 증가할 때까지
+        //중복이면 배열길이가 증가하지 않으므로
+        //확인 과정
+        let flag = false;
+        for (let i = 0; i < lotto.length; i++) {
+          if (lotto[i] == num1) {
+            flag == true;
+          }
+        }
+
+        return lotto;
+      }
+      alert(로또());
+    </script> -->
+
+    <!-- <script>
+      /*
+       기능: 달러계산기
+       입력: 달러금액
+       반환: 환율된 금액
+     
+     */
+      function 달러계산기(amt) {
+        let result;
+        result = amt * 1.462;
+        return result;
+      }
+      let 금액 = 달러계산기(4);
+      alert(금액 + "원 입니다.");
+    </script> -->
+
+    <!-- <script>
+      function total_even(num) {
+        let total_even = 0;
+        for (i = 1; i < num + 1; i++) {
+          if (i % 2 == 0) {
+            total_even += i;
+          }
+        }
+        return total_even;
+      }
+      function total_odds(num) {
+        let total_odds = 0;
+        for (i = 1; i < num + 1; i++) {
+          if (i % 2 == 1) {
+            total_odds += i;
+          }
+        }
+        return total_odds;
+      }
+      function print(num) {
+        let total_even_num = total_even(num);
+        let total_odds_num = total_odds(num);
+        alert("짝수 총합은 " + total_even_num);
+        alert("홀수 총합은 " + total_odds_num);
+      }
+      let num = parseInt(prompt("수를 입력하세요: "));
+      print(num);
+    </script> -->
+
+    <!-- <script>
+      function maxValue(num1, num2, num3) {
+        let max_val = 0;
+        if (num3 >= num2 && num3 >= num1) {
+          max_val = num3;
+        } else if (num2 >= num1 && num2 >= num3) {
+          max_val = num2;
+        } else {
+          max_val = num1;
+        }
+        return max_val;
+        // alert("가장 큰 숫자는 " + max_val + "입니다.");
+      }
+      // let result = Math.max(2, 3, 5);
       // alert(result);
+      const num1 = parseInt(prompt("1번 숫자 입력"));
+      const num2 = parseInt(prompt("2번 숫자 입력"));
+      const num3 = parseInt(prompt("3번 숫자 입력"));
+      let result = maxValue(num1, num2, num3);
+      alert(result);
+    </script> -->
 
-      //   function 랜덤한화이팅메시지를주는함수() {
-      //     let messages = [
-      //       "화이팅",
-      //       "잘 될거야",
-      //       "잘하고 있어",
-      //       "괜찮아",
-      //       "수고했어",
-      //       "할 수 있어",
-      //     ];
-      //     let index = Math.floor(Math.random() * messages.length);
-      //     // return messages = Math.floor(Math.random() * messages.length);
-      //     return messages[index];
-      //   }
-      //   //alert(랜덤한화이팅메시지를주는함수());
+    <!-- <script>
+      /*
+            기능 : 한화이글스선수소개
+            입력 : x
+            반환 : 선수이미지주소
+        */
+      function 한화이글스선수소개() {
+        alert("류현진");
+        alert("문동주");
+        alert("문현빈");
+        alert("폰세");
+        alert("최재훈");
+        alert("김서현");
+        alert("채은성");
+        alert("와이스");
+        alert("노시환");
+        return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkdQ_sYuIn6h63rlrT0Q8abZag3U55NEUmjg&s";
+      }
+      let image = 한화이글스선수소개();
+      let imgTag = document.getElementById("result");
+      imgTag.src = image;
+    </script> -->
 
-      //   while (true) {
-      //     let input = prompt("진행여부  yes/no");
-      //     if (input == "no") break;
-      //     alert(랜덤한화이팅메시지를주는함수());
-      //   }
+    <!-- <script>
+      function 제곱구하기(su) {
+        let result = su ** 2;
+        return result;
+      }
+      let result = 제곱구하기(3);
+      alert(result);
+    </script> -->
 
-      
-      //  /*
-      //     기능: 두 수를 입력하고 연산자를 입력하여 계산 결과를 반환한다
-      //     입력: num1, num2, operator // 자료형을 맞춰준다.    int/string(x)    int/null(o)
-      //     출력: 계산 결과
-      //     */
-      //   function calc(num1, num2, operator) {
-      //     if (operator == "+") {
-      //       return num1 + num2;
-      //     } else if (operator == "-") {
-      //       return num1 - num2;
-      //     } else if (operator == "*") {
-      //       return num1 * num2;
-      //     } else if (operator == "/") {
-      //       return num1 / num2;
-      //     } else if (operator == "종료") {
-      //       return null;
-      //     } else {
-      //       alert("잘못된 연산자입니다.");
-      //     }
-      //   }
-      //   let result;
-      //   while (result != null) {
-      //     let num1 = parseInt(prompt("첫 번째 수를 입력하세요."));
-      //     let num2 = parseInt(prompt("두 번째 수를 입력하세요."));
-      //     let operator = prompt(
-      //       "연산자를 입력하세요 (+, -, *, /), 종료하려면 '종료' 입력",
-      //     );
-      //     result = calc(num1, num2, operator);
-      //     alert(result);
-      //     }
-      //     document.write("계산기 종료됨! 새로고침하여 다시 시작하세요");
+    <!-- <script>
+      function 가위바위보() {
+        let home = ["가위", "바위", "보"];
+        // do{
+        let user = prompt("가위, 바위, 보를 입력하세요");
+        // }while(user != "가위" && user != "바위" && user != "보");
+        let index = home[Math.floor(Math.random() * 3)];
+        if (index == user) return "무승부" + index;
+        if (
+          (user === "보" && index === "가위") ||
+          (user === "가위" && index === "바위") ||
+          (user === "바위" && index === "보")
+        )
+          return "졌습니다" + index;
+        if (
+          (user === "가위" && index === "보") ||
+          (user === "바위" && index === "가위") ||
+          (user === "보" && index === "보")
+        )
+          return "이겼습니다" + index;
+      }
+      alert(가위바위보());
+      function 다시하기() {
+        alert(가위바위보());
+      }
+      btn.onclick = 다시하기;
+    </script> -->
 
+    <!-- <script>
+      function checkPassword(password) {
+        //특수문자 검사
+        let symbolsCharCount = 0;
+        const SYMBOLS = "!@#$%"; //허용할 특수문자들
+        for (let i = 0; i < password.length; i++) {
+          if (SYMBOLS.includes(password[i])) {
+            //비밀번호(password)의 i번째가 특수문자에 포함되어있는지 확인
+            symbolsCharCount++; //있으면 카운트 증가
+          }
+        }
+        if (password.length < 8) {
+          return "SHORT";
+        }
+        if (symbolsCharCount === 0) {
+          //비밀번호에 최소 1개라도 특수문자가 포함되어있는지
+          return "NO-SYMBOLS";
+        } else {
+          return "SUCCESS";
+        }
+        // if(password.length < 8){
+        //     return "SHORT";
+        // }else if(symbolsCharCount === 0){
+        //     return "NO-SYMBOLS";
+        // }else{
+        //     return "SUCCESS";
+        // }
+      }
+      let input = prompt("회원가입시 사용할\n비밀번호를 설정해주세요");
+      let result = checkPassword(input);
+      if (result === "SUCCESS") {
+        alert("회원가입 성공");
+        console.log("설정된 비밀번호: " + input);
+      } else if (result === "SHORT") {
+        alert("비밀번호가 너무 짧습니다!");
+        console.log("설정된 비밀번호: " + input);
+      } else if (result === "NO-SYMBOLS") {
+        alert("최소 1개 이상의 특수문자가 포함되어야 합니다.");
+        console.log("설정된 비밀번호: " + input);
+      }
+    </script> -->
 
-      //   //3. 원하는 구구단 출력하기
-      //   function gugudan(n) {
-      //     document.write("<h2>" + n + "단 <br></h2>");
-      //     for (let i = 1; i <= 9; i++) {
-      //       document.write(n + " X " + i + " = " + n * i + "<br>");
-      //     }
-      //   }
-      //   let n = prompt("원하는 구구단 단수를 입력하세요.");
-      //   gugudan(n);
+    <!-- <script>
+      function 오늘의명언() {
+        let 이미지들 = [
+          //이미지 여러개니까 배열 사용
+          "https://i.pinimg.com/1200x/f3/42/ad/f342ad499b0d0456928560b87ff61580.jpg",
+          "https://i.pinimg.com/736x/6f/c2/b3/6fc2b3910f8bb2612549554948e86973.jpg",
+          "https://i.pinimg.com/736x/01/c1/22/01c122263e3a3e9066084274b7b23f9e.jpg",
+          "https://i.pinimg.com/736x/e6/ae/94/e6ae949f3a030721058b7899205fd75e.jpg",
+          "https://i.pinimg.com/1200x/c6/1e/56/c61e5666ca2e1c9b7b80d43d036883c3.jpg",
+          "https://i.pinimg.com/736x/46/80/a7/4680a7dcc6346462d8e71ab3c90b2c58.jpg",
+        ];
+        let index = Math.floor(Math.random() * 이미지들.length); //Math.floor()로 묶어서 정수로 만들어주기
+        return 이미지들[index]; //위에 배열 되어있는 이미지들 중 하나 랜덤하게 반환
+      }
+      alert("🍋Quote of the Day🍋");
 
+      let result = 오늘의명언();
 
-      //   function 로또() {
-      //     //집어넣을 때 랜덤한 값이 존재하는지 안 하는지 확인하기
-      //     //확인 후 집어넣기
-      //     let lotto = [];
-      //     let num1 = Math.floor(Math.random() * 45);
-      //     let num2 = Math.floor(Math.random() * 45);
-      //     let num3 = Math.floor(Math.random() * 45);
-      //     let num4 = Math.floor(Math.random() * 45);
-      //     let num5 = Math.floor(Math.random() * 45);
-      //     let num6 = Math.floor(Math.random() * 45);
-      //     let num7 = Math.floor(Math.random() * 45);
+      let imgTag = document.getElementById("quote"); //id가 quote인 요소 찾아오기
+      imgTag.src = result;
+    </script> -->
 
-      //     //let lotto = [num1, num2, num3, num4, num5, num6, num7]
-      //     //중복처리를 못했습니다
-      //     //set, while 활용시켜서 발전 -> while:배열길이가 증가할 때까지
-      //     //중복이면 배열길이가 증가하지 않으므로
-      //     //확인 과정
-      //     let flag = false;
-      //     for (let i = 0; i < lotto.length; i++) {
-      //       if (lotto[i] == num1) {
-      //         flag == true;
-      //       }
-      //     }
-      //     return lotto;
-      //   }
-      //   alert(로또());
+    <!-- <script>
+      /*
+         기능 : 나라를 입력하면 그 나라의 언어로 인사하기
+         입력 : 각 나라 (한국, 미국, 일본, 중국, 스페인, 베트남)
+         출력 : 입력한 나라의 언어로 인사하기
+        */
+      // => 이렇게 하면 그냥 쭉 나열하게됨 X !!
+      // function country(){
+      //     alert("안녕!")
+      //     alert("Hi!")
+      //     alert("こんにちは!")
+      //     alert("Nǐ hǎo!")
+      //     alert("¡Hola!")
+      //     alert("Xin chào!")
+      // }
 
+      function country1(나라) {
+        if (나라 == "한국") {
+          return "안녕 !";
+        } else if (나라 == "미국") {
+          return "Hi !";
+        } else if (나라 == "일본") {
+          return "こんにちは !";
+        } else if (나라 == "중국") {
+          return "Nǐ hǎo !";
+        } else if (나라 == "스페인") {
+          return "¡ Hola !";
+        } else if (나라 == "베트남") {
+          return "Xin chào !";
+        } else {
+          return "아직 배우지 못한 언어입니다 ! ㅠㅠ";
+        }
+      }
 
-      //   /*
-      //    기능: 달러계산기
-      //    입력: 달러금액
-      //    반환: 환율된 금액
-      //  */
-      //   function 달러계산기( amt ){
-      //     let result;
-      //     result = amt*1.462;
-      //     return result;
-      //   }
-      //   let 금액 = 달러계산기( 4);
-      //   alert(금액 + "원 입니다.");
+      let input = prompt("나라 이름을 입력해주세요!");
+      let result = country1(input);
+      alert(result);
+    </script> -->
 
+    <!-- <script>
+      function calc(a) {
+        return a ** 2;
+      }
+      let a = 0;
+      while (a < 3) {
+        let score = parseInt(prompt("수를 입력"));
+        alert(score + "의 제곱 :" + calc(score));
+        a++;
+      }
+    </script> -->
 
-      //   function total_even(num) {
-      //     let total_even = 0;
-      //     for (i = 1; i < num + 1; i++) {
-      //       if (i % 2 == 0) {
-      //         total_even += i;
-      //       }
-      //     }
-      //     return total_even;
-      //   }
-      //   function total_odds(num) {
-      //     let total_odds = 0;
-      //     for (i = 1; i < num + 1; i++) {
-      //       if (i % 2 == 1) {
-      //         total_odds += i;
-      //       }
-      //     }
-      //     return total_odds;
-      //   }
-      //   function print(num) {
-      //     let total_even_num = total_even(num);
-      //     let total_odds_num = total_odds(num);
-      //     alert("짝수 총합은 " + total_even_num);
-      //     alert("홀수 총합은 " + total_odds_num);
-      //   }
-      //   let num = parseInt(prompt("수를 입력하세요: "));
-      //   print(num);
-    </script>
+    <!-- <script>
+      /*
+            함수 만들기 실습 4: 미니 쇼핑몰 장바구니 만들기
+            요구사항:
+            1. 상품 목록(products)은 배열과 객체 형태 정의되어 있습니다.
+            2. 사용자에게 상품 목록을 보여주고, 원하는 상품을 장바구니(cart)에 추가할 수 있어야 합니다.
+            3. 사용자가 '결제'를 입력하면, 장바구니에 담긴 상품들과 총 결제 금액을 보여주고 프로그램을 종료합니다.
+
+            아래 함수들을 직접 구현해 보세요.
+        */
+      // 1. 상품 데이터
+      const products = [
+        { id: 1, name: "노트북", price: 1200000 },
+        { id: 2, name: "마우스", price: 30000 },
+        { id: 3, name: "키보드", price: 55000 },
+        { id: 4, name: "모니터", price: 350000 },
+        { id: 5, name: "USB 허브", price: 25000 },
+      ];
+      // 2. 장바구니 배열
+      let cart = [];
+      /*
+            - 기능: 전체 상품 목록을 alert 창으로 보기 좋게 출력합니다.         
+        */
+      function displayProducts(products) {
+        let display = "--- 상품 목록 ---\n";
+        for (let i = 0; i < products.length; i++) {
+          display += `${i + 1}. ${products[i].name} - ${products[i].price.toLocaleString()}원\n`;
+        }
+        alert(display);
+      }
+      /*
+            - 기능: 상품 ID를 이용해 products 배열에서 해당 상품 객체를 찾아 반환합니다.
+        */
+      function findProductById(productId) {
+        for (let i = 0; i < products.length; i++) {
+          if (products[i].id == productId) {
+            return products[i];
+          }
+        }
+        return null; // null을 반환
+      }
+      /*
+            - 기능: 사용자로부터 입력받은 상품 ID를 이용해 장바구니에 상품을 추가합니다.
+        */
+      function addToCart() {
+        const productId = prompt(
+          "원하는 상품 번호를 입력하세요. (결제하시려면 '결제' 입력)",
+        );
+        if (productId === "결제") {
+          return false;
+        }
+        //숫자로 형변환
+        const foundProduct = findProductById(Number(productId));
+        if (foundProduct === null) {
+          alert("존재하지 않는 상품입니다.");
+        } else {
+          cart.push(foundProduct);
+          alert(`장바구니에 ${foundProduct.name}을(를) 추가했습니다.`);
+        }
+        return true;
+      }
+      /*
+            - 기능: 장바구니(cart)에 있는 모든 상품의 총 가격을 계산하여 반환합니다.
+        */
+      function calculateTotal(cart) {
+        let sum = 0;
+        for (let i = 0; i < cart.length; i++) {
+          sum += cart[i].price;
+        }
+        return sum;
+      }
+
+      /*
+            - 기능: 계산이 끝난 후, 최종 장바구니 목록과 총 결제 금액을 document.write()로 출력합니다.
+        */
+      function displayCartSummary(cart, total) {
+        document.write("<h2>최종 결제 내역</h2>");
+        document.write("<ul>");
+        for (let i = 0; i < cart.length; i++) {
+          document.write(
+            `<li>${cart[i].name} - ${cart[i].price.toLocaleString()}원</li>`,
+          );
+        }
+        document.write("</ul>");
+        document.write("<hr>");
+        document.write(`<p>총 결제 금액: ${total.toLocaleString()}원</p>`);
+      }
+      function runShopping() {
+        displayProducts(products);
+        while (addToCart()) {} // addToCart가 false를 반환할 때까지 반복
+        const total = calculateTotal(cart);
+        displayCartSummary(cart, total);
+      }
+    </script> -->
   </body>
 </html>
