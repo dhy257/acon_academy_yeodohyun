@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // 입력: X
+        // 기능: 종이비행기만드는법 알려주기
+        // 반환: X
+
+
+
+        function 비행기만들기(){
+
+          document.write( "1. 종이를 세로로 반 접었다가 다시 펼친다, 가운데 선 만들기<br>"); 
+          document.write( "2. 양쪽 위 모서리를 가운데 선에 맞춰 접는다<br>");
+          document.write( "3. 다시 한 번 양쪽 모서리를 가운데로 접어서 더 뾰족하게 만든다<br>");
+          document.write( "4. 종이를 가운데 선 기준으로 반 접기<br>");
+          document.write( "5. 양쪽 날개를 아래로 접기<br>");
+          document.write( "비행기 완성<br>");
+        }
+
+        // 비행기만들기();
+
+        function 하트만들기(){
+            document.write( "1. 색종이를 세로로 반 접는다<br>");
+            document.write( "2. 다시 가로로 반 접었다가 펼친다 (가운데 선 만들기)<br>");
+            document.write( "3. 아래 두 모서리를 가운데 선에 맞춰 위로 접는다 (지붕 모양)<br>");
+            document.write( "4. 뒤집는다<br>");
+            document.write( "5. 위쪽과 옆 뾰족한 부분을 살짝 접어 둥글게 만든다<br>");
+            document.write( "하트 완성<br>");
+        }
+     
+       
+        let choice = prompt("비행기 또는 하트 중 하나를 입력하세요");
+         
+        if(choice == "하트"){
+            하트만들기();
+        }else{
+            비행기만들기();
+        }
+
+        // while
+
+    </script>
+
+</body>
+</html>

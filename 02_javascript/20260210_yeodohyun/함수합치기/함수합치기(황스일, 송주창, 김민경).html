@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            단위 변환기 (인치 ↔️ 센티미터)
+                입력 함수: 사용자에게 변환할 값과 단위를 입력받습니다. (예: "10인치")
+                변환 함수: 입력된 단위에 따라 값을 계산합니다. (1인치 = 2.54cm)
+                결과 출력 함수: "10인치는 25.4cm 입니다." 와 같이 변환된 결과를 출력합니다.
+        */
+        //입력함수 - 황스일
+        function input(){
+            let data = prompt("변환할 값(인치)를 입력하세요")
+            data = Number(data);
+            return data;
+        }
+        //변환함수 - 송주창
+        function inch_cm(inch){
+            let result = inch * 2.54;
+            return result;
+        }
+        
+        //출력함수 - 황스일
+        function output(cm){
+            document.writeln("<h3> 단위 변환기 결과 </h3>");
+            document.writeln("<hr><br>");
+            document.writeln(cm + "cm 입니다.");
+        }
+        function run(){
+            let inch = input();
+            let cm = inch_cm(inch);
+            output(cm);
+        }
+        
+        run();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //기능: 상품마다 아이디를 부여
+        //매개변수: 외부로부터 받는 것이 있나 없나 -> 아이디를 만들 개수(cnt)
+        //받고 싶은 것: 상품이름 배열
+        // 반환값:  상품아이디 배열 -> 아이디 배열(id)
+        function 아이디만들기( cnt){
+           
+            let id = [];
+            
+            
+            for(let i=0; i<cnt; i++){
+                let num1 = Math.floor(Math.random() * 50000+1);
+                id[i] = num1;
+               
+            }
+
+            return  id;
+        }
+            let a = 아이디만들기(prompt("상품 개수를 입력하시오"));
+
+            
+
+        /*
+
+    ["청바지" , "티셔츠"  ,"반바지"]   ===== >  [12323, 33343, 4433];
+
+    */
+
+        function 가격정하기(id){
+            let price = [];
+
+              for(let i=0; i<id.length; i++){
+                price[i] = id[i]*0.5;
+               
+            }
+
+            return price;
+        }
+            
+
+        alert(가격정하기(a));    
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let 계좌번호 = 0;
+        let 계좌_money = 10000;
+        let money = 0;
+        let password = 0;
+
+        function 계좌만들기(){
+            계좌번호 = prompt("계좌번호를 - 없이 8자리 숫자로 적어주세요")
+            if(계좌번호.length==8){
+                alert("계좌번호를 8자리로 잘 입력하셨습니다.")
+            }else{
+                alert("계좌번호가 8자리가 아닙니다.다시 입력해주세요");
+                return;
+            }
+
+            if(isNaN(parseInt(계좌번호))==true){
+                alert("계좌번호를 숫자로 잘 입력하셨습니다.")
+            }else{
+                alert("계좌번호에 숫자가 아닌 문자가 섞여있습니다.다시 입력해주세요");
+                return;
+            }
+
+            password = prompt("비밀번호를 4자리 숫자로 적어주세요")
+            if(password.length==4){
+                alert("비밀번호를 4자리로 잘 입력하셨습니다.")
+            }else{
+                alert("비밀번호가 4자리가 아닙니다.다시 입력해주세요");
+                return;
+            }
+            if(True==isNaN(password)){
+            }else{
+                alert("비밀번호에 숫자가 아닌 문자가 섞였습니다.다시 입력해주세요");
+                return;
+            }
+        }
+
+        function 인출하기(){
+            let 계좌번호체크 = parseint(prompt("당신의 계좌번호를 입력해주세요"))
+            if(계좌번호체크 != 계좌번호){
+                "잘못된 계좌번호를 입력하셨습니다"
+                return;
+            }
+
+            alert(`현재 당신의 계좌에 있는 돈은 ${계좌_money}입니다.`)
+
+            let 인출금액 = prompt("얼만큼 인출하시겠습니까?");
+
+            alert(`${인출금액}만큼 확인되었습니다.이후 진행을 원하시면 패스워드를 입력해주세요`)
+
+            let b =0;
+
+            b = parseInt(prompt("당신의 비밀번호를 입력해주세요.")) 
+
+            if(비밀번호 != b){
+                "잘못된 계좌번호를 입력하셨습니다."
+                return;
+            }
+
+            계좌_money -= parseInt(인출금액);
+
+            alert(`${인출금액}만큼 인출하였습니다.당신의 남은 계좌 금액은 ${계좌_money}입니다.`)
+            alert("서비스를 종료합니다.")
+        }
+        let choice = 0;
+        choice = parseInt(prompt("어떤 것을 선택할래요?1.계좌만들기 2.인출하기 3.예금하기"));
+
+        if(choice == 1){
+            계좌만들기()
+        }else if(choice == 2){
+            인출하기()
+        }else{
+            alert("없는 무언가입니다.종료하겠습니다.")
+        }
+
+
+    </script>    
+</body>
+</html>

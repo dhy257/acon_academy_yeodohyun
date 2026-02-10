@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const targetNumber = randomNum();
+      let count = 0;
+
+      // 랜덤 숫자 1~100 - 김재민
+      function randomNum() {
+        return Math.floor(Math.random() * 100) + 1;
+      }
+
+      //정답 확인 - 정철진
+      function answer(input) {
+        count++;
+
+        console.log("랜덤수 확인: "+targetNumber);
+
+        while (targetNumber != input) {
+          if (input > targetNumber) {
+            alert("더 작은 숫자를 입력하세요.");
+          } else if (input < targetNumber) {
+            alert("더 큰 숫자를 입력하세요.");
+          } else if (input === targetNumber) {
+            alert(`정답입니다!${count}번 만에 맞추셨네요!`);
+          } else {
+            alert("숫자만 입력해주세요!");
+          }
+          input = parseInt(prompt("숫자를 입력해주세요"));
+        }
+      }
+
+      let input = parseInt(prompt("숫자를 입력해주세요"));
+      answer(input);
+    </script>
+  </body>
+</html>

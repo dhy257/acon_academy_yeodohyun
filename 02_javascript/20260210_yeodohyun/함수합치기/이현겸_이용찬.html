@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 이현겸 함수
+      function 이현겸챔피언선택(라인) {
+        if (라인 == "탑") {
+          let champ = ["다리우스", "가렌", "케일", "세트"];
+          let index = Math.floor(Math.random() * champ.length);
+          return champ[index];
+        } else if (라인 == "정글") {
+          let champ = ["리 신", "제이스", "카직스", "엘리스"];
+          let index = Math.floor(Math.random() * champ.length);
+          return champ[index];
+        } else if (라인 == "미드") {
+          let champ = ["탈론", "빅토르", "오리아나", "사일러스"];
+          let index = Math.floor(Math.random() * champ.length);
+          return champ[index];
+        }
+      }
+
+      // 이용찬 함수
+      function 원딜() {
+        ad = ["징크스", "코그모", "이즈리얼", "케이틀린"];
+        index = Math.floor(Math.random() * 4);
+        return ad[index];
+      }
+
+      function 서폿() {
+        sup = ["브라움", "나미", "알리스타", "바드"];
+        index = Math.floor(Math.random() * 4);
+        return sup[index];
+      }
+
+      function 라인선택() {
+        line = prompt("라인을 입력해주세요.");
+        return line;
+      }
+
+      function 이용찬챔피언결정(라인) {
+        let 챔피언;
+        switch (라인) {
+          case "원딜":
+            챔피언 = 원딜();
+            alert(챔피언);
+            break;
+          case "서폿":
+            챔피언 = 서폿();
+            alert(챔피언);
+            break;
+        }
+      }
+
+      // 출력문
+      // 탑, 정글, 미드: 이현겸 함수
+      // 원딜, 서폿: 이용찬 함수
+      while (true) {
+        let 라인 = prompt(
+          "라인을 입력하세요: '탑', '정글', '미드', '원딜', '서폿'",
+        );
+        if (라인 == "탑" || 라인 == "정글" || 라인 == "미드") {
+          let result = 이현겸챔피언선택(라인);
+          alert(result);
+        } else if (라인 == "원딜" || 라인 == "서폿") {
+          이용찬챔피언결정(라인);
+        } else {
+            alert("라인을 예시대로 입력해주세요.");
+        }
+      }
+    </script>
+  </body>
+</html>
