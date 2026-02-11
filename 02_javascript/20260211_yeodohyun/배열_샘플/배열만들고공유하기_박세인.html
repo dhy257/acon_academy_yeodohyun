@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 1차원 배열
+        let 투수1 = ["류현진", "문동주", "정우주", "김서현"];
+        let 투수2 = ["김서현", "왕옌청", "황준서", "이상규"];
+        let 투수3 = ["엄상백", "김승일", "조동욱", "김종수"];
+
+        let 야수1 = ["문현빈", "이도윤", "노시환", "심우준"];
+        let 야수2 = ["손아섭", "채은성", "강백호", "황영묵"];
+        let 야수3 = ["이진영", "하주석", "김태연", "페라자"];
+
+
+
+        // 2차원 배열
+        let 투수 = [
+            ["류현진", "문동주", "정우주", "에르난데스"],
+            ["김서현", "왕옌청", "황준서", "이상규"],
+            ["엄상백", "김승일", "조동욱", "김종수"]
+        ];
+
+        let 야수 = [
+            ["문현빈", "이도윤", "노시환", "심우준"],
+            ["손아섭", "채은성", "강백호", "황영묵"],
+            ["이진영", "하주석", "김태연", "페라자"]
+        ];
+        
+        // 📍2차원배열로 투수 이름 출력하기
+        document.write("<h3>한화이글스 투수 이름 출력하기(2차원 배열)</h3><hr>");
+        for(let i = 0; i < 3; i++){
+            for(let j = 0; j < 4; j++){
+                document.write(투수[i][j] + " ");
+            }
+            document.write("<br>");
+        }
+        // 📍2차원배열로 야수 이름 출력하기
+        document.write("<h3>한화이글스 야수 이름 출력하기(2차원 배열)</h3><hr>");
+        for(let i = 0; i < 3; i++){
+            for(let j = 0; j < 4; j++){
+                document.write(야수[i][j] + " ");
+            }
+            document.write("<br>");
+        }
+
+        // 3차원 배열
+        let 한화이글스 = [
+            [
+                ["류현진", "문동주", "정우주", "에르난데스"],
+                ["김서현", "왕옌청", "황준서", "이상규"],
+                ["엄상백", "김승일", "조동욱", "김종수"]
+            ],
+
+            [
+                ["문현빈", "이도윤", "노시환", "심우준"],
+                ["손아섭", "채은성", "강백호", "황영묵"],
+                ["이진영", "하주석", "김태연", "페라자"]
+            ]
+        ];
+        
+        // 📍3차원배열로 선수 이름 출력하기
+        document.write("<h3>한화이글스 선수 이름 출력(3차원 배열)</h3><hr>");
+        for(let k = 0; k < 2; k++){
+            for(let i = 0; i < 3; i++){
+                for(let j = 0; j < 4; j++){
+                    document.write(한화이글스[k][i][j] +" ");
+                }
+                document.write("<br>");
+            }
+        }
+     
+
+        // 📍입력받아 공유하기
+        let choice = prompt("보고싶은 것을 입력하세요(투수/야수)");
+        document.write("<h2>" + choice + " 명단</h2>");
+        if(choice === "투수"){
+            for(let i = 0; i < 3; i++){
+                for(let j = 0; j < 4; j++){
+                    document.write(한화이글스[0][i][j] + " ");
+                }
+                document.write("<br>");
+            }
+        }else if(choice == "야수"){
+            for(let i = 0; i < 3; i++){
+                for(let j = 0; j < 4; j++){
+                    document.write(한화이글스[1][i][j] + " ");
+                }
+                document.write("<br>");
+            }
+        }else{
+            document.write("다시 입력하세요");
+        }
+    
+    </script>
+</body>
+</html>

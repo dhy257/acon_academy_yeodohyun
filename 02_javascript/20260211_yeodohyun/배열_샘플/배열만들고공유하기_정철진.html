@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열만들어보기</title>
+  </head>
+  <body>
+    <script>
+      let warehouse = [
+        [
+          ["냉장고", "세탁기"],
+          ["TV", "오디오"],
+        ],
+
+        [
+          ["사과", "배"],
+          ["라면", "햇반"],
+        ],
+      ];
+
+      //전체 재고 조회 함수
+      function getInventoryText() {
+        let info = "=== 현재 재고 현황 ===\n";
+
+        for (let i = 0; i < warehouse.length; i++) {
+          info += `\n[${i === 0 ? "0:가전" : "1:식료품"} 창고]\n`;
+          
+          for (let j = 0; j < warehouse[i].length; j++) {
+            for (let k = 0; k < warehouse[i][j].length; k++) {
+              info += `  └ ${j}구역-${k}선반: ${warehouse[i][j][k]}\n`;
+            }
+          }
+        }
+
+        return info;
+      }
+
+      let isRunning = true;
+      //무한루프를 사용해야 하는데 탈출조건도 있어야 해서 정확히 하려고 변수에 true
+
+      while (isRunning) {
+        let menu = prompt(
+          "수행할 작업을 선택하세요:\n1. 전체 재고 조회\n2. 재고 정보 수정\n3. 프로그램 종료",
+        );
+
+        switch (menu) { //메뉴 선택 판단
+          case "1": //전체 재고 조회 함수 호출
+            alert(getInventoryText());
+            break;
+
+          case "2": //재고 정보 수정
+            //w : 창고 번호 | s : 구역 번호 | l : 선반 번호
+            let w = prompt("창고 번호 (0 또는 1)");
+            let s = prompt("구역 번호 (0 또는 1)");
+            let l = prompt("선반 번호 (0 또는 1)");
+
+            //입력한 위치에 물건이 정확히 존재하는지 and 번호 재대로 입력했는지 0 또는 1로만
+            if (warehouse[w] && warehouse[w][s] && warehouse[w][s][l]) {
+              let newItem = prompt(
+                `현재 물건: ${warehouse[w][s][l]}\n새로운 물건 이름을 입력하세요:`,
+              );//입력한 해당 위치에 물건이 존재하면 이름 입력 받기
+              if (newItem) {
+                //입력된 값이 비어있는지 판단
+                //"" or null 이면 false
+                //뭐 하나라도 들어있으면 true
+                //이걸 풀어서 적으면 => if (newItem !== null && newItem !== "")
+                warehouse[w][s][l] = newItem;
+                alert("수정이 완료되었습니다.");
+              }
+            } else {
+              alert("잘못된 위치 번호입니다.");
+            }
+            break;
+
+          case "3":
+            alert("프로그램을 종료합니다.");
+            isRunning = false;
+            break;
+
+          case null:
+            isRunning = false;
+            break;
+
+          default:
+            alert("1, 2, 3번 중에서만 골라주세요!");
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

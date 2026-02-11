@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열문제풀어보기</title>
+  </head>
+  <body>
+    <!-- <script>
+      //1차원배열 문제 만들고 풀어보기
+      //1.배열의 내용 출력하기  ( 반복을 사용하여 배열의 요소 :  기억장소 한 개 = 변수와 동일한 역할)
+
+      //            0       1        2   =>배열요소의 순번(첨자)
+      let fruit = ["딸기", "귤", "사과"];
+      alert(fruit[0]);
+      alert(fruit[1]);
+      alert(fruit[2]);
+      fruit[3] = "망고";
+
+      alert(fruit.length); //배열의 길이 (크기)
+
+      //반복문 직접처리
+      for (let i = 0; i < fruit.length; i++) {
+        document.write("hi ^^" + fruit[i]);
+      }
+
+      //배열매서드   forEach  경험하기
+      fruit.forEach(function (aa) {
+        alert("hi  ^^" + aa);
+      });
+    </script> -->
+
+    <!-- <script>
+      //2.배열의 요소 다 더하기
+      let kors = [90, 100, 88];
+      let sum = kors[0]+kors[1]+kors[2];
+      alert(sum);
+
+      //배열 반복문
+      let maths=[87,96,81];
+      let mathSum=0;
+
+    //   mathSum+=maths[0]; //0+87=87
+    //   mathSum+=maths[1]; //87+96=183
+    //   mathSum+=maths[2]; //183+81=264
+    //   alert(mathSum);
+    
+    for(i=0;i<maths.length;i++) mathSum+=maths[i];
+    alert(mathSum);
+
+    </script> -->
+
+    <!-- <script>
+      //3.배열에 원하는 내용이 있는지 확인하기
+      let fruit = ["딸기", "귤", "사과", "복숭아", "블루베리"];
+
+      //원하는 요소가 있는지 알아보기(true,false) >> 논리형 데이터로 처리하기
+      let findFruit = prompt("과일 입력:");
+      let result=false; //결과값 저장용변수
+      for (i = 0; i < fruit.length; i++) {
+        let item = fruit[i];
+        if(item==findFruit){
+            result=true;
+            break;
+        }
+      }
+
+      alert(result); //과일이 존재하면 true 없으면 false
+    </script> -->
+
+    <script>
+      //4.배열에서 가장 큰 값 구하기
+      let price = [1000, 2000, 3000, 800];
+
+      //출력: 가장 큰 수 max
+      //처리: 반복제어변수: i
+      //준비: price 배열
+
+      //이 값의 범위에서 가장 작은 값 또는 배열의 처음 값으로 초기화
+      max = 0;
+      for (i = 0; i < price.length; i++) {
+        let item = price[i];
+        if (item > max) {
+          max = item;
+        }
+      }
+      min=1000;
+      for (i = 0; i < price.length; i++) {
+        let item = price[i];
+        if (item < min) {
+          min = item;
+        }
+      }
+      alert(`가장 큰 값은 ${max}, 작은 값은 ${min}`);
+
+    //   for (i = 0; i < price.length; i++) {
+    //     if (max < price[i]) max = price[i];
+    //   }
+    //   document.write(max);
+    </script>
+  </body>
+</html>
