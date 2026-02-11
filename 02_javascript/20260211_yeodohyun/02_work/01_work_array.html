@@ -49,32 +49,38 @@
       document.write("<br>");
 
       // 원하는 음식 출력(예시: 불고기)
-      document.write("한식 " + worldFood[0][0][2] + "<br>");
+      document.write("한식-" + worldFood[0][0][2] + "<br>");
 
       //
       let endfieldIndustries = [
         ["Endministrator", "Yvonne"], //6
         ["Wulfgard", "Perlica", "Chen Qianyu"], //5
-        ["Akekuri", "Estella", "Fluorite", "Antal", "Catcher"] //4
+        ["Akekuri", "Estella", "Fluorite", "Antal", "Catcher"], //4
       ];
 
       let rhodesIsland = [
-        ["Laevatain", "Ardelia", "Gilberta","Pogranichnik"], //6
-        ["Snowshine"] //5
+        ["Laevatain", "Ardelia", "Gilberta", "Pogranichnik"], //6
+        ["Snowshine"], //5
       ];
-      let honhshanAcademyOfSciences=[
+      let honhshanAcademyOfSciences = [
         ["Lifeng"], //6
-        ["Da Pan"] //5
-      ]
+        ["Da Pan"], //5
+      ];
       // 나머지는 다 하나씩이라 etc로 통합
-      let etc=[
-        ["Last Rite","Ember",""], //6
-        ["Avywenna","Arclight","Alesh","Xaihi"] //5
-      ]
+      let etc = [
+        ["Last Rite", "Ember"], //6
+        ["Avywenna", "Arclight", "Alesh", "Xaihi"], //5
+      ];
 
+      let endfieldOperators = [
+        endfieldIndustries,
+        rhodesIsland,
+        honhshanAcademyOfSciences,
+        etc,
+      ];
 
-
-
+      // 원하는 오퍼 선택()
+      document.write("endendfieldIndustries-"+endfieldOperators[0][1][2]);
     </script>
     <!-- <script>
       //배열만들기 문제 예시  ( 1차원 2차원  3차원 맘껏 사용하기  꼭 3차원을 사용하지 않아도 됨)
