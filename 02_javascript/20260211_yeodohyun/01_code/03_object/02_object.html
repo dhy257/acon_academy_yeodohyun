@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체타입맛보기</title>
+  </head>
+  <body>
+    <script>
+      //자바스크립트 객체만들기
+      let book = {
+        title: "명품 웹프로그래밍",
+        author: "황기태",
+        price: 30000,
+        publisher: "생능출판",
+      };
+
+      //책정보 출력하기
+      //   document.write(book.title);
+      //   document.write(book.author);
+      //   document.write(book.price);
+      //   document.write(book.publisher);
+      //   document.write("<br>");
+
+      //객체의 속성 접근하기["속성키 이름"]
+      let a = book["title"]; // 쌍따옴표 주의
+      let b = book["author"];
+
+      let key = "price";
+      let c = book[key];
+
+      alert(a);
+      alert(b);
+      alert(c);
+    </script>
+  </body>
+</html>

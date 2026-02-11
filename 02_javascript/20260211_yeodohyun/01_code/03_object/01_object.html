@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체타입맛보기</title>
+  </head>
+  <body>
+    <script>
+      let snackName = "맛동산";
+      //과자정보 = 여러개의 속성(값)으로 이루어져 있다
+      //과자이름, 제조사, 무게, 가격, 제조일자...
+
+      //자바스크립트 객체만들기
+      let snack = {
+        name: "맛동산",
+        marker: "해태",
+        weight: 200,
+        price: 3500,
+      };
+
+      //과자정보 출력하기
+      document.write(snack.name);
+      document.write(snack.marker);
+      document.write(snack.weight);
+      document.write(snack.price);
+      document.write("<br>");
+      snack.weight=180;
+      document.write(snack.weight);
+    </script>
+  </body>
+</html>
