@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시험연습</title>
+    <style>
+      header {
+        height: 100px;
+        background-color: blue;
+
+        /* 기준1 */
+        position: relative;
+      }
+      nav {
+        height: 60px;
+        background-color: rgb(107, 67, 67);
+      }
+      section {
+        /* height: 500px; */
+        /* background-color: green; */
+      }
+      /* header{
+        display: flex;
+        justify-content: space-between;
+      } */
+      .title_img {
+        background-color: red;
+        width: 100px;
+
+        /* 부모기준(기준1)으로 top left right bottom사용 */
+        position: absolute;
+        top: 10px;
+        left: 20px;
+      }
+      /* =================================검색바================================= */
+      .search_bar {
+        /* background-color: rgb(37, 160, 160);
+        width: 100px; */
+        width: 200px;
+        height: 40px;
+        border: 1px solid black;
+        display: flex;
+
+        /* 기준1 */
+        position: absolute;
+        top: 10px;
+        right: 20px;
+      }
+      .search_text {
+        width: 160px;
+        border: none;
+        outline: none;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .search_img {
+        width: 40px;
+        /* border: 1px solid black; */
+        background-image: url(https://cdn-icons-png.flaticon.com/512/158/158740.png);
+        background-size: cover;
+        background-position: center;
+        margin: 3px;
+      }
+      /* =================================ul================================= */
+      ul {
+        width: 910px;
+        list-style: none;
+        margin: 0 auto;
+        border: 1px solid red;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      ul li {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        text-align: center;
+      }
+      ul li img {
+        width: 70%;
+      }
+
+      /* =================================푸터================================= */
+      footer {
+        display: flex;
+      }
+      .footer_item {
+        border: 1px solid red;
+        /* 3등분 */
+        width: 33.3%;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="title_img">title이미지</div>
+      <!-- <div class="search_bar">검색바</div> -->
+      <div class="search_bar">
+        <input type="text" class="search_text" />
+        <div class="search_img"></div>
+      </div>
+    </header>
+    <nav>회원가입 로그인</nav>
+    <section>
+      <ul>
+        <li>
+          <img
+            src="https://image2.lotteimall.com/goods/08/54/31/2445315408_L.jpg"
+            alt=""
+          />
+          <p>샤넬 백</p>
+          <p>2000원</p>
+        </li>
+        <li>
+          <img
+            src="https://image2.lotteimall.com/goods/08/54/31/2445315408_L.jpg"
+            alt=""
+          />
+          <p>샤넬 백</p>
+          <p>2000원</p>
+        </li>
+        <li>
+          <img
+            src="https://image2.lotteimall.com/goods/08/54/31/2445315408_L.jpg"
+            alt=""
+          />
+          <p>샤넬 백</p>
+          <p>2000원</p>
+        </li>
+        <li>
+          <img
+            src="https://image2.lotteimall.com/goods/08/54/31/2445315408_L.jpg"
+            alt=""
+          />
+          <p>샤넬 백</p>
+          <p>2000원</p>
+        </li>
+        <li>
+          <img
+            src="https://image2.lotteimall.com/goods/08/54/31/2445315408_L.jpg"
+            alt=""
+          />
+          <p>샤넬 백</p>
+          <p>2000원</p>
+        </li>
+        <li>
+          <img
+            src="https://image2.lotteimall.com/goods/08/54/31/2445315408_L.jpg"
+            alt=""
+          />
+          <p>샤넬 백</p>
+          <p>2000원</p>
+        </li>
+      </ul>
+    </section>
+    <footer>
+      <div class="footer_item">1</div>
+      <div class="footer_item">2</div>
+      <div class="footer_item">3</div>
+    </footer>
+  </body>
+</html>

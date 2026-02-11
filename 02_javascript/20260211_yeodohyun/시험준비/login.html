@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <style>
+      .login_wrap {
+        width: 400px;
+        /* height: 500px; */
+        border: 1px solid black;
+        margin: 0 auto;
+        padding: 10px;
+      }
+      .image_wrap {
+        width: 200px;
+        /* height: 200px; */
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+      .image_wrap img {
+        /*
+        이미지 영역(200*200)안에 이미지 태그 채우기
+        반드시 이미지영역(이미지태그의 부모)이 존재해야 object-fit사용가능
+        */
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .user_info_wrap {
+        width: 300px;
+        /* height: 250px; */
+        border: 1px solid black;
+        margin: 0 auto;
+        margin-top: 30px;
+      }
+      .user_info_wrap input,
+      button {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- login -->
+    <div class="login_wrap">
+      <!-- image -->
+      <div class="image_wrap">
+        <img src="../../../00_assets/01_images/char.png" alt="" />
+      </div>
+      <!-- lnfo -->
+      <div class="user_info_wrap">
+        <input type="text" />
+        <input type="password" />
+        <button>로그인</button>
+      </div>
+    </div>
+  </body>
+</html>
