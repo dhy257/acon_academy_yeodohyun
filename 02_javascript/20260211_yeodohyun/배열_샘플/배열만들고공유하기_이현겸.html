@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 2차원 배열
+      let 영화 = [
+        ["리얼 스틸", "아이언맨", "어벤져스", "인터스텔라"], // 10대
+        ["위플래쉬", "오펜하이머", "다크나이트", "언터처블"], // 20대 초반
+        ["그린북", "소스코드", "어쩔수가없다"], // 20대 중반
+      ];
+      let 음악 = [
+        ["Post Malone", "저스디스", "5sos", "Skrillex"], // 10대
+        ["The 1975", "NewJeans", "Leisure", "프로미스나인"], // 20대 초반
+        ["Meshuggah", "Pantera", "Giveon", "Dijon"], // 20대 중반
+      ];
+
+      // 3차원 배열
+      let 취미 = [영화, 음악];
+
+
+
+      function 난수생성기(randLength) {
+        rand = Math.floor(Math.random() * randLength);
+        return rand;
+      }
+
+      function 취미선택(genre, age) {
+        if (genre == "영화") {
+          if (age == 1) {
+            randLength = 취미[0][0].length;
+            return 취미[0][0][난수생성기(randLength)];
+          } else if (age == 2) {
+            randLength = 취미[0][1].length;
+            return 취미[0][1][난수생성기(randLength)];
+          } else if (age == 3) {
+            randLength = 취미[0][2].length;
+            return 취미[0][1][난수생성기(randLength)];
+          } else {
+            return "나이대를 잘못 입력했습니다";
+          }
+        } else if (genre == "음악") {
+          if (age == 1) {
+            randLength = 취미[1][0].length;
+            return 취미[1][0][난수생성기(randLength)];
+          } else if (age == 2) {
+            randLength = 취미[1][1].length;
+            return 취미[1][1][난수생성기(randLength)];
+          } else if (age == 3) {
+            randLength = 취미[1][2].length;
+            return 취미[1][2][난수생성기(randLength)];
+          } else {
+            return "나이대를 잘못 입력했습니다";
+          }
+        } else {
+          alert("취미를 잘못 입력했습니다");
+        }
+      }
+
+      while (true) {
+        let genre = prompt("궁금한 취미를 선택해주세요: 영화, 음악");
+        let age = parseInt(
+          prompt(
+            "나이대를 숫자로 선택해주세요: 10대 = 1, 20대 초반 = 2, 20대 중반 = 3",
+          ),
+        );
+        let result = 취미선택(genre, age);
+        alert(result);
+      }
+    </script>
+  </body>
+</html>

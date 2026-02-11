@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    <script>
+      //배열만들기 문제 예시  ( 1차원 2차원  3차원 맘껏 사용하기  꼭 3차원을 사용하지 않아도 됨)
+      //1차원 배열
+      let 먹고싶은거= ["밥","국","반찬"]; 
+      //2차원배열
+      let 가고싶은곳 =[
+         ["학교","말고","어디든"],   //10대
+         ["대학","이든","어디든"],   //20대
+         ["직장","라던가","어디든"]    //30대
+      ] ;
+ 
+      let 보고싶은영화=[
+        ["아이언맨","쏘우","키친","리틀 포레스트","엣지 오브 투모로우"],   //10대
+        ["어벤져스","어바웃타임","기생충","그랜드 부다페스트 호텔","서치"],   //20대
+        ["비포 선라이즈" ,"인턴" ,"월터의 상상은 현실이 된다" ,"헤어질 결심" ,"라라랜드"] ,    //30대
+      ]; 
+      //3차원배열  (2차원배열을 여러개 가지는 배열)
+      let 하고싶은것들 =[
+             [
+         ["학교","말고","어디든","따뜻한 내 방 이불 속","송도 센트럴파크"],   //10대
+         ["대학","이든","어디든","을왕리 바다","조용한 만화카페",],   //20대
+         ["직장","라던가","어디든","학교 앞 맛집","코인 노래방"]    //30대
+             ],
+              //0면  , 첫번째 2차원배열 의미
+             [
+        ["아이언맨","쏘우","키친","리틀 포레스트","엣지 오브 투모로우"],   //10대
+        ["어벤져스","어바웃타임","기생충","그랜드 부다페스트 호텔","서치"],   //20대
+        ["비포 선라이즈" ,"인턴" ,"월터의 상상은 현실이 된다" ,"헤어질 결심" ,"라라랜드"] ,    //30대
+             ]  
+            //1면  두번째 2차원배열 의미       
+      ];
+      
+      while(true){
+        const random1 = Math.floor(Math.random() * 2)
+        const random2 = Math.floor(Math.random() * 3)
+        const random3 = Math.floor(Math.random() * 5)
+        let check = " "
+        let check_1 = ""; check_2= ""; check_3 ="상세";
+
+        
+        if(random1 ==0){
+            check_1 = "장소"
+            if(random2 ==0){
+                check_2 = "10대"
+            }else if(random2 == 1){
+                check_2 = "20대"
+            }else if(random2 == 2){
+                check_2 = "30대"
+            }
+        }else if(random1 == 1){
+            check_1 = "영화"
+            if(random2 ==0){
+                check_2 = "10대"
+            }else if(random2 == 1){
+                check_2 = "20대"
+            }else if(random2 == 2){
+                check_2 = "30대"
+            }
+        }
+
+        alert(`하고싶은 것들 중 ${check_1} -> ${check_2} -> ${check_3}:`+하고싶은것들[random1][random2][random3])
+
+        check = confirm("더 보실건가요?")
+
+        if(check == false){
+            alert("종료할게요")
+            break;
+        }
+      }
+
+
+    </script>
+</body>
+</html>
