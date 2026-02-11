@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열반환함수</title>
+  </head>
+  <body>
+    <!-- <script>
+      //일주일메뉴추천 "김밥 돈까스 스시 카레 제육" >> 문자열 1개
+      //1차원배열로 1주일 메뉴 반환하기
+
+      //기능:
+      //입력:x
+      //반환:1주일 메뉴
+      function 메뉴추천1주일() {
+        let menu = ["김밥", "돈까스", "스시", "카레", "제육"];
+        return menu;
+      }
+
+      let 추천메뉴결과 = 메뉴추천1주일();
+      alert(추천메뉴결과);
+
+      //배열 > 배열의 요소를 접근해서 사용
+      for (i = 0; i < 추천메뉴결과; i++) alert(추천메뉴결과[i]);
+    </script> -->
+
+    <!-- <script>
+      //한 달 메뉴추천
+      //2차원배열로 한 달 메뉴 반환하기
+
+      //기능:
+      //입력:x
+      //반환:1주일 메뉴
+      function 메뉴추천한달() {
+        let week1 = ["김밥1", "돈까스1", "스시1", "카레1", "제육1"];
+        let week2 = ["김밥2", "돈까스2", "스시2", "카레2", "제육2"];
+        let week3 = ["김밥3", "돈까스3", "스시3", "카레3", "제육3"];
+        let week4 = ["김밥4", "돈까스4", "스시4", "카레4", "제육4"];
+        let menus = [week1, week2, week3, week4];
+        return menus;
+      }
+
+      let 추천메뉴결과 = 메뉴추천한달();
+      alert(추천메뉴결과);
+
+      //배열 > 배열의 요소를 접근해서 사용
+
+      //행,열 > 기억장소 한 칸에 접근한다.
+      for (i = 0; i < 추천메뉴결과.length; i++) {
+        //추천메뉴결과.length > 행의 개수
+        for (j = 0; j < 추천메뉴결과[i].length; j++) {
+          document.write(추천메뉴결과[i][j] + ",");
+        }
+        document.write("<br>");
+      }
+    </script> -->
+
+    <script>
+      function 메뉴추천2달() {
+        let month1 = [
+          ["마카롱", "푸딩"],
+          ["딸기", "블루베리"],
+          ["케익", "쿠키"],
+          ["아이스크림", "주먹밥"],
+        ];
+        let month2 = [
+          ["토스트", "핫도그"],
+          ["붕어빵", "도넛"],
+          ["견과류", "키위"],
+          ["컵밥", "와플"],
+        ];
+        let months = [month1, month2];
+        return months;
+      }
+
+      let result = 메뉴추천2달();
+
+      //면, 몇번째 2차원 배열인지
+      //행,열 (2차원)
+
+      for (k = 0; k < result.length; k++) {
+        //3차원크기 > 2차원개수 > 2
+        for (i = 0; i < result[k].length; i++) {
+          //2차원 배열의 크기는 행의 개수(4)
+          for (j = 0; j < result[k][i].length; j++) {
+            //result[k][i] > 열의 개수(2)
+            document.write(result[k][i][j]);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

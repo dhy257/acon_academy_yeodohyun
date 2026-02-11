@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문자열과변수</title>
+  </head>
+  <body>
+    <script>
+      // 문자열과 변수를 연결할 때 +연산자 사용가능
+      let fruit = "딸기";
+      let result = "가장 좋아하는 과일은 " + fruit;
+      alert("일반적인 방법:" + result);
+      // 템플릿 문자열: ``(백틱)을 사용하여 문자열에 변수를 쉽게 포함시킨다. 변수포함은 ${}
+      // 줄바꿈을 허용하는 장점
+      let fruit1 = "딸기";
+      let result1 = `가장
+      좋아하는
+      과일은 ${fruit1}`;
+
+      alert(result1);
+    </script>
+
+    <!-- <script>
+        // 문자열과 변수를 연결할 때  +  연산자 사용가능 
+        let fruit="딸기";
+        let result  ="가장 좋아하는 과일은" + fruit;
+        alert("가장 좋아하는 과일은" + fruit);
+        alert( result);
+
+
+
+    </script> -->
+
+    <!-- <script>
+      // 문자열과 변수를 연결할 때  +  연산자 사용가능
+      let fruit = "딸기";
+      let result = "내가좋아하는 과일은" + fruit;
+      /*
+        let result  ="가장 좋아하는 \n";
+            result  = result + "과일은" + fruit;   
+        */
+      //alert("가장 좋아하는 과일은" + fruit);
+      alert(result);
+    </script> -->
+  </body>
+</html>
