@@ -15,20 +15,38 @@
 
         upgrade: function () {
           if (this.durability <= 0) {
-            alert("내구도가 없어 강화 불가.");
+            console.log("내구도가 없어 강화할 수 없습니다.");
             return;
+          }
+          // 내구도에 따른 확률 설정
+          let successRate;
+
+          if (this.durability >= 80) {
+            successRate = 0.8;
+          } else if (this.durability >= 50) {
+            successRate = 0.6;
+          } else if (this.durability >= 20) {
+            successRate = 0.4;
           } else {
+            successRate = 0.1;
+          }
+
+          let random = Math.random(); // 0 ~ 1
+
+          if (random < successRate) {
             this.level += 1;
-            this.durability -= 10;
-          }
-        },
-        repair: function () {
-          if (this.durability == 100) {
-            alert("내구도 이미 최대치");
-            return;
+            console.log("강화 성공! 현재 레벨: " + this.level);
           } else {
-            this.durability += 10;
+            console.log("강화 실패...");
           }
+
+          this.durability -= 10;
+          console.log("현재 내구도: " + this.durability);
+        },
+
+        repair: function () {
+          this.durability = 100;
+          console.log("수리 완료! 내구도 100");
         },
         getInfo: function () {
           return (
@@ -43,20 +61,10 @@
         },
       };
 
-      // {
-      //   console.log(equip.getInfo());
-      //   console.log(equip.upgrade());
-      //   console.log(equip.getInfo());
-      //   console.log(equip.repair());
-      //   console.log(equip.getInfo());
-      // }
+      // 테스트
       document.write(equip.getInfo());
       document.write("<br>");
-      equip.upgrade();
-      document.write(equip.getInfo());
-      document.write("<br>");
-      equip.repair();
-      document.write(equip.getInfo());
+      
     </script>
   </body>
 </html>
