@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        명언, 과일
+        1.반복문 없이
+        2.반복문 써서
+        3.forEach 사용
+        */
+
+      let 음료 = ["아메리카노", "라떼", "스무디"];
+      음료.forEach(function (item, index) {
+        document.write(`${item} `);
+      });
+      document.write("<br>");
+
+      for (i = 0; i < 음료.length; i++) document.write(`${음료[i]} `);
+      document.write("<br>");
+
+      let 명언 = ["명언1", "명언2", "명언3", "명언4", "명언5"];
+      //1번
+      document.write("<br> 반복문없이: ");
+      document.write(`${명언[0]} `);
+      document.write(`${명언[1]} `);
+      document.write(`${명언[2]} `);
+      document.write(`${명언[3]} `);
+      document.write(`${명언[4]} `);
+
+      //2번
+      document.write("<br> 반복문사용: ");
+      for (let i = 0; i < 명언.length; i++) document.write(`${명언[i]} `);
+      //3번
+      document.write("<br> forEach사용: ");
+      명언.forEach(function (item, index) {
+        document.write(`${item} `);
+      });
+      //4번
+      document.write("<br> forEach흉내: ");
+      function myForEach(callback) {
+        for (let i = 0; i < 명언.length; i++) {
+          let item = 명언[i];
+          callback(item);
+        }
+      }
+      myForEach(function (value) {
+        document.write(`${value} `);
+      });
+      //5번
+      let 명언2 = [
+        // 1. 알베르트 아인슈타인
+        [
+          "상상력이 지식보다 중요하다.",
+          "한 번도 실수한 적이 없는 사람은 새로운 방식을 시도한 적이 없는 사람이다.",
+          "어제와 똑같이 살면서 다른 미래를 기대하는 것은 정신병 초기 증세이다.",
+        ],
+        // 2. 소크라테스
+        [
+          "너 자신을 알라.",
+          "반성하지 않는 삶은 살 가치가 없다.",
+          "유일한 선은 지식요, 유일한 악은 무지이다.",
+        ],
+        // 3. 나폴레옹 보나파르트
+        [
+          "내 사전에 불가능이란 없다.",
+          "승리는 가장 끈기 있는 자에게 돌아간다.",
+          "약속을 지키는 최선의 방법은 약속을 하지 않는 것이다.",
+        ],
+      ];
+      document.write("<br> forEach사용: <br>");
+
+      명언2.forEach(function (item, index) {
+        if (index == 0)
+          document.write(`<strong>[알베르트 아인슈타인]</strong><br>`);
+        else if (index == 1) document.write(`<strong>[소크라테스]</strong><br>`);
+        else document.write(`<strong>[나폴레옹 보나파르트]</strong><br>`);
+
+        item.forEach(function (quote) {
+          document.write(`"${quote}" <br>`); // 명언 하나하나
+        });
+
+        document.write("<br>");
+      });
+    </script>
+  </body>
+</html>
