@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체타입만들어보기2</title>
+  </head>
+  <body>
+    <script>
+      let book = {
+        bookName: "뇌",
+        bookPrice: 15000,
+        bookPublisher: "열린책들",
+        bookAuthor: "베르나르베르베르",
+      };
+
+      //객체 속성 접근  :  .연산자
+      console.log(book.bookName);
+      console.log(book.bookPrice);
+      console.log(book.bookPublisher);
+      console.log(book.bookAuthor);
+
+      //객체 속성접근 : [] 대괄호 연산자
+      console.log(book["bookName"]);
+      console.log(book["bookPrice"]);
+      console.log(book["bookPublisher"]);
+      console.log(book["bookAuthor"]);
+
+      //객체배열
+      let books = [
+        {
+          bookName: "뇌",
+          bookPrice: 15000,
+          bookPublisher: "열린책들",
+          bookAuthor: "베르나르베르베르",
+        },
+        {
+          title: "명품 웹프로그래밍",
+          author: "황기태",
+          price: 30000,
+          publisher: "생능출판",
+        },
+        {
+          title: "이것이 자바다1,2",
+          author: "신용권",
+          price: 38000,
+          publisher: "한빛미디어",
+        },
+      ];
+
+      let book1 = books[0];
+      document.write(book1.bookName);
+    </script>
+  </body>
+</html>

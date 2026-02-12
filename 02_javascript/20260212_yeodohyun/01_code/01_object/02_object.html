@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체문제풀어보기</title>
+  </head>
+  <body>
+    <script>
+      const snack = {
+        name: "감자칩",
+        price: 1500,
+        stock: 50,
+        flavors: ["original", "cheese"],
+        manufacturing: {
+          country: "Korea",
+          factory: "경기도 안양  공장",
+        },
+        promotions: {
+          discount: 10, // 10% 할인
+          offerValidUntil: "2025-01-31",
+        },
+      };
+
+      //스낵의 이름을 출력하시오
+      document.write(snack["name"]);
+      document.write("<br>");
+      //스낵의 맛을 출력하시오
+      document.write(snack["flavors"]);
+      document.write("<br>");
+      //프로모션 할인율 출력
+      document.write(snack["promotions"]["discount"]);
+
+      //let key1 = prompt("");
+      //let key2 = prompt("");
+      //console.log(snack[key1]);
+      //console.log(snack[key1][key2]);
+      /*
+
+      */
+    </script>
+  </body>
+</html>

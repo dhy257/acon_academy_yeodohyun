@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체만들어보기</title>
+  </head>
+  <body>
+    <script>
+      //객체
+      // 속성(병수)+기능(함수,매서드)로 이루어진 독립적인 단위
+      // 속성은 키: 값 형태로 사용
+
+      //심청이 거북이 객체로 표현
+      let turtle = {
+        name: "심청이",
+        species: "페니슐라쿠터",
+        age: 4,
+        color: "초록색",
+        weight: 800,
+        likesFood: "건새우",
+
+        인사하기: function () {
+          alert("안녕");
+        },
+        먹기: function (food) {
+          alert(`${food} 먹음`);
+        },
+      };
+
+      //거북이 정보 출력하기
+      document.write(turtle.name);
+      //거북이의 인사하기 기능(매서드, 함수) 호출
+      turtle.인사하기();
+      turtle.먹기("빵");
+      turtle.먹기("건새우");
+    </script>
+  </body>
+</html>
