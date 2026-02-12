@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체공유</title>
+  </head>
+  <body>
+    <script>
+      let equip = {
+        name: "Excalibur",
+        type: "Sword",
+        level: 0,
+        durability: 100,
+
+        upgrade: function () {
+          this.level += 1;
+          this.durability -= 10;
+          if (this.durability < 0) this.level -= 1;
+        },
+        repair: function () {
+          this.durability += 10;
+        },
+        getInfo: function () {
+          return (
+            this.name +
+            " " +
+            this.type +
+            " " +
+            this.level +
+            " " +
+            this.durability
+          );
+        },
+      };
+
+      //   console.log(equip.getInfo());
+      //   console.log(equip.upgrade());
+      //   console.log(equip.getInfo());
+      //   console.log(equip.repair());
+      //   console.log(equip.getInfo());
+      document.write(equip.getInfo());
+      document.write("<br>");
+      equip.upgrade();
+      document.write(equip.getInfo());
+      document.write("<br>");
+      equip.repair();
+      document.write(equip.getInfo());
+    </script>
+  </body>
+</html>
