@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const game = {
+            gameName: "OverWatch",
+            characters: ["디바", "트레이서", "아나"],
+            tank: [600, 50, 40], //체력, 딜량, 기여도 
+            deal: [200, 75, 30], //체력, 딜량, 기여도 
+            heal: [200, 45, 40, 30], //체력, 딜량, 힐량, 기여도 
+            selectCharacter: function(num) {
+                if(num == 1){
+                    alert("디바를 선택하였습니다.");
+                    return "탱커";
+                    
+                }else if(num == 2) { 
+                    alert("트레이서를 선택하였습니다.");
+                    return "딜러";
+                }else if(num == 3) {
+                    alert("아나를 선택하였습니다.");
+                    return "힐러";
+                }
+            },
+            characterInfo: function(info){
+                if (info == "탱커"){
+                    document.write(`체력: ${this.tank[0]}, 딜량: ${this.tank[1]}, 기여도: ${this.tank[2]}`);
+                }
+                if (info == "딜러"){
+                    document.write(`체력: ${this.deal[0]}, 딜량: ${this.deal[1]}, 기여도: ${this.deal[2]}`);
+                }
+                if (info == "힐러"){
+                    document.write(`체력: ${this.heal[0]}, 딜량: ${this.heal[1]}, 힐량: ${this.heal[2]}, 기여도: ${this.heal[3]}`);
+                }
+            }
+        };
+
+        alert(`${game.gameName}에 오신 여러분들을 환영합니다.`);
+        let num = parseInt(prompt("캐릭터를 선택해주세요. (1.디바 , 2.트레이서 , 3.아나)"))
+        let info = game.selectCharacter(num);
+        game.characterInfo(info);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let kimjaemin={
+            name:"김재민",
+            age:25,
+            height:177,
+            weight:72,
+            birthday:"2002-03-20",
+
+            playGame : function(){
+                alert("게임하기");
+            },
+            playBass: function (){
+                alert("둥둥둥")
+            },
+            커져라:function (){
+                kimjaemin.height++;
+                kimjaemin.weight++;
+            },
+            키몸출력:function (){
+                alert(this.weight);
+                alert(this.height);
+            }
+        }
+
+
+        alert(kimjaemin.name);
+        alert(kimjaemin.age);
+        alert(kimjaemin.birthday);
+        kimjaemin.키몸출력();
+
+        kimjaemin.playBass();
+        kimjaemin.playGame();
+
+
+    </script>
+</body>
+</html>

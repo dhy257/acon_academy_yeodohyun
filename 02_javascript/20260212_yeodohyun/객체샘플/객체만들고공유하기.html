@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let iphone = {
+            시리즈: "17 pro max",
+            색상: " 화이트 ",
+            용량:  "1T",
+            출시일: " 2025.09.10",
+
+            색상변경하기: function(){
+                this.색상 = " 블랙 ";
+            },
+
+            용량변경하기: function(){
+               this.용량 = "512GB";
+            },
+
+            
+    
+        }
+
+        document.write(iphone.시리즈);
+        document.write(iphone.색상);
+        document.write(iphone.용량);
+        document.write(iphone.출시일);
+    
+        document.write("<h2> 색상 변경하기 </h2>");
+
+        iphone.색상변경하기();
+        document.write(iphone.시리즈);
+        document.write(iphone.색상);
+        document.write(iphone.용량);
+        document.write(iphone.출시일);
+
+        document.write("<h2> 용량 변경하기 </h2>");
+        iphone.용량변경하기();
+        document.write(iphone.시리즈);
+        document.write(iphone.색상);
+        document.write(iphone.용량);
+        document.write(iphone.출시일);
+
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //자바스크립트가 제공하는 내장 객체(Math=>수학 관련 기능 제공, Date=>날짜 관련 기능 제공)
+      //String => 문자열에 관련된 기능 제공
+
+      //1.날짜(현재날짜)
+      let current = new Date(); //Date객체 생성 후 객체의 기능 사용 가능
+      //현재날짜 가져오기
+      console.log(current);
+
+      let year = current.getFullYear();
+      console.log(year);
+
+      let month = current.getMonth();
+      console.log(month+1); //0월부터 제공되기 때문에 +1해서 사용해야함
+      
+      let date = current.getDate();
+      console.log(date);
+
+      let day = current.getDay();
+      console.log(day); //숫자로 뜸 , 일요일(0)~토(6)
+      let 요일 =["일","월","화","수","목","금","토",]
+      console.log(요일[day]);
+
+    </script>
+  </body>
+</html>

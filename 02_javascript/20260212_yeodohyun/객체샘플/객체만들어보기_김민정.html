@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 만들어서 공유하기</title>
+</head>
+<body>
+    <script>
+        let 신사동 = {
+            지역: "은평구",
+            전철호선: 6,
+            맛집: "보들이쭈꾸미",
+            카페: "투썸플레이스",
+
+            소개하기: function(){
+                alert("신사동을 소개하겠습니다!");
+            }
+            ,
+
+            카페추천: function(프렌차이즈){
+                if(프렌차이즈 == "카페연서"){
+                    alert("카페는 카페연서를 추천합니다");
+                }else{
+                    alert("투썸플레이스를 포함한 여러 카페들이 있습니다");
+                }
+            }
+        } ;
+
+        신사동.소개하기();
+        alert(`신사동은 ${신사동.지역}에 있습니다`);
+        alert(`신사동은 ${신사동.전철호선}호선입니다`);
+        // alert(신사동.호선 + "호선 입니다");
+        신사동.카페추천("카페연서");
+
+        
+    </script>
+</body>
+</html>

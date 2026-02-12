@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let 림월드 ={
+            title: "RimWorld",
+            developer: "Ludeon Studios",
+            creator: "Tynan Sylvester",
+
+            dlc:[
+            { name: "Royalty", 출시일: 2020, 장르: "Empire & Psychic" },
+            { name: "Ideology", 출시일: 2021, 장르: "Belief Systems" },
+            { name: "Biotech", 출시일: 2022, 장르: "Mechanoids & Children" },
+            { name: "Anomaly", 출시일: 2024, 장르: "Horror & Entities" }
+            ],
+
+            have_dlc:[],
+
+            dlc_구매 : function(dlc_name){
+
+                for(i=0;i<this.dlc.length;i++){
+
+                    if(this.dlc[i].name === dlc_name){
+                        if(this.have_dlc[i] == dlc_name){
+                            alert("이미 가지고 계신 dlc입니다.")
+                        }else{
+                        this.have_dlc.push(dlc_name);
+                        alert("dlc를 추가하였습니다.")
+                        }
+                        return;
+                    }
+                }
+                alert("존재하지 않는 dlc입니다.")
+            }
+        }
+
+        림월드.dlc_구매("Biotech");
+        림월드.dlc_구매("BRoyalty");
+        림월드.dlc_구매("Royalty");
+
+        document.writeln(림월드.have_dlc);
+
+
+    </script>
+</body>
+</html>

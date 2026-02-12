@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let 세린이={
+            이름:"박세린",
+            체중:"14.5",
+            종:"셔틀랜드쉽독",
+            나이:"2살",
+            컬러:"블루멀",
+            좋아하는간식:"지위픽 사슴 정강이",
+             인사하기 : function(){
+                alert("🐼안녕 나는 세린이야🐼");
+                alert("다들 만나서 반가웡");
+
+            },
+            먹기 : function(food){
+                alert("🦴내가 좋아하는 간식은"+food+"!🦴");
+            }
+               
+        };
+     
+        alert(세린이.이름);
+
+        세린이.인사하기();
+        세린이.먹기("지위픽 사슴 정강이");
+        세린이.먹기("고구마도 있어");
+
+        let 세린=prompt("🍋세린이의 궁금한 정보를 입력해주세요!🍋 (이름, 체중, 종, 나이, 컬러, 좋아하는간식)");
+        alert(세린이[세린]);
+      
+        
+    </script>
+</body>
+</html>
