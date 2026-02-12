@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //문자열(객체) let str="hello";
+      //문자열을 편리하게 사용할 수 있는 기능(매서드)을 제공하고 있따
+
+      //문자열의 요소(문자) 얻어오기
+      let str = "hello";
+      let result = str.charAt(0); //순번 0부터 시작
+      console.log(result); //h
+
+      //문자열 추출 substring
+      //문자열에서 일부 가져올 때 사용하는 기능
+      let str2 = "i like javascript";
+      let result2 = str2.substring(2, 6); //2부터 6까지
+      console.log(result2); //like
+
+      let result3 = str2.substr(2, 4); //2부터 4개
+      console.log(result3); //like
+
+      {
+        //split 구분자로 나눠서 배열로 반환한다
+        //문자열을 분리해서 사용할때
+        //문자열.split("-");
+        let str = "hi-bye-^^";
+        let result = str.split("-");
+        console.log(result); //(3) ['hi', 'bye', '^^']
+      }
+
+      {
+        //문자열.indexOf() : 문자열 내에서 찾고자하는 문자열의 시작위치 바환(없으면 -1)
+        let str = "i like javascript";
+        let result = str.indexOf("like"); //like는 2부터 나옴
+        console.log(result); //2
+      }
+
+      //문자열.startsWith() : 특정문자열로 시작하는지 => true, false
+      //문자열.endsWith() : 특정문자열로 끝나는지 => true, false
+      {
+        let fileName = "test.html";
+        let 음료 = "스무디망고";
+        console.log(fileName.endsWith("html")); //true
+        console.log(fileName.endsWith("dd")); //false
+        console.log(음료.startsWith("스무디")); //true
+        console.log(음료.startsWith("dd")); //false
+      }
+
+      {
+        //문자열.치환
+        //문자열.replace("대상","바꿀문자열");
+        let str = "i like java";
+        let result = str.replace("java", "javascript");
+        console.log(result);
+      }
+    </script>
+  </body>
+</html>
