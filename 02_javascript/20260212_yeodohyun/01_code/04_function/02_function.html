@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //양치질 함수
+      function 양치질하기() {
+        document.write("1.치약");
+        document.write("2.양치");
+        document.write("3.헹굼" + "<br>");
+      }
+      //인사하기
+      //기능:인사
+      //입력:인사 횟수
+      //반환: x
+      function 인사하기(cnt) {
+        for (i = 0; i < cnt; i++) alert("인사");
+      }
+      양치질하기();
+      인사하기(2);
+      양치질하기();
+
+      function 합구하기10() {
+        let sum = 0;
+        for (let i = 0; i <= 10; i++) {
+          sum += i;
+        }
+        document.write(sum);
+      }
+      합구하기10();
+    </script>
+  </body>
+</html>
