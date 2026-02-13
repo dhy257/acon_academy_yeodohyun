@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM요소 선택2</title>
+    <script>
+      function change() {
+        // alert("dd"); //확인용
+
+        //스타일 적용
+        let items = document.getElementsByClassName("item");
+        // 선택이 잘되었는지 항상 확인 => 없으면 null
+        let item = items[0];
+        console.log(item);
+        item.style.backgroundColor = "red";
+      }
+      function unChange() {
+        // alert("dd"); //확인용
+
+        //스타일 적용
+        let items = document.getElementsByClassName("item");
+        // 선택이 잘되었는지 항상 확인 => 없으면 null
+        let item = items[0];
+        console.log(item);
+        item.style.backgroundColor = "";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>class이름으로 요소, 태그 선택하기</h1>
+    <p>class이 item인 요소 선택해서 스타일 변경하기</p>
+
+    <p>주의사항: 선택된 요소가 한 개여도 배열로 반환된다.</p>
+
+    <div class="item">요소</div>
+    <button onclick="change()">스타일 적용</button>
+    <button onclick="unChange()">스타일 취소</button>
+  </body>
+</html>
