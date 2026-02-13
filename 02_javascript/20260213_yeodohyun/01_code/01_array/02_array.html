@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const snacks = [
+        "오레오 밀카 초콜릿",
+        "이클립스",
+        "이클립스",
+        "트윅스-고지연",
+        "허쉬 초콜릿-봉지",
+        "아이셔&양갱",
+        "컵라면 & 양갱",
+        "아이셔&양갱",
+        "빅파이-나해수",
+        "오리온 다이제 과자",
+        "천하장사 소세지",
+        "아이셔&양갱",
+        "오레오 밀카 초콜릿",
+        "오레오-김건희",
+        "초코바-단백질크런치",
+        "홈런볼-김민정",
+        "호호감자 & 양갱",
+        "초코바-단백질크런치",
+        "컵라면 & 양갱",
+        "화이트하임-김재민",
+        "허쉬 초콜릿-봉지",
+      ];
+
+      let numbers = [1000, 2000, 3000];
+
+      //배열의 각 숫자를*2한 새로운 배열을 만드시오
+
+      let newNumbers = [];
+      for (let i = 0; i < newNumbers.length; i++) {
+        newNumbers[i] = numbers[i] * 2;
+      }
+      //numbers.map(); // 반복하면서 너가 원하는 내용으로 새로운 배열을 만들어 줄께
+      //=>매개변수로 새롭게 변형할 내용을 코드로 제공해야함
+
+      function 변경하기(item, index) {
+        //배열의 내용, index 제공받는다
+        return item * 2; //새롭게 변형된 값을 반드시 반환해야함
+      }
+      let result = numbers.map(변경하기);
+      document.write(`${result}<br>`);
+
+      //콜백함수 익명으로 넣기
+      //numbers.map(function(){});
+      let result2 = numbers.map(function (item) {
+        return item * 2;
+      });
+
+      //화살표함수
+      let result3 = numbers.map((item, index) => {
+        return item * 2;
+      });
+
+      let result4 = numbers.map((item) => item * 2);
+      document.write(`콜백 익명: ${result2}<br>`);
+      document.write(`화살표: ${result3}<br>`);
+      document.write(`화살표 축약: ${result4}<br>`);
+
+      let names = ["정철진", "조아진", "박세인", "장해든"];
+      let newNames = names.map(function (item) {
+        return item + "님";
+      });
+      document.write(`${newNames}<br>`);
+    </script>
+  </body>
+</html>
