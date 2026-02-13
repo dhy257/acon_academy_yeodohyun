@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM요소 선택4</title>
+    <script>
+      function change() {
+        //alert("d");
+        // //배열 => 반복으로 처리하겠다
+        const items = document.querySelectorAll(".item");
+
+        // //반복문 안쓰고 하기
+        // const item1 = items[0];
+        // const item2 = items[1];
+        // item1.style.backgroundColor = "skyblue";
+        // item2.style.backgroundColor = "red";
+
+        // //반복문 사용
+        // for (let i = 0; i < items.length; i++) {
+        //   let div = items[i];
+        //   console.log(div);
+        //   div.style.backgroundColor = "skyblue";
+        //   div.style.border = "1px solid black";
+        // }
+        // // forEach
+        // items.forEach(function (item) {
+        //   console.log("item=",item);
+        //   item.style.backgroundColor = "skyblue";
+        // });
+        // forEach 축약
+        items.forEach((item) => (item.style.backgroundColor = "skyblue"));
+      }
+      function unChange() {
+        // alert("22")
+      }
+    </script>
+  </head>
+  <body>
+    <h2>querySelectorAll로 요소 선택하기</h2>
+    <p>주의사항: 모두선택하기이므로 선택대상이 한 개여도 배열로 반환하기</p>
+    <div class="item">item1</div>
+    <div class="item">item2</div>
+    <button onclick="change()">스타일 적용</button>
+    <button onclick="unChange()">스타일 취소</button>
+    <script>
+      function 명언주기() {
+        //1개, 2개, 3개 랜덤으로 주기 => 배열처리
+        //배열
+        //return a,b; 불가능 | 함수는 반드시 반환이 한 개여야하기 때문에 여러 개 보내고 싶으면 배열 사용
+        return ["아자아자"];
+      }
+      let result = 명언주기()[0];
+      //alert(result);
+    </script>
+  </body>
+</html>
