@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .a{
+            background-color: red;
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+    <script>
+        function  styleToggle(){
+           // aleret("dkfk");
+
+           const   wrap  = document.querySelector(".wrap");
+           console.log( wrap);
+           wrap.classList.toggle("a");   //a클래스 토글
+
+        }
+    </script>
+</head>
+<body>
+
+    <div class="wrap"> </div>   
+
+    <button  onclick="styleToggle()">  스타일 적용 토글 </button>
+</body>
+</html>

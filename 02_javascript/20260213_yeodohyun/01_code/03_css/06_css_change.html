@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css스타일 변경하기</title>
+    <style>
+      .a {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      .b {
+        width: 100px;
+        height: 50px;
+        background-color: green;
+      }
+    </style>
+    <script>
+      function styleChange() {
+        //alert("d");
+        const item1 = document.querySelector(".a");
+        console.log(item1);
+        //바꾸기
+        //item1.classList.replace("a","b");
+        item1.classList.toggle("b");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="a">item1</div>
+    <p>자바스크립트로 클래스를 추가, 삭제, 토글, 대체</p>
+    <button onclick="styleChange()">스타일변경</button>
+  </body>
+</html>

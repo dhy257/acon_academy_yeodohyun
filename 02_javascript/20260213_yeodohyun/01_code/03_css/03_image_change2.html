@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지변경하기2</title>
+    <script>
+      //this를 매개변수로 전달하여 객체의 속성 바꾸기
+      function changeImage(obj) {
+        //이미지 변경하기
+        console.log(obj);
+        obj.src =
+          "https://hanbitcho.com/wp-content/uploads/elementor/thumbs/284A3301-puqc0h10p4hg3rn19jwyuc7ss2atkuc20peqkftm6c.jpg";
+      }
+    </script>
+  </head>
+  <body>
+    <img
+      src="https://m.tlj.co.kr:8008/data/product/2025-4-8_event(5).jpg"
+      width="100px"
+      alt="케익이미지"
+      onclick="changeImage(this)"
+      id="item"
+    />
+  </body>
+</html>
