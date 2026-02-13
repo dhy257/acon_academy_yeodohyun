@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form입력유효성</title>
+    <script>
+      function validLogin() {
+        //form요소 접근하기 => document.forms[0] (document.forms 배열 사용)
+        //form태그 접근하기 => document.frm      (document.폼의name)
+        const form = document.frm;
+        console.log(form);
+        const userId = form.userId; //input 태그 정보
+        console.log(userId);
+        const userPw = form.userPw; //input 태그 정보
+        console.log(userPw);
+
+        if (userId.value == "") {
+          alert("id를 입력하세요");
+          userId.focus();
+        } else if (userPw.value == "") {
+          userPw.focus();
+          alert("pw입력하세요");
+        } else alert("로그인성공");
+      }
+    </script>
+  </head>
+  <body>
+    <form name="frm" action="" method="get">
+      <!-- 서버로 전송될 데이터, name속성은 반드시 작성 -->
+      <input type="text" name="userId" />
+      <input type="password" name="userPw" />
+      <button type="button" onclick="validLogin()">로그인</button>
+    </form>
+  </body>
+</html>

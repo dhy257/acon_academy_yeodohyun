@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스타일변경하기</title>
+
+    <style>
+      div {
+        display: none;
+      }
+      /* div태그이면서 on클래스를 가진 요소 */
+      div.on {
+        display: block;
+      }
+    </style>
+    <script>
+      function toggle() {
+        //alert("d");
+        const item = document.getElementById("item");
+        item.classList.toggle(
+          "on",
+        ); /* classList => 개발자가 준 클래스를 목록형태로 제공*/
+      }
+    </script>
+  </head>
+  <body>
+    <div id="item">내용보이기</div>
+    <button onclick="toggle()">토글</button>
+  </body>
+</html>

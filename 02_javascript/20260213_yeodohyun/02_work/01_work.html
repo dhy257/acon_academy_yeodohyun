@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원비회원로그인</title>
+    <style>
+      .login_wrap {
+        width: 400px;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+      .tab_menu {
+        display: flex;
+      }
+      .tab_menu > div {
+        width: 50%;
+        border: 1plx solid black;
+        text-align: center;
+      }
+      .member,
+      .no_member {
+        display: none;
+      }
+      .member {
+        border: 1px solid black;
+        height: 200px;
+      }
+      .no_member {
+        border: 1px solid black;
+      }
+    </style>
+    <script>
+      function showMember() {
+        const member = document.querySelector(".member");
+        const nomember = document.querySelector(".no_member");
+
+        member.style.display = "block";
+        nomember.style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- 로그인영역 -->
+    <div class="login_wrap">
+      <!-- 탭메뉴 -->
+      <div class="tab_menu">
+        <div>회원</div>
+        <div>비회원</div>
+      </div>
+
+      <!-- 회원로그인 -->
+
+      <div class="member" style="display: block">회원화면</div>
+      <div class="no_member">비회원화면</div>
+
+      <div onclick="showMember()">회원</div>
+      <div onclick="showNoMember()">비회원</div>
+    </div>
+  </body>
+</html>
