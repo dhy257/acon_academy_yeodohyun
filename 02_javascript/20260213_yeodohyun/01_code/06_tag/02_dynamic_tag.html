@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동적태그생성</title>
+    <script>
+      function addDiv() {
+        //1.태그 생성한다(태그 생성하는 기능제공)
+        //2.부모 선택
+        //3.부모의 자식으로 추가
+        const div = document.createElement("div"); //div태그 만들어줘
+
+        //내용, 스타일속성 변경
+        div.innerHTML = "동적으로 태그 생성";
+        div.style.backgroundColor = "skyblue";
+        div.style.width = "100px";
+        div.style.marginTop = "20px";
+
+        //이벤트 추가하기
+        div.addEventListener("click", function () {
+          alert("hi");
+        });
+
+        //2.부모선택
+        const result = document.getElementById("result");
+        console.log(result);
+
+        //3.부모의 자식으로 추가하기
+        result.appendChild(div);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="result"></div>
+    <button onclick="addDiv()">클릭</button>
+  </body>
+</html>

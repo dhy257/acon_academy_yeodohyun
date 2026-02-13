@@ -11,11 +11,11 @@
         margin: 0 auto;
       }
       .tab_menu {
-        display: flex;
+        display: flex;cursor: pointer;
       }
       .tab_menu > div {
         width: 50%;
-        border: 1plx solid black;
+        border: 1px solid black;
         text-align: center;
       }
       .member,
@@ -36,6 +36,13 @@
         const nomember = document.querySelector(".no_member");
 
         member.style.display = "block";
+        nomember.style.display = "none";
+      }
+      function showNoMember() {
+        const member = document.querySelector(".member");
+        const nomember = document.querySelector(".no_member");
+
+        member.style.display = "none";
         nomember.style.display = "block";
       }
     </script>
@@ -45,8 +52,8 @@
     <div class="login_wrap">
       <!-- 탭메뉴 -->
       <div class="tab_menu">
-        <div>회원</div>
-        <div>비회원</div>
+        <div onclick="showMember()">회원</div>
+        <div onclick="showNoMember()">비회원</div>
       </div>
 
       <!-- 회원로그인 -->

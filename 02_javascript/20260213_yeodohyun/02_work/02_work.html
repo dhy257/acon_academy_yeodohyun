@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .login_wrap {
+        width: 400px;
+        height: 500px;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+      .tab_menu {
+        border: 1px solid black;
+        display: flex;
+      }
+      .tab_menu > div {
+        border: 1px solid black;
+        width: 50%;
+        text-align: center;
+        padding: 10px;
+      }
+      .member,
+      .no_member {
+        display: none;
+      }
+      .member.active {
+        display: block;
+      }
+      .no_member.active {
+        display: block;
+      }
+    </style>
+    <script>
+      function showMember() {
+        //alert("d");
+        const member = document.querySelector(".member");
+        console.log("member");
+        const noMember = document.querySelector(".no_member");
+        console.log("no_member");
+
+        //회원보이기(active class추가)
+        member.classList.add("active");
+        //비회원 안보이기(active class삭제)
+        noMember.classList.remove("active");
+      }
+      function showNoMember() {
+        //alert("d");
+        const member = document.querySelector(".member");
+        console.log("member");
+        const noMember = document.querySelector(".no_member");
+        console.log("no_member");
+
+        //회원 안보이기(active 삭제)
+        member.classList.remove("active");
+        //비회원 보이기(active 추가)
+        noMember.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="login_wrap">
+      <!-- 탭메뉴 -->
+      <div class="tab_menu">
+        <div onclick="showMember()">회원</div>
+        <div onclick="showNoMember()">비회원</div>
+      </div>
+      <!-- 회원 -->
+      <div class="member">회원^^</div>
+      <!-- 비회원 -->
+      <div class="no_member">비회원****</div>
+    </div>
+  </body>
+</html>
