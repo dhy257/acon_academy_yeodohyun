@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function addImageTag() {
+        // alert("dd");
+        const img = document.createElement("img");
+        img.src =
+          "data:image/jpeg;base64,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";
+        img.alt = "꽃다발";
+        img.style.width = "300px";
+        img.style.height = "300px";
+        //부모영역 선택
+        const result = document.getElementById("result");
+        console.log(result);
+        //부모영역 추가
+        result.appendChild(img);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="addImageTag()">이미지태그 생성</button>
+    <div id="result"></div>
+  </body>
+</html>

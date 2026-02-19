@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .style1 {
+        border: 1px solid black;
+        padding: 5px;
+        margin-left: 30px;
+        /* 
+        inline => padding 만
+        margin-left, margin-right 가능
+        margin-top, margin-bottom 불가
+        */
+      }
+    </style>
+    <script>
+      function addATag() {
+        // alert("dd");
+
+        // 태그생성
+        const a = document.createElement("a");
+        a.href = "https://www.naver.com";
+        a.target = "_blank";
+        a.textContent = "Naver로 ";
+        a.classList.add("style1");
+
+        //부모영역 선택
+        const result = document.getElementById("result");
+        console.log(result);
+        //부모영역 추가
+        result.appendChild(a);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="addATag()">a태그 생성</button>
+    <div id="result"></div>
+  </body>
+</html>
