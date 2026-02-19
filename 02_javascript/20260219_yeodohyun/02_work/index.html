@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      header {
+        background-color: rgb(245, 248, 248);
+        height: 100px;
+        position: relative;
+      }
+      .title {
+        position: absolute;
+        left: 10px;
+        top: 20px;
+      }
+      .search {
+        position: absolute;
+        right: 10px;
+        bottom: 20px;
+
+        display: flex;
+      }
+      .search input {
+        border: none;
+        outline: none;
+      }
+      .search_img {
+        width: 50px;
+        height: 50px;
+        background-image: url(../../20260206_yeodohyun/시험연습_샘플/images/검색.png);
+        background-size: cover;
+        background-position: center;
+      }
+      nav {
+        height: 40px;
+        padding: 20px;
+        background-color: rgb(232, 243, 243);
+      }
+      section {
+        height: 600px;
+      }
+      section ul {
+        display: flex;
+      }
+      section li {
+        width: 300px;
+        padding: 20px;
+        text-align: center;
+        border: 0.5px solid rgb(255, 241, 241);
+      }
+      section li img {
+        width: 200px;
+        height: 220px;
+      }
+      .point {
+        width: 130px;
+        padding: 10px;
+        color: red;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <img src="" alt="" />
+      </div>
+      <div class="search">
+        <input type="text" />
+        <div class="search_img"></div>
+      </div>
+    </header>
+    <nav>
+      <a href="login.html">로그인</a>
+      <a href="#">회원가입</a>
+      <a href="index.html">홈으로</a>
+    </nav>
+    <section>
+      <ul>
+        <li>
+          <img
+            src="../../20260206_yeodohyun/시험연습_샘플/images/img01.png"
+            alt=""
+          />
+          <p>프로젝트1</p>
+          <div class="point">프로젝트1</div>
+        </li>
+
+        <li>
+          <img
+            src="../../20260206_yeodohyun/시험연습_샘플/images/img02.png"
+            alt=""
+          />
+          <p>프로젝트2</p>
+          <div class="point">프로젝트2</div>
+        </li>
+
+        <li>
+          <img
+            src="../../20260206_yeodohyun/시험연습_샘플/images/img03.png"
+            alt=""
+          />
+          <p>프로젝트3</p>
+          <div class="point">프로젝트3</div>
+        </li>
+      </ul>
+    </section>
+    <footer>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </footer>
+  </body>
+</html>
