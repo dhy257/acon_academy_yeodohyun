@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        기능: 랜덤한 색깔 가져오기
+        입력: x
+        반환: 랜덤한 색깔 (red, #FFFFFF)
+        */
+      function getRandomColor() {
+        const colors = [
+          "red",
+          "blue",
+          "green",
+          "yellow",
+          "purple",
+          "orange",
+          "pink",
+          "brown",
+          "cyan",
+          "magenta",
+          "lime",
+          "teal",
+          "navy",
+          "gold",
+          "coral",
+          "salmon",
+          "beige",
+          "khaki",
+          "olive",
+          "maroon",
+          "turquoise",
+          "lavender",
+          "violet",
+        ];
+        const result = Math.random() * colors.length; //=>0~20
+        console.log(result);
+        const finalResult = Math.floor(result); //=>0~20
+        console.log(finalResult);
+
+        return colors[finalResult];
+      }
+
+      let randomColor = getRandomColor();
+      alert(randomColor);
+
+      function getRandomColor2() {
+        const r = Math.floor(Math.random() * 256); //0~255
+        const g = Math.floor(Math.random() * 256); //0~255
+        const b = Math.floor(Math.random() * 256); //0~255
+
+        const rgbColor = `rgb(${r},${g},${b})`;
+        return rgbColor;
+      }
+      let result = getRandomColor2();
+      alert(result);
+    </script>
+  </body>
+</html>

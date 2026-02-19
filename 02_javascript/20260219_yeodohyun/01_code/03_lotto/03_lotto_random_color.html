@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로또번호 만들기</title>
+    <style>
+      .lotto_ball {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        /* background-color: aqua; */
+        text-align: center;
+        line-height: 50px;
+
+        display: inline-block;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      /*
+        문제) 로또공 6개 띄우기
+        1. 로또번호 만들기 (6개)
+        2. 로또공 6개 만들기
+            2-1. 부모영역 선택
+            2-2. 반복(6번)
+                    -div태그 생성
+                    -style 주기(style 만들고 추가)
+                    -로또번호 넣기
+                    -부모영역에 추가하기
+        */
+
+        function getLottoNumber2() {
+            const lottoNumbers = [];
+            /*
+            let random  =   Math.floor( Math.random() *45)+1   ;  //0~44  =>1~45
+            lottoNumbers.push(random);
+ 
+
+            random  =   Math.floor( Math.random() *45)+1   ;  //0~44  =>1~45
+            lottoNumbers.push(random);  
+
+            random  =   Math.floor( Math.random() *45)+1   ;  //0~44  =>1~45
+            lottoNumbers.push(random);
+
+
+            
+            random  =   Math.floor( Math.random() *45)+1   ;  //0~44  =>1~45
+            lottoNumbers.push(random);
+
+            
+            random  =   Math.floor( Math.random() *45)+1   ;  //0~44  =>1~45
+            lottoNumbers.push(random);
+
+            
+            random  =   Math.floor( Math.random() *45)+1   ;  //0~44  =>1~45
+            lottoNumbers.push(random);  
+
+*/
+            for (let i = 1; i <= 6; i++) {
+                let random = Math.floor(Math.random() * 45) + 1;  //0~44  =>1~45
+                lottoNumbers.push(random);
+            }
+
+            return lottoNumbers;
+
+        }
+
+
+      function getRandomColor2() {
+        const r = Math.floor(Math.random() * 256); //0~255
+        const g = Math.floor(Math.random() * 256); //0~255
+        const b = Math.floor(Math.random() * 256); //0~255
+
+        const rgbColor = `rgb(${r},${g},${b})`;
+        return rgbColor;
+      }
+
+      function createLotto() {
+        const lottos = getLottoNumber2();
+        console.log(lottos);
+
+        //부모선택
+        const result = document.getElementById("result");
+        //부모영역초기화
+        result.innerHTML = "";
+        for (i = 0; i < lottos.length; i++) {
+          const ball = document.createElement("div");
+          ball.innerHTML = lottos[i];
+          ball.classList.add("lotto_ball");
+          //랜덤 색 추가
+          ball.style.backgroundColor = getRandomColor2();
+
+          result.appendChild(ball);
+        }
+      }
+    </script>
+    <button onclick="createLotto()">로또공 나오기</button>
+    <div id="result"></div>
+  </body>
+</html>
