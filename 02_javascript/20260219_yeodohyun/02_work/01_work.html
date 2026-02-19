@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상품추가</title>
+    <style>
+      .add_item {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 5px;
+      }
+      .item_list {
+        border: 1px solid black;
+        width: 500px;
+        height: 500px;
+        padding: 10px;
+      }
+    </style>
+    <script>
+      function add() {
+        // 상품명
+        const nameInput = document.getElementById("goods_name");
+        console.log(nameInput);
+        // 상품가격
+        const priceInput = document.getElementById("goods_price");
+        console.log(priceInput);
+
+        // 상품 or 가격 입력 x
+        if (priceInput.value === "" || nameInput.value === "") {
+          alert("상품 또는 가격을 제대로 입력해주세요");
+        }
+
+        // 상품 가격은 숫자만 입력하게
+        if (isNaN(priceInput.value)) {
+          alert("가격은 숫자만 입력 가능합니다.");
+          priceInput.value = ""; // 입력창 비우기
+          priceInput.focus(); // 가격창으로 커서 이동
+          return; // 함수 종료
+        }
+
+        // 추가될 상품
+        const items = document.createElement("div");
+        console.log(items);
+        items.innerHTML = `<strong>${nameInput.value}</strong> : ${priceInput.value}원`;
+
+        // 부모선택
+        const new_items = document.getElementById("new_items");
+        console.log(new_items);
+
+        // 추가
+        new_items.appendChild(items);
+
+        // 초기화
+        nameInput.value = "";
+        priceInput.value = "";
+        nameInput.focus();
+      }
+    </script>
+  </head>
+  <body>
+    <h2>상품추가</h2>
+    <div class="add_item">
+      <div class="item_name">
+        <input type="text" placeholder="상품명" id="goods_name" />
+      </div>
+      <div class="item_price">
+        <input type="text" placeholder="가격" id="goods_price" />
+        <button onclick="add()">추가</button>
+      </div>
+    </div>
+
+    <div class="item_list">
+      <h3>상품목록</h3>
+      <div id="new_items"></div>
+    </div>
+  </body>
+</html>

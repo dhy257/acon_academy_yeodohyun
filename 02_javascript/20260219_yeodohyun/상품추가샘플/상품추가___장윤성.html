@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 추가</title>
+
+    <style>
+        .wrap {
+            width: 400px;
+            margin: 50px auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .add-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <h2>상품 추가</h2>
+
+    <div class="add-box">
+        <input type="text" id="productInput" placeholder="상품명">
+        <button type="button" id="addBtn">추가</button>
+    </div>
+
+    <div class="add-box">
+        <input type="text" id="productInput" placeholder="가격조회">
+        <button type="button" id="addBtn">추가</button>
+    </div>>
+
+    <h3>상품 목록</h3>
+    <ul id="productList"></ul>
+</div>
+
+<script>
+    const inputTag = document.getElementById('productInput');
+    const addBtn = document.getElementById('addBtn');
+    const productList = document.getElementById('productList');
+
+    addBtn.addEventListener('click', () => {
+        const value = inputTag.value.trim();
+
+        if (value === '') return;
+
+        const li = document.createElement('li');
+        li.textContent = value;
+        productList.appendChild(li);
+
+        inputTag.value = '';
+        inputTag.focus();
+    });
+</script>
+
+</body>
+</html>
+

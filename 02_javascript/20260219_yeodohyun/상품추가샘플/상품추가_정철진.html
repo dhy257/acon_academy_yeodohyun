@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>상품 추가 연습</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .back {
+        /* border: 1px solid; */
+        width: 600px;
+        padding: 50px;
+        margin: 0 auto;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+        width: 500px;
+
+        display: flex;
+        gap: 5px;
+      }
+
+      input {
+        width: 40%;
+        padding: 5px;
+        padding-left: 15px;
+
+        flex: 1;
+      }
+
+      #productList {
+        border: 1px solid #3b3b3b;
+        padding: 15px;
+        width: 500px;
+        min-height: 100px;
+      }
+
+      .product-item {
+        border-bottom: 1px solid #3b3b3b;
+        padding: 10px 0;
+      }
+    </style>
+
+    <script>
+      function addProduct() {
+        const prodName = document.querySelector("#prodName");
+        const prodPrice = document.querySelector("#prodPrice");
+        //요소 먼저 가져오기
+
+        console.log(prodName);
+        console.log(prodName.value);
+
+        console.log(prodPrice);
+        console.log(prodPrice.value);
+        //잘 가져왔는지 확인
+
+        const prodDiv = document.createElement("div");
+        //상품 목록 들어갈 공간 만들기 (div)
+
+        prodDiv.innerHTML = `상품명: ${prodName.value}  |  가격: ${prodPrice.value}`;
+        prodDiv.classList.add("product-item");
+        //준비된 공간에 내용 집어넣고 만들어둔 스타일 넣기
+
+        //바로 추가
+        document.querySelector("#productList").appendChild(prodDiv);
+
+        //초기화
+        prodName.value = "";
+        prodPrice.value = "";
+
+        prodName.focus();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="back">
+      <h1>상품 추가</h1>
+
+      <div class="input-group">
+        <input type="text" id="prodName" placeholder="상품명" />
+        <input type="number" id="prodPrice" placeholder="가격" />
+        <button onclick="addProduct()">추가</button>
+      </div>
+
+      <div id="productList">
+        <strong>상품 목록</strong>
+        <hr />
+      </div>
+    </div>
+  </body>
+</html>

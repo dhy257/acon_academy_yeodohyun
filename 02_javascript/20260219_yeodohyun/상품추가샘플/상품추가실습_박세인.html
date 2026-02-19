@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .wrap{
+        width: 500px;
+        border: 1px solid black;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    .input{
+        text-align: center;
+    }
+    #content{
+        padding: 10px;
+    }
+    #price{
+        padding: 10px;
+    }
+    .input button{
+        padding: 5px;
+    }
+    .result{
+        width: 450px;
+        margin: 10px auto;
+        height: auto;
+    }
+    .item{
+        margin: 10px;
+    }
+</style>
+
+<script>
+    function addItem(){
+        const content = document.getElementById("content").value;
+        const price = document.getElementById("price").value;
+
+        const divItem = document.createElement("div");
+
+        divItem.innerHTML = `<div class='item'>상품명 : ${content} / 가격 : ${price} 원 </div>`;
+        divItem.classList.add("divItem");
+
+        const result = document.querySelector(".result");
+
+        result.appendChild(divItem);
+
+        document.getElementById("content").value="";
+        document.getElementById("price").value="";
+        document.getElementById("content").focus();
+
+    }
+</script>
+<body>
+    <div class="wrap">
+        <h2> 상품 추가 </h2>
+        <div class="input">
+            <input type="text" id="content" placeholder="상품명">
+            <input type="text" id="price" placeholder="가격">
+            <button onclick="addItem()">추가</button>
+        </div>
+        
+        <h3> 상품 목록 </h3>
+        <div class="result"></div>
+    </div>
+</body>
+</html>

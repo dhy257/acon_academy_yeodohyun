@@ -95,9 +95,12 @@
 
           //setTimeout(callback(함수를 넘겨줘야함),밀리초);
           //setTimeout(function(){},1000) //1초후에 전달하는 함수 실행해줘
-          setTimeout(function () {
-            result.appendChild(ball);
-          }, 1000);
+          setTimeout(
+            function () {
+              result.appendChild(ball);
+            },
+            1000 * (i + 1),
+          );
         }
       }
     </script>

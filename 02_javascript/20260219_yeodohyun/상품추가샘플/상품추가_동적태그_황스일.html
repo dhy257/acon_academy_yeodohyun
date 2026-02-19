@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>상품 추가</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        width: 600px;
+      }
+
+      h2,
+      h3 {
+        margin-bottom: 20px;
+      }
+
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+      }
+
+      .input-group input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      .input-group button {
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border: 1px solid #999;
+        cursor: pointer;
+      }
+
+      .input-group button:hover {
+        background-color: #e0e0e0;
+      }
+
+      .list-box {
+        border: 1px solid #ccc;
+        padding: 20px;
+        min-height: 150px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>상품 추가</h2>
+
+      <div class="input-group">
+        <input type="text" id="productName" placeholder="상품명" />
+        <input type="text" id="productPrice" placeholder="가격" />
+        <button type="button" onclick="addProduct()">추가</button>
+      </div>
+
+      <div class="list-box">
+        <h3>상품 목록</h3>
+        <div id="productList"></div>
+      </div>
+    </div>
+
+    <script>
+      // 상품 추가 함수
+      function addProduct() {
+        const productName = document.getElementById("productName").value;
+        const productPrice = document.getElementById("productPrice").value;
+
+        if (productName && productPrice) {
+          const productList = document.getElementById("productList");
+          const productItem = document.createElement("div");
+
+          Object.assign(productItem.style, {
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          });
+
+          productItem.innerHTML = `
+                    <span>${productName}</span>
+                    <span>${productPrice} 원</span>
+                `;
+
+          productList.appendChild(productItem);
+
+          // 입력 필드 초기화
+          document.getElementById("productName").value = "";
+          document.getElementById("productPrice").value = "";
+        }
+      }
+    </script>
+  </body>
+</html>

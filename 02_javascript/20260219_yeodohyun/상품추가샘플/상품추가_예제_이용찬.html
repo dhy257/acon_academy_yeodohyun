@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            border: 1px solid;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function plus(obj){
+            const inputWrap = obj.closest(".input-wrap");
+            const input = inputWrap.querySelectorAll(".input");
+            const display = document.getElementsByClassName("display")[0];
+            
+            const displayText = document.createElement("div");
+            displayText.innerHTML = `${input[0].value}: ${input[1].value}원<br>`;
+            display.appendChild(displayText);
+
+            // 추가 시 input 영역 초기화
+            for(let i=0; i<input.length; i++){
+                input[i].value = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <h2>상품추가</h2>
+        <div class="input-wrap">
+            <input type="text" placeholder="상품명" class="input">
+            <input type="text" placeholder="가격" class="input">
+            <button onclick="plus(this)">추가</button>
+        </div><hr>
+        <div class="display-wrap">
+            <h3>상품 목록</h3>
+            <div class="display">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
