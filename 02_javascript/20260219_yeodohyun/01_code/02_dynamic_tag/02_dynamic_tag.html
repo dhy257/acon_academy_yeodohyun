@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+        color: white;
+        padding: 5px;
+        margin: 5px;
+
+        /* 
+        span 태그라면 가로, 세로 크기 설정 불가: display:inline => 크기 지정 불가
+        => 필요하다면 display: inline-block;을 추가해서 조정
+        width: 300px;
+        height: 300px;
+        */
+      }
+    </style>
+    <script>
+      function addSpanTag() {
+        // alert("dd");
+
+        //태그생성
+        const span = document.createElement("span");
+        span.textContent = "span 추가";
+        span.classList.add("highlight");
+        //부모영역 선택
+        const result = document.getElementById("result");
+        console.log(result);
+        //부모영역 추가
+        result.appendChild(span);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="addSpanTag()">span 태그 생성</button>
+    <div id="result"></div>
+  </body>
+</html>

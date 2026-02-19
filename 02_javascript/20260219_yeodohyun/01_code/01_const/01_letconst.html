@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let su;
+      su += 1; // undefined => NaN
+      su += 1;
+
+      // alert(su); // 에러 발생
+
+      let su2 = 0; // 누적시 초기화 신경쓰기
+      su += 1;
+      su += 1;
+      alert(su2);
+
+      // 의미화상수 : 대문자규칙
+      const PI = 3.14; //초기화하고 이용만 하기, 대문자규칙
+      // PI = 12; //에러발생 TypeError: Assignment to constant variable.
+
+      // 배열, 객체
+      // let 보다 const 많이 사용
+      const foods = ["떡", "떡국", "산적", "고기"];
+
+      // 배열선언시 const 사용
+      // 배열의 내용은 바꿀 수 있다
+
+      foods[4] = "식혜";
+      foods.push("약과");
+      alert(foods); // foods.toString() 배열의 요소를 하나의 문자열로 반환 요소의 구분자, (컴마)
+      alert(foods.join("-")); // foods.join("-") 배열의 요소를 하나의 문자열로 반환 요소의 구분자를 매개변수
+
+      // foods = ["맥주", "소주"]; //foods에 새로운 배열을 저장할 수 없다 TypeError: Assignment to constant variable
+
+      const snack = {
+        name: "맛동산",
+        price: 3800,
+        maker: "해태",
+      };
+
+      // const로 객체를 선언하면
+      // 객체의 속성은 변경할 수 있다, 단 새로운 객체는 못함
+
+      snack.price = 4200;
+      console.log(snack);
+
+      // const 선언시 새로운 객체를 재할당 불가능
+      snack = { // TypeError: Assignment to constant variable
+        name: "오징어땅콩",
+        price: 2400,
+      };
+    </script>
+  </body>
+</html>

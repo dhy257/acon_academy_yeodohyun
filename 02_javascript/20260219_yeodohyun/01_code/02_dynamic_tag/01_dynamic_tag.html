@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function addPTag() {
+        // alert("dd");
+        /*
+        1. 태그생성 (css, 내용)
+        2. 부모영역 선택
+        3. 부모의 자식으로 추가하기
+        */
+
+        const pTag = document.createElement("p");
+        pTag.innerHTML = "새로운 p태그";
+        pTag.style.fontSize = "30px";
+        pTag.style.width = "200px";
+        pTag.style.border = "1px solid black";
+
+        // 부모선택
+        const result = document.getElementById("result");
+        console.log(result);
+
+        // 부모영역에 추가
+        result.appendChild(pTag);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="addPTag()">p태그 생성</button>
+    <div id="result"></div>
+  </body>
+</html>

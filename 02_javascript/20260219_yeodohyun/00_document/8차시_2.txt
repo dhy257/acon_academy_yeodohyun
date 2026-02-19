@@ -1,0 +1,38 @@
+ 
+ 
+학습목표
+
+1.  css transform과 transition을 사용할 수 있다
+2.  이미지 갤러리를 만들어 보는 경험을 한다 
+     - 영역의 배경이미지를 바꾸는 방법
+     - 이미지를 왼쪽으로 이동하는 방법  
+
+
+
+
+
+## transform
+## transition
+   
+1) transform :  translate   (translateX , translateY ),   scale ,   rotate 
+2) transition :  transform이 되는 실행시간을 지정할 수 있다.
+  
+
+translateX() => 가로로 이동 ( -값 왼쪽  +값 오른쪽)   
+translateY() => 세로로 이동 ( -값 위쪽  +값 아래쪽)
+ 
+
+
+만들기)
+1)  텍스트갤러리 만들기  
+2)  이미지 갤러리 만들기  
+3)  상품목록 히든 만들기 :아래에서 위로올라가기 
+4)  요소정가운데 위치하기 
+     - transform:translate
+     - display:flex 사용하기
+
+ 
+
+ 
+만들기 실습)
+나만의  갤러리만들기 
