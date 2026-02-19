@@ -11,13 +11,40 @@
         const result = movie.firstElementChild;
         console.log(result.innerHTML);
       }
+      function getMovie2() {
+        // alert("d");
+        const movie = document.getElementById("movie");
+        const first = movie.firstElementChild;
+        console.log(first);
+
+        const second = first.nextElementSibling;
+        console.log(second);
+
+        const name = second.innerHTML;
+        console.log(name);
+      }
+      function getMovie3() {
+        // alert("d");
+        const movie = document.getElementById("movie");
+        const item = movie.lastElementChild;
+        const name = item.innerHTML;
+        console.log(name);
+      }
+
+      function getParent() {
+        const speed = document.getElementById("speed");
+        // 확인
+        //speed영화 태그 기준으로 부모 찾기
+        const movie = speed.parentElement;
+        console.log(movie);
+      }
     </script>
   </head>
   <body>
     <h2>div태그 자식요소 선택</h2>
     <div id="movie">
       <p>아바타</p>
-      <p>스피드</p>
+      <p id="speed">스피드</p>
       <p>매트릭스</p>
     </div>
     <button onclick="getMovie1()">첫 번째 영화</button>

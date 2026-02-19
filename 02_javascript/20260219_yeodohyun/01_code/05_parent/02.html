@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        display: flex;
+        width: 500px;
+        border: 1px solid black;
+      }
+    </style>
+    <script>
+      function getContent(obj) {
+        // alert("d");
+        console.log(obj);
+        const item = obj.closest(".item");
+
+        const result = item.querySelector(".aa").value;
+        alert(result);
+      }
+      function getContent2(obj) {
+        // const div = obj.parentElement;
+        // console.log(div);
+
+        // const aa = div.querySelector(".aa");
+        // const result = aa.value;
+        // alert(result);
+        const div = obj.parentElement;
+        const textDiv = previousSibling;
+        console.log(textDiv);
+
+        const input = textDiv.firstElemnetChild;
+        console.log(input);
+        alert(inpyt.div);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="item">
+      <div><input type="text" class="aa" /></div>
+      <div><button onclick="getContent(this)">클릭</button></div>
+    </div>
+
+    <div class="item">
+      <div><input type="text" class="aa" /></div>
+      <div><button onclick="getContent(this)">클릭</button></div>
+    </div>
+
+    <div class="item">
+      <div><input type="text" class="aa" /></div>
+      <div><button onclick="getContent2(this)">클릭</button></div>
+    </div>
+  </body>
+</html>
