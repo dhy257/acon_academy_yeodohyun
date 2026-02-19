@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .item {
+        width: 500px;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid black;
+        padding: 20px;
+        margin: 0 auto;
+      }
+    </style>
+    <script>
+      function gold(obj) {
+        // alert("d");
+        const gold = obj.closest("div");
+        console.log(gold);
+
+        const result = gold.querySelector(".treasure").innerHTML;
+        console.log(result);
+        alert(result);
+      }
+      function diamond(obj) {
+        // alert("d");
+        const diamond = obj.closest("div");
+        console.log(diamond);
+
+        const result = diamond.querySelector(".treasure").innerHTML;
+        console.log(result);
+        alert(result);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="item">
+      <div class="treasure">금100돈</div>
+      <button onclick="gold(this)">클릭</button>
+    </div>
+
+    <div class="item">
+      <div class="treasure">다이아몬드 10캐럿</div>
+      <button onclick="diamond(this)">클릭</button>
+    </div>
+  </body>
+</html>
