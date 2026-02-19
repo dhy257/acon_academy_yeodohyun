@@ -19,14 +19,55 @@
         border: 1px solid black;
         padding: 10px;
       }
+      .divItem {
+        display: flex;
+      }
+      .item {
+        width: 90%;
+      }
+      .btn {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border: 1px solid black;
+        line-height: 30px;
+      }
     </style>
+    <script>
+      function addItem() {
+        // alert("dd");
+        // 사용자 입력 가져오기
+        const content = document.getElementById("content").value;
+        // alert(content);
+        const divItem = document.createElement("div");
+        divItem.innerHTML =
+          //   "<div class='item'>" + content + "</div><div class='btn'>X</div>"; // <div></div> <div>X</div>
+          `<div class='item'>${content}</div><div class='btn' onclick="dd(this)">X</div>`;
+        divItem.classList.add("divItem");
+
+        //부모영역 선택
+        const result = document.querySelector(".result");
+        console.log(result);
+        //부모에 추가
+        result.appendChild(divItem);
+      }
+      function dd(obj) {
+        // alert("dd");
+        console.log(obj);
+        const divItem = obj.closest(".divItem");
+        console.log(divItem);
+        divItem.remove();
+      }
+    </script>
   </head>
   <body>
     <!-- 메모장 영역 전체 -->
     <div class="wrap">
       <!-- 메모입력 -->
       <div class="input">
-        <input type="text" /><button onclick="">추가</button>
+        <input type="text" id="content" /><button onclick="addItem()">
+          추가
+        </button>
       </div>
 
       <!-- 메모출력 -->
