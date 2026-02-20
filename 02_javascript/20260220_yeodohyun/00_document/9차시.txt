@@ -1,0 +1,70 @@
+10차시
+
+학습목표
+1.  이벤트객체가 언제 발생되고 언제 사용할 수 있는지 알 수 있다
+2.  이벤트리스너, 이벤트핸들러 , 이벤트 , 이벤트 객체, 이벤트 타겟에 대한 용어를 구별할 수 있다. 
+3.  이벤트처리를 하는 다양한 방법을 말할 수 있다.
+4.  브라우저객체를 이용하여 창을 제어하는 경험을 한다
+  
+   
+ 
+브라우저 제어하기 
+
+0) 갤러리 만든거  공유하기 
+1) 상품영역 히든영역 
+2) 요소가운데 정렬하기
+3) 이벤트 처리하기    (  문서로드완료 : window.addEventListener("load" ) 
+    -이벤트 처리하기 (태그에 직접)
+    -이벤트 처리 - 자바스크립트 : 이벤트 속성
+    -이벤트 처리  -자바스크립트 : 이벤트리스너매서드 
+    - 둘의 차이
+    -이벤트 객체 사용
+    -이벤트 ( click,  mouseover  , mouseout  , load, focus ,   blur    , keyup)
+    - 선택한 요소의 정보 활용하기 
+    
+4) 새창 열기
+5) 새창 닫기 
+6) 스크롤 이벤트 (맨위, 맨아래 , 특정영역으로 가기)
+7) url이동하기 
+8) 현재위치정보가져오기   
+9) 풀메뉴만들기
+10) 오디오
+
+##
+11) 가상요소 선택자  
+12) 로컬저장소  
+ 
+
+  
+ 
+ 
+#이벤트처리하는 방법       
+1) 태그에 직접  이벤트 리스너 추가하기
+2) 자바스크립트로 요소에 addEventListener 매서드로 추가하기 
+ 
+
+#이벤트 객체 사용하는 방법
+ 이벤트처리 핸들러 함수는 이벤트 객체를 제공받는다
+
+
+#방법1)  태그에 이벤트 리스너 추가하기
+
+HTML 태그에서 이벤트 속성(onclick, onchange 등)을 직접 사용하여 이벤트 리스너를 추가 
+이벤트 핸들러 함수에서 명시적으로 event 객체를 매개변수로 전달받아 사용해야 함 
+
+ 
+<button onclick="handleClick(event)">클릭하세요</button>
+<script>
+  function handleClick(event) {
+    console.log(event.target); // 클릭된 요소
+  }
+</script>
+
+##방법2)  addEventListener로 이벤트 리스너 추가하기
+JavaScript 코드에서 DOM 요소에 이벤트 리스너를 추가할 때 addEventListener를 사용 
+이벤트 핸들러 함수는 첫 번째 매개변수로 event 객체를 자동으로 전달받는다
+ 
+const button = document.querySelector("button");
+button.addEventListener("click", function (event) {
+  console.log(event.target); // 클릭된 요소
+});

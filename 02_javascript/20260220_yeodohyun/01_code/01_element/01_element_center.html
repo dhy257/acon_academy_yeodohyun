@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>요소 정 가운데</title>
+    <style>
+      .item {
+        border: 1px solid black;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        /* 줄간격을 height와 같게하면 정 가운데 */
+      }
+      .outer_box1 {
+        border: 1px solid red;
+        width: 500px;
+        height: 400px;
+        /* 정 가운데를 위한 3가지 */
+        display: flex;
+        justify-content: center; /*주축 가운데*/
+        align-items: center; /*교차축 가운데*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">요소 정 가운데</div>
+    <div class="outer_box1">
+      <div class="item">요소 정 가운데</div>
+    </div>
+  </body>
+</html>

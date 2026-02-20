@@ -41,29 +41,21 @@
       section {
         height: 600px;
       }
-      section ul {
-        display: flex;
-        list-style: none;
-      }
-      section li {
-        width: 300px;
+      .log_wrap {
+        width: 400px;
         padding: 20px;
-        text-align: center;
-        border: 0.5px solid rgb(255, 241, 241);
-        position: relative;
+        border: 0.5px solid rgb(234, 222, 222);
       }
-      section li img {
-        width: 200px;
-        height: 220px;
+      .log_img {
+        width: 300px;
+        height: 300px;
+        background-image: url(../../20260206_yeodohyun/시험연습_샘플/images/login_logo.jpg);
       }
       .point {
         width: 130px;
         padding: 10px;
         color: red;
         background-color: black;
-        position: absolute;
-        left: 10px;
-        top: 0px;
       }
       footer {
         display: flex;
@@ -94,34 +86,16 @@
       <a href="index.html">홈으로</a>
     </nav>
     <section>
-      <ul>
-        <li>
-          <img
-            src="../../20260206_yeodohyun/시험연습_샘플/images/img01.png"
-            alt=""
-          />
-          <p>프로젝트1</p>
-          <div class="point">프로젝트1</div>
-        </li>
-
-        <li>
-          <img
-            src="../../20260206_yeodohyun/시험연습_샘플/images/img02.png"
-            alt=""
-          />
-          <p>프로젝트2</p>
-          <div class="point">프로젝트2</div>
-        </li>
-
-        <li>
-          <img
-            src="../../20260206_yeodohyun/시험연습_샘플/images/img03.png"
-            alt=""
-          />
-          <p>프로젝트3</p>
-          <div class="point">프로젝트3</div>
-        </li>
-      </ul>
+      <form name="frm" method="post">
+        <div class="login_wrap">
+          <div class="log_img"></div>
+          <div class="log_info">
+            <input type="text" />
+            <input type="text" />
+            <button>로그인</button>
+          </div>
+        </div>
+      </form>
     </section>
     <footer>
       <div class="item">
