@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>갤러리</title>
+
+  <style>
+    .gallery-wrap {
+      border-radius: 10px;
+      width: 400px;
+      height: 400px;
+      position: relative;
+      margin: 100px auto;
+    }
+
+    .gallery {
+      border: 5px solid rgb(61, 28, 0);
+      border-radius: 10px;
+      width: 400px;
+      height: 400px;
+      background-image: url("media/Penguins.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .gallery-btn {
+      position: absolute;
+      top: 120%;
+      transform: translateY(-50%);
+      border-radius: 20px;
+      width: 80px;
+      background-color: #555;
+      color: #FFF;
+      padding: 10px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .left {
+      left: -20px;
+    }
+
+    .right {
+      right: -20px;
+    }
+
+    .title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 34px;
+      font-weight: 500;
+      color: #444;
+      top: -60px;
+    }
+
+    .fadeIn {
+      animation: fade 0.5s ease-out forwards;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+
+  <script>
+    let imgNames = [
+      "media/Penguins.png",
+      "media/Lighthouse.png",
+      "media/Chrysanthemum.png",
+      "media/Desert.png",
+      "media/Hydrangeas.png",
+      "media/Jellyfish.png",
+      "media/Koala.png",
+      "media/Tulips.png",
+    ];
+
+    const titles = [
+      "펭귄",
+      "집",
+      "국화",
+      "사막",
+      "수국",
+      "해파리",
+      "코알라",
+      "튤립",
+    ];
+
+    let index = 0;
+
+    function applyFade(gallery) {
+      gallery.classList.add("fadeIn");
+      // 애니메이션 끝나면 클래스 제거
+      gallery.addEventListener("animationend", function () {
+        gallery.classList.remove("fadeIn");
+      } );
+    }
+
+    function updateGallery() {
+      const gallery = document.querySelector(".gallery");
+      const title = document.querySelector(".title");
+
+      gallery.style.backgroundImage = `url(${imgNames[index]})`;
+      title.innerHTML = titles[index];
+
+      applyFade(gallery);
+    }
+
+    function next() {
+      index++;
+      if (index >= imgNames.length) {
+        index = 0;
+      }
+      updateGallery();
+    }
+
+    function prev() {
+      index--;
+      if (index < 0) {
+        index = imgNames.length - 1;
+      }
+      updateGallery();
+    }
+
+    // 초기 제목 세팅
+    window.onload = function () {
+      document.querySelector(".title").innerHTML = titles[index];
+    };
+  </script>
+</head>
+
+<body>
+
+  <div class="gallery-wrap">
+
+    <div class="title">펭귄</div>
+
+    <div class="gallery"></div>
+
+    <div class="gallery-btn left" onclick="prev()">이전</div>
+    <div class="gallery-btn right" onclick="next()">다음</div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트객체 활용</title>
+  </head>
+  <body>
+    <h2>이벤트 객체</h2>
+    <p>이벤트가 고생하면 이벤트에 관련된 객체형태로 만들어진다</p>
+    <p>이벤트 객체는 이벤트핸들러함수에게 전달됨(자동)</p>
+    <input type="text" , placeholder="검색어" , id="search" />
+
+    <script>
+      //  keyup => 웹이벤트
+      //onkeyup => 이벤트 리스너
+      // function aaa(){} => 이벤트 핸들러 함수
+      const search = document.getElementById("search");
+      search.addEventListener("keyup", function (e) {
+        // 전달되는 이벤트 객체를 받아서 사용 가능
+        console.log(e);
+
+        if (e.key == "Enter") {
+          alert("검색중");
+        }
+      });
+    </script>
+  </body>
+</html>

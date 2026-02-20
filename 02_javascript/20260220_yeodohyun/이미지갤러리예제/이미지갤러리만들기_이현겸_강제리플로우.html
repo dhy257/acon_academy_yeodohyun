@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>갤러리</title>
+
+<style>
+  .gallery-wrap {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin: 100px auto;
+  }
+
+  .gallery {
+    border: 5px solid rgb(61, 28, 0);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background-image: url("media/Penguins.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .title {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 34px;
+  }
+
+  .gallery-btn {
+    position: absolute;
+    top: 120%;
+    transform: translateY(-50%);
+    width: 80px;
+    padding: 10px;
+    background: #555;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+  .left { left: -20px; }
+  .right { right: -20px; }
+
+  .fadeIn {
+    animation: fade 0.5s ease-out;
+  }
+
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
+
+<script>
+  let imgNames = [
+    "media/Penguins.png",
+    "media/Lighthouse.png",
+    "media/Chrysanthemum.png",
+    "media/Desert.png",
+    "media/Hydrangeas.png",
+    "media/Jellyfish.png",
+    "media/Koala.png",
+    "media/Tulips.png",
+  ];
+
+  const titles = [
+    "펭귄",
+    "집",
+    "국화",
+    "사막",
+    "수국",
+    "해파리",
+    "코알라",
+    "튤립",
+  ];
+
+  let index = 0;
+
+  function updateGallery() {
+    const gallery = document.querySelector(".gallery");
+    const title = document.querySelector(".title");
+
+    gallery.style.backgroundImage = `url(${imgNames[index]})`;
+    title.innerHTML = titles[index];
+
+    //   강제 리플로우 방식
+    gallery.classList.remove("fadeIn");
+    void gallery.offsetWidth;  // 브라우저 강제 재계산
+    gallery.classList.add("fadeIn");
+  }
+
+  function next() {
+    index++;
+    if (index >= imgNames.length) index = 0;
+    updateGallery();
+  }
+
+  function prev() {
+    index--;
+    if (index < 0) index = imgNames.length - 1;
+    updateGallery();
+  }
+
+  window.onload = updateGallery;
+</script>
+</head>
+
+<body>
+
+<div class="gallery-wrap">
+  <div class="title"></div>
+  <div class="gallery"></div>
+  <div class="gallery-btn left" onclick="prev()">이전</div>
+  <div class="gallery-btn right" onclick="next()">다음</div>
+</div>
+
+</body>
+</html>

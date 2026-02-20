@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn1">클릭1</button>
+    <button>클릭2</button>
+    <script>
+      // 이벤트 처리할 대상을 선택
+      const btn1 = document.getElementById("btn1");
+      console.log(btn1);
+
+      btn1.onclik = function () {
+        alert("hi 이벤트 속성으로 처리");
+      };
+      btn1.onclik = function () {
+        alert("hi 이벤트 속성으로 처리");
+      };
+    </script>
+  </body>
+</html>

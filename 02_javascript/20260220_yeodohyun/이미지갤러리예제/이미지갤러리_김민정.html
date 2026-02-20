@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지갤러리3</title>
+    <style>
+        .main{
+            /* border: 1px solid black; */
+            position: relative;
+            left: 10%;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .gallery-wrap{
+            border: 5px solid rgb(211, 229, 235);
+            border-radius: 10px;
+            padding: 20px;
+            width: 600px;
+            height: 300px;
+            margin: 0 auto;
+
+            position: relative;
+        }
+        .gallery{
+            /* border: 1px solid black; */
+            width: 300px;
+            height: 300px;
+            border-radius: 10%;
+
+            background-image: url("https://ko.skyticket.com/guide/wp-content/uploads/2021/07/shutterstock_667925704-2fff.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        .gallery-btn{
+            width: 40px;
+            height: 40px;
+            /* border: 1px solid black; */
+
+            position: absolute;
+            top: 50%;
+            /*tramsform: translateY(-50%); 세로가운데에 위치하려면 y축 이동*/
+        }
+        .left{
+            left: -20px;
+            background-image: url(https://w7.pngwing.com/pngs/898/723/png-transparent-arrow-computer-icons-symbol-encapsulated-postscript-previous-button-angle-number-desktop-wallpaper.png);
+            background-position: center;
+            background-size: cover;
+        }
+        .right{
+            right: -20px;
+            background-image: url(https://w7.pngwing.com/pngs/85/835/png-transparent-computer-icons-font-awesome-clock-time-next-button-miscellaneous-text-wikimedia-commons-thumbnail.png);
+            background-position: center;
+            background-size: cover;
+        }
+        .title{
+            position: absolute;
+            right: 16%; 
+            top: 20%;
+            font-size: 50px;
+            font-weight: 500;
+            /* border: 1px solid black; */
+            padding-left: 10px;
+            padding-right: 10px;
+            box-shadow: 0 5px 5px silver;
+            /* transform: translate(); */
+        }
+        .text{
+            /* border: 1px solid black; */
+            width: 250px;
+            height: 150px;
+            position: absolute;
+            right: 30px;
+            bottom: 25px;
+            box-shadow: 0 5px 5px silver;
+            font-size: 15px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 30px;
+        }
+
+    </style>
+        
+    <script>
+
+           let imgNames = ["https://ko.skyticket.com/guide/wp-content/uploads/2021/07/shutterstock_667925704-2fff.jpg",
+            "https://mblogthumb-phinf.pstatic.net/MjAyNTAzMjhfMTUz/MDAxNzQzMTQyMTg4MDE5.Pxk2RgrjKbBHLeIZ5xUhAYixO0ZLlxaHGda5aJNHu6Mg.HcTVcjZqKxqK1IVJedVAX-ZdZNN9NcJImjt_3UpPBWwg.JPEG/shutterstock_2511974735.jpg?type=w800",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ457rgNXmKiKcfTGRmQC1091OiIZeuRFiGqQ&s",
+            "https://mblogthumb-phinf.pstatic.net/MjAyNTAyMDdfMTY1/MDAxNzM4ODkzNjEyMzUz.jNBCgsQJmxpOGZTCJkMhkW-omQPIBNpfeG7QmYekIXkg.2NmrXuOGOX6wHoMF9JBaisWTVHF9WNhPx6cHIm7AcvMg.JPEG/image.JPEG?type=w800"
+        ];
+
+        const titles = ["일본", "중국", "괌", "미국"];
+
+        const texts = ["가까운 거리에서 정갈한 미식과 고즈넉한 온천, 특유의 아기자기한 감성을 부담 없이 즐겨보세요.",
+                      "거대한 대륙의 압도적인 자연경관과 유구한 역사의 흔적을 따라가며 다채로운 미식의 세계를 경험해보세요.",
+                      "에메랄드빛 바다에서의 완벽한 휴양과 면세 쇼핑을 동시에 누려보세요.",
+                      "대도시의 화려한 문화와 광활한 국립공원의 대자연을 넘나들며 진정한 자유와 트렌드를 만끽해보세요."
+
+        ];
+        /*
+
+        //객체배열로 사용가능
+        
+            let images=[
+            { name: "media/Penguins.png",
+              title:"일본"
+              }
+
+            ];
+
+        */
+
+
+
+        let index=0;
+        function next(){
+            // alert("eded");
+
+            // 이미지갤러리 영역 선택하기(+이미지 넣기)
+           const gallery = document.querySelector(".gallery");
+           console.log(gallery);
+        //  gallery.style.backgroundImage="url("+imgNames[index]+")";
+            gallery.style.backgroundImage=`url(${imgNames[index]})`;
+                                         //url(https://ko.skyticket.com/guide/wp-content/uploads/2021/07/shutterstock_667925704-2fff.jpg)
+
+            gallery.style.backgroundPosition="center";
+            gallery.style.backgroundSize="cover";
+
+
+            //이미지제목 선택하기(+ 제목 넣기)
+             const title = document.querySelector(".title");
+             title.innerHTML = titles[index];
+
+
+
+             //이미지내용 선택 후 넣기
+            const text = document.querySelector(".text"); 
+            text.innerHTML = texts[index];
+
+            index++; // index = index + 1;
+            if(index >= imgNames.length){
+                index=0;
+            }
+        }
+
+        function prev(){
+            // alert("ddd");
+            index--; // index = index-1;
+
+            if(index<0){
+                index = imgNames.length-1;
+            }
+           const gallery =  document.querySelector(".gallery");
+           gallery.style.backgroundImage=`url(${imgNames[index]})`;
+           gallery.style.backgroundPosition="center";
+           gallery.style.backgroundSize="cover";
+
+           //이미지제목 선택하기(+ 제목 넣기)
+             const title = document.querySelector(".title");
+             title.innerHTML = titles[index];
+
+
+
+             //이미지내용 선택 후 넣기
+            const text = document.querySelector(".text"); 
+            text.innerHTML = texts[index];
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <div class="main">여행지 추천</div>
+    <!-- 갤러리영역 -->
+     <div class="gallery-wrap">
+         
+        <!-- 갤러리 타이틀 제목 -->
+         <div class="title">일본</div>
+        <!-- 갤러리 이미지 영역 -->
+        <div class="gallery"></div>
+        <!-- 갤러리 설명 영역 -->
+         <div class="text"></div>
+
+        <!-- 갤러리 버튼 영역 -->
+         <div class="gallery-btn left" onclick="prev()"></div>
+         <div class="gallery-btn right" onclick="next()"></div>
+     </div>
+</body>
+</html>
