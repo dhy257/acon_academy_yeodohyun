@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="test.js"></script>
+    <script>
+      // 자바스크립트 코드
+      // dom을 처리하는 경우는 문서가 로드가 끝난 시점에 처리할 수 있도록 해야한다
+      window.addEventListener("load", function () {
+        const hi = document.getElementById("hi");
+        hi.innerHTML = "안녕";
+      });
+    </script>
+  </head>
+  <body>
+    <h2 id="hi">안녕</h2>
+    <button onclick="aa()">click</button>
+    <script>
+      // 자바스크립트 코드
+      // dom처리하는 경우는 dom(문서)아래에 두어야 한다
+    </script>
+  </body>
+</html>
