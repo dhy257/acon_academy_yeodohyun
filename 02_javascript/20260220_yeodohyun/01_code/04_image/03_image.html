@@ -104,7 +104,7 @@
       //   }
       let index = 0;
 
-      // 공통 업데이트 함수
+      // 화면 업데이트
       function updateGallery() {
         const gallery = document.querySelector(".gallery");
         const title = document.querySelector(".title");
@@ -112,7 +112,7 @@
         title.innerHTML = titles[index];
         gallery.style.backgroundImage = `url(${imgNames[index]})`;
         gallery.style.backgroundPosition = "center";
-        gallery.style.backgroundSize = "cover"; // 세미콜론(;) 오타 수정
+        gallery.style.backgroundSize = "cover";
       }
 
       function next() {

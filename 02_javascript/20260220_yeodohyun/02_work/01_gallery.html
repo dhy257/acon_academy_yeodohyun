@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .gallery_wrap {
+        /* border: 1px solid black; */
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .gallery {
+        border: 1px solid rgba(0, 0, 0, 0.486);
+        width: 300px;
+        height: 300px;
+        background-image: url(../../00_document/media/Penguins.png);
+        background-size: cover;
+        background-position: center;
+      }
+      .button{
+        display: flex;
+      }
+      .gallery_btn {
+        background-color: #f0f8ff;
+        text-align: center;
+        line-height: 50px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid rgba(0, 136, 255, 0.822);
+        width: 50%;
+      }
+      .left {
+        left: -40px;
+      }
+      .right {
+        right: -40px;
+      }
+      .title {
+        text-align: center;
+        border: 1px solid black;
+      }
+      .price {
+        text-align: center;
+        border: 1px solid black;
+      }
+    </style>
+    <script>
+      let imgNames = [
+        "https://ssrkosupport.com/29990/000012.jpg",
+        "https://ssrkosupport.com/29990/000014.jpg",
+        "https://ssrkosupport.com/29990/000036.jpg",
+        "https://ssrkosupport.com/29990/000037.jpg",
+        "https://ssrkosupport.com/29990/000038.jpg",
+        "https://ssrkosupport.com/29990/000039.jpg",
+      ];
+      const titles = [
+        "참다랑어 대뱃살 아부리",
+        "참다랑어 대뱃살",
+        "광어 지느러미",
+        "묵은지 광어",
+        "광어",
+        "도미",
+      ];
+      const prices = [5000, 5000, 3900, 3200, 3200, 5000];
+      let index = 0;
+
+      // 화면 업데이트
+      function updateGallery() {
+        const gallery = document.querySelector(".gallery");
+        console.log(gallery);
+        const title = document.querySelector(".title");
+        console.log(title);
+        const price = document.querySelector(".price");
+        console.log(price);
+
+        title.innerHTML = titles[index];
+        price.innerHTML = prices[index];
+
+        gallery.style.backgroundImage = `url(${imgNames[index]})`;
+        gallery.style.backgroundPosition = "center";
+        gallery.style.backgroundSize = "cover";
+      }
+
+      function next() {
+        index++; // 먼저 증가
+        if (index >= imgNames.length) {
+          index = 0;
+        }
+        updateGallery(); // 화면 갱신
+      }
+
+      function prev() {
+        index--; // 먼저 감소
+        if (index < 0) {
+          index = imgNames.length - 1;
+        }
+        updateGallery(); // 화면 갱신
+      }
+      function init() {
+        // 초기 화면 갱신
+        updateGallery();
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <!-- 갤러리 영역 -->
+    <div class="gallery_wrap">
+      <!-- 갤러리 타이틀 제목 -->
+      <div class="title">참다랑어 대뱃살 아부리</div>
+      <!-- 갤러리 이미지 영역 -->
+      <div class="gallery"></div>
+      <div class="price">5000</div>
+      <!-- 갤러리 버튼 -->
+      <div class="button">
+        <div class="gallery_btn left" onclick="prev()">이전</div>
+        <div class="gallery_btn right" onclick="next()">다음</div>
+      </div>
+    </div>
+  </body>
+</html>
