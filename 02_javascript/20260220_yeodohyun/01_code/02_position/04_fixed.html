@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li:nth-child(1) {
+        background-color: red;
+      }
+      li:nth-child(2) {
+        background-color: green;
+        /* left, top, right, bottom 사용가능
+        무조건 문서전체를 기준으로 배치함, 스크롤해도 움직이지 않고 고정
+        */
+        position: fixed;
+        width: 100%;
+      }
+      li:nth-child(3) {
+        background-color: yellow;
+      }
+      li:nth-child(4) {
+        background-color: blue;
+        height: 2000px;
+      }
+      .order{
+        position: fixed;
+        bottom: 100px;
+        right: 0;
+        border: 1px solid black;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+    <div class="order">주문하기</div>
+  </body>
+</html>

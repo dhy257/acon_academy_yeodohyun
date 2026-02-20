@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li:nth-child(1) {
+        background-color: red;
+      }
+
+      li:nth-child(2) {
+        background-color: green;
+      }
+      li:nth-child(3) {
+        background-color: yellow;
+      }
+
+      li:nth-child(4) {
+        background-color: blue;
+      }
+    </style>
+    <script>
+      const message = [];
+      let index = 0;
+
+      function init() {
+        // const items = document.querySelectorAll(".gallery div");
+        // console.log(items);
+
+        // console.log(items[0].innerHTML);
+        // // 반복문으로 다 넣기
+        // items.forEach((div) => {
+        //   message.push(div.innerHTML);
+        // });
+
+        // console.log(message);
+
+        const gallery = document.querySelectorAll(".gallery > div");
+        console.log(gallery);
+        console.log(gallery[0].innerHTML);
+        for (i = 0; i < gallery.length; i++) message.push(gallery[i].innerHTML);
+        console.log(message);
+      }
+
+      function nextMessage() {
+        // alert(message[index]);
+        // console.log(message[index]);
+        // // 하나씩 증가
+        // index += 1;
+        // // 끝나면 처음으로
+        // if (index >= message.length) index = 0;
+        const gallery = document.querySelector(".gallery");
+        gallery.innerHTML = message[index];
+        index += 1;
+        if (index >= message.length) index = 0;
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    우주연 10:19 AM
+    <div class="wrap">
+      <div class="gallery">
+        <div>곧 프론트 프로젝트 곧 시작 합니다!!</div>
+        <div>팀 끼리 재미있게 해 줘요 ^ "</div>
+        <div>2월28일 부터 4일간 휴일이당 !! ^^</div>
+        <div>for , if, 1차원배열, 함수 연습 연습</div>
+        <div>함수가 별거냐 ^^</div>
+        <div>배열이 별거냐 ^^</div>
+        <div>객체가 별거냐 ^^</div>
+        <div>별거 아닌게 모여 별거가 됩니다 ^^</div>
+      </div>
+    </div>
+    <button onclick="nextMessage()">다음</button>
+  </body>
+</html>
