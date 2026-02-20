@@ -61,44 +61,74 @@
         "코알라",
         "튤립",
       ];
-      let index = 1;
-      function next() {
-        //alert("dkfdkf");
-        //이미지갤러리 영역 선택하기
-        const gallery = document.querySelector(".gallery");
-        console.log(gallery);
-        // gallery.style.backgroundImage="url("+ imgNames[index]+")";  //  url(media/Penguins.png);
-        // 이미지제목 선택하기(선택해서 제목 넣기)
-        const title = document.querySelector(".title");
-        console.log(title);
-        title.innerHTML = titles[index];
-        gallery.style.backgroundImage = `url( ${imgNames[index]} )`; //  url(media/Penguins.png);
-        gallery.style.backgroundPosition = "center";
-        gallery.style.backgroundSize = "cover;";
+      //   let index = 1;
+      //   function next() {
+      //     //alert("dkfdkf");
+      //     //이미지갤러리 영역 선택하기
+      //     const gallery = document.querySelector(".gallery");
+      //     console.log(gallery);
+      //     // gallery.style.backgroundImage="url("+ imgNames[index]+")";  //  url(media/Penguins.png);
+      //     // 이미지제목 선택하기(선택해서 제목 넣기)
+      //     const title = document.querySelector(".title");
+      //     console.log(title);
+      //     title.innerHTML = titles[index];
+      //     gallery.style.backgroundImage = `url( ${imgNames[index]} )`; //  url(media/Penguins.png);
+      //     gallery.style.backgroundPosition = "center";
+      //     gallery.style.backgroundSize = "cover;";
 
-        index++; // index = index+1;
+      //     index++; // index = index+1;
+      //     if (index >= imgNames.length) {
+      //       index = 0;
+      //     }
+      //   }
+      //   function prev() {
+      //     //alert("dkfdkf");
+      //     //이미지갤러리 영역 선택하기
+      //     const gallery = document.querySelector(".gallery");
+      //     console.log(gallery);
+      //     // gallery.style.backgroundImage="url("+ imgNames[index]+")";  //  url(media/Penguins.png);
+      //     // 이미지제목 선택하기(선택해서 제목 넣기)
+      //     const title = document.querySelector(".title");
+      //     console.log(title);
+      //     title.innerHTML = titles[index];
+      //     gallery.style.backgroundImage = `url( ${imgNames[index]} )`; //  url(media/Penguins.png);
+      //     gallery.style.backgroundPosition = "center";
+      //     gallery.style.backgroundSize = "cover;";
+
+      //     index--;
+      //     console.log(index);
+      //     if (index < 0) {
+      //       index = imgNames.length - 1;
+      //       console.log(index);
+      //     }
+      //   }
+      let index = 0;
+
+      // 공통 업데이트 함수
+      function updateGallery() {
+        const gallery = document.querySelector(".gallery");
+        const title = document.querySelector(".title");
+
+        title.innerHTML = titles[index];
+        gallery.style.backgroundImage = `url(${imgNames[index]})`;
+        gallery.style.backgroundPosition = "center";
+        gallery.style.backgroundSize = "cover"; // 세미콜론(;) 오타 수정
+      }
+
+      function next() {
+        index++; // 먼저 증가
         if (index >= imgNames.length) {
           index = 0;
         }
+        updateGallery(); // 화면 갱신
       }
-      function prev() {
-        //alert("dkfdkf");
-        //이미지갤러리 영역 선택하기
-        const gallery = document.querySelector(".gallery");
-        console.log(gallery);
-        // gallery.style.backgroundImage="url("+ imgNames[index]+")";  //  url(media/Penguins.png);
-        // 이미지제목 선택하기(선택해서 제목 넣기)
-        const title = document.querySelector(".title");
-        console.log(title);
-        title.innerHTML = titles[index];
-        gallery.style.backgroundImage = `url( ${imgNames[index]} )`; //  url(media/Penguins.png);
-        gallery.style.backgroundPosition = "center";
-        gallery.style.backgroundSize = "cover;";
 
-        index--;
-        if (index <= 0) {
+      function prev() {
+        index--; // 먼저 감소
+        if (index < 0) {
           index = imgNames.length - 1;
         }
+        updateGallery(); // 화면 갱신
       }
     </script>
   </head>
