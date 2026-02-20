@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .gallery_wrap {
+        border: 1px solid black;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .gallery {
+        border: 1px solid black;
+        width: 300px;
+        height: 300px;
+      }
+      .gallery_btn {
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        position: absolute;
+        top: 50%;
+        /* transform: translateY(-50%); */
+      }
+      .left {
+        left: -20px;
+      }
+      .right {
+        right: -20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 갤러리 영역 -->
+    <div class="gallery_wrap">
+      <!-- 갤러리 이미지 영역 -->
+      <div class="gallery"></div>
+      <!-- 갤러리 버튼 -->
+      <div class="gallery_btn left">left</div>
+      <div class="gallery_btn right">right</div>
+    </div>
+  </body>
+</html>
