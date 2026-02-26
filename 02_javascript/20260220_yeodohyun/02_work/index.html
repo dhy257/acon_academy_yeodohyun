@@ -1,52 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <style>
+      header {
+        height: 100px;
+        background-color: rgb(245, 248, 248);
+        position: relative;
+      }
+      .title {
+        position: absolute;
+        left: 10px;
+        top: 20px;
+      }
+      .search {
+        position: absolute;
+        right: 10px;
+        bottom: 20px;
+        display: flex;
+        /*  */
+        width: 200px;
+        height: 50px;
+      }
+      .search input {
+        border: none;
+        outline: none;
+        width: 150px;
+      }
+      .search_img {
+        background-image: url(../../20260206_yeodohyun/시험연습_샘플/images/검색.png);
+        background-size: cover;
+        background-position: center;
+        width: 50px;
+        height: 50px;
+      }
+      nav {
+        height: 40px;
+        padding: 20px;
+        background-color: rgb(232, 243, 243);
+      }
+      nav a {
+        text-decoration: none;
+        padding: 5px;
+      }
+      section {
+        height: 600px;
+      }
+      section ul {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      section li {
+        width: 300px;
+        padding: 20px;
+        text-align: center;
+        border: 0.5px solid rgb (255, 241, 241);
+      }
+      section li img{
+        
+      }
+    </style>
+  </head>
+  <body>
     <header>
-        <div class="title">
-            <img src="" alt="">
-        </div>
-        <div class="search">
-            <input type="text">
-            <div class="search_img"></div>
-        </div>
+      <div class="title">
+        <img
+          src="../../20260206_yeodohyun/시험연습_샘플/images/logo.png"
+          alt=""
+        />
+      </div>
+      <div class="search">
+        <input type="text" />
+        <div class="search_img"></div>
+      </div>
     </header>
     <nav>
-        <ul>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-        </ul>
+      <a href="">1</a>
+      <a href="">2</a>
+      <a href="">3</a>
     </nav>
     <section>
-        <ul>
-            <li>
-                <img src="" alt="">
-                <p></p>
-                <div class="point"></div>
-            </li>
-            <li>
-                <img src="" alt="">
-                <p></p>
-                <div class="point"></div>
-            </li>
-            <li>
-                <img src="" alt="">
-                <p></p>
-                <div class="point"></div>
-            </li>
-        </ul>
+      <ul>
+        <li>
+          <img src="" alt="" />
+          <p>1</p>
+          <div class="point">1</div>
+        </li>
+      </ul>
     </section>
     <footer>
-        <div class="item">
-            <img src="" alt="">
-        </div>
-        <div class="item"></div>
-        <div class="item"></div>
+      <div class="item">
+        <img src="" alt="" />
+      </div>
+      <div class="item">1</div>
+      <div class="item">2</div>
     </footer>
-</body>
+  </body>
 </html>
