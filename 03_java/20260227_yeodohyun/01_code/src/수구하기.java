@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class 수구하기 {
 
@@ -25,6 +26,31 @@ public class 수구하기 {
 		// 3. 처리자료 : 반복제어변수: i
 		// 4. Symbolic constant(S.C) : MAX =100
 		final int MAX = 5;
+
+		Scanner sc = new Scanner(System.in);
+
+		for (int i = 1; i < MAX; i++) {
+			System.out.println("숫자입력");
+			number = sc.nextInt();
+
+			if (number > 0) {
+				// 양수
+				pos_cnt++;
+				if (number % 2 == 0)
+					even_cnt++;// 짝수
+				else
+					odd_cnt++; // 홀수
+
+			} else
+				neg_cnt++;// 음수
+
+		}
+
+		System.out.println("양수의 개수는 " + pos_cnt);
+		System.out.println("음수의 개수는 " + neg_cnt);
+		System.out.println("짝수의 개수는 " + even_cnt);
+		System.out.println("홀수의 개수는 " + odd_cnt);
+
 	}
 
 }
