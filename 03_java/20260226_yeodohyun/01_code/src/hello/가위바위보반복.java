@@ -16,7 +16,6 @@ public class 가위바위보반복 {
         System.out.println("사용자 이름을 입력하세요");
         userName = sc.nextLine();
 
-        // [추가] 전체 게임 반복문: 지거나 이겼을 때 다시 할지 결정
         while (true) {
 
             // 1. 무승부 반복문 (비기면 계속 다시 함)
@@ -46,7 +45,6 @@ public class 가위바위보반복 {
             // 3. 승패 출력
             System.out.println("\n[" + userName + "님 결과] " + result);
 
-            // [추가] 패배 시 혹은 게임 종료 후 재도전 여부 확인
             if (result.equals("사용자 패")) {
                 System.out.print("지셨네요... 다시 도전하시겠습니까? (1:예, 0:아니오): ");
             } else {
