@@ -1,4 +1,4 @@
-package hello;
+
 
 public class 반복문연습하기 {
 

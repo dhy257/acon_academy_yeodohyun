@@ -1,4 +1,4 @@
-package hello;
+
 
 public class 진수변환2진수 {
 
