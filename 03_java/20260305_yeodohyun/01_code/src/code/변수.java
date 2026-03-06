@@ -28,7 +28,7 @@ public class 변수 {
 		
 		// 문자열 변수
 		// 문자집합
-		String name = "홍길동";
+		java.lang.String name = "홍길동";
 		
 		System.out.println(a);
 		System.out.println(b);
