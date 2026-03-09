@@ -47,12 +47,12 @@ public class 배열2차원 {
 //		System.out.println(teams[3][3]);
 
 		// 2차원 배열 => 중첩반복 해결
-		for (int i = 0; i < 5; i++) {
-			System.out.println("\n" + (i + 1) + "조");
-			for (int j = 0; j < 4; j++) {
-				System.out.println(teams[i][j]);
-			}
-		}
+//		for (int i = 0; i < 5; i++) {
+//			System.out.println("\n" + (i + 1) + "조");
+//			for (int j = 0; j < 4; j++) {
+//				System.out.println(teams[i][j]);
+//			}
+//		}
 
 		// 2차원 배열 만들고 사용
 		String[][] teams2 = new String[5][4];
@@ -62,26 +62,54 @@ public class 배열2차원 {
 		teams2[0][1] = "황스일";
 		teams2[0][2] = "장해든";
 		teams2[0][3] = "이현겸";
+//		System.out.println(teams2[0][0]);
+//		System.out.println(teams2[0][1]);
+//		System.out.println(teams2[0][2]);
+//		System.out.println(teams2[0][3]);
 		
 		teams2[1][0] = "이용찬";
 		teams2[1][1] = "박세인";
 		teams2[1][2] = "김태준";
 		teams2[1][3] = "고지연";
+//		System.out.println(teams2[1][0]);
+//		System.out.println(teams2[1][1]);
+//		System.out.println(teams2[1][2]);
+//		System.out.println(teams2[1][3]);
 		
 		teams2[2][0] = "정철진";
 		teams2[2][1] = "엄진희";
 		teams2[2][2] = "김민경";
 		teams2[2][3] = "여도현";
+//		System.out.println(teams2[2][0]);
+//		System.out.println(teams2[2][1]);
+//		System.out.println(teams2[2][2]);
+//		System.out.println(teams2[2][3]);
 		
 		teams2[3][0] = "이정하";
 		teams2[3][1] = "나해수";
 		teams2[3][2] = "조아진";
 		teams2[3][3] = "장윤성";
+//		System.out.println(teams2[3][0]);
+//		System.out.println(teams2[3][1]);
+//		System.out.println(teams2[3][2]);
+//		System.out.println(teams2[3][3]);
 		
 		teams2[4][0] = "송주창";
 		teams2[4][1] = "김민정";
 		teams2[4][2] = "김재민";
 		teams2[4][3] = "김건희";
+//		System.out.println(teams2[4][0]);
+//		System.out.println(teams2[4][1]);
+//		System.out.println(teams2[4][2]);
+//		System.out.println(teams2[4][3]);
+		
+		
+		for (int i = 0; i < teams2.length; i++) {
+		System.out.println("\n" + (i + 1) + "조");
+		for (int j = 0; j < teams2[i].length; j++) {
+			System.out.println(teams[i][j]);
+		}
+	}
 		
 		
 	}
