@@ -4,7 +4,7 @@ public class 배열저장출력문제 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-//		실습 )
+//	   실습 )
 //	   1. 배열저장출력문제    (값 넣고  출력하기)
 //	   1) 1차원배열 사용하기 -  일주일점심메뉴 또는 단어  
 //	   2) 1차원배열 사용하기 -  예상 로또번호  저장하고 출력하기
@@ -32,8 +32,8 @@ public class 배열저장출력문제 {
 		// 3) 1차원 배열 사용하기 - 좋아하는 음식 5개 저장하고 출력하기
 		System.out.println("3) 1차원 배열 사용하기 - 좋아하는 음식 5개 저장하고 출력하기");
 		String[] foods = { "김치찌개", "돈까스", "제육볶음", "초밥", "쌀국수" };
-		for(String food : foods){
-		    System.out.print(food + " ");
+		for (String food : foods) {
+			System.out.print(food + " ");
 		}
 		System.out.println("\n");
 
@@ -57,16 +57,16 @@ public class 배열저장출력문제 {
 		// 5) 3차원배열 사용하기
 		System.out.print("5) 3차원배열 사용하기");
 		String[][][] movie = {
-				//
+				//한국영화
 				{
-						//
+						//장르별
 						{ "살인의 추억", "신세계", "추격자" }, //
 						{ "극한직업", "과속스캔들", "7번방의 선물" }, //
 						{ "부산행", "터널", "감기" },//
 				},
-				//
+				//외국영화
 				{
-						//
+						//장르별
 						{ "Interstellar", "The Matrix", "Blade Runner 2049" }, //
 						{ "Se7en", "Shutter Island", "Gone Girl" }, //
 						{ "John Wick", "Mad Max: Fury Road", "Gladiator" },//
