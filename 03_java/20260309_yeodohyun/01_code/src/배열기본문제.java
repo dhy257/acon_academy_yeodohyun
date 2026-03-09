@@ -26,6 +26,7 @@ public class 배열기본문제 {
 			System.out.printf("이번 주 온도(%s): %d \n", Day[i], Temperatures[i]);
 			sumTem += Temperatures[i];
 
+			
 			if (Temperatures[i] > 35) {
 				cnt++;
 			}
