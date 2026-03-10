@@ -1,6 +1,7 @@
+package 배열실습문제;
 import java.util.Scanner;
 
-public class 배열실습문제 {
+public class 배열실습문제1_1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
