@@ -11,7 +11,9 @@ public class 학생등록조회변경삭제4 {
 		String[] name = new String[5];
 
 		loop: while (true) {
+			System.out.println("============================");
 			System.out.println("1.등록 2.조회 3.변경 4.삭제 5.종료");
+			System.out.println("============================");
 			menu = sc.nextInt();
 			sc.nextLine(); // 엔터 제거
 
@@ -19,6 +21,7 @@ public class 학생등록조회변경삭제4 {
 
 			case 1:
 				System.out.println("등록");
+				System.out.println("============================");
 				for (int i = 0; i < name.length; i++) {
 					System.out.printf("학생%d 이름 입력: ", i + 1);
 					name[i] = sc.nextLine();
@@ -27,6 +30,7 @@ public class 학생등록조회변경삭제4 {
 
 			case 2:
 				System.out.println("조회");
+				System.out.println("============================");
 				for (int i = 0; i < name.length; i++) {
 					System.out.printf("학생%d 이름: %s\n", i + 1, name[i]);
 				}
@@ -34,6 +38,7 @@ public class 학생등록조회변경삭제4 {
 
 			case 3:
 				System.out.println("변경");
+				System.out.println("============================");
 				// 변경
 				System.out.println("변경할 학생(n):");
 				index = sc.nextInt() - 1;
@@ -43,6 +48,7 @@ public class 학생등록조회변경삭제4 {
 
 			case 4:
 				System.out.println("삭제");
+				System.out.println("============================");
 				System.out.println("삭제할 학생(n):");
 				index = sc.nextInt() - 1;
 
