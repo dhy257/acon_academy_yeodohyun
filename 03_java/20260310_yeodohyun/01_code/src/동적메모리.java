@@ -5,7 +5,8 @@ public class 동적메모리 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		// 동적메모리: 
+		// 동적메모리: 프로그램을 실행시켰을 때 실제사용할 메모리의 크기가 결정됨
+		// 자바에선 new를 사용해 동적메모리 할당
 		int size;
 		Scanner sc = new Scanner(System.in);
 		
