@@ -26,8 +26,8 @@ public class 함수문제3_여도현 {
 
 		String[][] week = new String[7][3];
 
-		for (int i = 0; i < 7; i++) {
-			for (int j = 0; j < 3; j++) {
+		for (int i = 0; i < week.length; i++) {
+			for (int j = 0; j < week[i].length; j++) {
 
 				int r = (int) (Math.random() * 4); // 0~3 랜덤
 				week[i][j] = types[r];
