@@ -18,5 +18,6 @@
 	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/stars.jar"/>
 	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/seinLib.jar"/>
 	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/weather.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/여도현실습_객체.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
