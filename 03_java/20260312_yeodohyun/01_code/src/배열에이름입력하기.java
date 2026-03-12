@@ -2,6 +2,10 @@
 import java.util.Scanner;
 
 public class 배열에이름입력하기 {
+	
+	// 참조형변수: 위치(주소)를 저장하는 변수
+	// 이유) 배열부터는 new를 사용해서 메모리를 확보하고 사용해야함
+	// new => 메모리확보하고 주소를 반환함, 주소를 저장하고 사용할 일이 발생함
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
