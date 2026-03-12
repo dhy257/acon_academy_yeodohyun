@@ -1,15 +1,6 @@
-package 함수문제2;
+package com.acorn.dhy;
 
-public class 함수문제3_여도현 {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// 3. 주간날씨정보를  반환하는 함수 만들기
-
-		String[][] weather = week_weather();
-
-		printWeather(weather);
-	}
+public class Mylib2 {
 
 	public static void printWeather(String[][] weather) {
 		// 출력

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/CalcLib.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/cute.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/easyData_ktj.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/lhkLib.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/LibraryUseTest.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/myLib.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/MyLibLYC.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/mylib.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/MyLibb_KJY.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/stars.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/seinLib.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/acon_academy_yeodohyun/03_java/20260312_yeodohyun/00_document/libFile/weather.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
