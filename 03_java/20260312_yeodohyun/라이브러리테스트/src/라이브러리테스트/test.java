@@ -13,9 +13,9 @@ public class test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		 Upgrade.main(args);
+//		 Upgrade.main(args);
 
-//		System.out.println(MyLib.오늘의운세());
+		System.out.println(MyLib.오늘의운세());
 //
 //		Mylib2.printWeather(Mylib2.week_weather());
 //		System.out.println(Cute.귀여운이모지얻기());
