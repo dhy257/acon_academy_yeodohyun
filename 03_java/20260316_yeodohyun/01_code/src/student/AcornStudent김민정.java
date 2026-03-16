@@ -1,4 +1,4 @@
-package javaprj.day10.학생;
+package javaprj.day10;
 
 
 //  AcornStudent s  = new AcornStudent();   //  변수만들기 , 객체생성기
@@ -9,45 +9,47 @@ package javaprj.day10.학생;
 //캡슐화 
 //데이타+ 매서드(함수) 묶음
 //매서드가 하는 역할이 데이터를 사용한다 ( 데이터변경하거나, 단순히 읽기)
-public class AcornStudent장해든 {
+public class AcornStudent김민정 {
 
 	
 	  //속성
-	  private String name;
-	  private int 에너지;
-	  private int 근육량;
-	  private int 자바능력;
-	  private int 프론트능력;
-	    int 행복지수;	// 해든	  
+	  String name;
+	 private int 에너지;
+	 private int 근육량;
+	 private int 자바능력;
+	 private int 프론트능력;
+	 private int 기분;
+	  
 	
 	   
 	  //기능(매서드, 함수)
-	  //매서드를 통해서 변수를 사용한다	   (데이터를 사용하는 기능) 	 
+	  //매서드를 통해서 변수를 사용한다	   (데이터를 사용하는 기능)
+	 
 	  //입력하기  (기본)  
 	  //출력하기  (기본)
 	  
 	  
 	  //배열공부하기
 
-	  public void  입력하기( String name, int 에너지, int 근육량, int 자바능력, int 프론트능력, int 행복지수){
+	  public void  입력하기( String name, int 에너지, int 근육량, int 자바능력, int 프론트능력, int 기분){
 	           this.name  = name;
 	           this.에너지 = 에너지;
 	           this.근육량 = 근육량;
 	           this.자바능력 =  자바능력;
 	           this.프론트능력  = 프론트능력;
-	           this.행복지수  = 행복지수;
+	           this.기분 = 기분;
 	           
 	  }
 
 	//정보 출력하기
-	  public void   정보출력하기(){		
-		 System.out.println("////////////////////");
+	  public void   정보출력하기(){
+		 System.out.println("===============");
 		 System.out.println("name" + name);
 		 System.out.println("에너지"+ 에너지);
 		 System.out.println("근육량" + 근육량);
 		 System.out.println("자바능력"+ 자바능력);
-		 System.out.println( "프론트능력"+ 프론트능력); 
-		 System.out.println( "행복지수"+ 행복지수); 
+		 System.out.println("프론트능력"+ 프론트능력); 
+		 System.out.println("기분"+ 기분); 
 	 }
 
 
@@ -62,31 +64,20 @@ public class AcornStudent장해든 {
 	        에너지  -=5;
 	 } 
 
-
-
 	  public void 밥먹기() {
 	        에너지 +=100;
 	  }
 	  
+	  public void 운동하기() { //static이 아닌 매서드는 객체의 매서드(instance 매서드)이다
+		  					 //객체의 정보를 전달받는다. this라는 키워드!
+		    this.근육량 +=100;
+	        에너지 +=50;
+	        기분 += 80;
+	  }
 
 	  public int  웃는다(){
 	        에너지 += 10;
 	        return 10;
 	  }
-	  
-	  
-	  public    int  놀기놀기(){   // 객체의 정보를 전달 받는다
-	        this.에너지 += 77;
-	        return 10;
-	  }	// 해든
- 
-	  //AcornStudent장해든클래스에 소속되어 있는 기능이다
-	  //객체(변수)가 만들어지는것과 무관하다
-	  //당연히 객체의 정보를 전달받지 않는다.
-	  //변수정보를 사용불가
-	  
-	  public static void 학원위치소개하기() {
-		    System.out.println("홍대입구에 있어요 !!");
-	  }
-	  
 }
+	  
