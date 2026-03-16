@@ -6,10 +6,12 @@ public class AcornStudentMain {
 
 		AcornStudent s1 = new AcornStudent();
 		AcornStudent s2 = new AcornStudent();
+		AcornStudent s3 = new AcornStudent();
 
 		// 입력
 		s1.입력하기("사람1", 1000, 10, 50, 200);
 		s2.입력하기("사람2", 2000, 20, 0, 0);
+		s3.입력하기("여도현", 1000, 10, 30, 150);
 		// 출력
 		s1.정보출력하기();
 		s2.정보출력하기();
@@ -27,6 +29,8 @@ public class AcornStudentMain {
 
 		s1.정보출력하기();
 		s2.정보출력하기();
+
+		//
 
 	}
 
