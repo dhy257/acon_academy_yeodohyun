@@ -14,18 +14,22 @@ public class MovieMain {
 			movies[i] = new Movie();
 		}
 
-		movies[0].movieName = "Interstellar";
-		movies[0].genre = "SF";
-		movies[0].price = 12000;
-
-		movies[1].movieName = "Avengers";
-		movies[1].genre = "Action";
-		movies[1].price = 13000;
-
-		movies[2].movieName = "LaLaLand";
-		movies[2].genre = "Musical";
-		movies[2].price = 11000;
-
+		movies[0].inputMovie("Interstellar", "SF", 10000, 10);
+		movies[1].inputMovie("Avengers", "Action", 20000, 5);
+		movies[2].inputMovie("LaLaLand", "Musical", 30000, 8);
+/*
+//		movies[0].movieName = "Interstellar";
+//		movies[0].genre = "SF";
+//		movies[0].price = 12000;
+//
+//		movies[1].movieName = "Avengers";
+//		movies[1].genre = "Action";
+//		movies[1].price = 13000;
+//
+//		movies[2].movieName = "LaLaLand";
+//		movies[2].genre = "Musical";
+//		movies[2].price = 11000;
+*/
 		int totalSales = 0;
 
 		while (true) {
@@ -52,6 +56,6 @@ public class MovieMain {
 		}
 
 		System.out.println("총 매출: " + totalSales);
-
+		sc.close();
 	}
 }
