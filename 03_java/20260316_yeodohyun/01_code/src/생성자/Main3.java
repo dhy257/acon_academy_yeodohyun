@@ -12,6 +12,10 @@ public class Main3 {
 		s2.정보출력하기();
 		AcornStudent2 s3 = new AcornStudent2("사람이름2",500);
 		s3.정보출력하기();
+		
+		// int a =10;
+		// 클래스만든 다음
+		// AcornStudent2 s2 = new AcornStudent2("사람이름1",500,30,50,100);
 	}
 
 }
