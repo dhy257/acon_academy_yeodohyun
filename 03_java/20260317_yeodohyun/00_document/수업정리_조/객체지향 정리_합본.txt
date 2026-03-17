@@ -1,0 +1,124 @@
+[객체지향 프로그래밍 요약]
+
+1. 캡슐화 (Encapsulation)
+- 데이터(변수)와 데이터를 처리하는 메서드를 하나의 객체로 묶음
+- 외부에서 데이터 직접 접근 금지, 메서드를 통해서만 접근 가능
+- 목적:
+  1) 데이터 보호: 잘못된 값 입력 방지, 무결성 유지
+  2) 코드 관리 용이성: 유지보수 쉬움
+  3) 모듈화: 독립 단위 관리
+
+예시:
+class Person {
+    private String name;
+
+    public void setName(String name) {
+        if(name == null) return;  // 방어 로직
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+2. 절차지향 vs 객체지향
+
+절차지향:
+- 데이터와 함수 분리
+- 구조: 데이터 → 함수 → 처리 → 결과
+- 단점: 코드 관리 어려움, 데이터 보호 어려움
+
+객체지향:
+- 데이터 + 메서드를 하나의 객체로 묶음
+- 구조: 객체 = 데이터(속성) + 기능(메서드)
+- 장점: 코드 관리 용이, 데이터 보호 가능, 구조 명확
+
+3. 클래스(Class)와 객체(Object)
+
+클래스:
+- 객체를 만들기 위한 설계도
+예시:
+class Student {
+    String name;
+    int age;
+    String major;
+}
+
+객체:
+- 클래스를 기반으로 메모리에 생성된 실제 데이터
+예시:
+Student s = new Student();
+
+4. this 키워드
+- 현재 객체 자신을 가리키는 참조 변수
+- 객체 변수와 매개변수 구분
+- static 메서드에서는 사용 불가
+
+예시:
+public Student(String name, int age) {
+    this.name = name; // 객체 변수
+    this.age = age;   // 매개변수
+}
+
+5. 생성자(Constructor)
+- 객체 생성 시 자동 호출, 클래스 이름과 동일, 반환 타입 없음
+- 역할: 객체 변수 초기화
+- 기본 생성자: 매개변수가 없고, 생성자가 없으면 컴파일러가 자동 생성
+- 매개변수 생성자: 객체 생성 시 초기값 설정 가능
+
+예시:
+class Person {
+    String name;
+    Person(String name){
+        this.name = name;
+    }
+}
+Person p = new Person("홍길동");
+
+6. 접근제어자 (Access Modifier)
+- private: 같은 클래스 내부만 접근 가능
+- default: 같은 패키지 내에서 접근 가능
+- protected: 같은 패키지 + 상속 관계 접근 가능
+- public: 어디서든 접근 가능
+
+7. Getter / Setter
+- 캡슐화된 변수 접근용 메서드
+- Getter: 변수 값 반환, get+속성명(첫글자 대문자) => 속성 값 반환
+- Setter: 변수 값 변경, set+속성명(첫글자 대문자) => 속성 값 변경
+
+
+8. static
+- 객체 생성 없이 클래스에 속한 변수/메서드 사용 가능
+- 모든 객체가 공유
+- static 메서드에서는 this 사용 불가(this는 객체를 의미하기 때문)
+ 	> instance: 객체마다 다른 값을 다룰 때, this 사용 가능
+	> static: 모든 객체가 공유하는 값, 객체 없이 호출 가능, this 사용 불가
+
+예시:
+static int count = 0;
+Math.min(5,3);
+
+9. private 메서드
+- 객체 내부에서만 사용 가능
+private void calc() {
+    int total = this.kor + this.eng;
+    this.avg = total / 2;
+}
+
+10. 객체 내부 메서드 예시
+public void input(String drinkName, int price, boolean isCold, String 칼로리){
+    this.drinkName = drinkName; // 객체 변수와 매개변수 구분
+    this.price = price;
+    this.isCold = isCold;
+    this.칼로리 = 칼로리;
+}
+
+11. 정리
+- 생성자: 객체 초기화
+- this: 현재 객체
+- 캡슐화: 데이터 보호
+- 접근제어자: 접근 범위 설정
+- Getter/Setter: 안전한 데이터 접근
+- static: 객체 없이 클래스 멤버 사용 가능
+- 캡슐화를 통해 얻는 장점: 데이터 보호, 코드 관리 용이, 유지보수 편리, 프로그램 구조 명확
