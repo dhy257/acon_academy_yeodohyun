@@ -2,6 +2,7 @@ package 실습_여도현;
 
 public class Drip extends Coffee {
 
+	// 생성자
 	public Drip() {
 		System.out.println("Drip 생성자 호출");
 	}

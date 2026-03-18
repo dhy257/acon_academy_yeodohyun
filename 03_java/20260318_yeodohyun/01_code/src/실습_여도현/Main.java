@@ -13,6 +13,14 @@ public class Main {
 		System.out.println("==============업캐스팅============");
 		coffeeDivide(coffee1); // Drip > Coffee
 		coffeeDivide(coffee2); // Espresso > Coffee
+		System.out.println("==============잘못된 다운캐스팅============");
+
+		// coffee3는 에스프레소인데 드립으로 변환 시도 >> 서로 다른 자식이라 잘못됨
+		Coffee coffee3 = new Espresso(); // 실제 객체는 Espresso
+
+		Drip wrong = (Drip) coffee3; // 잘못된 다운캐스팅
+		wrong.Brewing();
+
 	}
 
 	public static void dripCoffee(Drip coffee) {

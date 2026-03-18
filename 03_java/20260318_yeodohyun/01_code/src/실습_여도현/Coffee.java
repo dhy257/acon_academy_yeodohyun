@@ -2,6 +2,7 @@ package 실습_여도현;
 
 public class Coffee {
 
+	// 생성자
 	public Coffee() {
 		System.out.println("Coffee 생성자 호출");
 	}

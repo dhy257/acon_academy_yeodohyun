@@ -2,6 +2,7 @@ package 실습_여도현;
 
 public class Espresso extends Coffee {
 
+	// 생성자
 	public Espresso() {
 		System.out.println("Espresso 생성자 호출");
 	}
