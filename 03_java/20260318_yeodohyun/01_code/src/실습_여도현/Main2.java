@@ -30,15 +30,17 @@ public class Main2 {
 
 		// 3. 잘못된 다운캐스팅 예제
 		System.out.println("=== 잘못된 다운캐스팅 ===");
-		Coffee wrongCoffee = new Drip();
+		Coffee wrongCoffee = new Drip(); // Drip 객체
 		try {
+			// Drip → Espresso 변환 시도 => 런타임 에러
 			Espresso wrongEspresso = (Espresso) wrongCoffee; // 실행 시 ClassCastException
-			wrongEspresso.Extraction();
+			// wrongEspresso.Extraction();
 		} catch (ClassCastException e) {
 			System.out.println("에러문구: " + e);
 		}
 	}
-
+	
+/*
 //	public static void dripCoffee(Drip coffee) {
 //		coffee.coffee();
 //		coffee.Brewing();
@@ -48,7 +50,8 @@ public class Main2 {
 //		coffee.coffee();
 //		coffee.Extraction();
 //	}
-
+*/
+	
 	// 업캐스팅
 	public static void coffeeDivide(Coffee coffee) {
 		// 오버라이딩된 coffee() 호출
