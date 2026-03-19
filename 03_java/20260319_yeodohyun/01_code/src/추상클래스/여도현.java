@@ -1,6 +1,6 @@
 package 추상클래스;
 
-public abstract class 여도현 extends AcornStudent {
+public class 여도현 extends AcornStudent {
 
 	public 여도현() {
 		super("여도현");
