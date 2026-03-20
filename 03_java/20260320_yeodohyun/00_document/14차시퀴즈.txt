@@ -1,0 +1,64 @@
+복습 퀴즈)!
+1)
+모든 클래스는 Object를 상속받는다. 
+Object형의 객체는 모든 클래스로 다운캐스팅이 가능하다 
+그러나 실제 객체를 고려하여 다운캐스팅해야 한다.  ClassCastException  발생 
+
+
+퀴즈)
+Object 
+
+   -A (extends Object) 
+     놀기()
+   -B (extends Object)
+     공부하기()  
+
+Object o = new A();
+A a =  (A) o;    --->1번
+B b  = (B) o;    --->2번
+
+1, 2번 중에서 오류가 발생하는 코드는 ?
+ 2
+A인데 B로는 안됨
+
+상속관계에서 업캐스팅과 다운캐스팅 (형변환)
+
+new ~ 업캐스팅
+
+((A)o)
+A aa = (A) o
+
+
+
+
+2)다음에 제공되는 매서드를 호출하시오
+
+
+
+class A{
+    public static void  매서드A(){   System.out.println("매서드  !!  A")}
+}
+
+A.매서드A();
+
+class B{
+   public  void  매서드B(){   System.out.println("매서드 ^^ B")}
+
+
+}
+
+B b = new B();
+b.매서드B();
+
+사용법에 다른 이유를 설명하시오
+
+
+static>>객체생성없이 사용가능
+
+인스턴스 매서드여서 new로 객체 생성 후 호출해야함
+ - 객체 = 매서드를 통해 사용
+ - 변수 = 항상 열려있다
+
+객체=속성+기능(매서드)
+객체=기능
+ 
