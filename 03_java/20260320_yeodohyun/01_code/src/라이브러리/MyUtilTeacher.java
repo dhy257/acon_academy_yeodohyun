@@ -18,6 +18,7 @@ public class MyUtilTeacher {
 		for (int i = 0; i < 3; i++) {
 			System.out.print(a);
 		}
+		System.out.println();
 	}
 
 	// 당신의 코드를 세번 실행해 드릴께요
