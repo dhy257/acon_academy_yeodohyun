@@ -1,12 +1,11 @@
 package myarrays;
 
-public class Score implements Mycomparable {
+public class Score implements MyComparable {
 
 	String name;
 	int kor;
 	int eng;
 
-	// 생성자
 	public Score() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,10 +25,9 @@ public class Score implements Mycomparable {
 	@Override
 	public int compareTo(Object other) {
 		// TODO Auto-generated method stub
+		Score s = (Score) other;
 
-		Score s1 = (Score) other;
-
-		return this.kor - s1.kor;
+		return this.kor - s.kor;
 	}
 
 }

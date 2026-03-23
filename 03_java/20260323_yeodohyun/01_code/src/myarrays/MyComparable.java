@@ -1,6 +1,5 @@
 package myarrays;
 
-public interface Mycomparable {
-
+public interface MyComparable {
 	public int compareTo(Object other);
 }
