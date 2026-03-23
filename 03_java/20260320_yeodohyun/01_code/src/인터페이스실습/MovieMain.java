@@ -58,7 +58,9 @@ public class MovieMain {
 
 			if (price > 0) {
 				// 선택된 Payment 객체를 재사용
+				// management에서 받은 p가지고
 				Payment p = management.select();
+				// p.pay실행
 				if (p.pay(price)) {
 					System.out.println(movies[choice - 1].movieName + " 예약 성공");
 					System.out.println("남은 좌석: " + movies[choice - 1].seat);

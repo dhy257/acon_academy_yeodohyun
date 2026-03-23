@@ -44,16 +44,20 @@ import java.util.Map;
 
 public class Management {
 
+	//Map 사용
 	private Map<Integer, Payment> paymentMap = new HashMap<>();
-
+	
+	// 생성자 >> Map에 데이터 저장
 	public Management() {
+		
 		paymentMap.put(1, new CardPayment());
 		paymentMap.put(2, new CashPayment());
 		paymentMap.put(3, new KakaoPay());
 	}
 
-	// select() 메서드 존재 + 반환 타입 Payment
+	// select() 메서드 존재 + 반환 타입 Payment >> 호출
 	public Payment select() {
+		// 입력받고
 		Scanner sc = new Scanner(System.in);
 
 		while (true) {
@@ -61,9 +65,11 @@ public class Management {
 			System.out.println("1. 카드  2. 현금  3. 카카오페이");
 
 			int choice = sc.nextInt();
+			// get실행해서
 			Payment p = paymentMap.get(choice);
 
 			if (p != null)
+				// Payment 객체 반환함 >> p.pay실행
 				return p;
 			System.out.println("잘못된 선택 ❌");
 		}
