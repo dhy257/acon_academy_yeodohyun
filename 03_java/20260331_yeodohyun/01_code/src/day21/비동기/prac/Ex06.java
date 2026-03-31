@@ -2,7 +2,7 @@ package day21.비동기.prac;
 
 // 스레드 만들기 2번째 방법 : Runnable 인터페이스 사용
 
-public class Ex05 {
+public class Ex06 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -16,15 +16,15 @@ public class Ex05 {
 //		}
 
 		Thread 김건희 = new Thread(() -> {
-			for (int i = 0; i <= 10; i++) {
-				System.out.println("햄버거");
+			for (int i = 0; i <= 100; i++) {
+				System.out.println("김건희 춤춤=====");
 			}
 		});
 		김건희.start();
 
 		Thread 고지연 = new Thread(() -> {
-			for (int i = 0; i <= 10; i++) {
-				System.out.println("감자튀김");
+			for (int i = 0; i <= 100; i++) {
+				System.out.println("김건희 춤춤=====");
 			}
 		});
 		고지연.start();
