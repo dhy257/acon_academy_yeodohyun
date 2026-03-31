@@ -1,0 +1,15 @@
+{
+   
+  "kkh": {
+    "id": "kkh",
+    "name": "김건희",
+    "password": "12456",
+    "mileage": "bronze"
+  },
+  "ktj": {
+    "id": "ktj",
+    "name": "김태준",
+    "password": "1234",
+    "mileage": "bronze"
+  }  
+}
