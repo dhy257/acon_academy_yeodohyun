@@ -30,6 +30,7 @@ public class 사용자정보읽어오기_json2 {
             // List<User>로 변환
             Type type = new TypeToken<List<User>>() {}.getType();
             List<User> users = gson.fromJson(reader, type);
+            System.out.println(users.size());
             reader.close();
 
             // 모든 회원 확인하기
