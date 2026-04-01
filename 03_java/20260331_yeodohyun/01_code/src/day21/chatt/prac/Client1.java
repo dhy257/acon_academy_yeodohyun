@@ -1,4 +1,4 @@
-package day21.chatt;
+package day21.chatt.prac;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -9,26 +9,21 @@ import java.util.Scanner;
 
 public class Client1 {
 
-	Socket socket;// 소켓
-
-	DataInputStream dataInputStream; // 입력용보조스트림
-	DataOutputStream dataOutputStream; // 출려용보조스트림
+	Socket socket;
+	DataInputStream is;
+	DataOutputStream os;
 	Scanner sc = new Scanner(System.in);
 
 	public Client1() {
-
-		// 127.0.0.1 ( localhost)
-
 		try {
-			socket = new Socket("localhost", 6100);
-			dataInputStream = new DataInputStream(socket.getInputStream());
-			dataOutputStream = new DataOutputStream(socket.getOutputStream());
+			socket = new Socket("localhost", 6500);
 
-			// 보내기
-			dataSend();
+			is = new DataInputStream(socket.getInputStream());
+			os = new DataOutputStream(socket.getOutputStream());
 
-			// 받기
-			dataRecv();
+			보내기();
+
+			받기();
 
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
@@ -37,35 +32,34 @@ public class Client1 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
-	private void dataRecv() {
-
+	private void 보내기() {
+		// TODO Auto-generated method stub
+		System.out.println("클라이언트 쪽에서 보내는 답변:");
+		String message = sc.nextLine();
 		try {
-			String msg = dataInputStream.readUTF();
-			System.out.println(msg);
+			os.writeUTF(message);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	private void dataSend() {
-
+	private void 받기() {
+		// TODO Auto-generated method stub
 		try {
-			String sendMsg = sc.nextLine();
-			dataOutputStream.writeUTF(sendMsg);
+			String message = is.readUTF();
+			System.out.println(message);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		new Client1();
-
 	}
 
 }

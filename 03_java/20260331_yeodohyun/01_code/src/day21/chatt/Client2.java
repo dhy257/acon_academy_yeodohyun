@@ -17,7 +17,7 @@ public class Client2 {
 	
 	public Client2() {		
 		try {			
-			 socket = new Socket("192.168.100.40", 6100);   // 서버의 ip , 포트번호 		
+			 socket = new Socket("localhost", 6100);   // 서버의 ip , 포트번호 		
 			//socket = new Socket("localhost", 6100);   // 서버의 ip , 포트번호 		
 			dataInputStream = new DataInputStream( socket.getInputStream());
 			dataOutputStream = new DataOutputStream( socket.getOutputStream());			
