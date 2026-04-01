@@ -92,7 +92,7 @@ public class ChatClient extends JFrame implements Runnable, ActionListener {
 	}
 	
 	public static void main(String[] args) {
-		new ChatClient("192.168.100.40");
+		new ChatClient("192.168.100.104");
 	}
 	
 	

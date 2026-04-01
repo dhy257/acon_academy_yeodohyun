@@ -53,7 +53,7 @@ public class Client{
 
 		public Client(){
 		 try {
-		     clientSocket= new Socket("192.168.0.76", 5000);
+		     clientSocket= new Socket("192.168.100.104", 6100);
 	         System.out.println("서버접속요청");
 	 	     dataInputStream = new DataInputStream(clientSocket.getInputStream());
 		     dataOutputStream = new DataOutputStream(clientSocket.getOutputStream());
