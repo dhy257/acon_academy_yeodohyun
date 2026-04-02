@@ -95,11 +95,20 @@ FROM member_tbl_11;
 SELECT M_NAME, NVL2(M_POINT,M_POINT+1000,100)
 FROM member_tbl_11;
 
+-- CASE WHEN
+-- 에이콘테이블에서 포인트가 3000이상이면 A, 2000이상이면 B, 나머지 C 초기화
+SELECT *
+FROM acorntbl;
 
+SELECT NAME, POINT
+FROM acorntbl;
 
-
-
-
+SELECT NAME, POINT,
+    CASE WHEN POINT >=3000 THEN 'A'
+        WHEN POINT >=2000 THEN 'B'
+        ELSE 'C'
+    END AS RESULT
+FROM acorntbl;
 
 
 
