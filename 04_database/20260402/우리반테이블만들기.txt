@@ -1,0 +1,33 @@
+
+고객정보 저장될 공간  ( 테이블)
+ 
+ 
+crud   => create(insert ) , read( select ), u(update) , d(delete) 
+
+
+우리반 테이블만들기
+
+create table  acorntbl  (
+    id  varchar2(10) primary key,
+    pw  varchar2(10) ,
+    name varchar2(10),
+    point number(6) , 
+    birthday date    
+);
+
+--crud   => create(insert ) , read( select ), u(update) , d(delete)  
+
+select *  from acorntbl ;
+insert into acorntbl(id, pw, name, point, birthday)  values('victoai', '1224', '우주연' ,100 , '1975-12-10'); 
+ 
+ 
+
+
+# 자신의 회원정보를 저장할 insert 쿼리를 작성해서 보내주세요 ^^
+
+
+ 
+
+ 
+
+
