@@ -239,6 +239,128 @@ FROM STUDENT
 WHERE DEPTNO1 = 101;
 ------
 
+--숫자관련함수
+--ROUND(컬럼, 출력을 원하는 자리수)
+ 
+--출력을 원하는 자리수 :  -2 -1  0  1  2
+
+SELECT ROUND( 1234.5678, 0) FROM DUAL;
+SELECT ROUND( 1234.5678, -1) FROM DUAL;
+
+--TRUNC :버림
+
+SELECT TRUNC( 1234.5678, 0) FROM DUAL;
+SELECT TRUNC( 1234.5678, -1) FROM DUAL;
+
+
+--MOD :나머지
+SELECT MOD(11,3) FROM  DUAL;
+
+--CEIL  : 주어진 숫자에서 가까운 큰 정수   3.56  ->  4
+--FLOOR : 주어진 숫자에서 가까운 작은 정수   3.56  ->  3
+--                                      -3.46   ->  큰,  -3     작은거 -4
+
+
+SELECT FLOOR( 3.56) FROM DUAL;   -- 3
+SELECT CEIL( 3.56) FROM DUAL;   -- 4
+
+SELECT FLOOR( -3.56) FROM DUAL;       -- -4
+SELECT CEIL( -3.56) FROM DUAL;        -- -3
+
+
+--날짜관련 함수  (89페이지)
+
+--현재날짜구하기
+SELECT SYSDATE FROM DUAL;
+
+-- 날짜  - 날짜   = 수  (일 수)
+-- 날짜 +3 ->  이후 날짜
+-- 날짜 -3 =>  이전 날짜
+
+--MONTHS_BETWEEN (큰날짜, 작은날짜)
+SELECT  MONTHS_BETWEEN( SYSDATE , '2026-01-22') FROM DUAL ;
+
+
+--LAST_DAY() 함수
+--정해진 날짜가 포함된 달의 마지막 날 구하기
+SELECT  SYSDATE  FROM  DUAL;
+SELECT  LAST_DAY(SYSDATE)  FROM  DUAL;
+
+--NEXT_DAY()
+SELECT SYSDATE  , NEXT_DAY( SYSDATE, '월') FROM DUAL;
+
+--날짜 , 년 ,월, 일 가져오기 
+
+SELECT  SYSDATE FROM DUAL;
+
+SELECT  
+    SYSDATE,
+    EXTRACT( YEAR FROM SYSDATE) ,
+     EXTRACT( MONTH FROM SYSDATE) ,
+      EXTRACT( DAY FROM SYSDATE)     
+FROM DUAL;
+
+
+--형변환
+--문자 :   VARCHAR2  , CHAR
+--숫자  :  NUMBER 
+--날짜  : DATE
+--1)형변환  - 표시형식 
+-- 숫자  ->  문자  (천단위, 통화단위)
+-- 날짜  ->  문자  (원하는 표시형식으로 지정하고 싶을 때)
+
+--2) 숫자연산을 위해서
+-- 문자  ->  숫자
+
+--3) 날짜데이터로 다루기 위해서 
+-- 문자  ->  날짜 
+
+--형변환함수
+--명시적형변환 , 묵시적형변환(자동형변환)
+SELECT  2+'2' FROM DUAL;  --  2+ '2' -> 문자  2가 자동으로 숫자로 변환되었음  (자동형변환)
+--
+SELECT 2 + TO_NUMBER('2') FROM DUAL;
+
+--TO_CHAR()  : 숫자, 날짜를 문자로 형변환 하는 것
+SELECT  SYSDATE  FROM DUAL;
+SELECT  TO_CHAR(SYSDATE ,  'YYYY-MM-DD' )  FROM DUAL;
+SELECT  TO_CHAR(SYSDATE , 'YYYY/MM/DD')  FROM DUAL;
+SELECT  TO_CHAR(SYSDATE , 'YYYY')  FROM DUAL;
+SELECT  TO_CHAR(SYSDATE , 'MM')  FROM DUAL;
+SELECT  TO_CHAR(SYSDATE , 'DD')  FROM DUAL;
+SELECT  TO_CHAR(SYSDATE , 'DAY')  FROM DUAL;
+SELECT  TO_CHAR(SYSDATE , 'DY')  FROM DUAL;
+
+-- 시분초
+
+SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD : HH24:MI:SS') FROM DUAL;
+
+-- 숫자를 문자로
+
+SELECT * FROM ACORNTBL;
+
+SELECT NAME, TO_CHAR(POINT, '999,999') FROM ACORNTBL; -- 의미 없는 0은 표시 xx
+SELECT NAME, TO_CHAR(POINT, 'L999,999') FROM ACORNTBL;
+SELECT NAME, TO_CHAR(POINT, '$999,999') FROM ACORNTBL;
+SELECT NAME, TO_CHAR(POINT, '$099,999') FROM ACORNTBL;
+
+-- 형변환 주의사항
+-- 문자 > 문자변환 불가
+-- 숫자 > 숫자변환 불가
+
+-- TO_NUMBER()
+-- TO_CHAR()
+-- TO_DATE() : 날짜 형식을 갖춘 문자 > 날짜데이터로 바꾸기
+SELECT TO_DATE('2000-01-01') FROM DUAL;
+
+
+-- 107p
+-- 사용예1
+
+-- 사용예2
+
+-- 퀴즈1
+
 
 
 
