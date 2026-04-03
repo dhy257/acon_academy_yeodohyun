@@ -353,6 +353,19 @@ SELECT NAME, TO_CHAR(POINT, '$099,999') FROM ACORNTBL;
 -- TO_DATE() : 날짜 형식을 갖춘 문자 > 날짜데이터로 바꾸기
 SELECT TO_DATE('2000-01-01') FROM DUAL;
 
+-- select 절 나오는 별칭은
+-- 쿼리실행 순서에서 별칭을 만든 다음 순서부터 사용가능
+-- 작성순서 select > from > where
+-- 실행순서 from > where > select
+-- 따라서 아래 쿼리 실행안됨
+-- >> select에서 만든 별칭 mm을 where에서 사용불가하기 때문
+--select empno,ename,hibernate,to_char(hibernate,'MM') as mm
+--from emp
+--where mm in in ( '01','02','03')
+-- 106P 형변환 퀴즈 2 
+SELECT EMPNO, ENAME, HIREDATE
+FROM EMP
+WHERE TO_CHAR(HIREDATE, 'MM') IN ('01','02','03');
 
 -- 107p
 -- 사용예1
@@ -372,6 +385,15 @@ SELECT
 FROM PROFESSOR
 WHERE DEPTNO = 201;
 -- 퀴즈1
+SELECT 
+    empno,
+    ename,
+    hiredate,
+    (sal*12 + comm),
+    (sal*12 + comm)*1.15
+FROM emp
+WHERE comm IS NOT NULL;
+
 SELECT 
     empno,
     ename,
@@ -396,27 +418,41 @@ SELECT
     NAME,
     PAY,
     NVL(BONUS, 0) BONUS,
-    (pay * 12) TOTAL
+    (pay * 12)+NVL(BONUS,0) TOTAL
 FROM PROFESSOR
 WHERE deptno = 201;
 -- 교재 113 ( NVL2퀴즈)
---SELECT EMPNO,
---       ENAME,
---       COMM,
---       CASE 
---           WHEN comm IS NOT NULL THEN 'Exist'
---           ELSE 'NULL'
---       END NVL2
---FROM emp
---WHERE deptno = 30;
---
+SELECT EMPNO,
+       ENAME,
+       COMM,
+       CASE 
+           WHEN comm IS NOT NULL THEN 'Exist'
+           ELSE 'NULL'
+       END NVL2
+FROM emp
+WHERE deptno = 30;
+
 SELECT EMPNO,
        ENAME,
        COMM,
        NVL2(comm, 'Exist', 'NULL') NVL2
-FROM EMMP
+FROM EMP
 WHERE DEPTNO = 30;
--- DECODE() 함수
+-- DECODE() 함수 113p
+-- IF문 ( 조건이 같은것만 사용 가능 )
+
+-- MEMBER_TBL_11
+SELECT * FROM MEMBER_TBL_11;
+-- 01 : VVIP 02: VIP 03:GOLD
+SELECT
+M_NAME,M_GRADE,
+DECODE(M_GRADE, '01','VVIP' , '02','VIP', '03','GOLD','해당사항없음')
+FROM MEMBER_TBL_11;
+
+SELECT * FROM PROFESSOR;
+SELECT DEPTNO,NAME,DECODE(DEPTNO,101,DECODE(NAME,'Audie Murphy','BEST','GOOD'))
+FROM PROFESSOR;
+
 -- CASE WHEN
 -- 교재 121 ( 중간에 있는 그림에 있는 SQL작성 )
 SELECT
@@ -440,15 +476,115 @@ SELECT
         WHEN SAL BETWEEN 2001 AND 3000 THEN 3
         WHEN SAL BETWEEN 3001 AND 4000 THEN 4
         ELSE 5
-    END "LEVEL"  -- "level" 대신 다른 이름 사용
+    END "LEVEL"
 FROM
     EMP
 ORDER BY SAL DESC;
--- 복수행 함수
+
+
+
+-- 1.전체확인
+select * from emp;
+select empno, ename, sal
+from emp;
+-- 2.관심있는 컬럼조회
+select empno, ename, sal,
+    case when sal>=4001 then 'level5'
+    end "LEVEL"
+from emp;
+-- 3.이후완성
+select empno, ename, sal,
+case when sal >= 4001 then 'LEVEL 5'
+     when sal >= 3001 then 'LEVEL 4'
+     when sal >= 2001 then 'LEVEL 3'
+     when sal >= 1001 then 'LEVEL 2'
+     else 'LEVEL 1'
+end "LEVEL"
+from emp
+order by sal desc;
+
+
+
+
+
+-- 복수행 함수 156p
 -- 전체합계, 전체평균, 전체개수 : 집계함수는 NULL을 제외하고 집계함
 -- SUM(), AVG(), MAX(), MIN()
 
+SELECT *
+FROM EMP;
+
+SELECT SAL
+FROM EMP;
+
+SELECT SUM(SAL), AVG(SAL),COUNT(SAL),COUNT(COMM),COUNT(*),MAX(SAL),MIN(SAL)
+FROM EMP;
+
+-- 집계함수는 NULL 제외
+-- COUNT(컬럼명) : NULL제외하고 센다
+
+SELECT COUNT(SAL) FROM EMP; -- 12
+SELECT COUNT(COMM) FROM EMP; -- 4
+
+-- COUNT(*) : NULL 따지지 않고 전체 레코드 수
+
+-- 그룹별 집계 구하기
+
+-- 1. 그룹별 집계내기의 전단계 만들기
+-- 2. 데이터를 보면서 눈으로 집계 내보기
+-- 3. 그룹별 집계
+
+-- 고객 등급별 포인트 합 구하기
+select * from member_tbl_11;
+
+-- 전체 포인트 합 구하기
+select sum(m_point) from member_tbl_11;
+-- 전단계 만들기
+select m_grade, m_point from member_tbl_11;
+-- 
+select m_grade, sum(m_point) -- 3.실행순서
+from member_tbl_11  -- 1. 실행순서
+group by m_grade;   -- 2. 실행순서
+
+-- 등급별 포인트 합 구하기
+-- 등급별 포인트 합이 5000이상인 것만 조회되도록 하시오
+-- 그룹바이 된 결과 내에서 필터를 할 땐 HAVING 사용
+select m_grade, sum(m_point) total
+from member_tbl_11
+group by m_grade
+having sum(m_point)>=5000; -- 반드시 group by 상황에서만 사용가능함
+
+select m_grade, sum(m_point) total
+from member_tbl_11
+group by m_grade
+having sum(m_point)>=5000
+order by total desc;
+
+-- 등급별 합계 구하기
+select m_grade, m_point
+from member_tbl_11
+where m_grade is not null;
+-- 등급별 합계에서 5000이상인것만 조회하기
+select m_grade,sum(m_point)
+from member_tbl_11
+where m_grade is not null
+group by m_grade;
+
+select m_grade,sum(m_point)
+from member_tbl_11
+where m_grade is not null
+group by m_grade
+having sum(m_point) >=5000;
+-- 표시
+select m_grade,to_char(sum(m_point) , '999,999') total
+from member_tbl_11
+where m_grade is not null
+group by m_grade
+having sum(m_point) >=5000;
+
+
 -- 부서별, 직급별, 사원별 집계하기 ( 데이터베이스SQL PDF 참조 )
+
 
 
 
