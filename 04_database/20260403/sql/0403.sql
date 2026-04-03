@@ -356,10 +356,100 @@ SELECT TO_DATE('2000-01-01') FROM DUAL;
 
 -- 107p
 -- 사용예1
-
+SELECT
+    EMPNO,
+    ENAME,
+    SAL,
+    COMM,
+    TO_CHAR((SAL*12)+COMM,'999,999') "SALARY"
+FROM EMP
+WHERE ENAME='ALLEN';
+    
 -- 사용예2
-
+SELECT
+    NAME,PAY, BONUS,
+    TO_CHAR((PAY*12)+BONUS,'999,999') "TOTAL"
+FROM PROFESSOR
+WHERE DEPTNO = 201;
 -- 퀴즈1
+SELECT 
+    empno,
+    ename,
+    TO_CHAR(hiredate, 'YYYY-MM-DD') AS hiredate,
+    TO_CHAR((sal*12 + comm), 'L999,999') AS SAL,
+    TO_CHAR((sal*12 + comm)*1.15, 'L999,999') AS "15% UP"
+FROM emp
+WHERE comm IS NOT NULL;
+
+-- NVL(), NVL2()
+-- 교재 111 ( 중간에 있는 그림에 있는 SQL작성 )
+SELECT
+    ENAME,COMM,
+    NVL(COMM,0),
+    NVL(COMM,100)
+FROM EMP
+WHERE DEPTNO = 30;
+-- 교재 112 ( NVL퀴즈)
+SELECT * FROM PROFESSOR;
+SELECT
+    PROFNO,
+    NAME,
+    PAY,
+    NVL(BONUS, 0) BONUS,
+    (pay * 12) TOTAL
+FROM PROFESSOR
+WHERE deptno = 201;
+-- 교재 113 ( NVL2퀴즈)
+--SELECT EMPNO,
+--       ENAME,
+--       COMM,
+--       CASE 
+--           WHEN comm IS NOT NULL THEN 'Exist'
+--           ELSE 'NULL'
+--       END NVL2
+--FROM emp
+--WHERE deptno = 30;
+--
+SELECT EMPNO,
+       ENAME,
+       COMM,
+       NVL2(comm, 'Exist', 'NULL') NVL2
+FROM EMMP
+WHERE DEPTNO = 30;
+-- DECODE() 함수
+-- CASE WHEN
+-- 교재 121 ( 중간에 있는 그림에 있는 SQL작성 )
+SELECT
+    NAME, TEL,
+    CASE(SUBSTR(TEL,1,INSTR(TEL,')')-1))
+        WHEN '02' THEN 'SEOUL'
+        WHEN '031' THEN 'GYEONGGI'
+        WHEN '051' THEN 'BUSAN'
+        WHEN '052' THEN 'ULSAN'
+        WHEN '055' THEN 'GYEONGNAM'
+        ELSE 'ETC'
+    END "LOC"
+FROM STUDENT
+WHERE DEPTNO1 = 201;
+-- 교재 123 ( CASE 퀴즈 )
+SELECT
+    EMPNO, ENAME,SAL,
+    CASE
+        WHEN SAL BETWEEN 1 AND 1000 THEN 1
+        WHEN SAL BETWEEN 1001 AND 2000 THEN 2
+        WHEN SAL BETWEEN 2001 AND 3000 THEN 3
+        WHEN SAL BETWEEN 3001 AND 4000 THEN 4
+        ELSE 5
+    END "LEVEL"  -- "level" 대신 다른 이름 사용
+FROM
+    EMP
+ORDER BY SAL DESC;
+-- 복수행 함수
+-- 전체합계, 전체평균, 전체개수 : 집계함수는 NULL을 제외하고 집계함
+-- SUM(), AVG(), MAX(), MIN()
+
+-- 부서별, 직급별, 사원별 집계하기 ( 데이터베이스SQL PDF 참조 )
+
 
 
 
