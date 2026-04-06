@@ -210,6 +210,7 @@ on o.id = c.id;
 --insert into tbl_test_customer values( 'YDH','여도현','한국','010-1234-5678');
 
 -- 주문일자, 상품명, 상품단가, 주문수량, 주문금액 조회
+
 select * from tbl_test_customer; -- 고객테이블
 select * from tbl_test_goods; -- 상품테이블
 select * from tbl_test_order; -- 주문테이블
@@ -230,11 +231,16 @@ join tbl_test_order o
 on g.pcode = o.pcode;
 
 -- 주문일자, 고객명, 고객전화번호, 상품이름, 상품단가, 주문수량, 상품금액 조회
--- 주문테이블
+-- 주문테이블 from
 -- 고객테이블 join
 --           on
 -- 상품테이블 join
 --           on
+
+-- 1. 각각 테이블 조회
+-- 2. 중심테이블 찾기( 주문조회 )
+-- 3. join on
+-- 4. join on
 select 
     o.odate,          -- 주문일자
     c.name,           -- 고객명
@@ -242,9 +248,74 @@ select
     g.pname,          -- 상품이름
     g.price,          -- 상품단가
     o.sale_cnt,       -- 주문수량
-    o.sale_cnt * g.price AS total_price  -- 상품금액
+    to_char(o.sale_cnt * g.price,'999,999') amount  -- 상품금액
 from tbl_test_order o
 join tbl_test_customer c
 on o.id = c.id
 join tbl_test_goods g
 on o.pcode = g.pcode;
+
+
+-- 고객별 주문 수량합계 조회
+select * from tbl_test_customer;
+select * from tbl_test_order;
+
+-- group by 전 단계 까지 만들어서 눈으로 집계 하는 수준까지
+select c.name, o.sale_cnt
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id;
+
+select c.name, sum(o.sale_cnt)
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id
+group by c.name;
+
+select c.name, sum(o.sale_cnt)
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id
+group by c.name
+having sum(o.sale_cnt)>=5;
+
+-- 고객별 판매금액 조회
+select *
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id;
+
+select *
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id
+join tbl_test_goods g
+on g.pcode = o.pcode;
+
+-- group by 전단계
+select c.name, o.sale_cnt * g.price
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id
+join tbl_test_goods g
+on g.pcode = o.pcode;
+
+select c.name, to_char(sum(o.sale_cnt * g.price),'999,999') AMOUNT
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id
+join tbl_test_goods g
+on g.pcode = o.pcode
+group by  c.name;
+
+select c.name, to_char(sum(o.sale_cnt * g.price),'999,999') AMOUNT
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id
+join tbl_test_goods g
+on g.pcode = o.pcode
+group by  c.name;
+
+-- 고객별 주문 수량합계 조회
+
+
