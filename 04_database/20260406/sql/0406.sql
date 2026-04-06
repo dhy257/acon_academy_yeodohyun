@@ -314,8 +314,67 @@ join tbl_test_customer c
 on o.id = c.id
 join tbl_test_goods g
 on g.pcode = o.pcode
-group by  c.name;
+group by  c.name
+having sum(o.sale_cnt * g.price)>=2000;
 
+select c.name, to_char(sum(o.sale_cnt * g.price),'999,999') AMOUNT
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id
+join tbl_test_goods g
+on g.pcode = o.pcode
+group by  c.name
+having sum(o.sale_cnt * g.price)>=2000
+order by AMOUNT desc;
 -- 고객별 주문 수량합계 조회
+
+-- 조인연습테이블 3개 가지고 풀기
+--1) 고객별 주문수량의 합계 구하기
+--2) 상품별 주문금액의 합계 구하기
+--3) 고객별상품별 주문수량의 합계 구하기
+--4) 고객별상품별 주문금액의 합계 구하기
+
+-- 교재) 233 페이지   사용예2
+-- 교재) 234 페이지   사용예3
+-- 교재) 254 페이지   연습문제 1번만
+
+-- DECODE() : IF문 ( 조건이 같은 IF문에 해당)
+
+select * from member_tbl_11;
+select m_grade from member_tbl_11;
+
+select m_grade, decode(m_grade, '01', 'vvip', '02', 'vip', '03','gold')
+from member_tbl_11;
+
+-- 가로집계할 때 사용
+-- clerk manager salesman analyst president
+-- 3    2   5   1   3
+
+select * from emp;
+
+select job from emp;
+
+select count(job) from emp;
+
+select job, decode(job,'CLERK',9)
+from emp;
+
+select count(decode(job,'CLERK',9)) -- null 체크안해서 3개
+from emp;
+
+select job, decode(job,'CLERK',9),
+            decode(job,'SALESMAN',9),
+            decode(job,'MANAGER',9),
+            decode(job,'ANALYST',9),
+            decode(job,'PRESIDENT',9)
+from emp;
+
+select job, decode(job,'CLERK',9),
+            decode(job,'SALESMAN',9),
+            decode(job,'MANAGER',9),
+            decode(job,'ANALYST',9),
+            decode(job,'PRESIDENT',9)
+from emp;
+
 
 
