@@ -63,5 +63,188 @@ having sum(sal)>=3000
 order by total desc;
 
 
+--교재 59
+--집합연산자  (행합치기)
+--UNION, UNION ALL, INTERSECT, MINUS 
+--두 테이블을 대상으로 행합치기 (컬럼의 수,  컬럼타입이 같아야 한다)
+--UNION, UNION ALL
+SELECT  STUDNO, NAME
+FROM  STUDENT
+where deptno1 = 101
+union -- 중복은 하나만
+select studno, name
+from student
+where deptno1 = 201;
+
+SELECT  STUDNO, NAME
+FROM  STUDENT
+where deptno1 = 101
+union all -- 중복상관없이 합침
+select studno, name
+from student
+where deptno1 = 201;
+
+-- 63p intersect
+select studno, name
+from student
+where deptno1 = 101
+intersect -- 교집합 보여주기
+select studno, name
+from student
+where deptno2 = 201;
+
+-- minus 연산자 ( 큰거(내용이 많은거) - 작은거 (내용이 적은거) )
+select empno, ename, sal
+from emp
+minus
+select empno, ename, sal
+from emp
+where sal>2500;
+
+--
+create table tbl_test_customer(
+    id varchar2(20) not null primary key ,
+    name varchar2(20) ,
+    address varchar2(20),
+    tel varchar2(20)
+);
+
+create table tbl_test_goods(
+  pcode varchar2(20) not null primary key,
+  pname varchar(20) ,
+  price number(4)
+);
+
+create table tbl_test_order(
+  ocode varchar2(20) not null primary key,
+  odate date,
+  id varchar2(20),
+ pcode varchar2(20),
+ sale_cnt number(6)
+);
 
 
+
+insert into tbl_test_customer values( 'H001' ,'송주창', '라스베가스', '010-3030-2222');
+insert into tbl_test_customer values( 'H002' ,'여도현', 'L.A', '010-2424-2222');
+insert into tbl_test_customer values( 'H003' ,'김재민', '워싱턴D.C', '010-1010-2121');
+insert into tbl_test_customer values( 'H004' ,'이정하', '뉴욕', '010-3333-2222');
+insert into tbl_test_customer values( 'H005' ,'장해든', '텍사스', '010-9090-2222');
+insert into tbl_test_customer values( 'H006' ,'김민경', '서울', '010-7878-1234');
+
+
+ 
+
+
+insert into tbl_test_goods values('P001' ,'쫀드기', 1000);
+insert into tbl_test_goods values('P002' ,'눈깔사탕', 100);
+insert into tbl_test_goods values('P003' ,'아폴로', 200);
+insert into tbl_test_goods values('P004' ,'뻥튀기', 2000);
+
+
+
+insert into tbl_test_order values('J001' , '20210110' , 'H001', 'P001', 2);
+insert into tbl_test_order values('J002' , '20210110' , 'H002', 'P002', 5);
+insert into tbl_test_order values('J003' , '20210110' , 'H003', 'P003', 2);
+insert into tbl_test_order values('J004' , '20210110' , 'H004', 'P004', 1);
+insert into tbl_test_order values('J005' , '20210110' , 'H005', 'P002', 3);
+insert into tbl_test_order values('J006' , '20210110' , 'H001', 'P002', 3);
+insert into tbl_test_order values('J007' , '20210110' , 'H002', 'P001', 1);
+insert into tbl_test_order values('J008' , '20210110' , 'H001', 'P002', 4);
+ 
+commit;
+
+// sql  조인 표준 
+
+SELECT  name, address, tel, odate, pname, sale_cnt, price, sale_cnt * price
+FROM   tbl_test_order o
+JOIN     tbl_test_customer c
+ON       o.id = c.id
+JOIN     tbl_test_goods g
+ON       o.pcode = g.pcode ;
+
+
+
+
+SELECT   *
+FROM   tbl_test_order o
+JOIN     tbl_test_customer c
+ON       o.id = c.id;
+ 
+
+
+SELECT   *
+FROM   tbl_test_order o
+JOIN     tbl_test_customer c
+ON       o.id = c.id
+JOIN     tbl_test_goods g
+ON       o.pcode = g.pcode ;
+
+--
+select * from tbl_test_customer; -- 고객테이블
+select * from tbl_test_goods; -- 상품테이블
+select * from tbl_test_order; -- 주문테이블
+
+-- 주문정보조회하기
+select * from tbl_test_order;
+
+-- 주문정보조회하기( 주문일자, 주문자이름, 구매수량 )
+select *
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id;
+
+select o.odate, c.name, o.sale_cnt
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id;
+
+-- join => default가 inner join
+-- inner join (주문안한 6번 고객은 안나옴)
+select o.odate, c.name, o.sale_cnt
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id;
+
+-- 고객테이블에 자기정보 insert
+--insert into tbl_test_customer values( 'YDH','여도현','한국','010-1234-5678');
+
+-- 주문일자, 상품명, 상품단가, 주문수량, 주문금액 조회
+select * from tbl_test_customer; -- 고객테이블
+select * from tbl_test_goods; -- 상품테이블
+select * from tbl_test_order; -- 주문테이블
+
+select *
+from tbl_test_goods g
+join tbl_test_order o
+on g.pcode = o.pcode;
+
+select
+    o.odate, -- 주문일자
+    g.pname, -- 상품명
+    g.price, -- 상품단가
+    o.sale_cnt,-- 주문수량
+    o.sale_cnt*g.price -- 주문금액
+from tbl_test_goods g
+join tbl_test_order o
+on g.pcode = o.pcode;
+
+-- 주문일자, 고객명, 고객전화번호, 상품이름, 상품단가, 주문수량, 상품금액 조회
+-- 주문테이블
+-- 고객테이블 join
+--           on
+-- 상품테이블 join
+--           on
+select 
+    o.odate,          -- 주문일자
+    c.name,           -- 고객명
+    c.tel,            -- 고객전화번호
+    g.pname,          -- 상품이름
+    g.price,          -- 상품단가
+    o.sale_cnt,       -- 주문수량
+    o.sale_cnt * g.price AS total_price  -- 상품금액
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id
+join tbl_test_goods g
+on o.pcode = g.pcode;

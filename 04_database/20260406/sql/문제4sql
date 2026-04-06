@@ -137,10 +137,16 @@ select * from prod_sales;
 select cust_nm, sales_amt
 from prod_sales;
 
-select cust_nm, sales_amt
-from prod_sales;
+select cust_nm, sum(sales_amt) total
+from prod_sales
+group by cust_nm
+order by total;
 -- 고객별 판매금액 조회, 7만원 이상만
-
+select cust_nm, sum(sales_amt) total
+from prod_sales
+group by cust_nm
+having sum(sales_amt)>=70000
+order by total;
 
 
 
