@@ -456,7 +456,20 @@ from tbl_test_goods g
 join tbl_test_order o
 on o.pcode = g.pcode;
 
-select *
+select g.name, to_char(sum(o.price * o.sales_cnt),'999,999') amount
 from tbl_test_goods g
 join tbl_test_order o
-on o.pcode = g.pcode;
+on o.pcode = g.pcode
+group by g.name
+order by amount desc;
+
+-- 
+
+select c.name, g.pname, sum(o.sale_cnt * g.price )
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id
+join tbl_test_goods g
+on o.pcode = g.pcode
+group by c.name, g.pname
+having sum(o.sale_cnt * g.price )>=1000;
