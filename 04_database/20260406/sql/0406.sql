@@ -369,12 +369,94 @@ select job, decode(job,'CLERK',9),
             decode(job,'PRESIDENT',9)
 from emp;
 
-select job, decode(job,'CLERK',9),
-            decode(job,'SALESMAN',9),
-            decode(job,'MANAGER',9),
-            decode(job,'ANALYST',9),
-            decode(job,'PRESIDENT',9)
+select      COUNT(decode(job,'CLERK',9)) CLERK,
+            COUNT(decode(job,'SALESMAN',9)) SALESMAN,
+            COUNT(decode(job,'MANAGER',9)) MANAGER,
+            COUNT(decode(job,'ANALYST',9)) ANALYST,
+            COUNT(decode(job,'PRESIDENT',9)) PRESIDENT
 from emp;
 
+-- 교재 233
+-- 학생테이블
+-- 교수테이블
+select * from student;
+select * from professor;
+
+select *
+from student s
+join professor p
+on s.profno = p.profno;
+
+select s.name, p.name
+from student s
+join professor p
+on s.profno = p.profno;
+--order by 1;
+
+-- 234p
+-- 학생테이블, 학과테이블, 교수테이블 join해서 학생이름, 학과이름, 지도교수이름 조회
+select * from student;
+select * from department;
+select * from professor;
+
+select *
+from student s
+join department d
+on s.deptno1 = d.deptno;
+
+select *
+from student s
+join department d
+on s.deptno1 = d.deptno
+join professor p
+on s.profno = p.profno;
+
+select s.name, d.dname, p.name
+from student s
+join department d
+on s.deptno1 = d.deptno
+join professor p
+on s.profno = p.profno;
+
+-- 254p
+-- 학생, 학과 테이블 사용
+-- 학생이름, 1전공 학과 번호, 1전공 학과 이름 조회
+select s.name, s.deptno1, d.dname
+from student s
+join department d
+on s.deptno1 = d.deptno;
 
 
+-- 
+--1) 고객별 주문수량의 합계 구하기
+--2) 상품별 주문금액의 합계 구하기
+--3) 고객별상품별 주문수량의 합계 구하기
+--4) 고객별상품별 주문금액의 합계 구하기
+select * from tbl_test_goods;
+select * from tbl_test_order;
+select * from tbl_test_customer;
+
+-- 1 
+select c.name, sum(o.sale_cnt)
+from tbl_test_customer c
+join tbl_test_order o
+on c.id = o.id
+group by c.name;
+
+-- 2
+select c.name, sum(o.sale_cnt)
+from tbl_test_customer c
+join tbl_test_order o
+on c.id = o.id
+group by c.name;
+
+-- 3
+select *
+from tbl_test_goods g
+join tbl_test_order o
+on o.pcode = g.pcode;
+
+select *
+from tbl_test_goods g
+join tbl_test_order o
+on o.pcode = g.pcode;
