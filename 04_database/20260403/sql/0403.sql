@@ -580,7 +580,8 @@ select m_grade,to_char(sum(m_point) , '999,999') total
 from member_tbl_11
 where m_grade is not null
 group by m_grade
-having sum(m_point) >=5000;
+having sum(m_point) >=5000
+order by 1;
 
 
 -- 부서별, 직급별, 사원별 집계하기 ( 데이터베이스SQL PDF 참조 )
