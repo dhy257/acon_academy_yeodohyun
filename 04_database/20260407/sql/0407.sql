@@ -182,16 +182,119 @@ select
     sum(p_total) over(order by p_total) -- 처음부터 현재행까지의 합계
 from panmae;
 
+--over(
+ --[partiton  by]
+ --[order by]
+ --[range, rows])
 
+select
+    p_date,
+    p_total,
+    sum(p_total) over()
+from panmae;
 
+select *
+from panmae;
 
+select
+    p_date, p_total
+from panmae;
 
+select
+    p_date,
+    p_total,
+    sum(p_total) over()
+from panmae;
 
+SELECT
+    P_DATE, P_TOTAL ,
+    SUM( P_TOTAL)
+    OVER(
+        ORDER BY P_TOTAL
+    )
+FROM  PANMAE;
 
+-- rows 변경하기
+SELECT
+    P_DATE, P_TOTAL ,
+    SUM( P_TOTAL)
+    OVER(
+        ORDER BY P_TOTAL
+        range between unbounded preceding and current row
+        -- 처음부터 현재까지
+    )
+FROM  PANMAE;
 
+SELECT
+    P_STORE, P_DATE, P_TOTAL ,
+    SUM( P_TOTAL)
+    OVER(
+    -- partition
+        PARTITION BY P_STORE
+        ORDER BY P_TOTAL
+        range between unbounded preceding and current row
+        -- 처음부터 현재까지
+    )
+FROM  PANMAE;
 
+-- SUM( 누적할 값이 컬럼명 ) OVER()
+--[PARTITION BY  컬럼명]
+--[ORDER BY  기준컬럼명 ]
+--[ RANGE ( 기본값) || ROWS ] BETWEEN   UNBOUNDED PRECEDING  AND CURRENT ROW
 
+-- EMP테이블
+-- 직급별 SAL(급여) 누적액 구하기
+-- RANGE, ROWS 변경하기
 
+-- SAL 전체 누적
+SELECT  JOB, SAL  , SUM(SAL) OVER()
+FROM EMP;
+-- SAL 첫행에서 현재까지 누적
+SELECT  JOB, SAL  , SUM(SAL) OVER(  ORDER BY SAL )
+FROM EMP;
+  
+ -- 전체누적이 아니라 부분 즉 파티션 나누기 (직급별 누적구하기
+  SELECT  JOB, SAL  ,
+  SUM(SAL)
+  OVER(  
+  PARTITION BY  JOB
+  ORDER BY SAL 
+  )
+FROM EMP;
+  
+  --  필요하면   RANGE -> ROWS  변경 , 기본은    RANGE  ( 같은 기준은 하나로 처리함)    
+  SELECT  JOB, SAL  ,
+  SUM(SAL)
+  OVER(  
+  PARTITION BY  JOB
+  ORDER BY SAL 
+  ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+  )
+from emp;
 
+-- 교재 문제풀이
+-- 205p
+-- 사용예1, 사용예2, 사용예3'
 
+SELECT	deptno,
+	ename,
+	sal,
+	SUM(sal) OVER(PARTITION BY deptno ORDER BY sal) "TOTAL"
+FROM emp;
+
+SELECT	deptno,
+	ename,
+	sal,
+	SUM(sal) OVER(ORDER BY sal DESC) "TOTAL_SAL",
+	ROUND((RATIO_TO_REPORT(SUM(sal)) OVER())*100, 2) "%"
+FROM emp
+GROUP BY deptno, ename, sal;
+
+SELECT	deptno,
+	ename,
+	sal,
+	SUM(sal) OVER(PARTITION BY deptno) "SUM_DEPT",
+	ROUND((RATIO_TO_REPORT(SUM(sal)) OVER(PARTITION BY deptno))*100, 2) "%"
+FROM emp
+GROUP BY deptno, ename, sal;
 
