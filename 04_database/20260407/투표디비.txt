@@ -1,0 +1,59 @@
+ 
+CREATE TABLE tbl_vote_0104 (
+    v_jumin   VARCHAR2(13) PRIMARY KEY,
+    v_name    VARCHAR2(20),
+    v_area    VARCHAR2(10),
+    v_time    VARCHAR2(6),
+    v_confirm VARCHAR2(1),
+    v_num     NUMBER(4)
+);
+ 
+INSERT INTO tbl_vote_0104 VALUES ('800120866419', '김유진', '신당', '0902', 'Y', 1001);
+INSERT INTO tbl_vote_0104 VALUES ('810510106542', '이유표', '신당', '0910', 'Y', 1001);
+INSERT INTO tbl_vote_0104 VALUES ('820201190123', '김투표', '신당', '1101', 'Y', 1001);
+INSERT INTO tbl_vote_0104 VALUES ('830120289011', '정투표', '신당', '1210', 'Y', 1002);
+INSERT INTO tbl_vote_0104 VALUES ('841201907621', '최투표', '신당', '1109', 'Y', 1002);
+INSERT INTO tbl_vote_0104 VALUES ('850109120876', '강투표', '신당', '1201', 'Y', 1003);
+INSERT INTO tbl_vote_0104 VALUES ('860120209321', '안투표', '신당', '1301', 'Y', 1003);
+INSERT INTO tbl_vote_0104 VALUES ('821201208761', '오투표', '신당', '0810', 'Y', 1004);
+INSERT INTO tbl_vote_0104 VALUES ('830102397652', '문투표', '신당', '0729', 'Y', 1005);
+INSERT INTO tbl_vote_0104 VALUES ('880912102839', '송투표', '신당', '0702', 'Y', 1005);
+INSERT INTO tbl_vote_0104 VALUES ('870102129081', '유투표', '신당', '0809', 'Y', 1004);
+ 
+CREATE TABLE tbl_member_010 (
+    m_no    VARCHAR2(10) PRIMARY KEY,
+    m_name  VARCHAR2(20),
+    m_jumin VARCHAR2(13),
+    m_city  VARCHAR2(6),
+    m_degree VARCHAR2(2),
+    p_no    NUMBER(2)
+);
+ 
+INSERT INTO tbl_member_010 VALUES ('1001', '김후보', '651201208711', '노원', '04', 10);
+INSERT INTO tbl_member_010 VALUES ('1002', '이후보', '6001201908323', '중랑', '03', 11);
+INSERT INTO tbl_member_010 VALUES ('1003', '최후보', '7006021903232', '마포', '01', 12);
+INSERT INTO tbl_member_010 VALUES ('1004', '박후보', '7109123239329', '서초', '02', 10);
+INSERT INTO tbl_member_010 VALUES ('1005', '유후보', '6809121293039', '강서', '02', 11);
+INSERT INTO tbl_member_010 VALUES ('1006', '정후보', '6201201903933', '강남', '03', 12);
+ 
+
+
+CREATE TABLE tbl_party_010 (
+    p_no    VARCHAR2(2) PRIMARY KEY,
+    p_name    VARCHAR2(20),
+    p_tel     VARCHAR2(4),
+    v_time    VARCHAR2(4),
+    v_confirm VARCHAR2(4)    
+);
+
+INSERT INTO tbl_party_010  VALUES ('10', '모정당', '010', '1111' , '2222');
+INSERT INTO tbl_party_010   VALUES ('11', '신정당',  '010', '2222' , '3333');
+INSERT INTO tbl_party_010  VALUES ('12', '구정당',  '010', '3333' , '4444');
+ 
+commit;
+
+
+
+
+
+ 

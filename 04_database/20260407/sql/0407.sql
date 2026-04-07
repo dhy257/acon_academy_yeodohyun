@@ -501,7 +501,128 @@ from emp;
 
 -- 부서별 사원의 수 구하기(DECODE사용)
 -- CLERK MANAGER PRESIDENT ANALYST SALESMAN
--- 
+-- 교재 189p 3번문제
+select deptno, job
+from emp;
+
+select
+    deptno,
+    decode(job,'CLERK',9)
+from emp;
+
+select
+    deptno,
+    decode(job,'CLERK',9) CLERK,
+    decode(job,'MANAGER',9) MANAGER,
+    decode(job,'PRESIDENT',9) PRESIDENT,
+    decode(job,'ANALYST',9) ANALYST,
+    decode(job,'SALESMAN',9) SALESMAN
+from emp
+order by 1;
+
+select
+    deptno,
+    count(decode(job,'CLERK',9)) CLERK,
+    count(decode(job,'MANAGER',9)) MANAGER,
+    count(decode(job,'PRESIDENT',9)) PRESIDENT,
+    count(decode(job,'ANALYST',9)) ANALYST,
+    count(decode(job,'SALESMAN',9)) SALESMAN
+from emp
+group by deptno
+order by 1;
+
+-- PIVOT
+-- SELECT *
+-- FROM (
+--    -- 1. 원본 데이터
+--    SELECT 컬럼1, 컬럼2, 값컬럼
+--    FROM 테이블
+-- )
+-- PIVOT (
+--    -- 2. 집계 함수
+--    집계함수(값컬럼)
+--    
+--    -- 3. 기준 컬럼 (열로 바뀔 대상)
+--    FOR 기준컬럼
+--    
+--    -- 4. 실제 변환될 값들
+--    IN ('값1', '값2', '값3')
+-- );
+
+
+-- 1.pivot에서 쓸거 먼저 가공
+select *
+from(
+    select
+        deptno,
+        job,
+        empno
+    from emp
+    );
+    
+-- 2.
+select *
+from(
+    select
+        deptno,
+        job,
+        empno
+    from emp
+)
+pivot(
+    count(empno)
+    for job
+    in (
+        'CLERK' "CLERK",
+        'MANAGER' "MANAGER",
+        'PRESIDENT' "PRESIDENT",
+        'ANALYST' "ANALYST",
+        'SALESMAN' "SALESMAN"
+    )
+);
+
+
+-- UNPIVOT
+-- 교재 192p, 193p
+create table TESTPIVOT
+as
+select *
+from(
+    select
+        deptno,
+        job,
+        empno
+    from emp
+)
+pivot(
+    count(empno)
+    for job
+    in (
+        'CLERK' "CLERK",
+        'MANAGER' "MANAGER",
+        'PRESIDENT' "PRESIDENT",
+        'ANALYST' "ANALYST",
+        'SALESMAN' "SALESMAN"
+    )
+);
+
+select *
+from testpivot;
+
+--
+
+select * from testpivot
+unpivot(
+    empno
+    for job
+    in (
+        CLERK,
+        MANAGER,
+        PRESIDENT,
+        ANALYST,
+        SALESMAN
+    )
+);
 
 
 
