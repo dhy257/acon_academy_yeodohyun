@@ -298,3 +298,214 @@ SELECT	deptno,
 FROM emp
 GROUP BY deptno, ename, sal;
 
+-- rank 순위 구하기
+
+-- decode 사용해서 열 집계 만들기
+-- 교재 196p
+
+-- rank() over( order by 컬럼명)
+-- rank() over(partition by 컬렴명, order by 컬럼명)
+
+
+-- rank
+-- dense_rank
+-- row_number
+
+select * from acorntbl;
+
+select name, point
+from acorntbl;
+
+select name, point, rank() over(order by point desc)
+from acorntbl;
+
+select name, point, dense_rank() over(order by point desc)
+from acorntbl;
+
+-- emp
+select * from emp;
+
+select job, ename, sal
+from emp
+order by 1;
+
+-- 전체기준
+select job, ename, sal, rank() over(order by sal desc)
+from emp
+order by 1;
+
+-- job별
+select job, ename, sal,
+rank()
+over(
+partition by job
+order by sal desc
+)
+from emp
+order by 1;
+
+--
+select * from acorntbl;
+select name, point
+from acorntbl;
+
+select
+    name,
+    point,
+    rank() over( order by point desc) -- point기준
+from acorntbl;
+
+select
+    name,
+    point,
+    dense_rank() over( order by point desc) -- point기준
+from acorntbl;
+
+select
+    name,
+    point,
+    dense_rank() over( order by point desc), -- point기준
+    row_number() over( order by point desc) -- 같은 1000점끼리 순위 매김
+from acorntbl;
+
+select
+    name,
+    point,
+    rank() over( order by point desc, birthday desc) -- point기준 + 생일이 늦은 순
+from acorntbl;
+
+-- LAG() 함수, LEAD() 함수
+-- 이전행, 다음행
+
+-- 교재 194p
+
+-- 사용법
+-- LAG(컬럼명, 몇번째 이전행, 기본값) OVER()
+-- LEAD(컬럼명, 몇번째 이후, 기본값) OVER()
+
+select * from emp;
+select
+    ename, sal
+from emp;
+
+select
+    ename, sal,
+    lag(sal, 1,0 ) over(order by sal) "SAL 1개 이전 값"
+from emp;
+
+select
+    ename, sal,
+    lag(sal, 2,0 ) over(order by sal) "SAL 2개 이전 값"
+from emp;
+
+select
+    ename, sal,
+    lead(sal,1,0) over(order by sal) "SAL 1개 이후 값"
+from emp;
+
+-- 전체에 대해서 비율 구하기
+-- 206p
+select *
+from acorntbl;
+
+select
+    name, point
+from acorntbl;
+
+select
+    name, point,
+    sum(point) over()
+from acorntbl;
+
+select
+    name, point,
+    sum(point) over(),
+    round((point/sum(point) over())*100,2)
+from acorntbl;
+
+-- ratio_to_report
+select
+    name, point
+from acorntbl;
+
+select
+    name, point,
+    round(ratio_to_report(point) over()*100,2)
+from acorntbl;
+
+-- emp
+select *
+from emp;
+
+select
+    ename, sal
+from emp;
+
+select
+    ename, sal,
+    round(ratio_to_report(sal) over()*100,2) || '&',
+    concat(round(ratio_to_report(sal) over()*100,2),'&')
+from emp;
+
+
+-- decode 열 집계 구하기
+-- 교재 189p
+-- 직급별 사원의 수 구하기
+-- CLERK MANAGER PRESIDENT ANALYST SALESMAN
+--
+
+select *
+from emp;
+
+select
+    job, deptno
+from emp;
+
+select
+    count(job)
+from emp;
+
+-- clerk인 사람 수 구하기
+select
+    job,
+    decode(job, 'CLERK',9)
+from emp;
+
+select
+    count(decode(job, 'CLERK',9))
+from emp;
+-- manager 수 구하기
+select
+    count(decode(job, 'MANAGER','*'))
+from emp;
+
+-- 전체구하기
+select
+    count(job) total,
+    count(decode(job, 'CLERK','*')) CLERK,
+    count(decode(job, 'MANAGER','*')) MANAGER,
+    count(decode(job, 'PRESIDENT','*')) PRESIDENT,
+    count(decode(job, 'ANALYST','*')) ANALYST,
+    count(decode(job, 'SALESMAN','*')) SALESMAN
+from emp;
+
+--
+--SELECT	deptno,
+--	SUM(DECODE(job, 'CLERK', sal, 0)) "CLERK",
+--	SUM(DECODE(job, 'MANAGER', sal, 0)) "MANAGER",
+--	SUM(DECODE(job, 'PRESIDENT', sal, 0)) "PRESIDENT",
+--	SUM(DECODE(job, 'ANALYST', sal, 0)) "ANALYST",
+--	SUM(DECODE(job, 'SALESMAN', sal, 0)) "SALESMAN",
+--	SUM(NVL2(job, sal, 0)) "TOTAL"
+--FROM emp GROUP BY ROLLUP(deptno);
+
+-- 부서별 사원의 수 구하기(DECODE사용)
+-- CLERK MANAGER PRESIDENT ANALYST SALESMAN
+-- 
+
+
+
+
+
+
+
