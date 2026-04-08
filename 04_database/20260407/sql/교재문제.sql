@@ -237,7 +237,7 @@ from emp;
 select
     deptno, ename, sal,
     sum(sal) over(order by sal desc) "TOTAL_SAL",
-    round((ratio_to_report(sum(sal)) over())*100, 2) "%"
+    round( (ratio_to_report(sum(sal)) over())*100, 2 ) "%"
 from emp
 group by deptno, ename, sal;
 
