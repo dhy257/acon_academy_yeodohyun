@@ -400,9 +400,234 @@ order by 2 desc;
 -- from절 뒤에 서브쿼리
 
 -- 1) 고객코드별 판매수량 합 구하기(주문테이블)
+-- 2) 위의 쿼리내용과 고객테이블을 조인하여 쿼리완성
+
+select
+    id, sale_cnt
+from tbl_test_order;
+
+--1)
+select
+    id,
+    sum(sale_cnt) total
+from tbl_test_order
+group by id;
+--2)
+select
+    c.name,
+    a.total
+from (
+    select
+        id,
+        sum(sale_cnt) total
+    from tbl_test_order
+    group by id
+) a
+join tbl_test_customer c
+on a.id = c.id;
+
+--문제  상품별 판매수량의 합계  인라인 서브쿼리로 구해보기
+-- 1)상품코드별 판매수량 합
+select *  from tbl_test_order;
+select *  from tbl_test_customer;
+select *  from tbl_test_goods;
+
+select *
+from tbl_test_order;
+
+select
+    pcode,
+    sum(sale_cnt)
+from tbl_test_order
+group by pcode;
+
+-- 2) 위의 내용을 서브쿼리 (인라인 서브쿼리)로 만들고 상품테이블 조인하여 상품명 나오게 하기
+select *
+from (
+    select
+        pcode,
+        sum(sale_cnt)
+    from tbl_test_order
+    group by pcode
+);
+
+select
+    a.pcode,
+    g.pname,
+    a.total
+from (
+    select
+        pcode,
+        sum(sale_cnt) total
+    from tbl_test_order
+    group by pcode
+) a
+join tbl_test_goods g
+on a.pcode = g.pcode;
 
 
 
+--교재 문제 풀이 
+--420페이지  
+--1 나해수
+select * from professor;
+select * from department;
+
+select
+    *
+from professor p
+join department d
+on p.deptno = d.deptno;
+
+select
+    p.profno 교수번호,
+    p.name 교수이름,
+    d.dname "소속 학과이름"
+from professor p
+join department d
+on p.deptno = d.deptno;
+
+create view v_prof_dept2
+as
+select
+    p.profno 교수번호,
+    p.name 교수이름,
+    d.dname "소속 학과이름"
+from professor p
+join department d
+on p.deptno = d.deptno;
+
+select * from v_prof_dept2;
+drop view v_prof_dept2;
+
+--2 박세인
+select * from student;
+select * from department;
+
+select
+    deptno1,
+    height,
+    weight
+from student
+order by 1;
+
+
+
+select
+    d.dname,
+    a.MAX_HEIGHT,
+    a.MAX_WEIGHT
+from (
+    select
+        deptno1,
+        max(height) "MAX_HEIGHT",
+        max(weight)"MAX_WEIGHT"
+    from student s
+    group by deptno1
+    order by 1
+) a
+join department d
+on a.deptno1 = d.deptno;
+
+
+--3 조아진
+select * from student;
+select * from department;
+
+select
+    deptno1,
+    max(height)
+from student
+group by deptno1;
+
+select
+    *
+from (
+    select
+        deptno1,
+        max(height)
+    from student
+    group by deptno1
+);
+
+select
+    *
+from (
+    select
+        deptno1,
+        max(height)
+    from student
+    group by deptno1
+) a
+join department d
+on a.deptno1 = d.deptno;
+
+select
+    d.dname,
+    a."MAX_HEIGHT"
+from (
+    select
+        deptno1,
+        max(height) "MAX_HEIGHT"
+    from student
+    group by deptno1
+) a
+join department d
+on a.deptno1 = d.deptno;
+
+select
+    d.dname,
+    a.max_height,
+    a.max_weight,
+    s.name,
+    s.height
+from (
+    select
+        deptno1,
+        max(height) as max_height,
+        max(weight) as max_weight
+    from student
+    group by deptno1
+) a
+join student s
+    on s.deptno1 = a.deptno1
+   and s.height = a.max_height
+join department d
+    on s.deptno1 = d.deptno;
+
+SELECT
+    DNAME,
+    MAX_HEIGHT,
+    MAX_WEIGHT,
+    NAME,
+    HEIGHT
+FROM (
+    SELECT
+        DEPTNO1,
+        MAX(HEIGHT) "MAX_HEIGHT",
+        MAX(WEIGHT) "MAX_WEIGHT"
+    FROM STUDENT
+    GROUP BY DEPTNO1) A,
+    STUDENT S,
+    DEPARTMENT D
+WHERE S.DEPTNO1 = A.DEPTNO1
+AND S.HEIGHT = A.MAX_HEIGHT
+AND S.DEPTNO1 = D.DEPTNO;
+
+
+--4 김재민
+select * from student;
+
+SELECT S.grade, S.name, S.height, A.AVG_HEIGHT
+FROM (SELECT grade, AVG(height) "AVG_HEIGHT"
+      FROM student
+      GROUP BY grade) A, student S
+WHERE S.height > A.AVG_HEIGHT
+ORDER BY S.grade;
+--5 우주연
+SELECT ROWNUM "Ranking", name, pay
+FROM (SELECT name, pay FROM professor ORDER BY pay DESC)
+WHERE ROWNUM BETWEEN 1 AND 5;
 
 
 
