@@ -511,7 +511,13 @@ select
 from student
 order by 1;
 
-
+select
+    deptno1,
+    max(height) "MAX_HEIGHT",
+    max(weight)"MAX_WEIGHT"
+from student s
+group by deptno1
+order by 1;
 
 select
     d.dname,
@@ -534,106 +540,149 @@ on a.deptno1 = d.deptno;
 select * from student;
 select * from department;
 
+-- 1)학과명별 가장 키 큰 정보조회
+select
+    d.dname,
+    s.height
+from student s
+join department d
+on s.deptno1 = d.deptno
+order by 1;
+
+select
+    d.dname,
+    max(s.height)
+from student s
+join department d
+on s.deptno1 = d.deptno
+group by dname
+order by 1;
+
 select
     deptno1,
-    max(height)
+    name,
+    height
 from student
-group by deptno1;
+order by 1;
 
-select
-    *
-from (
+select  *
+from( 
     select
-        deptno1,
-        max(height)
-    from student
-    group by deptno1
-);
-
-select
-    *
-from (
-    select
-        deptno1,
-        max(height)
-    from student
-    group by deptno1
-) a
-join department d
-on a.deptno1 = d.deptno;
-
-select
-    d.dname,
-    a."MAX_HEIGHT"
-from (
-    select
-        deptno1,
-        max(height) "MAX_HEIGHT"
-    from student
-    group by deptno1
-) a
-join department d
-on a.deptno1 = d.deptno;
-
-select
-    d.dname,
-    a.max_height,
-    a.max_weight,
-    s.name,
-    s.height
-from (
-    select
-        deptno1,
-        max(height) as max_height,
-        max(weight) as max_weight
-    from student
-    group by deptno1
+        s.deptno1,
+        d.dname,
+        max( s.height ) maxheight
+    from student  s
+    join  department  d
+    on s.deptno1  = d.deptno
+    group by s.deptno1 , d.dname
 ) a
 join student s
-    on s.deptno1 = a.deptno1
-   and s.height = a.max_height
-join department d
-    on s.deptno1 = d.deptno;
-
-SELECT
-    DNAME,
-    MAX_HEIGHT,
-    MAX_WEIGHT,
-    NAME,
-    HEIGHT
-FROM (
-    SELECT
-        DEPTNO1,
-        MAX(HEIGHT) "MAX_HEIGHT",
-        MAX(WEIGHT) "MAX_WEIGHT"
-    FROM STUDENT
-    GROUP BY DEPTNO1) A,
-    STUDENT S,
-    DEPARTMENT D
-WHERE S.DEPTNO1 = A.DEPTNO1
-AND S.HEIGHT = A.MAX_HEIGHT
-AND S.DEPTNO1 = D.DEPTNO;
-
+on a.deptno1 = s.deptno1
+and
+a.maxheight = s.height;
 
 --4 김재민
 select * from student;
 
-SELECT S.grade, S.name, S.height, A.AVG_HEIGHT
-FROM (SELECT grade, AVG(height) "AVG_HEIGHT"
-      FROM student
-      GROUP BY grade) A, student S
-WHERE S.height > A.AVG_HEIGHT
-ORDER BY S.grade;
---5 우주연
-SELECT ROWNUM "Ranking", name, pay
-FROM (SELECT name, pay FROM professor ORDER BY pay DESC)
-WHERE ROWNUM BETWEEN 1 AND 5;
+select
+    grade,
+    name,
+    height
+from student
+order by 1;
+
+select
+    grade,
+    avg(height)
+from student
+group by grade;
+
+select
+    *
+from(
+    select
+        grade,
+        avg(height) avgheight
+    from student
+    group by grade
+) a
+join student s
+on a.grade = s.grade;
+
+select
+    a.grade,
+    s.name,
+    s.height,
+    a.avgheight
+from(
+    select
+        grade,
+        avg(height) avgheight
+    from student
+    group by grade
+) a
+join student s
+on a.grade = s.grade
+where a.avgheight < s.height
+order by 1;
 
 
+-- 다중행 서브쿼리 430p
+-- WHERE 절 뒤에 나오는 서브쿼리
+-- 다중행 사용가능 연산자: IN, >ANY, <ANY, >ALL, <ALL, EXIST
 
+select *
+from emp2;
+select *
+from dept2;
 
+select
+    empno,
+    name,
+    deptno
+from emp2;
 
+select 
+    dcode
+from dept2
+where area='Pohang Main Office';
 
+select
+    empno,
+    name,
+    deptno
+from emp2
+where deptno in(
+    select 
+     dcode
+    from dept2
+where area='Pohang Main Office'
+);
+
+-- any(다중행 결과 하나라도 만족)
+select
+    ename,
+    sal
+from emp
+where sal> any(
+    select sal
+    from emp
+    where deptno = 20
+);
+
+-- all(다중행 결과 모두 마족)
+select
+    ename,
+    sal
+from emp
+where sal> all(
+    select sal
+    from emp
+    where deptno = 20
+);
+
+-- 연관/비연관 서브쿼리
+-- 스칼라 서브쿼리(select절)
 
 
 
