@@ -196,8 +196,8 @@ select * from v_order;
 
 -- 1) WHERE 절 뒤 서브쿼리
 -- 서브쿼리의 결과에 따라
--- 단일행, 단일컬럼
--- 복수행, 단일컬럼
+-- 단일행 서브쿼리
+-- 복수행 서브쿼리
 
 -- 신동엽 사원보다 급여가 많은 사람 이름 조회하시오.
 select * from t_emp;
@@ -287,6 +287,125 @@ from emp
 where sal = (
     select max(sal) from emp
 );
+
+
+
+-- 교재 429p
+-- 연습문제 1
+select * from student;
+select * from department;
+
+select *
+from student s
+join department d
+on s.deptno1 = d.deptno;
+
+select
+    s.name "STUD_NAME",
+    d.dname "DEPT_NAME"
+from student s
+join department d
+on s.deptno1 = d.deptno
+where s.deptno1 = (
+    select deptno1
+    from student
+    where name LIKE 'Anthony Hopkins'
+)
+order by 1;
+
+--select name "stud_name", dname "dept_name"
+--from student s, department d
+--where s.deptno1 = d.deptno
+--and s.deptno1 = (select deptno1
+--		 from student
+--		 where name like 'Anthony Hopkins');
+
+-- 연습문제 2
+
+select * from professor;
+select * from department;
+
+select *
+from professor p
+join department d
+on p.deptno = d.deptno;
+
+select
+    p.profno,
+    p.hiredate,
+    d.dname
+from professor p
+join department d
+on p.deptno = d.deptno;
+
+select
+    p.name,
+    to_char(p.hiredate,'YYYY-MM-DD'),
+    d.dname
+from professor p
+join department d
+on p.deptno = d.deptno
+where hiredate > (
+    select
+        min(hiredate)
+    from professor
+    where name like 'Meg Ryan'
+);
+
+--select name "prof_name",
+--       to_char(hiredate, 'YYYY-MM-DD') "hiredate",
+--       dname "dept_name"
+--from professor p, department d
+--where p.deptno = d.deptno
+--and hiredate > (select hiredate
+--		from professor
+--		where name like 'Meg Ryan');
+
+-- FROM절 뒤에 나오는 서브쿼리 (인라인 뷰: 임시뷰로 만들어짐)
+-- 사용예시
+-- 에이콘몰
+select *  from tbl_test_order;
+select *  from tbl_test_customer;
+select *  from tbl_test_goods;
+
+-- 고객별 판매수량 합계 조회하기
+
+--송주창 9
+--여도현 6
+--김재민 2
+--이정하 5
+--장해든 3
+
+select *
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id;
+
+select
+    c.name,
+    o.sale_cnt
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id;
+
+select
+    c.name,
+    sum(o.sale_cnt) total
+from tbl_test_order o
+join tbl_test_customer c
+on o.id = c.id
+group by c.name
+order by 2 desc;
+
+-- from절 뒤에 서브쿼리
+
+-- 1) 고객코드별 판매수량 합 구하기(주문테이블)
+
+
+
+
+
+
 
 
 
