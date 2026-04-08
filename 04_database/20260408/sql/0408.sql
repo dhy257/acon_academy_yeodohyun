@@ -751,10 +751,10 @@ select
     e.deptno,
     (
     select
-        d.dname
+        d.dname 
     from dept d
     where d.deptno = e.deptno
-    )
+    )부서이름
 from emp e;
 
 
