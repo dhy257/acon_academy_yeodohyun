@@ -550,12 +550,13 @@ on s.deptno1 = d.deptno
 order by 1;
 
 select
+    s.deptno1,
     d.dname,
     max(s.height)
 from student s
 join department d
 on s.deptno1 = d.deptno
-group by dname
+group by dname, s.deptno1
 order by 1;
 
 select
@@ -565,7 +566,11 @@ select
 from student
 order by 1;
 
-select  *
+select
+    a.dname,
+    a.maxheight,
+    s.name,
+    s.height
 from( 
     select
         s.deptno1,
@@ -633,6 +638,7 @@ order by 1;
 
 select *
 from emp2;
+
 select *
 from dept2;
 
@@ -654,7 +660,7 @@ select
 from emp2
 where deptno in(
     select 
-     dcode
+        dcode
     from dept2
 where area='Pohang Main Office'
 );
@@ -681,9 +687,112 @@ where sal> all(
     where deptno = 20
 );
 
+-- exist 페이지432
+select *
+from t_emp;
+
+select *
+from t_emp
+where exists(
+    select
+        deptno
+    from t_dept
+    where deptno= 70
+);
+
+
+select *
+from t_emp
+where exists(
+    select
+        deptno
+    from t_dept
+    where deptno= 10
+);
+
+--
+
 -- 연관/비연관 서브쿼리
+
+-- 연관서브쿼리
+-- 연관서브쿼리 실행 순서
+   --1.메인쿼리의 값이 서브쿼리에 전달 
+   --2.서브쿼리 실행
+   --3.메인쿼리에서 사용함
+   --4.조건에 맞으면 결과에 나옴
+-- 자신의 부서의 평균보다 높은 사람 조회
+select *
+from emp;
+
+select *
+from emp e
+where e.sal>(
+    select
+        avg(e2.sal)
+    from emp e2
+--    where e2.deptno = 10
+    where e2.deptno = e.deptno
+);
+
 -- 스칼라 서브쿼리(select절)
+-- 단일행, 단일컬럼
+
+select *
+from emp;
+
+-- 부서이름 가져오기
+select
+    e.ename,
+    e.deptno
+from emp e;
+
+select
+    e.ename,
+    e.deptno,
+    (
+    select
+        d.dname
+    from dept d
+    where d.deptno = e.deptno
+    )
+from emp e;
 
 
+-- SQL: 사용자와 DBMS가 소통하는 언어
+-- DDL: CREATE, DROP, ALTER
+-- DML: READ(SELECT), INSERT, UPDATE, DELETE
+-- DCL: GRANT, REVOKE
 
+-- 데이터 조회하기
+-- 데이터 삽입하기
+-- 데이터 변경하기
+-- 데이터 삭제하기
+
+-- ACONRTBL
+desc acorntbl;
+
+insert into acorntbl( ID,PW,NAME,POINT ) values('KING','9999','변우석',9999);
+insert into acorntbl( ID,PW,NAME,POINT ) values('SHJ','2323','아이유',22222);
+commit;
+
+select * from acorntbl;
+
+update acorntbl
+set name = '성희주'
+where id = 'SHJ';
+commit;
+
+select * from acorntbl;
+
+delete
+from acorntbl
+where id = 'SHJ';
+commit;
+
+delete
+from acorntbl
+where id = 'KING';
+commit;
+
+select * from acorntbl;
 
