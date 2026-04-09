@@ -326,6 +326,16 @@ right outer join p_grade p
 on e.position = p.position
 where pay is not null;
 
+select
+    e.name name,
+    p.position,
+    to_char(e.pay,'999,999,999') pay,
+    to_char(p.s_pay,'999,999,999') "Low Pay",
+    to_char(p.e_pay,'999,999,999') "High Pay"
+from emp2 e
+join p_grade p
+on e.position = p.position;
+
 -- 3.
 select * from emp2;
 select * from p_grade;
@@ -338,14 +348,6 @@ on e.position = p.position;
 select
     e.name,
     e.birthday,
-    e.position
-from emp2 e
-left outer join p_grade p
-on e.position = p.position;
-
-select
-    e.name,
-    to_char(e.birthday,'YY'),
     e.position
 from emp2 e
 left outer join p_grade p
@@ -368,10 +370,23 @@ select
 from emp2 e
 left outer join p_grade p
 on
-trunc(months_between(sysdate, birthday)/12) >= p.s_age
+    trunc(months_between(sysdate, birthday)/12) >= p.s_age
 and
-trunc(months_between(sysdate, birthday)/12) <= p.e_age
+    trunc(months_between(sysdate, birthday)/12) <= p.e_age
 order by 2;
+
+--서브쿼리 이용
+select
+    name,
+    trunc(months_between(sysdate, birthday)/12) age,
+    position
+from emp2;
+
+
+
+
+
+
 
 -- 4.
 select * from customer;
@@ -387,4 +402,17 @@ on
     c.point >= g.g_start
 where g.gname like 'Notebook';
 
+-- 6.
+select * from emp;
+
+select
+    e1.empno,
+    e1.ename,
+    e1.hiredate,
+    count(e2.hiredate) count
+from emp e1
+left outer join emp e2
+on e1.hiredate > e2.hiredate
+group by e1.empno, e1.ename, e1.hiredate
+order by 4;
 
