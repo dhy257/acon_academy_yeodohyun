@@ -1,0 +1,27 @@
+SELECT * FROM  customer ;
+SELECT * FROM  gift;
+
+
+
+
+SELECT *
+FROM  customer c
+JOIN   gift g
+ON c.point  between  g.g_start and g.g_end;
+
+SELECT  *
+FROM  customer c
+JOIN   gift g
+ON c.point  >=  g.g_start and  c.point  <= g.g_end;
+
+
+##################################
+
+
+select * from score;
+select * from hakjum;
+
+select * 
+from score s
+join hakjum  h
+on s.total >= h.min_point and  s.total <= h.max_point;
