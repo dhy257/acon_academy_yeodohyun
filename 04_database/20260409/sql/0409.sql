@@ -382,7 +382,24 @@ select
     position
 from emp2;
 
-
+select
+    e.name,
+    e.age,
+    nvl(e.position,' ') curr_position,
+    nvl(p.position,' ') be_position
+from (
+select
+    name,
+    trunc(months_between(sysdate, birthday)/12) age,
+    position
+from emp2
+) e
+left outer join p_grade p
+on
+    e.age >= p.s_age
+and
+    e.age <= p.e_age
+order by 2;
 
 
 
@@ -401,9 +418,69 @@ join gift g
 on
     c.point >= g.g_start
 where g.gname like 'Notebook';
+--5
+select * from professor;  -- self 조인 
+
+--1980-06-23
+--1979-01-01
+
+select *
+from professor  p1
+join professor  p2 
+on  p1.hiredate  >   p2.hiredate 
+where p1.profno  =1002;
+
+
+-- count(*)  :  null 카운트
+select p1.profno, p1.name , p1.hiredate , count(*)
+from professor  p1
+left outer  join professor  p2 
+on  p1.hiredate  >   p2.hiredate 
+group by  p1.profno, p1.name , p1.hiredate;
+
+
+
+ 
+
+ 
+select p1.profno, p1.name , p1.hiredate , count(*)
+from professor  p1
+left outer    join professor  p2 
+on  p1.hiredate  >   p2.hiredate 
+group by  p1.profno, p1.name , p1.hiredate;
+ 
+ 
+ 
+select p1.profno, p1.name , p1.hiredate , count( p2.hiredate)
+from professor  p1
+left outer  join professor  p2 
+on  p1.hiredate  >   p2.hiredate 
+group by  p1.profno, p1.name , p1.hiredate;
+ 
+ 
+  --그룹바이 되기 전 상태 
+select p1.profno, p1.name , p1.hiredate ,  p2.hiredate 
+from professor  p1
+left outer  join professor  p2 
+on  p1.hiredate  >   p2.hiredate ;
+
 
 -- 6.
-select * from emp;
+select * from emp;]
+
+select *
+from emp e1
+join emp e2
+on e1.hiredate > e2.hiredate;
+
+select
+    e1.empno,
+    e1.ename,
+    e1.hiredate,
+    e2.hiredate
+from emp e1
+join emp e2
+on e1.hiredate > e2.hiredate;
 
 select
     e1.empno,
