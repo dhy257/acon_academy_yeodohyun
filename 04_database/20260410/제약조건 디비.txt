@@ -1,0 +1,30 @@
+insert into test_2021_3 values('a10' , 'aaa@naver.com' ,'010-111-2222' , '111');
+insert into test_2021_3 values('b10' , 'bbb@naver.com' ,'010-222-3333' , '222');
+insert into test_2021_3 values('b10' , 'ccc@naver.com' ,'010-333-4444' , '333');
+insert into test_2021_3 values('c10' , 'ddd@naver.com' ,'010-111-2222' , '444');
+ 
+
+
+
+create table mem_tbl_2 (
+ id varchar2(5)  not null primary key ,
+ name varchar2(10) not null  , 
+ addr varchar2(10)
+);
+
+
+insert into mem_tbl_2  values('a1' ,  '홍길동' , '서울') ;
+insert into mem_tbl_2  values('a2' ,  '홍길순', '부산');
+
+
+
+//주문테이블
+create table ord_tbl_2 (
+ no varchar2(5)  not null primary key , 
+ qty number(4)  not null,
+ cus_no  varchar2(5)   references mem_tbl_2(id)
+);
+
+insert into ord_tbl_2  values( 'j01' , 3, 'a1' );
+insert into ord_tbl_2  values( 'j02' , 1, 'a1');
+insert into ord_tbl_2  values( 'j03' , 7, 'a2' );

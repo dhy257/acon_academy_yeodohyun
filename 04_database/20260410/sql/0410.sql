@@ -227,6 +227,201 @@ commit;
 INSERT INTO  TEST_2021_22  (ID, PHONE, GRADE)  VALUES('TEST3' ,  '010-3903-1234','01');
 
 
+-- 테이블 생성시 제약조건 두기 (327p)
+--create table new_emp1 (
+--   no number(4) 
+--   constraint emp1_no_pk primary key,
+--   name varchar2(20) 
+--   constraint emp1_name_nn not null,
+--   jumin varchar2(13)
+--   constraint emp1_jumin_nn  not null 
+--   constraint emp1_jumin_uk  unique,
+--   loc_code number(1) 
+--   constraint emp1_area_ck check( loc_code  <5 ) ,
+--   deptno varchar2(6)
+--   constraint emp1_deptno_fk references dept2(dcode)
+--);
+--select * from new_emp1;
+-- 
+--
+--
+--create table new_emp2(
+--    no number(4) primary key,
+--    name varchar2(20) not null ,
+--    jumin varchar2(13) not null unique,
+--    loc_code number(1) check( loc_code <5),
+--    deptno varchar2(6) references dept2(dcode )
+--);
+--select * from new_emp2;
+
+-- 2) 엔티티 제약조건 (테이블 조건) : 테이블 안에서 갖는 제약 조건
+-- PRIMARY KEY ( NOT NULL, 중복을 허용하지 않음 )
+-- UNIQUE ( 중복을 허용하지 않음 )
+CREATE TABLE TEST_2021_3(
+
+  ID  VARCHAR2(7)   NOT NULL  PRIMARY KEY,
+  EMAIL VARCHAR2(50),
+  PHONE CHAR(13)  UNIQUE ,
+  PWD  VARCHAR2(10)
+);
+select * from TEST_2021_3;
+
+insert into TEST_2021_3 ( id ) values ( 'test' );
+commit;
+select * from TEST_2021_3;
+
+-- id는 primary key 이니 유일해야함
+-- ORA-00001: 무결성 제약 조건(SCOTT.SYS_C007576)에 위배됩니다
+insert into TEST_2021_3 ( id ) values ( 'test' );
+
+-- 아이디 제외하고 추가하기
+-- ORA-01400: NULL을 ("SCOTT"."TEST_2021_3"."ID") 안에 삽입할 수 없습니다
+-- id는 반드시 입력해야함
+insert into TEST_2021_3 ( email, phone, pwd ) values ( 'test@naver.com','01012341234','1234' );
+
+INSERT INTO  TEST_2021_3( ID,EMAIL,PHONE, PWD) VALUES('TEST2', 'test@naver.com' , '010-1111-222' ,'111');
+commit;
+
+select * from test_2021_3;
+
+-- ORA-00001: 무결성 제약 조건(SCOTT.SYS_C007577)에 위배됩니다
+-- tel은 unique라 똑같은거 못넣음
+INSERT INTO  TEST_2021_3( ID,EMAIL,PHONE, PWD) VALUES('TEST3', 'test@naver.com' , '010-1111-222' ,'222');
+commit;
+
+
+-- 3) 관계제약조건 ( 테이블간 제약조건)
+
+-- Foreign
+
+CREATE TABLE MEM_TBL(
+   ID VARCHAR2(5)  NOT NULL PRIMARY KEY,
+   NAME VARCHAR2(10) NOT NULL ,
+   ADDR VARCHAR2(10)
+ 
+ );
+
+insert into mem_tbl values( 'a1' , '홍길동' , '서울') ;
+insert into mem_tbl values( 'a2' , '홍길순', '부산');
+commit;
+
+select * from mem_tbl;
+
+create table ord_tbl (
+no varchar2(5) not null primary key ,
+qty number(4) , 
+cus_no varchar2(5) 
+);
+--
+insert into ord_tbl values( 'j01' , 3, 'a1' );
+insert into ord_tbl values( 'j02' , 1, 'a1' );
+insert into ord_tbl values( 'j03' , 7, 'a2' );
+
+COMMIT;
+
+select * from ord_tbl;
+
+-- 주문테이블에 a3 고객의 주문 추가해보기
+-- 값이 들어간다 => 없는 고객이 주문을 함
+-- 이걸막으려면 제약조건 추가해야함 => 외래키 제약조건
+insert into ord_tbl values( 'j04' , 7, 'a3' );
+commit;
+
+-- 고객테이블
+create table mem_tbl_2 (
+    id varchar2(5) not null primary key ,
+    name varchar2(10) not null ,
+    addr varchar2(10)
+);
+insert into mem_tbl_2 values( 'a1' , '홍길동' , '서울') ;
+insert into mem_tbl_2 values( 'a2' , '홍길순', '부산');
+commit;
+
+
+--주문테이블 생성하기
+CREATE TABLE  ORD_TBL_2(
+   NO VARCHAR2(5) PRIMARY KEY,
+   QTY NUMBER(4) NOT NULL,
+   CUS_NO VARCHAR2(5)   REFERENCES mem_tbl_2( ID) -- 관계성 제약조건 추가하기
+);
+
+insert into ord_tbl_2 values( 'j01' , 3, 'a1' );
+insert into ord_tbl_2 values( 'j02' , 1, 'a1' );
+insert into ord_tbl_2 values( 'j03' , 7, 'a2' );
+
+COMMIT;
+SELECT * FROM  ord_tbl_2;
+
+-- ORA-02291: 무결성 제약조건(SCOTT.SYS_C007588)이 위배되었습니다- 부모 키가 없습니다
+insert into ord_tbl_2 values( 'j04' , 7, 'a3' );
+
+-- contraint 제약조건이름 제약조건 (교재337p)
+create table new_emp1 (
+   no number(4) 
+   constraint emp1_no_pk primary key,
+   name varchar2(20) 
+   constraint emp1_name_nn not null,
+   jumin varchar2(13)
+   constraint emp1_jumin_nn not null 
+   constraint emp1_jumin_uk unique,
+   loc_code number(1) 
+   constraint emp1_area_ck check( loc_code  <5 ) ,
+   deptno varchar2(6)
+   constraint emp1_deptno_fk references dept2(dcode)
+);
+
+SELECT * FROM new_emp1;
+
+
+--
+
+create table ctbl (
+    id varchar2(10) primary key ,
+    name varchar2(10)
+);
+create table otbl ( 
+    code varchar2(10) primary key,
+    iid  varchar2(10) references ctbl (id) on delete cascade
+);
+
+
+insert into ctbl values( 't1' ,  'kim');
+insert into ctbl values( 't2'  , 'choi');
+insert into otbl values( 'o1', 't1');
+insert into otbl values( 'o2', 't1');
+commit;
+
+select * from ctbl;
+select * from otbl;
+
+delete  from ctbl where id  ='t1';   //  t1고객 삭제시   t1을 참조하는 주문정보가 모두 삭제가 됨
+select * from  otbl; //  주문정보가 모두 삭제된것을 확인 할 수 있다.
+
+--
+
+create table ctb2 (
+    id varchar2(10) primary key ,
+    name varchar2(10)
+);
+create table otb2 ( 
+    code varchar2(10) primary key,
+    iid  varchar2(10) references ctb2 (id) on delete set null
+);
+
+
+insert into ctb2 values( 't1' ,  'kim');
+insert into ctb2 values( 't2'  , 'choi');
+insert into otb2 values( 'o1', 't1');
+insert into otb2 values( 'o2', 't1');
+commit;
+
+select * from ctb2;
+select * from otb2;
+
+delete from ctb2 where id = 't1';
+select * from otb2;
+
+
 
 
 
