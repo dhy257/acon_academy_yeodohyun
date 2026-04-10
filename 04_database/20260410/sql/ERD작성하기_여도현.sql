@@ -157,10 +157,13 @@ values (2, 2, 1);
 update characters
 set char_level = 20
 where character_id = 1;
+select * from characters;
+
 
 update items
 set price = 1200
 where item_id = 1;
+select * from items;
 -- 데이터 삭제///////////////////////////////////////////////////////////////////
 delete from order_items
 where order_id = 1 and item_id = 1;
