@@ -421,6 +421,24 @@ select * from otb2;
 delete from ctb2 where id = 't1';
 select * from otb2;
 
+--
+
+-- id는 고객테이블의 주키
+select * from tbl_test_order;
+select * from tbl_test_customer;
+
+-- 관계의 종류 / 1:1 1:n n:m
+
+
+
+
+
+
+
+
+
+
+
 
 
 
