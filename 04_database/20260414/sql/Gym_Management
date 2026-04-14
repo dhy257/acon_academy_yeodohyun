@@ -1,0 +1,378 @@
+
+--테이블 작성
+CREATE TABLE Trainer(
+    trainer_id number(4) PRIMARY KEY,
+    name varchar2(10),
+    Date_of_employment date,       --입사일자
+    Personal_History date          --경력
+);
+
+CREATE TABLE Gym_Member(
+
+    member_id number(4) primary key,
+    trainer_id VARCHAR2(10),
+    name varchar2(10),
+    age number(3),
+    Registration_date date default sysdate,     --등록일
+    
+    --부위별 근육량 default = 0 
+    Chest number(5) default 0,
+    Back number(5),
+    Arm number(5),
+    Shoulder number(5),
+    Leg number(5),  
+    FOREIGN KEY(trainer_id) REFERENCES Trainer(trainer_id)
+);
+
+CREATE TABLE Exercise(
+    Exercise_id varchar2(10) PRIMARY KEY, 
+    Exercise_name varchar2(20),
+    Target varchar2(10),
+    Difficulty_Level varchar2(10),  --운동 난이도
+    Equipment_needed varchar2(50)  --필요한 장비
+    --사용횟수
+);
+
+CREATE TABLE Workout_Log(
+    Workout_id varchar2(30) PRIMARY KEY,
+    member_id varchar2(10),     
+    trainer_id VARCHAR2(10),
+    Exercise_id varchar2(10),
+    Sets number(2),     --운동 세트 수
+    Reps number(2),     --반복횟수
+    Weight number(3),   --중량
+    Exercise_date date default sysdate, --운동한 날짜
+    
+    FOREIGN KEY(member_id) REFERENCES Gym_Member(member_id),
+    FOREIGN KEY(trainer_id) REFERENCES Trainer(trainer_id),
+    FOREIGN KEY(Exercise_id) REFERENCES Exercise(Exercise_id)
+);
+commit;
+
+CREATE TABLE Equipment(
+    equipment_id VARCHAR2(10) PRIMARY KEY,
+    equipment_name VARCHAR2(50),
+    usage_count NUMBER DEFAULT 0,     -- 사용 횟수
+    cleaned_yn CHAR(1) DEFAULT 'N'    -- 청소 여부 (Y/N)
+);
+
+
+--데이터 삽입
+--트레이너
+INSERT INTO Trainer(trainer_id, name, Date_of_employment)
+VALUES('T0001', 'Rex', '2018-04-10');
+
+INSERT INTO Trainer(trainer_id, name, Date_of_employment)
+VALUES('T0002', 'Arnold', '2002-03-15');
+
+INSERT INTO Trainer(trainer_id, name, Date_of_employment)
+VALUES('T0003', 'Titan', '2020-11-21');
+commit;
+
+--회원
+INSERT INTO GYM_MEMBER(member_id, name, age)
+VALUES('M0001', 'Jack', '2001-11-21');
+
+INSERT INTO GYM_MEMBER(member_id, name, age)
+VALUES('M0002', 'Ryan', '1996-05-25');
+
+INSERT INTO GYM_MEMBER(member_id, name, age)
+VALUES('M0003', 'Luna', '1997-09-29');
+
+INSERT INTO GYM_MEMBER(member_id, name, age)
+VALUES('M0004', 'Grace', '2003-04-13');
+COMMIT;
+
+------운동종목
+--가슴운동
+INSERT INTO EXERCISE(Exercise_id, Exercise_name, Target, Difficulty_Level, Equipment_needed)
+VALUES ('C001', '벤치프레스', '가슴', '상', '벤치프레스 렉 or 스미스 머신');
+commit;
+
+INSERT INTO EXERCISE(Exercise_id, Exercise_name, Target, Difficulty_Level, Equipment_needed)
+VALUES ('C002', '펙덱플라이', '가슴', '하', '플라이머신 or 케이블');
+
+
+--등운동
+INSERT INTO EXERCISE(Exercise_id, Exercise_name, Target, Difficulty_Level, Equipment_needed)
+VALUES ('B001', '랫풀다운', '등', '하', '랫풀다운 머신');
+
+
+INSERT INTO EXERCISE(Exercise_id, Exercise_name, Target, Difficulty_Level, Equipment_needed)
+VALUES ('B002', '바벨로우', '등', '상', '렉 or 스미스머신');
+
+update EXERCISE SET EQUIPMENT_NEEDED = '프리웨이트 렉' WHERE EXERCISE_ID = 'B002';
+COMMIT;
+
+--어깨운동
+INSERT INTO EXERCISE(Exercise_id, Exercise_name, Target, Difficulty_Level, Equipment_needed)
+VALUES ('S001', '숄더프레스', '어깨', '중', '숄더프레스 머신 or 덤벨');
+
+
+INSERT INTO EXERCISE(Exercise_id, Exercise_name, Target, Difficulty_Level, Equipment_needed)
+VALUES ('S002', '사이드레터럴레이즈', '어깨', '하', '덤벨 or 사레레 머신');
+
+
+--팔운동
+INSERT INTO EXERCISE(Exercise_id, Exercise_name, Target, Difficulty_Level, Equipment_needed)
+VALUES ('A001', '바벨컬', '이두', '중', '바벨');
+
+
+INSERT INTO EXERCISE(Exercise_id, Exercise_name, Target, Difficulty_Level, Equipment_needed)
+VALUES ('A002', '케이블 푸쉬다운', '삼두', '하', '케이블');
+
+--하체운동
+INSERT INTO EXERCISE(Exercise_id, Exercise_name, Target, Difficulty_Level, Equipment_needed)
+VALUES ('L001', '스쿼트', '하체', '상', '렉 or 스미스 머신');
+
+
+INSERT INTO EXERCISE(Exercise_id, Exercise_name, Target, Difficulty_Level, Equipment_needed)
+VALUES ('L002', '레그 익스텐션', '하체', '하', '익스텐션 머신');
+
+COMMIT;
+
+--운동기록 등록
+INSERT INTO Workout_Log(Workout_id, member_id, Trainer_id, Exercise_id, Sets, Reps, Weight)
+VALUES ('Ex01', 'M0001', 'T0001', 'L001', 3, 12, 100);
+commit;
+
+
+INSERT INTO Workout_Log(Workout_id, member_id, Trainer_id, Exercise_id, Sets, Reps, Weight)
+VALUES ('Ex02', 'M0001', 'T0001', 'L002', 4, 15, 280);
+
+INSERT INTO Workout_Log(Workout_id, member_id, Trainer_id, Exercise_id, Sets, Reps, Weight)
+VALUES ('Ex03', 'M0002', 'T0001', 'A001', 3, 12, 20);
+COMMIT;
+
+INSERT INTO Workout_Log(Workout_id, member_id, Trainer_id, Exercise_id, Sets, Reps, Weight)
+VALUES ('Ex04', 'M0004', 'T0003', 'B002', 4, 12, 70);
+commit;
+
+INSERT INTO Workout_Log(Workout_id, member_id, Trainer_id, Exercise_id, Sets, Reps, Weight)
+VALUES ('Ex05', 'M0004', 'T0003', 'B002', 4, 12, 70);
+COMMIT;
+
+INSERT INTO Workout_Log(Workout_id, member_id, Trainer_id, Exercise_id, Sets, Reps, Weight)
+VALUES ('Ex06', 'M0004', 'T0003', 'B001', 3, 15, 40);
+COMMIT;
+
+UPDATE Workout_Log SET WEIGHT = 40 WHERE WEIGHT = 280;
+commit;
+
+--운동기구 추가
+INSERT INTO Equipment VALUES ('E001', '벤치프레스 렉', 0, 'N');
+INSERT INTO Equipment VALUES ('E002', '스미스 머신', 0, 'N');
+INSERT INTO Equipment VALUES ('E003', '랫풀다운 머신', 0, 'N');
+INSERT INTO Equipment VALUES ('E004', '덤벨', 0, 'N');
+INSERT INTO Equipment VALUES ('E005', '케이블 머신', 0, 'N');
+INSERT INTO Equipment VALUES ('E006', '익스텐션 머신', 0, 'N');
+INSERT INTO Equipment VALUES ('E007', '바벨', 0, 'N');
+commit;
+
+update equipment set equipment_name = '프리웨이트 렉' where equipment_name = '벤치프레스 렉';
+COMMIT;
+
+------------------------------------------------
+
+--alter 사용
+
+ALTER TABLE Gym_Member 
+ADD (
+    Chest NUMBER(5) DEFAULT 0,
+    Back NUMBER(5) DEFAULT 0,
+    Arm NUMBER(5) DEFAULT 0,
+    Shoulder NUMBER(5) DEFAULT 0,
+    Leg NUMBER(5) DEFAULT 0
+);
+COMMIT;
+
+ALTER TABLE Trainer MODIFY (trainer_id VARCHAR2(10));
+COMMIT;
+
+--경력 기본값 SYSDATE로 변경
+ALTER TABLE TRAINER MODIFY (Personal_History DATE DEFAULT SYSDATE);
+
+ALTER TABLE GYM_MEMBER MODIFY (MEMBER_ID VARCHAR2(10));
+
+--나이 DATE형식으로 변경
+ALTER TABLE GYM_MEMBER MODIFY (AGE DATE);
+commit;
+
+ALTER TABLE EXERCISE MODIFY EXERCISE_NAME VARCHAR2(50);
+
+--equiment_id 추가
+ALTER TABLE Exercise ADD equipment_id VARCHAR2(10);
+COMMIT;
+
+ALTER TABLE Exercise
+ADD FOREIGN KEY (equipment_id)
+REFERENCES Equipment(equipment_id);
+
+--UPDATE
+
+-- 운동, 운동기구 연결
+UPDATE Exercise 
+SET equipment_id = 'E001',
+    Equipment_needed = '프리웨이트 렉'
+WHERE Exercise_id = 'L001'  --스쿼트
+    or Exercise_id = 'S001' --벤치프레스
+    or Exercise_id = 'B002'; --바벨로우
+commit;
+
+UPDATE Exercise 
+SET equipment_id = 'E005',
+    Equipment_needed = '케이블 머신'
+WHERE Exercise_id = 'C002' --펙덱플라이
+    OR EXERCISE_ID = 'A002'; --케이블 푸쉬다운
+COMMIT;
+
+UPDATE Exercise 
+SET equipment_id = 'E003',
+    Equipment_needed = '랫풀다운 머신'
+WHERE Exercise_id = 'B001'; --랫풀다운
+COMMIT;
+
+UPDATE Exercise 
+SET equipment_id = 'E004',
+    Equipment_needed = '덤벨'
+WHERE Exercise_id = 'S001' --숄더프레스
+    OR EXERCISE_ID = 'S002';  --사이드 레터럴 레이즈
+COMMIT;
+
+UPDATE Exercise 
+SET equipment_id = 'E006',
+    Equipment_needed = '익스텐션 머신'
+WHERE Exercise_id = 'L002';  --레그 익스텐션
+
+COMMIT;
+
+UPDATE Exercise 
+SET equipment_id = 'E007',
+    Equipment_needed = '바벨'
+WHERE Exercise_id = 'A001';  --바벨컬
+
+COMMIT;
+
+--운동 정보 입력했을 때 수치가 증가되는 트리거
+CREATE OR REPLACE TRIGGER TRG_GYM_SYSTEM_AUTO
+AFTER INSERT ON WORKOUT_LOG
+FOR EACH ROW
+DECLARE
+    v_target_muscle VARCHAR2(20);
+    v_score NUMBER;
+    v_eq_id VARCHAR2(10); -- 기구 ID를 미리 담을 변수
+BEGIN
+    -- 1. 운동 부위와 기구 ID를 동시에 가져오기
+    SELECT Target, equipment_id 
+    INTO v_target_muscle, v_eq_id
+    FROM EXERCISE
+    WHERE Exercise_id = :NEW.Exercise_id;
+
+    -- 2. 근육량 점수 계산 로직 (주창님 기존 로직)
+    v_score := CASE 
+        WHEN :NEW.Weight * :NEW.Reps * :NEW.Sets < 500 THEN 1
+        WHEN :NEW.Weight * :NEW.Reps * :NEW.Sets < 1500 THEN 3
+        WHEN :NEW.Weight * :NEW.Reps * :NEW.Sets < 3000 THEN 6
+        ELSE 10
+    END;
+
+    -- 3. 회원 근육량 업데이트
+    IF v_target_muscle = '가슴' THEN
+        UPDATE GYM_MEMBER SET CHEST = CHEST + v_score WHERE MEMBER_ID = :NEW.MEMBER_ID;
+    ELSIF v_target_muscle = '등' THEN
+        UPDATE GYM_MEMBER SET BACK = BACK + v_score WHERE MEMBER_ID = :NEW.MEMBER_ID;
+    ELSIF v_target_muscle = '어깨' THEN
+        UPDATE GYM_MEMBER SET SHOULDER = SHOULDER + v_score WHERE MEMBER_ID = :NEW.MEMBER_ID;
+    ELSIF v_target_muscle = '이두' OR v_target_muscle = '삼두' THEN
+        UPDATE GYM_MEMBER SET ARM = ARM + v_score WHERE MEMBER_ID = :NEW.MEMBER_ID;
+    ELSIF v_target_muscle = '하체' THEN
+        UPDATE GYM_MEMBER SET LEG = LEG + v_score WHERE MEMBER_ID = :NEW.MEMBER_ID;
+    END IF;
+
+    -- 4. 기구 사용 횟수 업데이트 
+    IF v_eq_id IS NOT NULL THEN
+        UPDATE EQUIPMENT 
+        SET usage_count = usage_count + 1 
+        WHERE equipment_id = v_eq_id;
+    END IF;
+END;
+/
+
+-------------------
+
+DESC GYM_MEMBER;
+
+DESC TRAINER;
+
+--회원 조회
+SELECT MEMBER_ID AS 회원ID, NAME AS 이름,
+TRUNC(MONTHS_BETWEEN(SYSDATE, AGE) / 12) || '살' AS 나이,
+to_char(Registration_Date, 'yyyy-mm-dd') AS 등록일자,
+TRAINER_ID, CHEST  가슴, BACK 등, ARM 팔, SHOULDER 어깨, LEG 하체
+FROM GYM_MEMBER;
+
+
+--트레이너 조회
+select TRAINER_ID AS 트레이너ID, NAME AS 이름, 
+TO_CHAR(DATE_OF_EMPLOYMENT, 'YYYY-MM-DD') AS 입사일자,
+TRUNC(MONTHS_BETWEEN(PERSONAL_HISTORY, DATE_OF_EMPLOYMENT) / 12) || '년' AS 경력
+FROM TRAINER;
+
+--운동 테이블 조회
+SELECT Exercise_id, Exercise_name AS 운동이름, Target As 타겟부위,
+Difficulty_Level As 운동난이도, Equipment_needed As "필요한 장비"
+FROM EXERCISE
+ORDER BY EXERCISE_ID ASC;
+
+--운동기록 테이블 조회
+SELECT W.Workout_id, w.Exercise_date AS 운동날짜, M.name AS 회원이름, T.name AS 트레이너이름,
+E.Exercise_name AS 운동이름, W.Sets AS 세트수, W.Reps AS 반복횟수,
+to_char(W.Weight || 'kg') AS 중량
+FROM Workout_Log W
+JOIN GYM_Member M
+ON W.member_id = M.member_id
+JOIN Trainer T
+ON W.Trainer_id = T.Trainer_id
+JOIN Exercise E
+ON W.Exercise_id = E.Exercise_id
+ORDER BY 1 ASC; 
+
+--트레이너에게 회원 배정
+UPDATE GYM_MEMBER
+SET TRAINER_ID = 'T0001'
+WHERE NAME = 'Jack';
+
+UPDATE GYM_MEMBER
+SET TRAINER_ID = 'T0001'
+WHERE NAME = 'Ryan';
+
+UPDATE GYM_MEMBER
+SET TRAINER_ID = 'T0002'
+WHERE NAME = 'Luna';
+
+UPDATE GYM_MEMBER
+SET TRAINER_ID = 'T0003'
+WHERE NAME = 'Grace';
+
+
+--운동장비 사용횟수 및 사용가능 여부 조회
+SELECT equipment_name AS 운동장비,
+       usage_count || '회' AS 사용횟수,
+       cleaned_yn AS 청소필요여부,
+       CASE 
+           WHEN usage_count >= 10 THEN '청소 필요'
+           ELSE '사용 가능'
+       END AS 상태
+FROM Equipment;
+
+
+
+--조인으로 담당 트레이너 찾기
+SELECT M.NAME AS 회원이름, T.NAME AS "담당 트레이너", T.TRAINER_ID
+FROM GYM_MEMBER M
+JOIN TRAINER T
+ON M.TRAINER_ID = T.TRAINER_ID
+ORDER BY TRAINER_ID ASC;
+
+
+
