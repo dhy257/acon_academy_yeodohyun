@@ -1,0 +1,71 @@
+테이블 명세서
+
+User / user_id (PK), user_name, email / 게임 계정 정보 저장
+Character / character_id (PK), user_id (FK), name, level / 유저 캐릭터 정보 저장
+Inventory / inventory_id (PK), character_id (FK), item_id (FK), quantity / 캐릭터 인벤토리
+Shop / shop_id (PK), shop_name / 상점 정보
+Orders / order_id (PK), user_id (FK), order_date / 아이템 구매 기록
+Item / item_id (PK), item_name, price / 아이템 정보
+Order_Item / order_id (FK), item_id (FK), quantity( 복합 PK: order_id + item_id ) / 주문 내 아이템 정보
+
+User
+-------------------------
+user_id (PK)
+user_name
+email
+
+Character
+-------------------------
+character_id (PK)
+user_id (FK)
+name
+level
+
+Item
+-------------------------
+item_id (PK)
+item_name
+price
+
+Inventory
+-------------------------
+inventory_id (PK)
+character_id (FK)
+item_id (FK)
+quantity
+
+Shop
+-------------------------
+shop_id (PK)
+shop_name
+
+Orders
+-------------------------
+order_id (PK)
+user_id (FK)
+order_date
+
+Order_Item
+-------------------------
+order_id (PK, FK)
+item_id (PK, FK)
+quantity
+
+User (1) ─── (N) Character
+User (1) ─── (N) Orders
+
+Character (1) ─── (N) Inventory
+Item (1) ─── (N) Inventory
+
+Orders (1) ─── (N) Order_Item
+Item (1) ─── (N) Order_Item
+
+Character (N) ─── (M) Item
+> Inventory로 분해
+
+Orders (N) ─── (M) Item
+> Order_Item으로 분해
+
+
+
+
