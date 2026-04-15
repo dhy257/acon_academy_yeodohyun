@@ -159,8 +159,6 @@ COMMIT;
 UPDATE Workout_Log SET WEIGHT = 40 WHERE WEIGHT = 280;
 commit;
 
-select * from Workout_Log;
-
 --운동기구 추가
 INSERT INTO Equipment VALUES ('E001', '벤치프레스 렉', 0, 'N');
 INSERT INTO Equipment VALUES ('E002', '스미스 머신', 0, 'N');
@@ -206,6 +204,7 @@ ALTER TABLE EXERCISE MODIFY EXERCISE_NAME VARCHAR2(50);
 ALTER TABLE Exercise ADD equipment_id VARCHAR2(10);
 COMMIT;
 
+--외래키 추가
 ALTER TABLE Exercise
 ADD FOREIGN KEY (equipment_id)
 REFERENCES Equipment(equipment_id);
@@ -270,7 +269,7 @@ BEGIN
     FROM EXERCISE
     WHERE Exercise_id = :NEW.Exercise_id;
 
-    -- 2. 근육량 점수 계산 로직 (주창님 기존 로직)
+    -- 2. 근육량 점수 계산 로직
     v_score := CASE 
         WHEN :NEW.Weight * :NEW.Reps * :NEW.Sets < 500 THEN 1
         WHEN :NEW.Weight * :NEW.Reps * :NEW.Sets < 1500 THEN 3
