@@ -314,36 +314,47 @@ VALUES
 ('Ex09', 'M0002', 'T0001', 'B001', 3, 12, 50);
 
 --회원 조회
-SELECT MEMBER_ID AS 회원ID, NAME AS 이름,
-TRUNC(MONTHS_BETWEEN(SYSDATE, AGE) / 12) || '살' AS 나이,
-to_char(Registration_Date, 'yyyy-mm-dd') AS 등록일자,
-TRAINER_ID, CHEST  가슴, BACK 등, ARM 팔, SHOULDER 어깨, LEG 하체
+SELECT
+    MEMBER_ID AS 회원ID,
+    NAME AS 이름,
+    TRUNC(MONTHS_BETWEEN(SYSDATE, AGE) / 12) || '살' AS 나이,
+    to_char(Registration_Date, 'yyyy-mm-dd') AS 등록일자,
+    TRAINER_ID,
+    CHEST  가슴, BACK 등, ARM 팔, SHOULDER 어깨, LEG 하체
 FROM GYM_MEMBER;
 
 
 --트레이너 조회
-select TRAINER_ID AS 트레이너ID, NAME AS 이름, 
-TO_CHAR(DATE_OF_EMPLOYMENT, 'YYYY-MM-DD') AS 입사일자,
-TRUNC(MONTHS_BETWEEN(PERSONAL_HISTORY, DATE_OF_EMPLOYMENT) / 12) || '년' AS 경력
+select
+    TRAINER_ID AS 트레이너ID,
+    NAME AS 이름, 
+    TO_CHAR(DATE_OF_EMPLOYMENT, 'YYYY-MM-DD') AS 입사일자,
+    TRUNC(MONTHS_BETWEEN(PERSONAL_HISTORY, DATE_OF_EMPLOYMENT) / 12) || '년' AS 경력
 FROM TRAINER;
 
 --운동 테이블 조회
-SELECT Exercise_id, Exercise_name AS 운동이름, Target As 타겟부위,
-Difficulty_Level As 운동난이도, Equipment_needed As "필요한 장비"
+SELECT
+    Exercise_id,
+    Exercise_name AS 운동이름,
+    Target As 타겟부위,
+    Difficulty_Level As 운동난이도,
+    Equipment_needed As "필요한 장비"
 FROM EXERCISE
-ORDER BY EXERCISE_ID ASC;
+ORDER BY EXERCISE_ID ASC; -- 오름차순
 
 --운동기록 테이블 조회
-SELECT W.Workout_id, w.Exercise_date AS 운동날짜, M.name AS 회원이름, T.name AS 트레이너이름,
-E.Exercise_name AS 운동이름, W.Sets AS 세트수, W.Reps AS 반복횟수,
-to_char(W.Weight || 'kg') AS 중량
+SELECT
+    W.Workout_id,
+    w.Exercise_date AS 운동날짜, M.name AS 회원이름, T.name AS 트레이너이름,
+    E.Exercise_name AS 운동이름, W.Sets AS 세트수, W.Reps AS 반복횟수,
+    to_char(W.Weight || 'kg') AS 중량
 FROM Workout_Log W
 JOIN GYM_Member M
-ON W.member_id = M.member_id
+    ON W.member_id = M.member_id
 JOIN Trainer T
-ON W.Trainer_id = T.Trainer_id
+    ON W.Trainer_id = T.Trainer_id
 JOIN Exercise E
-ON W.Exercise_id = E.Exercise_id
+    ON W.Exercise_id = E.Exercise_id
 ORDER BY 1 ASC; 
 
 --트레이너에게 회원 배정
@@ -377,10 +388,12 @@ FROM Equipment;
 
 
 --조인으로 담당 트레이너 찾기
-SELECT M.NAME AS 회원이름, T.NAME AS "담당 트레이너", T.TRAINER_ID
+SELECT
+    M.NAME AS 회원이름, T.NAME AS "담당 트레이너",
+    T.TRAINER_ID
 FROM GYM_MEMBER M
 JOIN TRAINER T
-ON M.TRAINER_ID = T.TRAINER_ID
+    ON M.TRAINER_ID = T.TRAINER_ID
 ORDER BY TRAINER_ID ASC;
 
 
