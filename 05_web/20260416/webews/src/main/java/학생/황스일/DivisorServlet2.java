@@ -26,7 +26,7 @@ public class DivisorServlet2 extends HttpServlet {
 //			}
 //		}
 
-		MuUtil util = new MuUtil();
+		MyUtil util = new MyUtil();
 		ArrayList<Integer> list = util.getDivisor(num);
 
 		out.println("<!DOCTYPE html>");

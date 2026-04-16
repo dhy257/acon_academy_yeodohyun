@@ -35,7 +35,7 @@ public class MovieInfoDB extends HttpServlet {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
-            String sql = "SELECT *   FROM MOVIE";
+            String sql = "SELECT *   FROM MOVIE0416";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 // 자바로 라이브러리( 기능 ), 함수 만들기
 // 클래스 기능( 메서드 ) 
 
-public class MuUtil {
+public class MyUtil {
 	// 기능 : 약수구하기
 	// 입력( 매개변수 )
 	// 반환 : ArrayList<Integer>
@@ -23,7 +23,7 @@ public class MuUtil {
 	}
 	
 	public static void main(String[] args) {
-		MuUtil util = new MuUtil();
+		MyUtil util = new MyUtil();
 		ArrayList<Integer> list = util.getDivisor(12);
 		System.out.println(list);
 		
