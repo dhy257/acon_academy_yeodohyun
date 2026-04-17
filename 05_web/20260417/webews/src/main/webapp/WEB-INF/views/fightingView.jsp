@@ -10,6 +10,7 @@
 <%
 String data = (String) request.getAttribute("data");
 %>
+<!-- request.getAttribute("저장한 키 이름") -->
 	<h2>^^</h2>
 	<!--  -->
 	<p><%=data %>데이터!</p>

@@ -24,7 +24,7 @@ public class 화이팅Servlet extends HttpServlet{
 		// 요청 => 응답될 때 까지 살아있는 저장소
 		// 저장, 꺼내오기
 		
-		req.setAttribute("data", data);
+		req.setAttribute("data", data); // key, value
 		
 		
 		// 뷰 ( 화면 뷰 )
