@@ -8,6 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// 등록하기 서비스
+// 서비스 요청 - service - doGet, doPost
+// 조회 get요청 => doGet
+// 등록 => 등록화면 , 실제로 등록하기 서비스
+// 등록하기 서비스 =>
+// 서블릿 - doGet : 화면보여주기, doPost : 실제등록하기
 
 @WebServlet("/reg")
 public class RegServlet  extends HttpServlet {

@@ -309,10 +309,14 @@ INSERT INTO WORKOUT_LOG
 (Workout_id, member_id, Trainer_id, Exercise_id, Sets, Reps, Weight)
 VALUES
 ('Ex08', 'M0001', 'T0001', 'C001', 4, 10, 80);
+
 INSERT INTO WORKOUT_LOG
+(Workout_id, member_id, Trainer_id, Exercise_id, Sets, Reps, Weight)
 VALUES
 ('Ex09', 'M0002', 'T0001', 'B001', 3, 12, 50);
+desc WORKOUT_LOG;
 
+select * from WORKOUT_LOG;
 --회원 조회
 SELECT
     MEMBER_ID AS 회원ID,
@@ -395,6 +399,4 @@ FROM GYM_MEMBER M
 JOIN TRAINER T
     ON M.TRAINER_ID = T.TRAINER_ID
 ORDER BY TRAINER_ID ASC;
-
-
 

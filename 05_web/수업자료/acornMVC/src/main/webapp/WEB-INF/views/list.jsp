@@ -17,6 +17,7 @@
 
 <caption>에이콘 학생 목록</caption>
 
+<!-- <img src = "acornMVC/img/acorn.jpg" alt="에이콘학생"> -->
 
 
 <tr>
