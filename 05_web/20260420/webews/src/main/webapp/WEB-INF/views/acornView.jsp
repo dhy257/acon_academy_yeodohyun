@@ -15,6 +15,10 @@ table {
 	border-collapse: collapse;
 	text-align: center;
 }
+
+tr,td {
+	border: 1px solid black;
+}
 </style>
 </head>
 <body>
@@ -36,7 +40,7 @@ table {
 			Acorn acorn = list.get(i);
 		%>
 		<tr>
-			<td><%=acorn.getName()%>></td>
+			<td><%=acorn.getName()%></td>
 			<td><%=acorn.getId()%></td>
 			<td><%=acorn.getPw()%></td>
 			<td><%=acorn.getPoint()%></td>
