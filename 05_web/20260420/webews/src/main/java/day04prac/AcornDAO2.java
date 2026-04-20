@@ -19,7 +19,7 @@ import java.util.Date;
 // 6. sql실행하기, 조회
 // 7. 실행결과를 자바객체로 변환 ( 여러개니까 ArrayList<Acorn> , Acorn )
 
-public class AcornDAO {
+public class AcornDAO2 {
 	//
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:testdb";
@@ -84,34 +84,27 @@ public class AcornDAO {
 			// 자원 정리, 거꾸로 한다
 			// con, pst, rs => rs, pst, con 종료하기
 
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
-			if (pst != null) {
-				try {
-					pst.close();
-				} catch (SQLException e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
+			close(rs, pst, con);
 
 		}
 
 		return list;
+	}
+
+	// close하기 메서드
+	// 아래 3개의 객체는 모두 AutoClosable 인터페이스를 구현하였다
+	// 입력: Connection, PreparedStatement, ResultSet => 타입의 객체, 가변인자
+	// 반환: x
+	public void close(AutoCloseable... autoCloseables) {
+		for (AutoCloseable a : autoCloseables) {
+			if (a != null)
+				try {
+					a.close();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
 	}
 
 	public static void main(String[] args) {
@@ -123,7 +116,7 @@ public class AcornDAO {
 //		}
 //		System.out.println(con);
 
-		AcornDAO dao = new AcornDAO();
+		AcornDAO2 dao = new AcornDAO2();
 		ArrayList<Acorn> list = dao.selectAll();
 		System.out.println(list);
 	}

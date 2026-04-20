@@ -1,5 +1,6 @@
 package day04prac;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Acorn {
@@ -61,6 +62,9 @@ public class Acorn {
 
 	@Override
 	public String toString() {
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-mm-dd");
+		String birthStr = sf.format(birth); // date객체를 다시 String문자열로 변환
+
 		return "Acorn [id=" + id + ", pw=" + pw + ", name=" + name + ", point=" + point + ", birth=" + birth + "]";
 	}
 
