@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 // DAO 한 개가 => 테이블 한개
 // 조인같은 경우에는? 중심테이블에 두면 된다.
@@ -108,26 +107,121 @@ public class AcornDAO2 {
 	}
 
 	public static void main(String[] args) {
-//		AcornDAO dao = new AcornDAO();
-//		Connection con = dao.dbcon();
-//		// 올바른 연결이면 반환 OK, null반환이면 fail
-//		if (con != null) {
-//			System.out.println("DB OK");
-//		}
-//		System.out.println(con);
 
 		AcornDAO2 dao = new AcornDAO2();
-		ArrayList<Acorn> list = dao.selectAll();
-		System.out.println(list);
+//		Acorn acorn = new Acorn();
+//		acorn.setId("test");
+//		acorn.setPw("test");
+//		acorn.setName("테스트");
+//		acorn.setPoint(1000);
+//
+//		int result = dao.insertMember(acorn);
+//		System.out.println(result);
+
+//		Acorn acorn = dao.selectOne("jyon");
+//
+//		System.out.println(acorn);
+
+		Acorn acorn = new Acorn();
+		acorn.setId("test");
+		acorn.setPw("1234");
+		acorn.setName("테스터");
+		acorn.setPoint(10000);
+		int result = dao.updateMember(acorn);
+		System.out.println(result);
 	}
 
 	// 전체조회 ( 페이징 )
 
 	// 한 개 조회
 
+	// 하나 조회 selectOne()
+	public Acorn selectOne(String id) {
+
+		Connection con = dbcon();
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		String sql = "select * from acorntbl where id =?";
+
+		Acorn acorn = null;
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, id);
+			rs = pst.executeQuery();
+
+			if (rs.next()) { // 조회결과 가져오기 , true =>해당id의 정보가 조회되었다는 것임
+
+				String tid = rs.getString(1);
+				String pw = rs.getString(2);
+				String name = rs.getString(3);
+				int point = rs.getInt(4);
+				java.util.Date birth = rs.getDate(5);
+				// Acorn(String id, String pw, String name, int point, Date birth) {
+				acorn = new Acorn(tid, pw, name, point, birth);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rs, pst, con);
+		}
+		return acorn;
+
+	}
+
 	// 등록하기
+	public int insertMember(Acorn acorn) {
+		Connection con = dbcon();
+		PreparedStatement pst = null;
+
+		String sql = "insert into acorntbl(id, pw, name, point) values(?,?,?,?)";
+		int resultRow = 0;
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, acorn.getId()); // 왼쪽물음표부터 1시작
+			pst.setString(2, acorn.getPw());
+			pst.setString(3, acorn.getName());
+			pst.setInt(4, acorn.getPoint());
+
+			//
+
+			resultRow = pst.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pst, con);
+		}
+
+		return resultRow;
+	}
+
+	// 회원등록시 - 회원취미
 
 	// 변경하기
+	public int updateMember(Acorn acorn) {
+		Connection con = dbcon();
+		PreparedStatement pst = null;
+		int resultRow = 0;
 
+		String sql = "update acorntbl  set  pw=?  , point =?  where id=? ";
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, acorn.getPw()); // 물픔표 채울 때 왼쪽부터 1
+			pst.setInt(2, acorn.getPoint());
+			pst.setString(3, acorn.getId());
+
+			resultRow = pst.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return resultRow;
+
+	}
 	// 삭제하기
 }

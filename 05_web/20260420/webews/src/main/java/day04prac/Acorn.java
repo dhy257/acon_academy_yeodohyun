@@ -4,21 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Acorn {
+
 	String id;
 	String pw;
 	String name;
-
 	int point;
 	Date birth;
-
-	public Acorn(String id, String pw, String name, int point, Date birth) {
-		super();
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.point = point;
-		this.birth = birth;
-	}
 
 	public String getId() {
 		return id;
@@ -60,12 +51,34 @@ public class Acorn {
 		this.birth = birth;
 	}
 
+	public Acorn(String id, String pw, String name, int point, Date birth) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.point = point;
+		this.birth = birth;
+	}
+
+	// 생성자 , 기본생성자
+	// setter, getter
+	// toString
+	public Acorn() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy-mm-dd");
-		String birthStr = sf.format(birth); // date객체를 다시 String문자열로 변환
 
-		return "Acorn [id=" + id + ", pw=" + pw + ", name=" + name + ", point=" + point + ", birth=" + birth + "]";
+		String birthStr = "";
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd");
+		if (birth != null) {
+			birthStr = sf.format(birth); // date -> 문자열로 변환
+
+		}
+		// System.out.println(birthStr);
+
+		return "Acorn [id=" + id + ", pw=" + pw + ", name=" + name + ", point=" + point + ", birth=" + birthStr + "]";
 	}
 
 }
