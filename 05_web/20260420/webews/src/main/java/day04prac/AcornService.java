@@ -4,9 +4,13 @@ import java.util.ArrayList;
 
 public class AcornService {
 
-	AcornDAO dao = new AcornDAO();
+	AcornDAO2 dao = new AcornDAO2();
 
 	public ArrayList<Acorn> getMembers() {
 		return dao.selectAll();
+	}
+
+	public int registerMember(Acorn acorn) {
+		return dao.insertMember(acorn);
 	}
 }

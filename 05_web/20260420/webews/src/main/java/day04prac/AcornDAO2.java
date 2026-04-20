@@ -209,7 +209,7 @@ public class AcornDAO2 {
 		String sql = "update acorntbl  set  pw=?  , point =?  where id=? ";
 		try {
 			pst = con.prepareStatement(sql);
-			pst.setString(1, acorn.getPw()); // 물픔표 채울 때 왼쪽부터 1
+			pst.setString(1, acorn.getPw()); // 물픔표 채울 때 왼쪽부터 1      
 			pst.setInt(2, acorn.getPoint());
 			pst.setString(3, acorn.getId());
 
