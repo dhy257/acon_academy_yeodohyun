@@ -31,10 +31,10 @@ public class AcornDAO {
 	public static void main(String[] args) {
 		AcornDAO dao = new AcornDAO();
 		Connection con = dao.dbcon();
-		System.out.println(con);
-
+		// 올바른 연결이면 반환 OK, null반환이면 fail
 		if (con != null) {
-			System.out.println("OK");
+			System.out.println("DB OK");
 		}
+		System.out.println(con);
 	}
 }
