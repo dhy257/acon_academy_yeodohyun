@@ -54,7 +54,12 @@ public class AcornRegServlet extends HttpServlet {
 		acorn.setPoint(point);
 		acorn.setBirth(birthDate);
 
-		AcornService service = new AcornService();
+		System.out.println(id);
+		System.out.println(pw);
+		System.out.println(name);
+		System.out.println(point);
+
+//		AcornService service = new AcornService();
 //		service.registerMember(acorn);
 	}
 }

@@ -10,7 +10,7 @@
 
 	<h2>에이콘 학생 등록하기</h2>
 
-	<form action="/0420/acorn/reg" method="post">
+	<form action="/0421/acorn/reg" method="post">
 		<!-- id=test01&name=... 이런식으로 받음 -->
 		<input type="text" name="id"> <input type="text" name="name">
 		<input type="text" name="pw"> <input type="text" name="point">
