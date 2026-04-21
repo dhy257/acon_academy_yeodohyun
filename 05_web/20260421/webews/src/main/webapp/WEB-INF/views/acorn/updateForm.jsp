@@ -13,10 +13,14 @@
 	%>
 
 	<form action="/0421/acorn/update" method="post">
-		<input type="text" name="id" readonly=" readonly"> <input
-			type="text" name="pw"> <input type="text" name="point">
-		<input type="text" name="name" readonly=" readonly"> <input
-			type="text" name="birthday" readonly=" readonly">
+		<input type="text" name="id" value="<%=acorn.getId()%>"
+			readonly="readonly"> <input type="text" name="pw"
+			value="<%=acorn.getPw()%>"> <input type="text" name="point"
+			value="<%=acorn.getPoint()%>"> <input type="text" name="name"
+			value="<%=acorn.getName()%>" readonly="readonly"> <input
+			type="text" name="birthday" value="<%=acorn.getBirth()%>"
+			readonly="readonly">
+			<button>변경</button>
 	</form>
 </body>
 </html>

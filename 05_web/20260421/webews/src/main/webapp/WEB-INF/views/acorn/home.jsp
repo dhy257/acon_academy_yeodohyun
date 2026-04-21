@@ -8,14 +8,25 @@
 </head>
 <body>
 
-<img alt="" src="/0421/imgs/a.jpg">
+	<img alt="" src="/0421/imgs/a.jpg">
 	<h2>에이콘 학생 관리</h2>
 
 	<ul>
 		<li><a href="/0421/acorn/list">학생전체 전체 조회하기</a></li>
 		<li><a href="/0421/acorn/reg">학생 등록하기</a></li>
-		<li>학생전체 조회하기</li>
-		<li>학생 탈퇴하기</li>
+		<li>학생 조회하기 => 변경
+			<form action="/0421/acorn/detail" method="get">
+				<input type="text" name="id">
+				<button>조회하기</button>
+
+			</form>
+		</li>
+		<li>학생 탈퇴하기
+			<form action="/0421/acorn/delete" method="post">
+				<input type="text" name="id">
+				<button>탈퇴하기</button>
+			</form>
+		</li>
 	</ul>
 </body>
 </html>

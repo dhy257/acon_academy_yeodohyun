@@ -12,7 +12,7 @@ import day05Prac.dto.Acorn;
 import day05Prac.service.AcornService;
 
 @WebServlet("/acorn/detail")
-public class AcotnOneServlet extends HttpServlet {
+public class AcornOneServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -20,7 +20,7 @@ public class AcotnOneServlet extends HttpServlet {
 		String id = req.getParameter("id");
 		// 학생정보 - 한 명
 		AcornService service = new AcornService();
-		Acorn acorn = service.getAcornStudentById();
+		Acorn acorn = service.getAcornStudentById(id);
 
 		//
 		req.setAttribute("acorn", acorn);

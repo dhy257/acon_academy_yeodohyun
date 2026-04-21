@@ -8,30 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import day05Prac.dto.Acorn;
 import day05Prac.service.AcornService;
 
-@WebServlet("/acorn/update")
-public class AcornUpdateServlet extends HttpServlet {
-
+@WebServlet("/acorn/delete")
+public class AcornDeleteServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		//
-		req.setCharacterEncoding("utf-8");
-		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
-		int point = Integer.parseInt(req.getParameter("point"));
+		String id = req.getParameter("id"); // 없으면 null임
+		AcornService service = new AcornService();
+		boolean result = service.deleteAcornStudent(id);
 
-		Acorn acorn = new Acorn();
-		acorn.setId(id);
-		acorn.setPw(pw);
-		acorn.setPoint(point);
+		System.out.println(result);
 
-		AcornService sevice = new AcornService();
-		sevice.modifyAcornStudent(acorn);
-
-		//
+		// 응답뷰 ok 또는 재요청
 		resp.sendRedirect("/0421/acorn/list");
+
 	}
 }
