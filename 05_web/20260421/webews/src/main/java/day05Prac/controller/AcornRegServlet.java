@@ -59,7 +59,13 @@ public class AcornRegServlet extends HttpServlet {
 		System.out.println(name);
 		System.out.println(point);
 
-//		AcornService service = new AcornService();
-//		service.registerMember(acorn);
+		AcornService service = new AcornService();
+		boolean result = service.registerAcornStudent(acorn);
+
+		// ok.jsp 특정뷰 반환
+//		req.getRequestDispatcher("WEB-INF/views/acorn/ok.jsp").forward(req, resp);
+
+		// redirect , 재사용 서버 ( 재요청 코드 302 ) => 브라우저 자동으로 재요청 , 메인페이지 요청하기
+		resp.sendRedirect("/0421/acorn/home");
 	}
 }

@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<img alt="" src="/0421/imgs/a.jpg">
 	<h2>에이콘 학생 관리</h2>
 
 	<ul>

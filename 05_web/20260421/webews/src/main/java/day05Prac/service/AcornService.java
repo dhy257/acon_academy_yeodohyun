@@ -14,4 +14,29 @@ public class AcornService {
 
 		return result;
 	}
+
+	public boolean registerAcornStudent(Acorn acorn) {
+
+		int rowCnt = dao.insert(acorn);
+
+		boolean result = rowCnt == 1 ? true : false;
+
+		return result;
+
+	}
+
+	public Acorn getAcornStudentById() {
+		return dao.findById(null);
+
+	}
+
+	public boolean modifyAcornStudent(Acorn acorn) {
+		int rowCnt = dao.update(acorn);
+		return rowCnt == 1;
+	}
+
+	public boolean deleteAcornStudent(String id) {
+		int rowCnt = dao.delete(id);
+		return rowCnt == 1;
+	}
 }
