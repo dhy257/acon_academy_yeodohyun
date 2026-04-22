@@ -25,8 +25,9 @@
 				// jquery버전
 				$("#result").html(data);
 			},
-			error : function(error) {
-				console.log(error);
+			error : function(err) {
+				// console.log(err);
+				alert("요청에 실패했습니다.");
 			}
 		}
 

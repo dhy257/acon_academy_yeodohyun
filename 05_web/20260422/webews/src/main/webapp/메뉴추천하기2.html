@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+span {
+	color: blue;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	function getData() {
+		$
+				.ajax({
+					type : "get",
+					url : "/0422/food2",
+					success : function(data) {
+						console.log(data);
+						// $("#result").html("<p>" + data.name + data.price + "</p>")
+						let resultData = `<p><span>${data.name}</span> <span>${data.price}</span></p>`;
+						$("#result").html(resultData);
+					},
+					error : function(err) {
+						console.log(err);
+					}
+
+				});
+	}
+</script>
+</head>
+<body>
+	<button onclick="getData()">메뉴추천하기</button>
+	<div id="result">111</div>
+</body>
+</html>
