@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function myAjax(info) {
+
+		setTimeout(function() {
+			// 수행코드
+			///alert("hi")
+			
+			
+			let type = info.type;
+			let dateType = info.dataType;
+			let url = info.url
+			
+			let reponseResult="스파게티아"
+			result = true;
+			
+			let(result){aaaaaaaaaaaaa
+				
+			}
+			
+		}, 2000); // 시간
+	}
+	
+	function getData(){
+		myAjax( {
+			type:"get",
+			dataType: "text" ,
+			url:"/프로젝명/food0",
+			success: function( data){
+				console.log( data);
+				document.getElementById("result").innerHTML= data;
+				
+				
+			} ,
+			error: function( err){
+				console.log( err);
+			}
+		} );
+		
+	}
+	
+	
+</script>
+</head>
+<body>
+
+
+
+	<button>데이터 가져오기</button>
+</body>
+</html>

@@ -6,6 +6,11 @@
  
 <script>
 	
+	// 서버와 비동기 통신을 하는 jquery ajax()메서드 이용
+	// 기능
+	// 입력: 서버와 통신에 필요한 정보 제공, => 객체로 전달받음
+	
+	
 	function myAjax( obj ){   
 		
 		
@@ -24,7 +29,8 @@
 			 let food="볶음밥입니다";
 			 
 			 
-			 
+			 // 실제 서버와 비동기 통신 수행항
+			 // 성공, 실패
 			 
 			 let  result= true;
 			 if( result ) {
@@ -69,7 +75,6 @@
 	
 	<button onclick="send()">음식정보</button>
 	
-	 
 
 </body>
 </html>
