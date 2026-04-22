@@ -3,53 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-	function myAjax(info) {
 
-		setTimeout(function() {
-			// 수행코드
-			///alert("hi")
-			
-			
-			let type = info.type;
-			let dateType = info.dataType;
-			let url = info.url
-			
-			let reponseResult="스파게티아"
-			result = true;
-			
-			let(result){aaaaaaaaaaaaa
-				
-			}
-			
-		}, 2000); // 시간
-	}
+<script>
+
+//myAjax
+
+function myAjax(  info ){   // info  객체타입으로 
 	
-	function getData(){
-		myAjax( {
-			type:"get",
-			dataType: "text" ,
-			url:"/프로젝명/food0",
-			success: function( data){
-				console.log( data);
-				document.getElementById("result").innerHTML= data;
-				
-				
-			} ,
-			error: function( err){
-				console.log( err);
-			}
-		} );
+ 
+	setTimeout( function(){   
+		//alert( "hi");
+		//수행 코드 
 		
-	}
+		//실제서버와 통신
+		let type  = info.type;
+		let dateType  = info.dataType;
+		let url  =  info.url;
+		//서버와 통신 을 수행 
+		//통신 성공, 서버가 준 데이터가   "스파게티";
+		
+		let responseResult  ="스파게티";
+		let result =true;   //200ok
+		let errorInfo="에러 정보";
+		
+		if( result){
+			info.success(responseResult );
+		}else{
+			info.error(errorInfo);
+		}		
+		
 	
+	}  ,  3000);
 	
+}
+
+function getData(){
+	myAjax( {
+		type:"get",
+		dataType: "text" ,
+		url:"/0422/food0",
+		success: function( data){
+			console.log( data);
+			document.getElementById("result").innerHTML= data;
+			
+			
+		} ,
+		error: function( err){
+			console.log( err);
+		}
+	} );
+	
+}
+
 </script>
 </head>
 <body>
 
 
-
-	<button>데이터 가져오기</button>
+<button onclick="getData()"> 데이터가져오기 , 점심추천 </button>
+<div id="result"></div>
 </body>
 </html>
