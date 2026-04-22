@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	function regData() {
+		// aler("d";)
+		// request 로 부터 직접 바디 읽기
+		// jsonObject 객체로 만들기
+		// Food 객체
+
+		let newFood = {
+			name : "모둠스시",
+			price : 20000
+		}
+
+		let newFoodStr = JSON.stringify(newFood);
+		console.log(newFoodStr);
+
+		$.ajax({
+			type : "post",
+			url : "/0422/foodreg",
+			contentType : "application/json",
+			data : newFoodStr,
+			success : function(data) {
+				console.log(data)
+			},
+			error : function(err) {
+				console.log(err);
+			}
+		});
+
+	}
+</script>
+
+</head>
+<body>
+
+	<button onclick="regData()">메뉴등록하기</button>
+</body>
+</html>

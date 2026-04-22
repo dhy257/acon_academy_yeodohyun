@@ -21,11 +21,12 @@ public class ControllerRegReview1  extends HttpServlet {
 	
  
 	
-	
+	// { id: "test01" , content:"완전 좋아요" } => 사용자 json 구조로 서버에 보내기, 화면전환이 서버에 등록하
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		 
 		/*
 		   //form 방식(application/x-www-form-urlencoded)으로 들어온 데이터는  요청바디를 직접읽어서 사용하는 경우
+		   /// k=value&key=value
 		   //직접 URL 디코딩을 해줘야 한다 (폼 전송 기본)
 		   
 		   
