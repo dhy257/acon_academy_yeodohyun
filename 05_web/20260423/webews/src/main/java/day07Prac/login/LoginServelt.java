@@ -30,14 +30,14 @@ public class LoginServelt extends HttpServlet {
 		}
 
 		// 로그인 성공 => 로그인 성공정보를 세션에 저장
-		
-		if(result) {
+
+		if (result) {
 			HttpSession session = req.getSession();
 			session.setAttribute("id", id);
 			//
 			// 메인 페이지를 재요청
-			
-			
+
+			resp.sendRedirect(req.getContextPath() + "/home");
 		}
 
 	}
