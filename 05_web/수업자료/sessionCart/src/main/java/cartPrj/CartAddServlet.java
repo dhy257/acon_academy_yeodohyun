@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+// 사용자 세션 얻어오기
+// 기존 세션에 cartList 있는 경우 => 꺼낸 cartList에 장바구니 추가한 상품 add 하기
+// 기존 세션에 cartList 없는 경우 => 새로운 ArrayList인 cartList를 만들고 상품 add 하기
+// => 세션에 저장
 
 @WebServlet("/addCart")
 public class CartAddServlet   extends HttpServlet{

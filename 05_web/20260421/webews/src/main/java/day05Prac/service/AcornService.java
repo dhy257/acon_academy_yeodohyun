@@ -25,9 +25,9 @@ public class AcornService {
 
 	}
 
-	public Acorn getAcornStudentById( String id) {
+	public Acorn getAcornStudentById(String id) {
 		return dao.findById(id);
-		
+
 	}
 
 	public boolean modifyAcornStudent(Acorn acorn) {

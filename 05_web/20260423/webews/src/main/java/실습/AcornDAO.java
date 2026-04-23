@@ -1,4 +1,4 @@
-package day05Prac.dao;
+package 실습;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,8 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
-
-import day05Prac.dto.Acorn;
 
 public class AcornDAO {
 	String driver = "oracle.jdbc.driver.OracleDriver";
@@ -161,6 +159,42 @@ public class AcornDAO {
 		return acorn;
 	}
 
+	public Acorn login(String id, String pw) {
+
+		Connection con = dbcon();
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		Acorn acorn = null;
+		// 아디+비번 일치해야함
+		String sql = "select * from acorntbl where id=? and pw=?";
+
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, id);
+			pst.setString(2, pw);
+
+			rs = pst.executeQuery();
+			// 있는지 전부 확인
+			if (rs.next()) {
+				// DB에서 객체로 매핑해주고
+				acorn = new Acorn();
+				acorn.setId(rs.getString("ID"));
+				acorn.setPw(rs.getString("PW"));
+				acorn.setName(rs.getString("NAME"));
+				acorn.setPoint(rs.getInt("POINT"));
+				acorn.setBirth(rs.getDate("BIRTHDAY"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return acorn;
+	}
+	
+	
+
 //	변경하기 int update( Acorn)
 //	삭제하기 Int delete( String id)
 
@@ -217,39 +251,10 @@ public class AcornDAO {
 		}
 		System.out.println(con);
 
-//		ArrayList<Acorn> list = dao.selectAll();
-//		System.out.println(list);
-//
-//		Acorn acorn = new Acorn();
-//		acorn.setId("test0421");
-//		acorn.setPw("1234");
-//		acorn.setName("t0421");
-//		acorn.setPoint(30000);
-//
-//		Date birthDate = null;
-//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//		try {
-//			birthDate = df.parse("2000-10-10");
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//		acorn.setBirth(birthDate);
-//
-//		int r = dao.insert(acorn);
-//		System.out.println(r);
-
-//		Acorn acorn = dao.findById("test");
-//		System.out.println(acorn);
-
 		Acorn acorn = new Acorn();
 		acorn.setId("test");
 		acorn.setPw("5555");
 		acorn.setPoint(900000);
-
-//		int rowCnt = dao.update(acorn);
-//		System.out.println(rowCnt);
 
 		int rowCnt = dao.delete("test0421");
 		System.out.println(rowCnt);

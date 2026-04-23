@@ -1,48 +1,48 @@
-package day07Prac.login;
-
-import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-@WebServlet("/login")
-public class LoginServelt extends HttpServlet {
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
-		//
-		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
-
-		//
-		boolean result = false;
-		if (id.equals(pw)) {
-			result = true;
-		}
-
-		// 로그인 성공 => 로그인 성공정보를 세션에 저장
-
-		if (result) {
-			HttpSession session = req.getSession();
-			session.setAttribute("id", id);
-			//
-			// 메인 페이지를 재요청
-
-			resp.sendRedirect(req.getContextPath() + "/home");
-		} else {
-			req.setAttribute("error", "아이디 또는 비밀번호가 틀렸습니다.");
-			req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
-		}
-
-	}
-}
+//package day07Prac.login;
+//
+//import java.io.IOException;
+//
+//import javax.servlet.ServletException;
+//import javax.servlet.annotation.WebServlet;
+//import javax.servlet.http.HttpServlet;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//import javax.servlet.http.HttpSession;
+//
+//@WebServlet("/login")
+//public class LoginServelt extends HttpServlet {
+//	@Override
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//
+//		req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+//	}
+//
+//	@Override
+//	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		req.setCharacterEncoding("UTF-8");
+//		//
+//		String id = req.getParameter("id");
+//		String pw = req.getParameter("pw");
+//
+//		//
+//		boolean result = false;
+//		if (id.equals(pw)) {
+//			result = true;
+//		}
+//
+//		// 로그인 성공 => 로그인 성공정보를 세션에 저장
+//
+//		if (result) {
+//			HttpSession session = req.getSession();
+//			session.setAttribute("id", id);
+//			//
+//			// 메인 페이지를 재요청
+//
+//			resp.sendRedirect(req.getContextPath() + "/home");
+//		} else {
+//			req.setAttribute("error", "아이디 또는 비밀번호가 틀렸습니다.");
+//			req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+//		}
+//
+//	}
+//}

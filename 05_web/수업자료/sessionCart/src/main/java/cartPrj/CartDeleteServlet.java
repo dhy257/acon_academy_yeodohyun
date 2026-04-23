@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+// 삭제하기
+// 1. 사용자 세션 얻어오기 ( 필수 )	getSession(false)
+// 2. cartList 꺼내기
+// 3. 해당 상품을 cartList에서 삭제하기
 
 @WebServlet("/deleteCart")
 public class CartDeleteServlet   extends HttpServlet{
