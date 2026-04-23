@@ -18,8 +18,8 @@ public class Order  extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
 		//1.세션 확인 하기    
-		//세션이 없다면 로그인이 안된상태로 로그인 화면으로 이동하게 함 
-		HttpSession session = request.getSession();
+		//세션이 없다면 로그인이 안된상태로 로그인 화면으로 이동하게 함	//  
+		HttpSession session = request.getSession();	// 세션저장소 확인 하는 경우	// => 사용자의 저장소 정보 반환, 없으면 null반환
 		String id  = (String) session.getAttribute("id");
 		
 		
