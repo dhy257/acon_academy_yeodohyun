@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>로그인</h2>
 	<form action="/0423/login" method="post">
 
-		<input type="text" name="id"><br>
-		<input type="text" name="id"><br>
+		<input type="text" name="id"><br> <input type="text"
+			name="id"><br>
 		<button>로그인</button>
 	</form>
 </body>
