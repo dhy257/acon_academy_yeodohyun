@@ -13,12 +13,13 @@ import javax.servlet.http.HttpSession;
 public class LoginServelt extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		req.setCharacterEncoding("UTF-8");
 		//
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
@@ -38,6 +39,9 @@ public class LoginServelt extends HttpServlet {
 			// 메인 페이지를 재요청
 
 			resp.sendRedirect(req.getContextPath() + "/home");
+		} else {
+			req.setAttribute("error", "아이디 또는 비밀번호가 틀렸습니다.");
+			req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
 		}
 
 	}

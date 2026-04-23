@@ -22,7 +22,9 @@ public class OrderServlet extends HttpServlet {
 		if (session != null && id != null) {
 			req.getRequestDispatcher("/WEB-INF/views/order.jsp").forward(req, resp);
 		} else {
-			resp.sendRedirect(req.getContextPath() + "/login");
+			req.setAttribute("error", "주문정보를 보려면 로그인이 필요합니다.");
+			req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+//			resp.sendRedirect(req.getContextPath() + "/login");
 		}
 
 	}
