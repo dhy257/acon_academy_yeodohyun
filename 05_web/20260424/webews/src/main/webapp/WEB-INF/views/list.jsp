@@ -49,15 +49,34 @@ h2 {
 		}
 		%>
 	</table>
+	<!--  이전 -->
+	<%
+	if (handler.getCurrentGrp() > 1) {
+	%>
+	<a href="/0424/listpage?p=<%=handler.getGrpStartPage() - 1%>">[이전]</a>
+	<%
+	}
+	%>
 
 	<!-- 페이지네이션 정보 출력하기 -->
 	<%
 	for (int i = handler.getGrpStartPage(); i <= handler.getGrpEndPage(); i++) {
 	%>
-	[
-	<%=i%>]
+	<a href="/0424/listpage?p=<%=i%>"> [ <%=i%> ]
+	</a>
 	<%
 	}
 	%>
+
+	<!-- 다음 -->
+	<%
+	if (handler.getGrpEndPage() < handler.getTotalPage()) {
+	%>
+	<a href="/0424/listpage?p=<%=handler.getGrpEndPage() + 1%>">[다음]</a>
+	<%
+	}
+	%>
+
+
 </body>
 </html>

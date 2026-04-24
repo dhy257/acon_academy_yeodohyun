@@ -22,7 +22,7 @@ public class MemberList extends HttpServlet {
 		}
 
 		// 사전에 정하는 것
-		int pageSize = 4;
+		int pageSize = 2;
 		int grpSize = 3;
 
 		MemberService service = new MemberService();
