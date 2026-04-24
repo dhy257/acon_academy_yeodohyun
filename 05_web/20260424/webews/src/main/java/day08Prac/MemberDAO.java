@@ -81,16 +81,39 @@ public class MemberDAO {
 		Connection con = dbcon();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
+		ArrayList<Member> list = new ArrayList<Member>();
+
+		// page => 현재페이지
+		// pageSize => 한 페이지의 글 수
+		int start = (page - 1) * pageSize + 1;
+		int end = page * pageSize;
+
 		String sql = "select *\r\n" + "from (\r\n" + "    select \r\n" + "    rownum num,\r\n"
 				+ "    m_id, m_name, m_pw, m_tel, m_birthday, m_point, m_grade\r\n" + "    from member_tbl_11\r\n"
-				+ "    )\r\n" + "where num between 5 and 8";
+				+ "    )\r\n" + "where num between ? and ?";
 
 		try {
 			pst = con.prepareStatement(sql);
+
+			pst.setInt(1, start);
+			pst.setInt(2, end);
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
-				System.out.println(rs.getString(2));
+//				System.out.println(rs.getString(2));
+
+				String m_id = rs.getString(2);
+				String m_pw = rs.getString(3);
+				String m_name = rs.getString(4);
+				String m_tel = rs.getString(5);
+				String m_birthday = rs.getString(6);
+				int m_point = rs.getInt(7);
+				String m_grade = rs.getString(8);
+
+				// Member객체만들고 리스트에 추가하기
+				Member member = new Member(m_id, m_pw, m_name, m_tel, m_birthday, m_point, m_grade);
+
+				list.add(member);
 			}
 
 		} catch (SQLException e) {
@@ -98,7 +121,7 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 
-		return null;
+		return list;
 	}
 
 	public ArrayList<Member> findAllPaging(int page, int pageSize) {
@@ -196,8 +219,9 @@ public class MemberDAO {
 //		for (Member m : list2) {
 //			System.out.println(m.m_name);
 //		}
-		
-		dao.findPaging(2, 4);
+
+		ArrayList<Member> list = dao.findPaging(2,4);
+		System.out.println(list);
 	}
 
 }
