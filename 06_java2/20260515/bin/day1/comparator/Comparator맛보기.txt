@@ -1,0 +1,32 @@
+package day1.comparator;
+
+import java.util.Comparator;
+import java.util.function.Function;
+
+
+//Comparator의 comparing 매서드 내부 알아보기
+
+public class  Comparator {
+
+	public static <T, U extends Comparable<? super U>> Comparator<T> comparing(Function<? super T, ? extends U> keyExtractor) {	     
+	    
+	    return new Comparator<T>() {
+	        @Override 
+	         public int compare(T t1, T t2) {
+	            // keyExtractor를 사용하여 t1과 t2에서 비교할 값을 추출
+	            U key1 = keyExtractor.apply(t1);
+	            U key2 = keyExtractor.apply(t2);
+	            
+	            // 추출한 값들을 compareTo로 비교하여 결과 반환
+	            return key1.compareTo(key2);
+	        }
+	    };
+	}
+
+}
+
+
+
+Comparing 매서드를 호출하면 우리가 직접  Compartor 객체를 생성하는게 아니라 매서드 내부에서 Comparator 객체를 생성함 
+지정한 키값으로 비교를 해줌 
+

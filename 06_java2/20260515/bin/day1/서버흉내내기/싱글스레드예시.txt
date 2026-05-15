@@ -1,0 +1,71 @@
+import java.io.*;
+import java.net.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+// 서블릿 인터페이스
+interface SimpleServlet {
+    void service(InputStream in, OutputStream out) throws IOException;
+}
+
+// 실제 서블릿 구현 (인스턴스는 한 번만 생성)
+class HelloServlet implements SimpleServlet {
+
+    public HelloServlet() {
+        System.out.println("Servlet instance created: " + this);
+    }
+
+    @Override
+    public void service(InputStream in, OutputStream out) throws IOException {
+        String threadName = Thread.currentThread().getName();
+
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out));
+        writer.write("HTTP/1.1 200 OK\r\n");
+        writer.write("Content-Type: text/plain\r\n");
+        writer.write("\r\n");
+        writer.write("Hello! Handled by thread: " + threadName + "\n");
+        writer.flush();
+
+        // 요청 처리 시뮬레이션
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+// 서버 클래스
+public class SingleServletThreadServer {
+
+    private static final int PORT = 8080;
+    private static final ExecutorService threadPool = Executors.newFixedThreadPool(5);
+
+    public static void main(String[] args) throws IOException {
+        ServerSocket serverSocket = new ServerSocket(PORT);
+        System.out.println("Server started on port " + PORT);
+
+        // 서블릿 인스턴스는 단 한 번만 생성
+        SimpleServlet servlet = new HelloServlet();
+
+        while (true) {
+            Socket client = serverSocket.accept();
+
+            // 요청 처리 스레드
+            threadPool.submit(() -> {
+                try (InputStream in = client.getInputStream();
+                     OutputStream out = client.getOutputStream()) {
+                    servlet.service(in, out);  // 요청마다 같은 서블릿 인스턴스를 사용
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        client.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+    }
+}

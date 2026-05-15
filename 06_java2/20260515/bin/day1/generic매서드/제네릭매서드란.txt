@@ -1,0 +1,37 @@
+
+제네릭매서드?
+메서드 호출 때마다 타입을 유연하게 다루고 싶을 때 사용할 수 있다 
+  
+  
+ 제네릭 매서드란? 
+ ## 제네릭 매서드 어렵게 생각하지 말자 !! ### 
+ 제네릭이 아닌 매서드를 제네릭으로 만들면서 이해하면 제네릭매서드의 편리함을 느끼게 된다 
+ 
+    
+ 
+ 1) 제네릭 메서드는 메서드의 타입을 파라미터화하여 다양한 타입으로 호출할 수 있게 해주는 기능 
+ 2) Java에서 제네릭 메서드를 정의하려면 메서드 이름 앞에 타입 파라미터를 추가해야  함 
+ 3) 매개변수가 다른 여러개의 매서드를 제네릭 매서드 한 개로 작성할 수 있다
+ 
+ 
+public class GenericMethodExample {    
+   // 제네릭 메서드 정의. T는 타입 파라미터로 호출 시 결정됨
+   public static <T> void  print(T  value) {      
+       System.out.println(value );
+   }
+   
+   
+   
+   public static void main(String[] args) {
+      
+       // 제네릭 메서드 호출 시 타입을 명시하지 않아도 자동으로 추론됨
+       GenericMethodExample.<Integer>print(5);
+       GenericMethodExample.<String>print("hello 제네릭매서드 ");
+   }
+}
+ 
+ 
+ 
+ 
+ 
+ 

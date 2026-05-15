@@ -1,0 +1,35 @@
+
+
+	    제네릭에서 와일드카드 문자사용이유 :
+	    타입을 유연하게 해 코드 재사용성과 타입 안전성을 높이기 위해 사용
+	    주로 메서드의 매개변수에서 사용 (가볍게 보기)		
+		
+		 와일드카드문자 :   ?	    ( ? extends Object) 동일함
+		                 ? extends T
+		                 ? super T	 
+		 주로 매서드에서 사용됨  
+	
+	 
+		 		
+		 와일드카드는 변수가 참조할 수 있는 객체의 타입을 유연하게 허용하는 데 중점을 두고 있음
+		( 하나의 참조변수로 대입된 타입이 다른 객체를 참조가능하다 )
+		
+		
+		사용:
+		 와일드카드는 매서드 매개변수에서 주로 사용됨  		 
+		  
+		 ArrayList< ? extends Person >  list
+		 ArrayList< ? super Person> list 		 
+		 ArrayList<? > list        
+		 ArrayList< ? extends Object>list 와 동일
+		
+		
+		
+		// List<? extends Person>     Person 과 Person을 상속받은 자식타입 허용     -읽기중심
+		
+		
+		
+		// List<? super Person>    Person과    Persond의 부모   type          - 쓰기 중심
+		
+		
+	  
