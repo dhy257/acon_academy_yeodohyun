@@ -1,0 +1,27 @@
+기본형(primitive type) 데이터를 객체(object) 로 감싸주는 클래스 
+
+ 
+기본형	래퍼 클래스
+int     Integer
+double	Double
+char	Character
+boolean	Boolean
+ 
+int a = 10;
+// 기본형 → 객체(박싱)
+Integer num = Integer.valueOf(a);
+
+// 객체 → 기본형(언박싱)
+int b = num.intValue();
+
+System.out.println(num); // 10
+System.out.println(b);   // 10
+ 
+
+래퍼클래스는 기본형을 객체처럼 다루기 위해 만든 클래스이다
+
+오토박싱와
+오토언박싱이 제공된다
+Integer num = 10;
+int  num2=  num;
+

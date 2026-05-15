@@ -1,0 +1,35 @@
+			
+			
+			
+   static <T,U extends Comparable<? super U>> Comparator<T>	 comparing(Function<? super T,? extends U> keyExtractor)
+				
+				
+				
+				static <T, U extends Comparable<? super U>>								
+				 
+				T	정렬 대상 객체의 타입
+				(예: Acorn, Student, Person 등 객체 전체)
+				U	정렬 기준 값의 타입
+				(예: String, Integer  등 비교 가능한 값)
+				
+				
+				
+				2)				
+				comparing(Function<? super T,? extends U> keyExtractor )
+								
+				
+				Function  : 입력값을 출력값으로 변환하는 함수형 인터페이스 
+				T를 받아서  U를 반환함 
+				
+				
+				? super T   : T타입 또는 그 부모타입까지 오케이
+				? extends U   : U타입 또는 그 자식타입까지 오케이
+				
+				
+				
+				
+				예시)
+				? super Acorn   
+				? extends String
+				
+				
