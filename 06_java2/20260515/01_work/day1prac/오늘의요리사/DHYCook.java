@@ -14,7 +14,7 @@ public class DHYCook extends Cook implements 일식가능한{
 		// 필요하면 명시적으로 부모의 기본생성자를 호출할 수 있다
 
 		super(name);
-		System.out.println("자식 기본생성자");
+		System.out.println("자식 매개변수가 있는 생성자");
 		// this.name = name; => 부모값은 부모의 생성자에게 할 수 있도록 함
 
 	}
