@@ -33,4 +33,11 @@ class MyLib {
 	}
 	
 	// 당신의 코드 => 인터페이스 사용( 약속 정하기 ) : 약속을 지키면서 당신의 코드를 작성하시오
+	public void codeRun(CodeRunnable r) {
+		System.out.println("코드 3번 실행");
+		for (int i = 0; i < 3; i++) {
+			r.codeRun();
+		}
+	}
+	
 }
