@@ -1,0 +1,25 @@
+
+
+## functional Interface의 활용 예  
+
+
+1)
+ArrayList 객체의 forEach()매서드 사용하기 
+매개변수에 Consumer인터페이스를 확인할 수 있다 
+
+  
+ => 반복하면서 해야할 수행 코드의 약속을  Consumer라는 인터페이스로 만들었다 . 
+ => forEech라는 매서드 , 즉 라이브러리를 사용하려면  Consumer라는 인터페이스를 구현해야 한다 
+
+
+arrayList.forEach(   Consumer   c );
+
+
+
+
+
+
+
+
+ 
+ 

@@ -1,0 +1,23 @@
+
+
+
+함수형인터페이스란?
+
+추상매서드가 하나인 인터페이스를 말한다
+
+
+
+@FunctionalInterface
+interface MyRunnable{     
+      void run();
+}
+
+
+
+
+@FunctionalInterface   => 함수형인터페이스를 표시하는 애너테이션
+
+
+
+!!
+함수형인터페이스만이 람다식으로 사용할 수 있다.

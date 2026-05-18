@@ -1,0 +1,65 @@
+
+
+interface Runnable{
+     void run () ;
+}
+
+
+interface Consumer<T>{
+
+   void accept( T t );
+}
+
+
+interface Supplier<T>{
+
+    T  get();
+}
+
+
+interface Function<T,R>{
+   R  apply( T t );
+
+}
+
+interface Predicate<T>{
+   boolean test ( T t);
+}
+
+
+//  두 개를 매개변수로 받아서 boolean 리턴
+ interface  BiPredicate<T, U>{
+       boolean test( T t, U u);
+ } 
+ 
+ 
+ // 두 개를  매개변수로 받아서 사용
+ interface  BiConsumer<T, U>{ 
+        void accept( T t, U u);
+ }
+ 
+ // 두 개를 매개변수로 받아서 리턴
+ interface BiFunction<T, U, R> {
+    R apply ( T t, U u);
+ }
+
+ 
+
+ 람다식 : 익명함수를 지칭함 
+ Runnable r  = () ->  System.out.println("hi 람다");
+ Consumer<String>  c =  food  -> System.out.println( "제일 좋아하는 음식!!!"+ food );
+ Supplier<Integer> s =   ()  ->  new Random().nextInt();
+ Predicate<Integer> p =  su ->   su %2 ==0 ;
+ 
+ BiPredicate<Integer, Integer> bip = (a, b) -> (a + b) > 10;
+boolean result = bip.test(5, 6); // true
+ 
+ 
+
+BiConsumer<String, Integer> bic = (name, age) -> System.out.println(name + "은 " +  age +"살" );
+bic.accept("홍길동", 20);  
+  
+
+
+
+
