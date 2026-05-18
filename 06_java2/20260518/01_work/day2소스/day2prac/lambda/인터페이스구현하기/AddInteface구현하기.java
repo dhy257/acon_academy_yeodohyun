@@ -44,6 +44,7 @@ public class AddInteface구현하기 {
 		System.out.println(result2);
 
 		// 3. 람다식
+		// ( 매개변수 ) -> { }
 		AddInterface f3 = (x, y) -> {
 			return x + y;
 		};
