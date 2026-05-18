@@ -39,6 +39,7 @@ public class ThreeDPrintTtest {
 		p7.setMaterial(new Powder());
 		p7.print();
 		
+		// Water는 Material을 상속(extends)받지 않아서 사용 불가
 		//GThreeDPrinter2<Water> p8= new GThreeDPrinter2<>();
 		
 		 		
