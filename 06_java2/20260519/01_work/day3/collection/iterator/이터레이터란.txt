@@ -1,0 +1,4 @@
+
+자바에서 Iterator는 컬렉션의 요소를 순회하기 위한 인터페이스 이다 
+다양한 컬렉션 객체(ArrayList, HashSet 등)의 요소를 반복(iterate)하는 방법을 제공한다
+

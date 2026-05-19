@@ -1,0 +1,101 @@
+  3일차
+ -Collection - List, Set ,Map   (데이터집합을 저장하는 방식)
+ -스트림  (데이터의 종류에 상관없이 같은방식으로 데이터를 다룰 수 있게 하는 것)
+   -스트림얻어오는 방법
+   -데이터 소스를 변경하지 않는다 
+   -스트림은 일회용이다
+  - 스트림은 작업을 내부반복으로 처리한다
+  - 중간연산과 최종연산이 있다
+
+
+학습목표:  
+ 0.  함수형인터페이스 2인 1조 실습하기
+ 1.  Collection을 상속관계를 이해할 수 있다 -List, Set, Map
+ 2.  Collection 에서 이터레이터(Iterator)의 존재이유를 알 수 있다 
+ 3. 데이터에 맞는 Collection을 선택할 수 있다 
+    -순서가 있고 중복허용 (LIst)
+    -순서상관없고 중복안됨(Set)  -equals, hashcode  오버라이드
+    -key:value 형식으로 처리하고 싶다면(Map)
+ 4. 리스트를  스트림으로 만들고 정렬 및 필터한 결과를 출력할 수 있다
+      
+ 
+
+#########
+이터레이터
+
+ 이터레이터(Iterator)는 컬렉션의 내부 구조를 감추고,
+요소를 일관된 방식으로 순회하기 위한 공통 인터페이스다.
+Java 5 이후에는 for-each문이 등장해서 더 간단히 쓸 수 있다
+하지만 내부적으로는 여전히 Iterator가 사용되고 있다
+
+
+
+#########
+실습
+##########
+인터페이스 람다식으로 구현하기
+
+ 예제 만들기 :   
+Runnable      :  매개변수x , 반환  x
+Consumer<T> : 매개변수 한 개 , 반환  x
+Supplier<T>   : 매개변수 x, 반환  o
+Function<T,R> : 매개변수 o   반환 o
+Predicate<T>  : 매개변수  o   반환   true/false(boolean)
+
+
+
+기본자료형을 입력받아서 다른 타입을 반환하는 함수형 인터페이스 
+IntFunction<R>    
+LongFunction<R> 
+DoubleFunction<R> 
+
+
+기본자료형을 입력받아서  boolean을 반환하는 함수형 인터페이스
+IntPredicate
+LongPredicate
+DoublePredicate
+
+기본 자료형을 입력받아 결과를 반환하지 않는 함수형 인터페이스
+IntConsumer
+LongConsumer
+DoubleConsumer
+
+인자를 받지 않고 기본 자료형 값을 생성하는 함수형 인터페이스
+IntSupplier
+LongSupplier
+DoubleSupplier 
+
+BiConsumer<T,U>  :   두 개 매개변수
+BiPredicate<T,U>    :  두 개 매개변수 하나의 boolean 형 반환
+BiFunction<T,U,R>  :  두 개 매개변수, 하나의 반환
+BinaryOperator<T>  : 두 개 매개변수 같은타입이고 반환도  같은 타입임
+
+
+오전실습 
+#############################
+2인 1조로 함수형인터페이스 예제 만들기
+#############################
+  
+
+#############################
+스트림 실습예제 
+#############################
+
+1.  String 여러개 다루기   
+    String[] , ArrayList
+  : 스트림으로 다루기
+ 
+  1) 난수 스트림을 만들고  짝수의 합 구하기
+  
+
+2.
+  Customer 클래스
+  id, name, grade , point 
+  grade :  vvip , vip ,bronze
+  ArrayList  고객 10명정도  
+ stream 
+   1. 고객등급이 vvip  사람이 몇명인지 
+   2. 고객등급이 vip사람만 출력
+   3. 포인트가 높은 사람순으로 정렬해서 출력
+
+

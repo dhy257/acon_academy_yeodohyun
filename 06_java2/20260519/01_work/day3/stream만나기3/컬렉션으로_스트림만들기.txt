@@ -1,0 +1,24 @@
+
+// List에서 스트림 생성
+List<String> list = Arrays.asList("A", "B", "C");
+Stream<String> listStream = list.stream();
+
+// Set에서 스트림 생성
+Set<Integer> set = new HashSet<>(Arrays.asList(1, 2, 3));
+Stream<Integer> setStream = set.stream();
+
+
+
+// Map에서 스트림 생성
+Map<String, Integer> map = new HashMap<>();
+map.put("구글", 1234);
+map.put("네이버", 5678);
+map.put("aws", 2468);
+
+// 키 스트림
+Stream<String> keyStream = map.keySet().stream();
+// 값 스트림
+Stream<Integer> valueStream = map.values().stream();
+
+// 엔트리 스트림
+Stream<Map.Entry<String, Integer>> entryStream = map.entrySet().stream();
