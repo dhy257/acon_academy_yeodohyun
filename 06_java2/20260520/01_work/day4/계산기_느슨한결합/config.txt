@@ -1,0 +1,1 @@
+calculator=day4.계산기실습.SMCalculator
