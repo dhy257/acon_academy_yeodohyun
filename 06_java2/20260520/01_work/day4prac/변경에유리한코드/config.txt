@@ -1,0 +1,1 @@
+animal=day4prac.변경에유리한코드.Dog
