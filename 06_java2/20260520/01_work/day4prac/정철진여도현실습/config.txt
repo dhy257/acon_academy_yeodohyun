@@ -1,0 +1,5 @@
+# 캐릭터 이름
+characterName=궁수
+
+# 사용할 무기 클래스
+weaponClass=day4prac.정철진여도현실습.Bow

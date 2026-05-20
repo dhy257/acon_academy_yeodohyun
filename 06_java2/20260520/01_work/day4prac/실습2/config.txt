@@ -1,0 +1,2 @@
+characterName=플레이어
+weapon=day4prac.실습2.Sword
