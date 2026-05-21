@@ -2,8 +2,6 @@ package day5prac.애너테이션;
 
 import java.lang.reflect.Field;
 
-import javax.management.RuntimeErrorException;
-
 public class CustomerMain {
 
 	public static void main(String[] args)

@@ -1,4 +1,4 @@
-package day5prac.enumEx;
+package day5prac.enumEX;
 
 public class 게임케릭터 {
 
