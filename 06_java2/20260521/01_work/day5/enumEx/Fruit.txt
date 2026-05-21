@@ -1,0 +1,29 @@
+public enum Fruit {
+    APPLE, BANANA;
+
+    public static Fruit from(String value) {
+
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException("과일명이 비어있습니다.");
+        }
+
+        try {
+            return Fruit.valueOf(value.trim().toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("지원하지 않는 과일입니다.");
+        }
+    }
+}
+
+ 
+
+public class Main {
+    public static void main(String[] args) {
+
+        Fruit fruit1 = Fruit.from("apple");
+        Fruit fruit2 = Fruit.from("BANANA");
+
+        System.out.println(fruit1); // APPLE
+        System.out.println(fruit2); // BANANA
+    }
+}
